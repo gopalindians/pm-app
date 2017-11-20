@@ -18,15 +18,18 @@ class ProjectController extends Controller {
 		$id       = Auth::id();
 		$projects = DB::table( 'projects' )
 		              ->select(
-		              	'projects.id as project_id',
-		              	'projects.owner_id as project_owner_id',
-		              	'projects.project_name',
-		              	'projects.project_description',
-		              	'projects.state as project_state',
-		                'users.id as owner_id',
-		                'users.name as owner_name',
-		                'users.email as owner_email'
-			              )
+			              'projects.id as project_id',
+			              'projects.owner_id as project_owner_id',
+			              'projects.project_name',
+			              'projects.project_description',
+			              'projects.state as project_state',
+			              'projects.created_at as project_created_at',
+			              'projects.updated_at as project_updated_at',
+
+			              'users.id as owner_id',
+			              'users.name as owner_name',
+			              'users.email as owner_email'
+		              )
 		              ->join( 'users', 'users.id', '=', 'projects.owner_id' )
 		              ->where( 'owner_id', '=', $id )
 		              ->get();
@@ -39,7 +42,7 @@ class ProjectController extends Controller {
 		return view( 'project.create_new' );
 	}
 
-	public function postCreateProject( Request $request ) {
+	public function postCreateProject( Request $request ): View {
 		$validatedData = $request->validate( [
 			'project_name'        => 'required|max:255',
 			'project_description' => 'required',
@@ -68,4 +71,24 @@ class ProjectController extends Controller {
 
 
 	}
+
+
+	/**
+	 *
+	 * To show the Project detail
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function view( Request $request ) {
+		$id = $request->route( 'id' );
+
+		$project = DB::table( 'projects' )
+		             ->where( 'id', '=', $id )
+		             ->get();
+
+		return view( 'project.view', [ 'project' => $project ] );
+	}
+
 }
