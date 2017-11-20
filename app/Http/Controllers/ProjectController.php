@@ -35,17 +35,25 @@ class ProjectController extends Controller {
 			'project_description' => 'required',
 		] );
 
-		DB::table( 'projects' )->insert( [
+		$id = DB::table( 'projects' )->insertGetId( [
 				'owner_id'            => Auth::id(),
 				'project_name'        => $request->post( 'project_name' ),
 				'project_description' => $request->post( 'project_description' ),
 				'state'               => 'active',
-				'created_at'           => Carbon::now(),
-				'updated_at'           => Carbon::now()
+				'created_at'          => Carbon::now(),
+				'updated_at'          => Carbon::now()
 			]
 		);
 
-		return view( 'project.create_new' );
+
+		if ( ! empty( $id )) {
+			$request->session()->flash('success', 'Project created successfully!');
+			return view( 'project.create_new' );
+		} else {
+			$request->session()->flash('error', 'Unable to create Project!');
+			return view( 'project.create_new' );
+		}
+
 
 	}
 }
