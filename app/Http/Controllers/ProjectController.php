@@ -17,6 +17,16 @@ class ProjectController extends Controller {
 	public function index(): View {
 		$id       = Auth::id();
 		$projects = DB::table( 'projects' )
+		              ->select(
+		              	'projects.id as project_id',
+		              	'projects.owner_id as project_owner_id',
+		              	'projects.project_name',
+		              	'projects.project_description',
+		              	'projects.state as project_state',
+		                'users.id as owner_id',
+		                'users.name as owner_name',
+		                'users.email as owner_email'
+			              )
 		              ->join( 'users', 'users.id', '=', 'projects.owner_id' )
 		              ->where( 'owner_id', '=', $id )
 		              ->get();
@@ -46,11 +56,13 @@ class ProjectController extends Controller {
 		);
 
 
-		if ( ! empty( $id )) {
-			$request->session()->flash('success', 'Project created successfully!');
+		if ( ! empty( $id ) ) {
+			$request->session()->flash( 'success', 'Project created successfully!' );
+
 			return view( 'project.create_new' );
 		} else {
-			$request->session()->flash('error', 'Unable to create Project!');
+			$request->session()->flash( 'error', 'Unable to create Project!' );
+
 			return view( 'project.create_new' );
 		}
 
