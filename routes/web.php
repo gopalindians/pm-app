@@ -11,17 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get( '/', function () {
+	return view( 'welcome' );
+} );
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/you', 'ProfileController@index')->name('you');
-Route::get('/team', 'TeamController@index')->name('team');
+Route::get( '/home', 'HomeController@index' )->name( 'home' );
+Route::get( '/you', 'ProfileController@index' )->name( 'you' );
 
 
-Route::get('/projects', 'ProjectController@index')->name('projects');
-Route::get('/createProject', 'ProjectController@createProject');
-Route::post('/createProject', 'ProjectController@postCreateProject');
+Route::get( '/team', 'TeamController@index' )->name( 'team' );
+Route::get( '/team/add', 'TeamController@addNew' );
+Route::post( '/team/add', 'TeamController@postAddNew' );
+
+Route::get( '/projects', 'ProjectController@index' )->name( 'projects' );
+Route::get( '/createProject', 'ProjectController@createProject' );
+Route::post( '/createProject', 'ProjectController@postCreateProject' );
+Route::get( '/project/{id}', 'ProjectController@view' );
