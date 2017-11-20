@@ -7,26 +7,33 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel-body">
-                    @if (session('status'))
+
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
                         <div class="alert alert-danger">
-                            {{ session('status') }}
+                            {{ session('error') }}
                         </div>
                     @endif
 
 
 
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
 
-                        <div class="panel panel-default">
+                    <div class="panel panel-default">
                         <div class="panel-heading">Create your awesome new project below</div>
                         <div class="panel-body">
                             <form action="/createProject" method="post">
@@ -35,7 +42,7 @@
                                 <div class="form-group">
                                     <label for="project_name">Project name</label>
                                     <input type="text" class="form-control" name="project_name" id="project_name"
-                                    value={{old('project_name')}}>
+                                           value={{old('project_name')}}>
                                 </div>
 
 
