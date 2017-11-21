@@ -11,21 +11,32 @@
 |
 */
 
-Route::get( '/', function () {
-	return view( 'welcome' );
-} );
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
-Route::get( '/home', 'HomeController@index' )->name( 'home' );
-Route::get( '/you', 'ProfileController@index' )->name( 'you' );
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/you', 'ProfileController@index')->name('you');
 
 
-Route::get( '/team', 'TeamController@index' )->name( 'team' );
-Route::get( '/team/add', 'TeamController@addNew' );
-Route::post( '/team/add', 'TeamController@postAddNew' );
+Route::get('/team', 'TeamController@index')->name('team');
+Route::get('/team/add', 'TeamController@addNew');
+Route::post('/team/add', 'TeamController@postAddNew');
 
-Route::get( '/projects', 'ProjectController@index' )->name( 'projects' );
-Route::get( '/createProject', 'ProjectController@createProject' );
-Route::post( '/createProject', 'ProjectController@postCreateProject' );
-Route::get( '/project/{id}', 'ProjectController@view' );
+Route::get('/team/join', 'TeamController@getJoin');
+
+Route::get('/projects', 'ProjectController@index')->name('projects');
+Route::get('/createProject', 'ProjectController@createProject');
+Route::post('/createProject', 'ProjectController@postCreateProject');
+Route::get('/project/{id}', 'ProjectController@view');
+
+
+//not for production
+Route::get('/mailable', function () {
+
+    $user = \App\User::where('id', \Illuminate\Support\Facades\Auth::id())->first();
+    return new App\Mail\AddToTeamRequest($user, 'xyz@gyahoo.com');
+});
+
