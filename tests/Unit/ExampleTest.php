@@ -14,6 +14,8 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+
+        $this->get('team/add');
         $this->assertTrue(true);
     }
 }
