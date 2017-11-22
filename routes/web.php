@@ -24,8 +24,8 @@ Route::get('/you', 'ProfileController@index')->name('you');
 Route::get('/team', 'TeamController@index')->name('team');
 Route::get('/team/add', 'TeamController@addNew');
 Route::post('/team/add', 'TeamController@postAddNew');
-
 Route::get('/team/join', 'TeamController@getJoin');
+Route::get('/team/join_prompt', 'TeamController@getJoinPrompt');
 
 Route::get('/projects', 'ProjectController@index')->name('projects');
 Route::get('/createProject', 'ProjectController@createProject');
