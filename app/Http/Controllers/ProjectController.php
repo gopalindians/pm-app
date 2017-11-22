@@ -46,8 +46,8 @@ class ProjectController extends Controller
             )
             ->join('users', 'users.id', '=', 'projects.owner_id')
             ->where('owner_id', '=', $id)
-            ->get();
-        dump($projects);
+           ->paginate(2);
+      //  dump($projects);
 
         return view('project.index', ['projects' => $projects]);
     }

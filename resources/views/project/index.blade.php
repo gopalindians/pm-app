@@ -8,60 +8,47 @@
 @endif
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+<section class="all_project">
+        <div class="container">
+              <div class="panel panel-default">
+                <div class="panel-heading">Panel Heading</div>
+                <div class="panel-body">Panel Content</div>
+              </div>
 
-
-                <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-danger">
                             {{ session('status') }}
                         </div>
                     @endif
-
-
-
                     @if(count($projects)==0)
-
-                        <div class="alert alert-danger">
-                            You don't have any projects yet
-                            create new <a href="/createProject">Project</a>
-                        </div>
-                    @else
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Total Projects - {{count($projects)}}</div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    @foreach($projects as $project)
-                                        <a href="/project/{{$project->project_id}}">
-
-                                            <div class="col-sm-6 col-md-4">
-                                                <div class="thumbnail">
-                                                    <div class="caption">
-                                                        <h5>{{$project->project_name}}</h5>
-                                                        <h5>{{$project->project_description}}</h5>
-                                                    </div>
-
-                                                    <div class="footer">
-                                                        <h6>Created on: {{$project->project_created_at}}</h6>
-                                                        <h6>Updated on: {{$project->project_updated_at}}</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                    @endforeach
-                                </div>
+                        <div class="col-md-3">
+                            <div class="start_porject">
+                                <a href="/createProject"><div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                <p>Add new porject</p></a>
                             </div>
                         </div>
+                  @else
+                <div class="col-md-3">
+                    <div class="start_porject">
+                        <a href="/createProject"><div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                        <p>Add new porject</p></a>
+                    </div>
                 </div>
-
-
-                @endif
-
+             <div class="row">
+                  @foreach($projects as $project)
+                <div class="col-md-3">
+                    <div class="project_grid">
+                        <h1><a href="/project/{{$project->project_id}}">{{$project->project_name}}</a></h1>
+                        <p class="bill_team"><span>Description :</span> {{$project->project_description}}</p>
+                        <div class="last_update">
+                            <p>Last updated on : <span>{{$project->project_updated_at}}</span></p>
+                        </div>
+                    </div>
+                </div>
+              @endforeach                  
             </div>
-        </div>
-    </div>
-    </div>
+            {{ $projects->links() }}
+                    @endif
+  </div>
+    </section>
 @endsection
