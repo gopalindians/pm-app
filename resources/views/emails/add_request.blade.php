@@ -237,9 +237,9 @@ Licensed under MIT
                                         <div style="line-height: 24px;">
 
 					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
-						{{$senderName}} ({{$senderEmail}}) wants to add, you in his team.<br>
+                        <span style="font-size: 18px;">{{$senderName}} ({{$senderEmail}})</span> wants to add, you in his team.<br>
 
-                        <a href="/team/join?sender={{$senderEmail}}">Click to join {{$senderName}}</a>
+                        <a target="_blank" href="{{env('APP_URL').'/team/join_prompt?key='.$senderEmailEncrypted.'.'.$receiverEncrypted}}">Click to join {{$senderName}}</a>
 					</span>
                                         </div>
                                         <!-- padding -->
