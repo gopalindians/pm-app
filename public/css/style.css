@@ -1,0 +1,127 @@
+/*--Header--*/
+/*--//Header--*/
+/*--search_view--*/
+/*--// search_view--*/
+/*--all porjects--*/
+/*--// all porjects--*/
+/*--pagination--*/
+/*--// pagination--*/
+
+
+.head_navbar {
+  padding: 20px 0px; }
+
+.head_navbar .main_nav a {
+  color: #222222;
+  font-size: 18px;
+  padding: 0px 15px; }
+
+.head_navbar .main_nav a:hover {
+  color: #0071bc; }
+
+.login_btn button {
+  background: #0071bc; }
+
+.search_view {
+  margin-top: 2em;
+  margin-bottom: 2em; }
+
+.grid_list {
+  padding: 4px 0; }
+
+.search_view #imaginary_container {
+  float: left;
+  width: 85%; }
+
+.start_porject {
+  background: #0071bc;
+  border: 2px solid #045890;
+  height: 260px;
+  text-align: center;
+  vertical-align: middle;
+  width: 260px;
+  display: table-cell; }
+
+.plus_icon {
+  background: #fff;
+  height: 70px;
+  width: 70px;
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
+  border-radius: 50%; }
+
+.start_porject a i {
+  color: #0071bc;
+  font-size: 24px; }
+
+.start_porject p {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 10px; }
+
+.all_project .grid_title {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 300; }
+
+.all_project .project_grid h1 {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: margin-b-0; }
+
+.all_project .project_grid h1 a {
+  color: #222222; }
+
+.project_grid {
+  background: #fafafa;
+  border: 1px solid #c9c9c9;
+  position: relative;
+  height: 260px; }
+
+.project_grid .bill_id {
+  font-size: 14px;
+  color: #959595;
+  padding: 0 10px;
+  margin-bottom: 0px; }
+
+.project_grid .bill_team {
+  font-size: 14px;
+  color: #959595;
+  padding: 0 10px; }
+
+.project_grid .bill_id span {
+  font-size: 15px; }
+
+.project_grid .bill_team span {
+  font-size: 15px; }
+
+.project_grid .last_update {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+.last_update p {
+  font-size: 12px;
+  color: #959595;
+  padding: 10px;
+  margin-bottom: 0px;
+  border-top: 1px solid #e0e0e0; }
+
+.space-top {
+  margin-top: 30px; }
+
+.project_pagination {
+  margin-top: 2em;
+  margin-bottom: 2em; }
+
+.project_pagination nav {
+  text-align: center; }
+
+.project_pagination .pagination {
+  display: inline-flex;
+  margin: 0 auto; }
+
+/*# sourceMappingURL=style.css.map */
