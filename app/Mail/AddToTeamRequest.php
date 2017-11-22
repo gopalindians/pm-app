@@ -7,7 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Auth;
+use Auth, Crypt;
 
 class AddToTeamRequest extends Mailable
 {
@@ -45,12 +45,15 @@ class AddToTeamRequest extends Mailable
     public function build()
     {
 
-        return $this->from('example@example.com')
+        return $this->from($this->u->email)
             ->view('emails.add_request')
             ->with([
                 'senderName' => $this->u->name,
+                'senderNameEncrypted' => Crypt::encryptString($this->u->name),
                 'senderEmail' => $this->u->email,
-                'receiver' => $this->to,
+                'senderEmailEncrypted' => Crypt::encryptString($this->u->email),
+                'receiver' => $this->receiver,
+                'receiverEncrypted' => Crypt::encryptString($this->receiver)
             ]);
     }
 }
