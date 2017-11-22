@@ -31,15 +31,19 @@
                     @endif
 
 
-                    <form action="/team/add" method="post">
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <label for="user_email">Email</label>
-                            <input type="text" class="form-control" id="user_email" placeholder="Email"
-                                   name="user_email" value="{{old('user_email')}}">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel heading without title</div>
+                        <div class="panel-body">
+                            <h3><span class="label label-default">{{$sender[0]->email}}</span> + <span
+                                        class="label label-success">{{$receiverEmail}}</span></h3>
+                            <button class="btn btn-primary" type="button">
+                                Accept
+                            </button>
+                            <button class="btn btn-dan" type="button">
+                                Cancel
+                            </button>
                         </div>
-                        <button type="submit" class="btn btn-default">Add</button>
-                    </form>
+                    </div>
                 </div>
 
 
