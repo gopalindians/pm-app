@@ -71,17 +71,7 @@ class RegisterController extends Controller
 
 
         if (isset($from) && $from == 'join_prompt') {
-
             //create new user
-            /*$id = DB::table('users')->insertGetId([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => bcrypt($data['password']),
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);*/
-
-
             $returnable = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
