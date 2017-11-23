@@ -112,6 +112,7 @@ class RegisterController extends Controller
                     'updated_at' => Carbon::now(),
                 ]);
 
+            Request::session()->flash('success', 'Welcome! you are now part of '. $senderData[0]->email.'\'s team.');
             return $returnable;
 
         } else {
