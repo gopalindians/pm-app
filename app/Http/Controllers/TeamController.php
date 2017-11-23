@@ -150,7 +150,7 @@ class TeamController extends Controller
 
     /**
      *
-     * handle accept request from user
+     * handle accept request from user based on join_prompt
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -163,13 +163,47 @@ class TeamController extends Controller
         $receiverEmail = $request->post('receiverEmail');
 
         //check if the new user is already a customer
-
+        //if not send to registration form
         $receiverData = DB::table('users')->where('email', $receiverEmail)->get();
         if (count($receiverData) === 0) {
             $senderEmailEncrypted = Crypt::encryptString($senderEmail);
             $receiverEmailEncrypted = Crypt::encryptString($receiverEmail);
+            return redirect('/register?key=' . $senderEmailEncrypted . '.' . $receiverEmailEncrypted . '&from=join_prompt');
+        }
+        //if user is already a customer
+        //check if already logged in
 
-            return redirect('/register?key=' . $senderEmailEncrypted . '.' . $receiverEmailEncrypted.'&from=join_prompt');
+
+        $currentUserData = DB::table('users')->where('id', Auth::id())->get();
+
+        dump($currentUserData);
+        dump($receiverData);
+
+        if ($currentUserData[0]->email === $receiverData[0]->email) {
+
+            //update the team_add_requests table
+            DB::table('team_add_requests')
+                ->update([
+                    'sender_id' => $senderId,
+                    'receiver_email' => $receiverEmail,
+                    'request_accepted' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+
+
+            //save data in teams table
+            DB::table('teams')->insert([
+                'owner_id' => $senderId,
+                'user_id' => Auth::id(),
+                'confirmed' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+
+
+            $request->session()->flash('success', 'Congrats! you are now part of ' . $senderEmail . '\'s team.');
+            return redirect('/home');
         }
 
 
@@ -210,7 +244,6 @@ class TeamController extends Controller
 
         //check if the sender exists in database
         $checkSender = DB::table('users')->where('email', $senderDecrypted)->get();
-
         if (count($checkSender) === 0) {
             $request->session()->flash('error', 'Invalid request');
             return view('team.join_prompt');
@@ -221,11 +254,32 @@ class TeamController extends Controller
             ->where('sender_id', $checkSender[0]->id)
             ->where('receiver_email', $receiverDecrypted)
             ->get();
-
-
         if (count($data) === 0) {
             $request->session()->flash('error', 'Invalid request');
             return view('team.join_prompt');
+        }
+
+        //check if receiver is already a member of sender
+        $senderData = DB::table('users')->where(
+            'email', $senderDecrypted)->get();
+        $receiverData = DB::table('users')->where(
+            'email', $receiverDecrypted)->get();
+
+        $checkAlreadyAddedTeamMember = DB::table('teams')
+            ->where('owner_id', $senderData[0]->id)
+            ->where('user_id', $receiverData[0]->id)
+            ->get();
+
+        if (count($checkAlreadyAddedTeamMember) !== 0) {
+
+            //if the receiver is logged in send to home
+
+            if (Auth::id() === null) {
+                $request->session()->flash('info', 'You are already a member of ' . $senderDecrypted . '\'s team. just login to continue');
+                return redirect('login?key=' . $sender . '.' . $receiver . '&from=email_click');
+            }
+            $request->session()->flash('info', 'You are already a member of ' . $senderDecrypted . '\'s team.');
+            return redirect('\home');
         }
 
 
