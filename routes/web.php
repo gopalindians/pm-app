@@ -21,6 +21,14 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/you', 'ProfileController@index')->name('you');
 
+Route::prefix('profile')->group(function () {
+    Route::get('/edit/{id}', 'ProfileController@editProfile');
+    Route::post('/edit/{id}', 'ProfileController@postEditProfile');
+    Route::get('/{id}/{name?}', 'ProfileController@getProfile');
+});
+
+
+
 
 Route::get('/team', 'TeamController@index')->name('team');
 Route::get('/team/add', 'TeamController@addNew');
@@ -32,12 +40,3 @@ Route::get('/projects', 'ProjectController@index')->name('projects');
 Route::get('/createProject', 'ProjectController@createProject');
 Route::post('/createProject', 'ProjectController@postCreateProject');
 Route::get('/project/{id}', 'ProjectController@view');
-
-
-//not for production
-Route::get('/mailable', function () {
-
-    $user = \App\User::where('id', \Illuminate\Support\Facades\Auth::id())->first();
-    return new App\Mail\AddToTeamRequest($user, 'xyz@gyahoo.com');
-});
-
