@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessAddToTeamEmailRequest;
 use App\Mail\AddToTeamRequest;
 use App\User;
 use Carbon\Carbon;
@@ -36,7 +37,6 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $id = Auth::id();
         $teams = DB::table('teams')
             ->select(
                 'users.name as member_name',
@@ -45,9 +45,8 @@ class TeamController extends Controller
             )
             ->join('users', 'users.id', '=', 'teams.user_id')
             ->where('owner_id', '=', Auth::id())
-            ->get();
-
-        dump($teams);
+            ->orderBy('teams.updated_at', 'desc')
+            ->paginate(5);
 
         return view('team.index', ['teams' => $teams]);
     }
@@ -122,8 +121,7 @@ class TeamController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-
-        Mail::to($userEmail)->send(new AddToTeamRequest($user, $userEmail));
+        ProcessAddToTeamEmailRequest::dispatch($userEmail,$user);
 
         $request->session()->flash('success', 'Mail sent successfully!');
         return view('team.add_new');
@@ -170,10 +168,12 @@ class TeamController extends Controller
             $receiverEmailEncrypted = Crypt::encryptString($receiverEmail);
             return redirect('/register?key=' . $senderEmailEncrypted . '.' . $receiverEmailEncrypted . '&from=join_prompt');
         }
+
+
+
+
         //if user is already a customer
         //check if already logged in
-
-
         $currentUserData = DB::table('users')->where('id', Auth::id())->get();
 
         dump($currentUserData);
@@ -242,7 +242,7 @@ class TeamController extends Controller
         }
 
 
-        //check if the sender exists in database
+        //check if the sender does not exists in database
         $checkSender = DB::table('users')->where('email', $senderDecrypted)->get();
         if (count($checkSender) === 0) {
             $request->session()->flash('error', 'Invalid request');
@@ -265,28 +265,34 @@ class TeamController extends Controller
         $receiverData = DB::table('users')->where(
             'email', $receiverDecrypted)->get();
 
-        $checkAlreadyAddedTeamMember = DB::table('teams')
-            ->where('owner_id', $senderData[0]->id)
-            ->where('user_id', $receiverData[0]->id)
-            ->get();
 
-        if (count($checkAlreadyAddedTeamMember) !== 0) {
+        //if receiver is a registered user
+        if(count($receiverData)!==0) {
+            $checkAlreadyAddedTeamMember = DB::table('teams')
+                ->where('owner_id', $senderData[0]->id)
+                ->where('user_id', $receiverData[0]->id)
+                ->get();
 
-            //if the receiver is logged in send to home
-
-            if (Auth::id() === null) {
-                $request->session()->flash('info', 'You are already a member of ' . $senderDecrypted . '\'s team. just login to continue');
-                return redirect('login?key=' . $sender . '.' . $receiver . '&from=email_click');
+            if (count($checkAlreadyAddedTeamMember) !== 0) {
+                //if the receiver is not logged in, send to login
+                if (Auth::id() === null) {
+                    $request->session()->flash('info', 'You are already a member of ' . $senderDecrypted . '\'s team. just login to continue');
+                    return redirect('login?key=' . $sender . '.' . $receiver . '&from=email_click');
+                }
+                //
+                $request->session()->flash('info', 'You are already a member of ' . $senderDecrypted . '\'s team.');
+                return redirect('\home');
             }
-            $request->session()->flash('info', 'You are already a member of ' . $senderDecrypted . '\'s team.');
-            return redirect('\home');
+            return view('team.join_prompt', [
+                'sender' => $checkSender,
+                'receiverEmail' => $receiverDecrypted,
+            ]);
+        }else{
+            return view('team.join_prompt', [
+                'sender' => $checkSender,
+                'receiverEmail' => $receiverDecrypted,
+            ]);
         }
-
-
-        return view('team.join_prompt', [
-            'sender' => $checkSender,
-            'receiverEmail' => $receiverDecrypted,
-        ]);
 
     }
 }
