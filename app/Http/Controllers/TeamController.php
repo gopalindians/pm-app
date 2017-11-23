@@ -18,9 +18,9 @@ use Illuminate\View\View;
  */
 class TeamController extends Controller
 {
-
     /**
      * TeamController constructor.
+     * @param Request $request
      */
     public function __construct(Request $request)
     {
@@ -90,12 +90,13 @@ class TeamController extends Controller
 
 
         //check if the mail is already a team member
-        $data = DB::table('users')
+        $receiverData = DB::table('users')
             ->where('users.email', $userEmail)
             ->get();
-        if (count($data) !== 0) {
+        if (count($receiverData) !== 0) {
             $userData = DB::table('teams')
-                ->where('teams.user_id', $data[0]->id)
+                ->where('teams.user_id', $receiverData[0]->id)
+                ->where('teams.owner_id', Auth::id())
                 ->get();
             if (count($userData)) {
                 $request->session()->flash('error', 'This user is already in your team');
@@ -121,105 +122,11 @@ class TeamController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-        ProcessAddToTeamEmailRequest::dispatch($userEmail,$user);
+        ProcessAddToTeamEmailRequest::dispatch($userEmail, $user);
 
         $request->session()->flash('success', 'Mail sent successfully!');
         return view('team.add_new');
     }
-
-
-    /**
-     *
-     * validate email using dns
-     * see https://stackoverflow.com/a/15098724/1847730
-     * @param $email
-     * @return bool
-     *
-     */
-    private function validateEmail($email): bool
-    {
-        list($user, $domain) = explode('@', $email);
-        if (checkdnsrr($domain, 'MX')) {
-            return true;
-        }
-        return false;
-    }
-
-
-    /**
-     *
-     * handle accept request from user based on join_prompt
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function postJoin(Request $request)
-    {
-
-
-        $senderEmail = $request->post('senderEmail');
-        $senderId = $request->post('senderId');
-        $receiverEmail = $request->post('receiverEmail');
-
-        //check if the new user is already a customer
-        //if not send to registration form
-        $receiverData = DB::table('users')->where('email', $receiverEmail)->get();
-        if (count($receiverData) === 0) {
-            $senderEmailEncrypted = Crypt::encryptString($senderEmail);
-            $receiverEmailEncrypted = Crypt::encryptString($receiverEmail);
-            return redirect('/register?key=' . $senderEmailEncrypted . '.' . $receiverEmailEncrypted . '&from=join_prompt');
-        }
-
-
-
-
-        //if user is already a customer
-        //check if already logged in
-        $currentUserData = DB::table('users')->where('id', Auth::id())->get();
-
-        dump($currentUserData);
-        dump($receiverData);
-
-        if ($currentUserData[0]->email === $receiverData[0]->email) {
-
-            //update the team_add_requests table
-            DB::table('team_add_requests')
-                ->update([
-                    'sender_id' => $senderId,
-                    'receiver_email' => $receiverEmail,
-                    'request_accepted' => 1,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                ]);
-
-
-            //save data in teams table
-            DB::table('teams')->insert([
-                'owner_id' => $senderId,
-                'user_id' => Auth::id(),
-                'confirmed' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-
-
-            $request->session()->flash('success', 'Congrats! you are now part of ' . $senderEmail . '\'s team.');
-            return redirect('/home');
-        }
-
-
-        //$result = DB::table('users')->where('email', $sender)->get();
-
-        // if sender email not found in database send for sign up
-
-        /* if (count($result) == 0) {
-             return redirect('/register');
-         }*/
-
-        //check if sender exists
-        //check if receiver is already a member
-        //check if sender(project owner) has sent the add request to the joiner(person who got the email)
-    }
-
 
     /**
      * Show screen after user click on the email
@@ -228,7 +135,6 @@ class TeamController extends Controller
      */
     public function getJoinPrompt(Request $request)
     {
-
         $key = $request->get('key');
 
         list($sender, $receiver) = explode('.', $key);
@@ -250,11 +156,11 @@ class TeamController extends Controller
         }
 
         //check if sender has actually sent the request to sender
-        $data = DB::table('team_add_requests')
+        $teamAddRequestsData = DB::table('team_add_requests')
             ->where('sender_id', $checkSender[0]->id)
             ->where('receiver_email', $receiverDecrypted)
             ->get();
-        if (count($data) === 0) {
+        if (count($teamAddRequestsData) === 0) {
             $request->session()->flash('error', 'Invalid request');
             return view('team.join_prompt');
         }
@@ -265,34 +171,150 @@ class TeamController extends Controller
         $receiverData = DB::table('users')->where(
             'email', $receiverDecrypted)->get();
 
-
         //if receiver is a registered user
-        if(count($receiverData)!==0) {
+        if (count($receiverData) !== 0) {
             $checkAlreadyAddedTeamMember = DB::table('teams')
                 ->where('owner_id', $senderData[0]->id)
                 ->where('user_id', $receiverData[0]->id)
                 ->get();
-
             if (count($checkAlreadyAddedTeamMember) !== 0) {
                 //if the receiver is not logged in, send to login
                 if (Auth::id() === null) {
                     $request->session()->flash('info', 'You are already a member of ' . $senderDecrypted . '\'s team. just login to continue');
                     return redirect('login?key=' . $sender . '.' . $receiver . '&from=email_click');
                 }
-                //
                 $request->session()->flash('info', 'You are already a member of ' . $senderDecrypted . '\'s team.');
                 return redirect('\home');
             }
+
+            // check for other user(user who is different than logged in user)
+            Auth::logout();
             return view('team.join_prompt', [
                 'sender' => $checkSender,
                 'receiverEmail' => $receiverDecrypted,
             ]);
-        }else{
+        } else {
+            //if the user is not a registered user
             return view('team.join_prompt', [
                 'sender' => $checkSender,
                 'receiverEmail' => $receiverDecrypted,
             ]);
         }
 
+    }
+
+    /**
+     *
+     * handle accept request from user based on join_prompt
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function postJoin(Request $request)
+    {
+        $senderEmail = $request->post('senderEmail');
+        $senderId = $request->post('senderId');
+        $receiverEmail = $request->post('receiverEmail');
+        $senderEmailEncrypted = Crypt::encryptString($senderEmail);
+        $receiverEmailEncrypted = Crypt::encryptString($receiverEmail);
+
+        //check if the new user is already a customer
+        //if not send to registration form
+        $receiverData = DB::table('users')->where('email', $receiverEmail)->get();
+        if (count($receiverData) === 0) {
+
+            return redirect('/register?key=' . $senderEmailEncrypted . '.' . $receiverEmailEncrypted . '&from=join_prompt');
+        }
+
+
+        //if user is already a customer
+        //check if already logged in
+        $currentUserData = DB::table('users')->where('id', Auth::id())->get();
+
+        if (count($currentUserData) !== 0 && $currentUserData[0]->email === $receiverData[0]->email) {
+            //update the team_add_requests table
+            DB::table('team_add_requests')
+                ->update([
+                    'sender_id' => $senderId,
+                    'receiver_email' => $receiverEmail,
+                    'request_accepted' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ])
+                ->where('sender_id', $senderId)
+                ->where('receiver_email', $receiverEmail);
+
+
+            //save data in teams table
+            DB::table('teams')
+                ->insert([
+                    'owner_id' => $senderId,
+                    'user_id' => $receiverData[0]->id,
+                    'confirmed' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+
+
+            $request->session()->flash('success', 'Congrats! you are now part of ' . $senderEmail . '\'s team.');
+            return redirect('/home');
+        }
+
+        //update the team_add_requests table
+        DB::table('team_add_requests')
+            ->where([
+                ['sender_id', '=', $senderId],
+                ['receiver_email', '=', $receiverEmail]
+            ])
+            ->update([
+                'sender_id' => $senderId,
+                'receiver_email' => $receiverEmail,
+                'request_accepted' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+
+
+        //save data in teams table
+        DB::table('teams')->insert([
+            'owner_id' => $senderId,
+            'user_id' => $receiverData[0]->id,
+            'confirmed' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+
+        $request->session()->flash('info', 'Please login to continue in ' . $senderEmail . '\'s team.');
+        return redirect('login?key=' . $senderEmailEncrypted . '.' . $receiverEmailEncrypted . '&from=email_click');
+
+
+        //$result = DB::table('users')->where('email', $sender)->get();
+
+        // if sender email not found in database send for sign up
+
+        /* if (count($result) == 0) {
+             return redirect('/register');
+         }*/
+
+        //check if sender exists
+        //check if receiver is already a member
+        //check if sender(project owner) has sent the add request to the joiner(person who got the email)
+    }
+
+    /**
+     *
+     * validate email using dns
+     * see https://stackoverflow.com/a/15098724/1847730
+     * @param $email
+     * @return bool
+     *
+     */
+    private function validateEmail($email): bool
+    {
+        list($user, $domain) = explode('@', $email);
+        if (checkdnsrr($domain, 'MX')) {
+            return true;
+        }
+        return false;
     }
 }
