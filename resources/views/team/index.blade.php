@@ -21,7 +21,6 @@
                             add new <a href="/team/add">Team</a>
                         </div>
                     @else
-
                         <a href="/team/add"> Add new team member</a>
                         <div class="panel panel-default">
                             <div class="panel-heading">Total Members - {{count($teams)}}</div>
