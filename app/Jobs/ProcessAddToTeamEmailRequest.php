@@ -30,7 +30,6 @@ class ProcessAddToTeamEmailRequest implements ShouldQueue
      */
     public function __construct($userEmail,$user)
     {
-        //
         $this->userEmail = $userEmail;
         $this->user = $user;
     }
