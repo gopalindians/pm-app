@@ -23,7 +23,7 @@ class TeamController extends Controller
      */
     public function __construct(Request $request)
     {
-        if ($request->getPathInfo() == '/team/join') {
+        if ($request->getPathInfo() == '/team/join_prompt' || $request->getPathInfo() == '/team/join') {
 
         } else {
             $this->middleware('auth');
@@ -43,9 +43,11 @@ class TeamController extends Controller
                 'users.email as member_email',
                 'users.id as member_id'
             )
-            ->rightJoin('users', 'users.id', '=', 'teams.user_id')
-            ->where('owner_id', '=', $id)
+            ->join('users', 'users.id', '=', 'teams.user_id')
+            ->where('owner_id', '=', Auth::id())
             ->get();
+
+        dump($teams);
 
         return view('team.index', ['teams' => $teams]);
     }
@@ -123,6 +125,7 @@ class TeamController extends Controller
 
         Mail::to($userEmail)->send(new AddToTeamRequest($user, $userEmail));
 
+        $request->session()->flash('success', 'Mail sent successfully!');
         return view('team.add_new');
     }
 
@@ -146,29 +149,49 @@ class TeamController extends Controller
 
 
     /**
+     *
+     * handle accept request from user
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function getJoin(Request $request)
+    public function postJoin(Request $request)
     {
-        $sender = $request->get('sender');
 
-        $result = DB::table('users')->where('email', $sender)->get();
+
+        $senderEmail = $request->post('senderEmail');
+        $senderId = $request->post('senderId');
+        $receiverEmail = $request->post('receiverEmail');
+
+        //check if the new user is already a customer
+
+        $receiverData = DB::table('users')->where('email', $receiverEmail)->get();
+        if (count($receiverData) === 0) {
+            $senderEmailEncrypted = Crypt::encryptString($senderEmail);
+            $receiverEmailEncrypted = Crypt::encryptString($receiverEmail);
+
+            return redirect('/register?key=' . $senderEmailEncrypted . '.' . $receiverEmailEncrypted.'&from=join_prompt');
+        }
+
+
+        //$result = DB::table('users')->where('email', $sender)->get();
 
         // if sender email not found in database send for sign up
 
-        if (count($result) == 0) {
-            return redirect('/register');
-        }
+        /* if (count($result) == 0) {
+             return redirect('/register');
+         }*/
 
         //check if sender exists
         //check if receiver is already a member
         //check if sender(project owner) has sent the add request to the joiner(person who got the email)
-
-
     }
 
 
+    /**
+     * Show screen after user click on the email
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|View
+     */
     public function getJoinPrompt(Request $request)
     {
 
@@ -205,9 +228,6 @@ class TeamController extends Controller
             return view('team.join_prompt');
         }
 
-
-        dump($senderDecrypted);
-        dump($receiverDecrypted);
 
         return view('team.join_prompt', [
             'sender' => $checkSender,

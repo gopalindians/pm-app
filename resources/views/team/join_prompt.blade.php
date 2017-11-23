@@ -27,23 +27,39 @@
                                     <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
+
                         </div>
                     @endif
 
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Panel heading without title</div>
-                        <div class="panel-body">
-                            <h3><span class="label label-default">{{$sender[0]->email}}</span> + <span
-                                        class="label label-success">{{$receiverEmail}}</span></h3>
-                            <button class="btn btn-primary" type="button">
-                                Accept
-                            </button>
-                            <button class="btn btn-dan" type="button">
-                                Cancel
-                            </button>
+
+
+
+                    @if(isset($sender[0]->email) ||is_null($sender[0]->email))
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Panel heading without title</div>
+                            <div class="panel-body">
+                                <h3><span class="label label-default">{{$sender[0]->email}}</span> + <span
+                                            class="label label-success">{{$receiverEmail}}</span></h3>
+
+                                <form action="/team/join" method="post">
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="senderEmail" value="{{$sender[0]->email}}">
+                                    <input type="hidden" name="senderId" value="{{$sender[0]->id}}">
+                                    <input type="hidden" name="receiverEmail" value="{{$receiverEmail}}">
+
+
+                                    <button class="btn btn-success" type="submit">Accept</button>
+                                    <button class="btn btn-danger" type="submit">Cancel</button>
+
+                                </form>
+
+                            </div>
                         </div>
-                    </div>
+
+
+                    @endif
+
                 </div>
 
 

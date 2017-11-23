@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Request, DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -42,7 +44,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -57,15 +59,67 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+
+        $sender = Request::post('sender');
+        $receiver = Request::post('receiver');
+        $from = Request::post('from');
+
+
+        if (isset($from) && $from == 'join_prompt') {
+
+            //create new user
+            /*$id = DB::table('users')->insertGetId([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);*/
+
+
+            $returnable = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password'])
+                ]);
+
+            $senderData = DB::table('users')->where('email', $sender)->get();
+            $receiverData = DB::table('users')->where('email', $receiver)->get();
+
+
+            DB::table('team_add_requests')
+                ->where('receiver_email', $receiver)
+                ->where('sender_id', $senderData[0]->id)
+                ->update([
+                    'request_accepted' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+
+
+            //add new user to team
+            DB::table('teams')
+                ->insert([
+                    'owner_id' => $senderData[0]->id,
+                    'user_id' => $receiverData[0]->id,
+                    'confirmed' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+
+            return $returnable;
+
+        } else {
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+            ]);
+        }
     }
 }

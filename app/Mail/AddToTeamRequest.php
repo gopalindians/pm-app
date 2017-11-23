@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use App\User;
 use Illuminate\Bus\Queueable;
+use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -44,7 +45,6 @@ class AddToTeamRequest extends Mailable
      */
     public function build()
     {
-
         return $this->from($this->u->email)
             ->view('emails.add_request')
             ->with([
