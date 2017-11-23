@@ -17,7 +17,7 @@
                     @if(count($teams)==0)
 
                         <div class="alert alert-danger">
-                            You dont have any team memebers yet
+                            You don't have any team members yet
                             add new <a href="/team/add">Team</a>
                         </div>
                     @else
@@ -45,6 +45,8 @@
 
 
                 @endif
+
+                {{ $teams->links() }}
 
             </div>
         </div>
