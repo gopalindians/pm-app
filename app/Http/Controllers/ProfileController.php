@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Auth, DB;
+use Auth, DB, Storage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -57,13 +58,65 @@ class ProfileController extends Controller
         } else {
             Auth::logout();
             $request->session()->flash('info', 'Login before editing profile');
-          return  redirect('login');
+            return redirect('login');
         }
     }
 
     public function postEditProfile(Request $request)
     {
-        dump($request->file('profileImage'));
+
+        $request->validate([
+            'name' => 'required|min:1|max:255',
+            'dob' => 'nullable|date',
+            'gender' => 'nullable|date',
+            'position' => 'nullable|date',
+            'profile_image' => 'nullable|mimes:jpeg,bmp,png,gif,webp',
+        ]);
+        $name = $request->post('name');
+        $dob = $request->post('dob');
+        $gender = $request->post('gender');
+        $position = $request->post('position');
+        $profile_image = $request->file('profile_image');
+
+        if ($request->hasFile('profile_image') && $request->file('profile_image')->isValid()) {
+            //
+            //$path = $request->profile_image->store('uploads/profile_image');
+            //Storage::disk('local')->put($profile_image, 'Contents');
+            $file = Storage::putFile('public/uploads/' . Auth::id() . '/profile_image', $request->file('profile_image'));
+
+
+            DB::table('users')
+                ->where('id', Auth::id())
+                ->update([
+                    'name' => $name,
+                    'dob' => $dob,
+                    'gender' => $gender,
+                    'position' => $position,
+                    'profile_image' => str_replace('public/', '', $file),
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+
+        } else {
+
+            DB::table('users')
+                ->where('id', Auth::id())
+                ->update([
+                    'name' => $name,
+                    'dob' => $dob,
+                    'gender' => $gender,
+                    'position' => $position,
+                    'profile_image' => $profile_image,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+
+        }
+
+        $result = DB::table('users')
+            ->where('id', Auth::id())
+            ->get();
+        return view('profile.edit', ['user' => $result]);
 
 
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Auth, DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class HomeController extends Controller
     {
         return view('home');
     }*/
-     public function index(): View
+    public function index(): View
     {
         $id = Auth::id();
         $projects = DB::table('projects')
@@ -46,7 +47,10 @@ class HomeController extends Controller
             ->join('users', 'users.id', '=', 'projects.owner_id')
             ->where('owner_id', '=', $id)
             ->paginate(2);
-        //dump($projects);
+        foreach ($projects as $project) {
+            $project->project_created_at = str_replace('before', 'ago', Carbon::parse($project->project_created_at)->diffForHumans(Carbon::now()));
+            $project->project_updated_at = str_replace('before', 'ago', Carbon::parse($project->project_updated_at)->diffForHumans(Carbon::now()));
+        }
 
         return view('home', ['projects' => $projects]);
     }

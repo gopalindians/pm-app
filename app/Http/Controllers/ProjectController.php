@@ -48,6 +48,10 @@ class ProjectController extends Controller
             ->where('owner_id', '=', $id)
 
            ->paginate(2);
+        foreach ($projects as $project) {
+            $project->project_created_at = str_replace('before', 'ago', Carbon::parse($project->project_created_at)->diffForHumans(Carbon::now()));
+            $project->project_updated_at = str_replace('before', 'ago', Carbon::parse($project->project_updated_at)->diffForHumans(Carbon::now()));
+        }
 
 
         return view('project.index', ['projects' => $projects]);
