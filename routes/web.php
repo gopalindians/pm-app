@@ -11,10 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -39,4 +35,7 @@ Route::get('/team/join_prompt', 'TeamController@getJoinPrompt');
 Route::get('/projects', 'ProjectController@index')->name('projects');
 Route::get('/createProject', 'ProjectController@createProject');
 Route::post('/createProject', 'ProjectController@postCreateProject');
-Route::get('/project/{id}', 'ProjectController@view');
+
+Route::get('/project/{id}/{name?}/todolists', 'TodoController@index');
+Route::get('/project/{id}/{name?}', 'ProjectController@view');
+
