@@ -16,6 +16,8 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/logo-nav.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://bcx.basecamp-static.com/assets/desktop-16ab7d94fe6dcce7227827c8cf8ec87f.css" rel="stylesheet">
+
 
     <!-- End of new File -->
 </head>

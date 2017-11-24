@@ -42,7 +42,7 @@
                     @foreach($projects as $project)
                         <div class="col-md-3">
                             <div class="project_grid">
-                                <h1><a href="/project/{{$project->project_id}}">{{$project->project_name}}</a></h1>
+                                <h1><a href="/project/{{$project->project_id}}/{{$project->project_name}}">{{$project->project_name}}</a></h1>
                                 <p class="bill_team"><span>Description :</span> {{$project->project_description}}</p>
                                 <div class="last_update">
 

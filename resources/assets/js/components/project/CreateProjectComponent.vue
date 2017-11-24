@@ -1,37 +1,9 @@
-@extends('layouts.app')
-
-@section('title',  'Create new Project')
-
-@section('content')
-<create-project-component></create-project-component>
-   {{-- <div class="container">
+<template>
+    <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel-body">
 
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    @if (session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-
-
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
 
 
                     <div class="panel panel-default">
@@ -39,11 +11,11 @@
                         <div class="panel-body">
                             <form action="/createProject" method="post">
 
-                                {{csrf_field()}}
+
                                 <div class="form-group">
                                     <label for="project_name">Project name</label>
                                     <input type="text" class="form-control" name="project_name" id="project_name"
-                                           value={{old('project_name')}}>
+                                           value='project_name'>
                                 </div>
 
 
@@ -51,7 +23,7 @@
                                     <label for="project_description">Project description</label>
                                     <input type="text" class="form-control" name="project_description"
                                            id="project_description"
-                                           value={{old('project_description')}}>
+                                           value='project_description'>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary"> Create</button>
@@ -64,5 +36,13 @@
                 </div>
             </div>
         </div>
-    </div>--}}
-@endsection
+    </div>
+</template>
+
+<script>
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        }
+    }
+</script>
