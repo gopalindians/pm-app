@@ -4,112 +4,177 @@ namespace App\Http\Controllers;
 
 use Auth, DB;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 /**
  * Class ProjectController
+ *
  * @package App\Http\Controllers
- * @author: @gopalindians
+ * @author  : @gopalindians
  */
-class ProjectController extends Controller
-{
+class ProjectController extends Controller {
 
-    /**
-     * ProjectController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+	/**
+	 * ProjectController constructor.
+	 */
+	public function __construct() {
+		$this->middleware( 'auth' );
+	}
 
-    /**
-     * Default view
-     * @return View
-     */
-    public function index(): View
-    {
-        $id = Auth::id();
-        $projects = DB::table('projects')
-            ->select(
-                'projects.id as project_id',
-                'projects.owner_id as project_owner_id',
-                'projects.project_name',
-                'projects.project_description',
-                'projects.state as project_state',
-                'projects.created_at as project_created_at',
-                'projects.updated_at as project_updated_at',
+	/**
+	 * Default view
+	 *
+	 * @return View
+	 */
+	public function index(): View {
+		return view( 'project.index' );
+	}
 
-                'users.id as owner_id',
-                'users.name as owner_name',
-                'users.email as owner_email'
-            )
-            ->join('users', 'users.id', '=', 'projects.owner_id')
-            ->where('owner_id', '=', $id)
+	/**
+	 * @return View
+	 */
+	public function createProject(): View {
+		return view( 'project.create_new' );
+	}
 
-           ->paginate(2);
-        foreach ($projects as $project) {
-            $project->project_created_at = str_replace('before', 'ago', Carbon::parse($project->project_created_at)->diffForHumans(Carbon::now()));
-            $project->project_updated_at = str_replace('before', 'ago', Carbon::parse($project->project_updated_at)->diffForHumans(Carbon::now()));
-        }
+	public function postCreateProject( Request $request ): View {
+		$validatedData = $request->validate( [
+			'project_name'        => 'required|max:255',
+			'project_description' => 'required',
+		] );
 
-
-        return view('project.index', ['projects' => $projects]);
-    }
-
-    /**
-     * @return View
-     */
-    public function createProject(): View
-    {
-        return view('project.create_new');
-    }
-
-    public function postCreateProject(Request $request): View
-    {
-        $validatedData = $request->validate(['project_name' => 'required|max:255', 'project_description' => 'required',]);
-
-        $id = DB::table('projects')->insertGetId([
-                'owner_id' => Auth::id(),
-                'project_name' => $request->post('project_name'),
-                'project_description' => $request->post('project_description'),
-                'state' => 'active',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]
-        );
+		$id = DB::table( 'projects' )->insertGetId( [
+				'owner_id'            => Auth::id(),
+				'project_name'        => $request->post( 'project_name' ),
+				'project_description' => $request->post( 'project_description' ),
+				'state'               => 'active',
+				'created_at'          => Carbon::now(),
+				'updated_at'          => Carbon::now()
+			]
+		);
 
 
-        if (!empty($id)) {
-            $request->session()->flash('success', 'Project created successfully!');
+		if ( ! empty( $id ) ) {
+			$request->session()->flash( 'success', 'Project created successfully!' );
 
-            return view('project.create_new');
-        } else {
-            $request->session()->flash('error', 'Unable to create Project!');
+			return view( 'project.create_new' );
+		} else {
+			$request->session()->flash( 'error', 'Unable to create Project!' );
 
-            return view('project.create_new');
-        }
-
-
-    }
+			return view( 'project.create_new' );
+		}
 
 
-    /**
-     * To show the Project detail
-     *
-     * @param \Illuminate\Http\Request $request laravel inbuilt object
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function view(Request $request)
-    {
-        $id = $request->route('id');
+	}
 
-        $project = DB::table('projects')
-            ->where('id', '=', $id)
-            ->get();
 
-        return view('project.view', ['project' => $project]);
-    }
+	/**
+	 * To show the Project detail
+	 *
+	 * @param \Illuminate\Http\Request $request laravel inbuilt object
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function view( Request $request ) {
+		$id = $request->route( 'id' );
 
+		$project = DB::table( 'projects' )
+		             ->where( 'id', '=', $id )
+		             ->get();
+
+		return view( 'project.view', [ 'project' => $project ] );
+	}
+
+
+	/**
+	 * @return \Illuminate\Http\JsonResponse
+	 */
+	public function apiGetProjects(): JsonResponse {
+		$id       = Auth::id();
+		$projects = DB::table( 'projects' )
+		              ->select(
+			              'projects.id as project_id',
+			              'projects.owner_id as project_owner_id',
+			              'projects.project_name',
+			              'projects.project_description',
+			              'projects.state as project_state',
+			              'projects.created_at as project_created_at',
+			              'projects.updated_at as project_updated_at',
+
+			              'users.id as owner_id',
+			              'users.name as owner_name',
+			              'users.email as owner_email'
+		              )
+		              ->join( 'users', 'users.id', '=', 'projects.owner_id' )
+		              ->where( 'owner_id', '=', $id )
+		              ->paginate( 2 );
+		foreach ( $projects as $project ) {
+			$project->project_created_at = str_replace( 'before', 'ago', Carbon::parse( $project->project_created_at )->diffForHumans( Carbon::now() ) );
+			$project->project_updated_at = str_replace( 'before', 'ago', Carbon::parse( $project->project_updated_at )->diffForHumans( Carbon::now() ) );
+		}
+
+
+		return response()->json( $projects );
+	}
+
+	/**
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return \Illuminate\Http\JsonResponse
+	 */
+	public function apiGetProject( Request $request ) {
+		$id          = $request->route( 'id' );
+		$projectName = $request->route( 'projectName' );
+
+		$project = DB::table( 'projects' )
+		             ->select(
+			             'projects.id as project_id',
+			             'projects.owner_id as project_owner_id',
+			             'projects.project_name',
+			             'projects.project_description',
+			             'projects.state as project_state',
+			             'projects.created_at as project_created_at',
+			             'projects.updated_at as project_updated_at' )
+		             ->where( 'projects.id', '=', $id )
+		             ->get();
+
+
+		$totalTopics = DB::table( 'topics' )
+		                 ->where( 'project_id', $id )
+		                 ->count();
+
+
+		foreach ( $project as $item ) {
+
+
+			$item->topic_detail = DB::table( 'topics' )
+			                        ->select( 'topics.*' )
+			                        ->where( 'topics.project_id', $id )
+			                        ->orderBy( 'topics.updated_at', 'desc' )->limit( 5 )->get();
+
+			foreach ( $item->topic_detail as $i ) {
+				$i->latest_comment = DB::table( 'topic_comments' )->where( 'topic_id', $i->id )->orderBy( 'updated_at', 'desc' )->first();
+
+				if ( count( $i->latest_comment ) === 0 ) {
+					$i->latest_comment_by = DB::table( 'users' )->select('name')->where( 'id', $i->creater_id )->first();
+				} else {
+					$i->latest_comment_by = DB::table( 'users' )->select('name')->where( 'id', $i->latest_comment->poster_id )->first();
+				}
+
+			}
+
+			//$item->topic_detail->latest =
+
+
+			//DB::table( 'topic_comments' )
+			$item->total_topics       = $totalTopics;
+			$item->project_created_at = str_replace( 'before', 'ago', Carbon::parse( $item->project_created_at )->diffForHumans( Carbon::now() ) );
+			$item->project_updated_at = str_replace( 'before', 'ago', Carbon::parse( $item->project_updated_at )->diffForHumans( Carbon::now() ) );
+		}
+
+
+		return response()->json( $project[0] );
+	}
 }
