@@ -25,6 +25,11 @@ Vue.component('new-message-component', require('./components/message/NewMessageC
 Vue.component('specific-message-component', require('./components/message/SpecificMessageComponent.vue'));
 Vue.component('edit-message-component', require('./components/message/EditMessageComponent.vue'));
 
+
+Vue.component('create-new-document-component', require('./components/document/CreateNewDocumentComponent.vue'));
+Vue.component('view-document-component', require('./components/document/ViewComponent.vue'));
+Vue.component('index-document-component', require('./components/document/IndexDocumentComponent.vue'));
+
 const app = new Vue({
     el: '#app'
 });

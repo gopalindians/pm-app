@@ -1,23 +1,17 @@
 <template>
     <div id="workspace" class="workspace">
         <div class="container stack_container" data-container-id="1" style="width: 960px;">
-            <div class="panel sheet project active isnt_client_project" data-behavior=" " data-creator-id="6581649"
+            <div class="panel sheet project active isnt_client_project" data-behavior=" "
+                 :data-creator-id="project.project_owner_id"
                  data-status="active">
                 <title>{{projectName}}</title>
-
-                <div class="archived_notice">
-                <span>
-                    This project is locked and archived.
-                </span>
-                </div>
-
                 <header>
                     <div class="header_links">
-                        <a href="/2501285/projects/6590988/accesses">
+                        <a :href="'/project/'+projectId+'/'+projectName+'/accesses'">
                             <span class="link">Invite more people</span><br>
                             <span class="detail">11 people on this project</span>
                         </a>
-                        <a href="/2501285/projects/6590988/summary">
+                        <a :href="'/project/'+projectId+'/'+projectName+'/summary'">
                             <span class="link">Catch up</span><br>
                             <span class="detail">on recent changes</span>
                         </a>
@@ -29,16 +23,13 @@
                         <div class="collapsed_content">
                             <div class="position_reference">
                                 <h1 class="field" data-behavior="editable_field_prompt">
-                                    Random Projects
+                                    {{projectName}}
                                 </h1>
-                                <div class="star" data-behavior="project_star" data-project-id="6590988"
+                                <div class="star" data-behavior="project_star" :data-project-id="projectId"
                                      data-refresh-project-view="false"
                                      title="Starring a project will highlight it on the projects index page"></div>
                             </div>
-
                         </div>
-
-
                     </div>
 
 
@@ -48,16 +39,20 @@
                                 <a :href="'/project/'+projectId+'/'+projectName+'/topics'" data-tool-name="topics">
                                     <span class=""><strong>{{totalTopics}} Discussions</strong></span>
                                 </a>
-                                <a :href="'/projects/'+projectId+'/'+projectName+'/todolists'" data-tool-name="todolists">
+                                <a :href="'/project/'+projectId+'/'+projectName+'/todolists'"
+                                   data-tool-name="todolists">
                                     <span class=""><strong>3 To-dos</strong></span>
                                 </a>
-                                <a href="/2501285/projects/6590988/attachments" data-tool-name="attachments">
+                                <a :href="'/project/'+projectId+'/'+projectName+'/attachments'"
+                                   data-tool-name="attachments">
                                     <span class=""><strong>657 Files</strong></span>
                                 </a>
-                                <a href="/2501285/projects/6590988/documents" data-tool-name="documents">
+                                <a :href="'/project/'+projectId+'/'+projectName+'/documents'"
+                                   data-tool-name="documents">
                                     <span class=""><strong>24 Text documents</strong></span>
                                 </a>
-                                <a href="/2501285/projects/6590988/calendar_events" data-tool-name="calendar_events">
+                                <a :href="'/project/'+projectId+'/'+projectName+'/calendar_events'"
+                                   data-tool-name="calendar_events">
                                     <span class=""><strong>Events</strong></span>
                                 </a>
                             </div>
@@ -65,38 +60,25 @@
                     </div>
                 </header>
 
-                <article class="blank_slate">
-                    <div class="blank_slate_arrow"></div>
-                    <div class="blank_slate_body">
-                        <h1>Welcome to your project!</h1>
-                        <p>Basecamp is great for all kinds of projects, large and small. Kick things off by starting
-                            your first discussion, creating a to-do list, or writing a new document.</p>
-                        <p><a class="watch videothumb" data-behavior="open_v ideobox"
-                              data-video-src="//fast.wistia.net/embed/iframe/k13cmq87gw" href="#">Watch a quick video
-                            about how Projects work</a></p>
-                    </div>
-                </article>
-
 
                 <div class="sheet_body">
-
-
                     <div data-role="project_dates">
                         <div id="project_dates_Project_6590988" class="project_dates" data-autoview="">
                         </div>
                     </div>
 
 
-                    <section class="events">
+                    <!--<section class="events">
                         <header>
-                            <h1><a href="/2501285/projects/6590988/events">Latest project updates</a></h1>
+                            <h1><a :href="'/projects/'+projectId+'/'+projectName+'/events'">Latest project updates</a>
+                            </h1>
                         </header>
 
                         <section id="events_project_6590988" class="activity project_events grouped_by_date"
                                  data-behavior="project_events">
                             <div class="event_container" style="">
                                 <div class="project chiral" style="display: none">
-                                    <a data-default-stack="true" href="/2501285/projects/6590988">Random Projects</a>
+                                    <a data-default-stack="true" :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a>
                                 </div>
 
                                 <article class="event chiral" data-bucket-identifier="project_6590988"
@@ -104,13 +86,17 @@
                                          data-event-id="1650242862" data-behavior="format_timeline group_by_date">
 
                                     <div class="time">
-                                        <span class="time_only"><time data-format="%l:%M%P" data-local="time"
-                                                                      datetime="2017-11-26T11:46:56Z"
-                                                                      title="November 26, 2017 at 5:16pm "
-                                                                      data-localized="true">5:16pm</time></span>
-                                        <span class="time_ago"><time data-local="time-or-date"
-                                                                     datetime="2017-11-26T11:46:56Z"
-                                                                     title="November 26, 2017 at 5:16pm ">Nov 26</time></span>
+                                        <span class="time_only">
+                                            <time data-format="%l:%M%P" data-local="time"
+                                                  datetime="2017-11-26T11:46:56Z"
+                                                  title="November 26, 2017 at 5:16pm "
+                                                  data-localized="true">5:16pm</time>
+                                        </span>
+                                        <span class="time_ago">
+                                            <time data-local="time-or-date"
+                                                  datetime="2017-11-26T11:46:56Z"
+                                                  title="November 26, 2017 at 5:16pm ">Nov 26</time>
+                                        </span>
                                     </div>
 
                                     <div class="avatar">
@@ -127,20 +113,23 @@
                                     <div class="action">
                                         <span class="creator" data-creator-id="15531397">You</span>
 
-                                        <span class="in_timeline">commented on <a class="decorated"
-                                                                                  data-default-stack="true"
-                                                                                  href="/2501285/projects/6590988/todos/289596969#comment_579199501">Attached is the structure</a></span>
-                                        <span class="in_project">commented on <a class="decorated"
-                                                                                 href="/2501285/projects/6590988/todos/289596969#comment_579199501">Attached is the structure</a></span>
-                                        <span class="bucket hide_from_single_project_accounts">
-                                            in <a data-replace-stack="true" href="/2501285/projects/6590988">Random Projects</a>
+                                        <span class="in_timeline">commented on
+                                            <a class="decorated"
+                                               data-default-stack="true"
+                                               href="/2501285/projects/6590988/todos/289596969#comment_579199501">Attached is the structure</a>
+                                        </span>
+                                        <span class="in_project">commented on
+                                            <a class="decorated"
+                                               href="/2501285/projects/6590988/todos/289596969#comment_579199501">Attached is the structure</a>
+                                        </span>
+                                        <span class="bucket hide_from_single_project_accounts">in
+                                            <a data-replace-stack="true" href="/2501285/projects/6590988">Random Projects</a>
                                         </span>
 
 
                                         <div class="excerpt">
                                             <div class="in_timeline comment">test</div>
                                             <div class="in_project comment">test</div>
-
                                         </div>
                                     </div>
                                 </article>
@@ -149,37 +138,38 @@
 
 
                         <p class="more_events">
-                            <a class="decorated" href="/2501285/projects/6590988/events">See all updates</a>
+                            <a class="decorated"
+                               :href="'/project/'+projectId+'/'+projectName+'/events'">See all updates</a>
                         </p>
-                    </section>
+                    </section>-->
 
                     <section class="topics " data-collection-name="topics">
                         <header class="has_buttons">
-                            <h1><a href="/2501285/projects/6590988/topics">Discussions</a></h1>
-                            <a class="action_button button" href="/2501285/projects/6590988/messages/new">Post a new
-                                message</a>
+                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/topics'">Discussions</a></h1>
+                            <a class="action_button button"
+                               :href="'/project/'+projectId+'/'+projectName+'/messages/new'">Post a new message</a>
                         </header>
 
                         <table class="inbox">
                             <tbody>
-                            <tr class="topic todo_289596969" id="topic_152633325">
+                            <tr class="topic todo_289596969" id="topic_152633325" v-for="p in project.topic_detail">
                                 <td class="avatar">
-                                    <a href="/2501285/projects/6590988/todos/289596969">
-                                        <img alt="Gopal Sharma"
+                                    <a :href="'/project/'+projectId+'/'+projectName+'/todos/todoid'">
+                                        <img :alt="p.latest_comment_by.name"
                                              class="avatar" height="30"
                                              src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.40.gif"
-                                             title="Gopal Sharma"
+                                             :title="p.latest_comment_by.name"
                                              width="30">
                                     </a>
                                 </td>
 
                                 <td class="who">
-                                    <a href="/2501285/projects/6590988/todos/289596969">Gopal S.</a>
+                                    <a :href="'/project/'+projectId+'/'+projectName+'/todos/todoid'">{{p.latest_comment_by.name}}</a>
                                 </td>
 
                                 <td class="what">
                                     <div class="attachments">
-                                        <figure>
+                                        <!--<figure>
                                             <img alt="" border="0" class="file_icon" data-attachment-id="266310498"
                                                  data-audio-codec="null" data-behavior="enlargeable" data-classes="file"
                                                  data-container-id="comment_491152654"
@@ -205,99 +195,61 @@
                                                  data-width="24" height="18"
                                                  src="https://bcx.basecamp-static.com/assets/file_icons/icon_DOCX_small-fb18170e86c12fa567104f8082ae1d92.png"
                                                  title="ONE CALL CAMEROON Website Structure.docx" width="24">
-                                        </figure>
-
+                                        </figure>-->
                                     </div>
 
-                                    <a href="/2501285/projects/6590988/todos/289596969">
-                                        <strong data-role="live_filter_highlight">Attached is the structure</strong>
-                                        <span class="bucket_name">(Random Projects)</span>
-                                        <span class="excerpt"> - test</span>
+                                    <a :href="'/project/'+projectId+'/'+projectName+'todos/todoid'">
+                                        <strong data-role="live_filter_highlight">{{p.topic_name}}</strong>
+                                        <span class="bucket_name">({{projectName}})</span>
+                                        <span class="excerpt"
+                                              v-if="p.latest_comment != null "> - {{p.latest_comment.comment}}</span>
+                                        <span class="excerpt"
+                                              v-if="p.latest_comment == null "> - {{p.topic_body}}</span>
                                     </a>
                                 </td>
 
                                 <td class="when">
-                                    <a href="/2501285/projects/6590988/todos/289596969">
-                                        <time data-local="time-or-date" datetime="2017-11-26T11:46:56Z"
-                                              title="November 26, 2017 at 5:16pm ">Nov 26
+                                    <a :href="'/project/'+projectId+'/'+projectName+'/todos/todoid'">
+                                        <time data-local="time-or-date" :datetime="p.updated_at"
+                                              :title="p.updated_at_noob" v-if="p.latest_comment != null ">
+                                            {{p.latest_comment.updated_at_human}}
                                         </time>
-                                    </a></td>
-
-                                <td class="comments">
-                                    <a href="/2501285/projects/6590988/todos/289596969"><span
-                                            class="pill comments circle">2</span></a>
-                                </td>
-
-                                <td class="actions">
-
-                                </td>
-                            </tr>
-                            <tr class="topic message_74076193" id="topic_175663577">
-                                <td class="avatar">
-                                    <a href="/2501285/projects/6590988/messages/74076193"><img alt="Gopal Sharma"
-                                                                                               class="avatar"
-                                                                                               height="30"
-                                                                                               src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.40.gif"
-                                                                                               title="Gopal Sharma"
-                                                                                               width="30"></a>
-                                </td>
-
-                                <td class="who">
-                                    <a href="/2501285/projects/6590988/messages/74076193">Gopal S.</a>
-                                </td>
-
-                                <td class="what">
-
-                                    <a href="/2501285/projects/6590988/messages/74076193">
-                                        <strong data-role="live_filter_highlight">test</strong>
-                                        <span class="bucket_name">(Random Projects)</span>
-                                        <span class="excerpt"> - testing</span>
+                                        <time data-local="time-or-date" :datetime="p.updated_at"
+                                              :title="p.updated_at_noob" v-if="p.latest_comment == null ">
+                                            {{p.updated_at_human}}
+                                        </time>
                                     </a>
                                 </td>
 
-                                <td class="when">
-                                    <a href="/2501285/projects/6590988/messages/74076193">
-                                        <time data-local="time-or-date" datetime="2017-11-26T11:29:28Z"
-                                              title="November 26, 2017 at 4:59pm ">Nov 26
-                                        </time>
-                                    </a></td>
-
                                 <td class="comments">
-                                    <a href="/2501285/projects/6590988/messages/74076193"><span
-                                            class="pill comments circle">1</span></a>
+                                    <a :href="'/project/'+projectId+'/'+projectName+'/todos/'">
+                                        <span class="pill comments circle">{{p.total_comments}}</span>
+                                    </a>
                                 </td>
 
-                                <td class="actions">
-                                    <a class="archive button" data-creator-id="15531397" data-method="put"
-                                       data-remote="true" data-visible-to="admin creator"
-                                       href="/2501285/projects/6590988/topics/175663577/archive"
-                                       rel="nofollow">Archive</a>
-                                </td>
+                                <td class="actions"></td>
                             </tr>
                             </tbody>
                         </table>
 
                         <p class="more_topics">
-                            <a class="decorated" href="/2501285/projects/6590988/topics">338 open discussions</a> •
-
-                            <a class="decorated" href="/2501285/projects/6590988/topics/archived">1 archived
-                                discussion</a>
+                            <a class="decorated"
+                               :href="'/project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open discussions</a>
+                            •
+                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/topics/archived'">1 archived discussion</a>
                         </p>
                     </section>
 
 
                     <section class="todos " data-collection-name="todolists">
                         <header class="has_buttons">
-                            <h1><a href="/2501285/projects/6590988/todolists">To-do lists</a></h1>
+                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/todolists'">To-do lists</a></h1>
                             <button data-behavior="new_todolist" class="action_button">Add a to-do list</button>
-                            <a class="watch videothumb" data-behavior="open_videobox"
-                               data-video-src="//fast.wistia.net/embed/iframe/mdat8c2onl" href="#">Watch a quick video
-                                about To-Do Lists</a>
                         </header>
 
                         <article class="todolist new" data-behavior="expandable hide_buttons_on_expand">
                             <header class="expanded_content">
-                                <form accept-charset="UTF-8" action="/2501285/projects/6590988/todolists"
+                                <form accept-charset="UTF-8" :action="'/project/'+projectId+'/'+projectName+'todolists'"
                                       class="new_todolist" data-remote="true" id="new_todolist" method="post">
                                     <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
                                     <header class="text_entry">
@@ -305,31 +257,33 @@
                                                    value="Give the list a title"></h3>
                                     </header>
 
+
                                     <span class="privacy_toggle" data-role="privacy_toggle" style="display:none;">
-        <label for="new_todolist_privacy_toggle"><input name="todolist[private]" type="hidden" value="0"><input
-                data-behavior="toggle_private_visibility" id="new_todolist_privacy_toggle" name="todolist[private]"
-                type="checkbox" value="1"> Don’t show this to-do list to the client <span
-                data-behavior="client_list"></span></label>
-        <span class="position_reference" data-behavior="expandable expand_exclusively">
-  – <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
+                                        <label for="new_todolist_privacy_toggle"><input name="todolist[private]" type="hidden" value="0">
+                                            <input
+                                                    data-behavior="toggle_private_visibility" id="new_todolist_privacy_toggle" name="todolist[private]"
+                                                    type="checkbox" value="1"> Don’t show this to-do list to the client
+                                            <span data-behavior="client_list"></span>
+                                        </label>
 
-  <div class="balloon right_side expanded_content">
-    <span class="arrow"></span>
-    <span class="arrow"></span>
+                                        <span class="position_reference" data-behavior="expandable expand_exclusively"> –
+                                            <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
 
-    <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
 
-    <h5>Working with clients?</h5>
-    <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
-    <p><a class="decorated"
-          href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
-  </div>
-</span>
+                                            <div class="balloon right_side expanded_content">
+                                                <span class="arrow"></span>
+                                                <span class="arrow"></span>
+                                                <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
+                                                <h5>Working with clients?</h5>
+                                                <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
+                                                <p><a class="decorated" href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
+                                            </div>
+                                        </span>
+                                    </span>
 
-      </span>
-
-                                    <span style="display:none;"><div data-behavior="lazy_load_subscribers"
-                                                                     data-url="/2501285/projects/6590988/subscribers?subscribable_type=Todolist"></div></span>
+                                    <span style="display:none;">
+                                        <div data-behavior="lazy_load_subscribers" data-url="/2501285/projects/6590988/subscribers?subscribable_type=Todolist"></div>
+                                    </span>
 
                                     <p class="submit">
                                         <input name="commit" type="submit" value="Save and start adding to-dos"> or
@@ -374,8 +328,8 @@
                                               action="/2501285/projects/6590988/todolists/48308664"
                                               class="edit_todolist" data-remote="true" id="edit_todolist_48308664"
                                               method="post">
-                                            <div style="display:none"><input name="utf8" type="hidden" value="✓"><input
-                                                    name="_method" type="hidden" value="patch"></div>
+                                            <div style="display:none"><input name="utf8" type="hidden" value="✓">
+                                                <input name="_method" type="hidden" value="patch"></div>
                                             <header class="text_entry">
                                                 <h3>
                                                     <input id="todolist_name" name="todolist[name]" size="10"
@@ -1830,10 +1784,8 @@
 
                     <section class="documents " data-collection-name="documents">
                         <header class="has_buttons">
-                            <h1><a href="/2501285/projects/6590988/documents">Text Documents</a></h1>
-
-                            <a class="action_button button" href="/2501285/projects/6590988/documents/new">Create a text
-                                document</a>
+                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/documents'">Text Documents</a></h1>
+                            <a class="action_button button" :href="'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
                         </header>
 
                         <p class="blank_slate">Keep notes and important information in Text Documents</p>
@@ -1853,8 +1805,8 @@
                                                         <h3 data-role="live_filter_highlight">TTHAIRSOLUTIONS :- local
                                                             and live details</h3>
                                                     </a>
-                                                    <p class="project">From the project: <a data-default-stack="true"
-                                                                                            href="/2501285/projects/6590988">Random
+                                                    <p class="project">From the project:
+                                                        <a data-default-stack="true" href="/2501285/projects/6590988">Random
                                                         Projects</a></p>
 
 
@@ -1939,13 +1891,9 @@
                                         <p class="project">From the project: Random Projects</p>
 
                                         <span class="action">
-          <span class="description">Saved by</span> Harishanker ..
-
-            <span class="description">
-              on <time data-local="date" datetime="2017-11-09T07:20:04Z" title="November 9, 2017 at 12:50pm "
-                       data-localized="true">Nov 9</time>
-            </span>
-        </span>
+                                            <span class="description">Saved by</span> Harishanker ..
+                                            <span class="description">on <time data-local="date" datetime="2017-11-09T07:20:04Z" title="November 9, 2017 at 12:50pm " data-localized="true">Nov 9</time></span>
+                                        </span>
 
                                     </div>
 
@@ -1958,7 +1906,7 @@
                         </section>
 
                         <p class="more_documents">
-                            <a class="decorated" href="/2501285/projects/6590988/documents">18 more documents</a>
+                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/documents'">18 more documents</a>
                         </p>
                     </section>
 
@@ -1994,15 +1942,15 @@
                 showError: '',
                 projectId: '',
                 projectName: '',
-                totalTopics:'',
-                project:''
+                totalTopics: '',
+                project: ''
             }
         },
         mounted() {
             let self = this;
             console.log('Component mounted.');
             let segment = window.location.href.split('/');
-            axios.get('/api/project/' + segment[4]+'/'+segment[5])
+            axios.get('/api/project/' + segment[4] + '/' + segment[5])
                 .then(function (response) {
                     console.log(response.data);
                     self.project = response.data;
