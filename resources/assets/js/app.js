@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -20,6 +19,11 @@ Vue.component('project-component', require('./components/project/ProjectComponen
 Vue.component('create-project-component', require('./components/project/CreateProjectComponent.vue'));
 Vue.component('project-view-component', require('./components/project/ProjectViewComponent.vue'));
 Vue.component('todo-component', require('./components/todo/TodoComponent.vue'));
+Vue.component('topic-component', require('./components/topic/TopicComponent.vue'));
+
+Vue.component('new-message-component', require('./components/message/NewMessageComponent.vue'));
+Vue.component('specific-message-component', require('./components/message/SpecificMessageComponent.vue'));
+Vue.component('edit-message-component', require('./components/message/EditMessageComponent.vue'));
 
 const app = new Vue({
     el: '#app'
