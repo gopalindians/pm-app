@@ -2,5 +2,4 @@
 
 @section('content')
 <todo-component></todo-component>
-
 @endsection

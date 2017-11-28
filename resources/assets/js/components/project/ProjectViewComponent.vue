@@ -67,82 +67,6 @@
                         </div>
                     </div>
 
-
-                    <!--<section class="events">
-                        <header>
-                            <h1><a :href="'/projects/'+projectId+'/'+projectName+'/events'">Latest project updates</a>
-                            </h1>
-                        </header>
-
-                        <section id="events_project_6590988" class="activity project_events grouped_by_date"
-                                 data-behavior="project_events">
-                            <div class="event_container" style="">
-                                <div class="project chiral" style="display: none">
-                                    <a data-default-stack="true" :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a>
-                                </div>
-
-                                <article class="event chiral" data-bucket-identifier="project_6590988"
-                                         data-datetime="2017-11-26T11:46:56Z" datetime="2017-11-26T11:46:56Z"
-                                         data-event-id="1650242862" data-behavior="format_timeline group_by_date">
-
-                                    <div class="time">
-                                        <span class="time_only">
-                                            <time data-format="%l:%M%P" data-local="time"
-                                                  datetime="2017-11-26T11:46:56Z"
-                                                  title="November 26, 2017 at 5:16pm "
-                                                  data-localized="true">5:16pm</time>
-                                        </span>
-                                        <span class="time_ago">
-                                            <time data-local="time-or-date"
-                                                  datetime="2017-11-26T11:46:56Z"
-                                                  title="November 26, 2017 at 5:16pm ">Nov 26</time>
-                                        </span>
-                                    </div>
-
-                                    <div class="avatar">
-                                        <a data-stacker="false" href="/2501285/people/15531397">
-                                            <img alt="Gopal Sharma"
-                                                 class="avatar"
-                                                 height="48"
-                                                 src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif"
-                                                 title="Gopal Sharma"
-                                                 width="48">
-                                        </a>
-                                    </div>
-
-                                    <div class="action">
-                                        <span class="creator" data-creator-id="15531397">You</span>
-
-                                        <span class="in_timeline">commented on
-                                            <a class="decorated"
-                                               data-default-stack="true"
-                                               href="/2501285/projects/6590988/todos/289596969#comment_579199501">Attached is the structure</a>
-                                        </span>
-                                        <span class="in_project">commented on
-                                            <a class="decorated"
-                                               href="/2501285/projects/6590988/todos/289596969#comment_579199501">Attached is the structure</a>
-                                        </span>
-                                        <span class="bucket hide_from_single_project_accounts">in
-                                            <a data-replace-stack="true" href="/2501285/projects/6590988">Random Projects</a>
-                                        </span>
-
-
-                                        <div class="excerpt">
-                                            <div class="in_timeline comment">test</div>
-                                            <div class="in_project comment">test</div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                        </section>
-
-
-                        <p class="more_events">
-                            <a class="decorated"
-                               :href="'/project/'+projectId+'/'+projectName+'/events'">See all updates</a>
-                        </p>
-                    </section>-->
-
                     <section class="topics " data-collection-name="topics">
                         <header class="has_buttons">
                             <h1><a :href="'/project/'+projectId+'/'+projectName+'/topics'">Discussions</a></h1>
@@ -259,30 +183,37 @@
 
 
                                     <span class="privacy_toggle" data-role="privacy_toggle" style="display:none;">
-                                        <label for="new_todolist_privacy_toggle"><input name="todolist[private]" type="hidden" value="0">
+                                        <label for="new_todolist_privacy_toggle"><input name="todolist[private]"
+                                                                                        type="hidden" value="0">
                                             <input
-                                                    data-behavior="toggle_private_visibility" id="new_todolist_privacy_toggle" name="todolist[private]"
+                                                    data-behavior="toggle_private_visibility"
+                                                    id="new_todolist_privacy_toggle" name="todolist[private]"
                                                     type="checkbox" value="1"> Don’t show this to-do list to the client
                                             <span data-behavior="client_list"></span>
                                         </label>
 
                                         <span class="position_reference" data-behavior="expandable expand_exclusively"> –
-                                            <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
+                                            <a class="decorated" data-behavior="expand_on_click"
+                                               href="#">what's this?</a>
 
 
                                             <div class="balloon right_side expanded_content">
                                                 <span class="arrow"></span>
                                                 <span class="arrow"></span>
-                                                <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
+                                                <span class="close"><a class="decorated"
+                                                                       data-behavior="collapse_on_click"
+                                                                       href="#">Close</a></span>
                                                 <h5>Working with clients?</h5>
                                                 <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
-                                                <p><a class="decorated" href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
+                                                <p><a class="decorated"
+                                                      href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
                                             </div>
                                         </span>
                                     </span>
 
                                     <span style="display:none;">
-                                        <div data-behavior="lazy_load_subscribers" data-url="/2501285/projects/6590988/subscribers?subscribable_type=Todolist"></div>
+                                        <div data-behavior="lazy_load_subscribers"
+                                             data-url="/2501285/projects/6590988/subscribers?subscribable_type=Todolist"></div>
                                     </span>
 
                                     <p class="submit">
@@ -1785,13 +1716,15 @@
                     <section class="documents " data-collection-name="documents">
                         <header class="has_buttons">
                             <h1><a :href="'/project/'+projectId+'/'+projectName+'/documents'">Text Documents</a></h1>
-                            <a class="action_button button" :href="'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
+                            <a class="action_button button"
+                               :href="'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
                         </header>
 
                         <p class="blank_slate">Keep notes and important information in Text Documents</p>
 
                         <section class="documents in_project project_documents">
-                            <article class="document" id="document_12905846" data-behavior="link_container">
+                            <article class="document" id="document_12905846" data-behavior="link_container"
+                                     v-for="doc in project.document_detail">
                                 <div class="wrapper">
                                     <div class="column icon">
                                         <span class="text-doc-icon"></span>
@@ -1802,78 +1735,13 @@
                                             <div class="wrap">
                                                 <header>
                                                     <a href="/2501285/projects/6590988/documents/12905846">
-                                                        <h3 data-role="live_filter_highlight">TTHAIRSOLUTIONS :- local
-                                                            and live details</h3>
+                                                        <h3 data-role="live_filter_highlight">{{doc.document_title}}</h3>
                                                     </a>
                                                     <p class="project">From the project:
-                                                        <a data-default-stack="true" href="/2501285/projects/6590988">Random
-                                                        Projects</a></p>
-
-
+                                                        <a data-default-stack="true" href="/2501285/projects/6590988">{{projectName}}</a></p>
                                                 </header>
 
-                                                <div class="formatted_content">
-                                                    <div>
-                                                        <b>LOCAL DETAILS :-&nbsp;<br></b><b>Link:</b>&nbsp;<a
-                                                            href="http://116.193.163.162:4074/tthairsolutions">http://116.193.163.162:4074/tthairsolutions</a><br><br><b>Wordpress
-                                                        login details<br></b>URL :&nbsp;<a
-                                                            href="http://116.193.163.162:4074/tthairsolutions">http://116.193.163.162:4074/tthairsolutions</a>/wp-admin/&nbsp;<br>User
-                                                        : HairSolutions&nbsp;<br>Pass :
-                                                        9sW)D@lTT6qEdQ)d)T<br><b><br></b>
-                                                    </div>
-                                                    <div>
-                                                        <div><b>FTP Detail:</b></div>
-                                                        <div>Server: 192.168.0.78</div>
-                                                        <div>User: tthairsoluftpuser</div>
-                                                        <div>Pass: ji0&amp;6yhv!@J92</div>
-                                                        <div><br></div>
-                                                        <div><b>DB Detail:</b></div>
-                                                        <div>Server: localhost</div>
-                                                        <div>DBName: tthairsoludb</div>
-                                                        <div>DBUser: tthairsoludb</div>
-                                                        <div>Pass: kj09^h1v2g@cw</div>
-                                                        <b>*****************************************************************************<br><br>Live
-                                                            login details</b><br>URL :&nbsp;<a data-behavior="truncate"
-                                                                                               href="http://tthairsolutions.com/wp-admin/"
-                                                                                               target="_blank">http://tthairsolutions.com/wp-admin/</a>
-                                                        <br>User : HairSolutions <br>Pass : 9sW)D@lTT6qEdQ)d)T<br>
-                                                    </div>
-                                                    <div><br></div>
-                                                    <div>
-                                                        <b>godaddy details :</b><br>52893053
-                                                    </div>
-                                                    <div>Pinkietwo3243</div>
-                                                    <div><br></div>
-                                                    <div>
-                                                        <div><b>FTP Detail:</b></div>
-                                                        <div>Server: <a href="http://tthairsolutions.com">tthairsolutions.com</a>
-                                                        </div>
-                                                        <div>User: tthairfinal</div>
-                                                        <div>Pass: knYh32!@lkh</div>
-                                                        <div><br></div>
-                                                        <div>
-                                                            <b>DB Details : </b><br>
-                                                        </div>
-                                                        <div>DB Name :&nbsp;&nbsp;&nbsp;&nbsp; tthairDBuser<br>
-                                                        </div>
-                                                        <div>DB User :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            tthairDBuser<br>
-                                                        </div>
-                                                        DB Pass :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nazipunks1!
-                                                    </div>
-                                                    <br>
-                                                    <div>
-                                                        <b>DB Server:</b> <a
-                                                            href="http://tthairDBuser.db.9411954.hostedresource.com"
-                                                            title="Link: http://tthairDBuser.db.9411954.hostedresource.com">tthairDBuser.db.9411954.hostedresource.com</a>
-                                                    </div>
-                                                    <div><br></div>
-                                                    <div>
-                                                        <b>phpMyAdmin Link: </b><a
-                                                            href="https://sg2nlsmysqladm1.secureserver.net/grid55/5"
-                                                            title="Link: https://sg2nlsmysqladm1.secureserver.net/grid55/5">https://sg2nlsmysqladm1.secureserver.net/grid55/5</a>
-                                                    </div>
-                                                    <br></div>
+                                                <div class="formatted_content">{{doc.document_body}}</div>
                                             </div>
 
                                             <div class="truncated"></div>
@@ -1891,8 +1759,13 @@
                                         <p class="project">From the project: Random Projects</p>
 
                                         <span class="action">
-                                            <span class="description">Saved by</span> Harishanker ..
-                                            <span class="description">on <time data-local="date" datetime="2017-11-09T07:20:04Z" title="November 9, 2017 at 12:50pm " data-localized="true">Nov 9</time></span>
+                                            <span class="description">Saved by</span> {{doc.created_by.name}}
+                                            <span class="description">on
+                                                <time data-local="date"
+                                                      :datetime="doc.created_at"
+                                                      :title="doc.created_at_noob"
+                                                      data-localized="true">{{doc.created_at_human}}</time>
+                                            </span>
                                         </span>
 
                                     </div>
@@ -1961,6 +1834,15 @@
                 .catch(function (error) {
                     console.log(error);
                 });
+
+
+            window.onscroll = function(ev) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    // you're at the bottom of the page
+                    console.log('you reached end');
+                }
+            };
+
         }
     }
 </script>

@@ -30,6 +30,10 @@ Vue.component('create-new-document-component', require('./components/document/Cr
 Vue.component('view-document-component', require('./components/document/ViewComponent.vue'));
 Vue.component('index-document-component', require('./components/document/IndexDocumentComponent.vue'));
 
+
+
+
+
 const app = new Vue({
     el: '#app'
 });
