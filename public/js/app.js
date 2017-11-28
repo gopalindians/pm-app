@@ -1072,7 +1072,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(72);
+module.exports = __webpack_require__(75);
 
 
 /***/ }),
@@ -1108,7 +1108,7 @@ Vue.component('edit-message-component', __webpack_require__(63));
 
 Vue.component('create-new-document-component', __webpack_require__(66));
 Vue.component('view-document-component', __webpack_require__(69));
-Vue.component('index-document-component', __webpack_require__(82));
+Vue.component('index-document-component', __webpack_require__(72));
 
 var app = new Vue({
   el: '#app'
@@ -45176,133 +45176,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ProjectViewComponent',
@@ -45330,6 +45203,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).catch(function (error) {
             console.log(error);
         });
+
+        window.onscroll = function (ev) {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                // you're at the bottom of the page
+                console.log('you reached end');
+            }
+        };
     }
 });
 
@@ -45968,7 +45848,119 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(13, false, false),
+                  _c(
+                    "section",
+                    { staticClass: "documents in_project project_documents" },
+                    _vm._l(_vm.project.document_detail, function(doc) {
+                      return _c(
+                        "article",
+                        {
+                          staticClass: "document",
+                          attrs: {
+                            id: "document_12905846",
+                            "data-behavior": "link_container"
+                          }
+                        },
+                        [
+                          _c("div", { staticClass: "wrapper" }, [
+                            _vm._m(13, true, false),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "column content" }, [
+                              _c("div", { staticClass: "document_page" }, [
+                                _c("div", { staticClass: "wrap" }, [
+                                  _c("header", [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          href:
+                                            "/2501285/projects/6590988/documents/12905846"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "h3",
+                                          {
+                                            attrs: {
+                                              "data-role":
+                                                "live_filter_highlight"
+                                            }
+                                          },
+                                          [_vm._v(_vm._s(doc.document_title))]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "project" }, [
+                                      _vm._v(
+                                        "From the project:\n                                                        "
+                                      ),
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            "data-default-stack": "true",
+                                            href: "/2501285/projects/6590988"
+                                          }
+                                        },
+                                        [_vm._v(_vm._s(_vm.projectName))]
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "formatted_content" },
+                                    [_vm._v(_vm._s(doc.document_body))]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "truncated" })
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(14, true, false),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "column updater" }, [
+                              _c("p", { staticClass: "project" }, [
+                                _vm._v("From the project: Random Projects")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "action" }, [
+                                _c("span", { staticClass: "description" }, [
+                                  _vm._v("Saved by")
+                                ]),
+                                _vm._v(
+                                  " " +
+                                    _vm._s(doc.created_by.name) +
+                                    "\n                                            "
+                                ),
+                                _c("span", { staticClass: "description" }, [
+                                  _vm._v(
+                                    "on\n                                                "
+                                  ),
+                                  _c(
+                                    "time",
+                                    {
+                                      attrs: {
+                                        "data-local": "date",
+                                        datetime: doc.created_at,
+                                        title: doc.created_at_noob,
+                                        "data-localized": "true"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(doc.created_at_human))]
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(15, true, false)
+                          ])
+                        ]
+                      )
+                    })
+                  ),
                   _vm._v(" "),
                   _c("p", { staticClass: "more_documents" }, [
                     _c(
@@ -45990,7 +45982,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(14, false, false)
+              _vm._m(16, false, false)
             ])
           ]
         )
@@ -51686,343 +51678,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      { staticClass: "documents in_project project_documents" },
-      [
-        _c(
-          "article",
-          {
-            staticClass: "document",
-            attrs: {
-              id: "document_12905846",
-              "data-behavior": "link_container"
-            }
-          },
-          [
-            _c("div", { staticClass: "wrapper" }, [
-              _c("div", { staticClass: "column icon" }, [
-                _c("span", { staticClass: "text-doc-icon" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column content" }, [
-                _c("div", { staticClass: "document_page" }, [
-                  _c("div", { staticClass: "wrap" }, [
-                    _c("header", [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href: "/2501285/projects/6590988/documents/12905846"
-                          }
-                        },
-                        [
-                          _c(
-                            "h3",
-                            { attrs: { "data-role": "live_filter_highlight" } },
-                            [
-                              _vm._v(
-                                "TTHAIRSOLUTIONS :- local\n                                                            and live details"
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "project" }, [
-                        _vm._v(
-                          "From the project:\n                                                        "
-                        ),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "data-default-stack": "true",
-                              href: "/2501285/projects/6590988"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "Random\n                                                        Projects"
-                            )
-                          ]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "formatted_content" }, [
-                      _c("div", [
-                        _c("b", [_vm._v("LOCAL DETAILS :- "), _c("br")]),
-                        _c("b", [_vm._v("Link:")]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href:
-                                "http://116.193.163.162:4074/tthairsolutions"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "http://116.193.163.162:4074/tthairsolutions"
-                            )
-                          ]
-                        ),
-                        _c("br"),
-                        _c("br"),
-                        _c("b", [
-                          _vm._v(
-                            "Wordpress\n                                                        login details"
-                          ),
-                          _c("br")
-                        ]),
-                        _vm._v("URL : "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href:
-                                "http://116.193.163.162:4074/tthairsolutions"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "http://116.193.163.162:4074/tthairsolutions"
-                            )
-                          ]
-                        ),
-                        _vm._v("/wp-admin/ "),
-                        _c("br"),
-                        _vm._v(
-                          "User\n                                                        : HairSolutions "
-                        ),
-                        _c("br"),
-                        _vm._v(
-                          "Pass :\n                                                        9sW)D@lTT6qEdQ)d)T"
-                        ),
-                        _c("br"),
-                        _c("b", [_c("br")])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", [_c("b", [_vm._v("FTP Detail:")])]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("Server: 192.168.0.78")]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("User: tthairsoluftpuser")]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("Pass: ji0&6yhv!@J92")]),
-                        _vm._v(" "),
-                        _c("div", [_c("br")]),
-                        _vm._v(" "),
-                        _c("div", [_c("b", [_vm._v("DB Detail:")])]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("Server: localhost")]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("DBName: tthairsoludb")]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("DBUser: tthairsoludb")]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("Pass: kj09^h1v2g@cw")]),
-                        _vm._v(" "),
-                        _c("b", [
-                          _vm._v(
-                            "*****************************************************************************"
-                          ),
-                          _c("br"),
-                          _c("br"),
-                          _vm._v(
-                            "Live\n                                                            login details"
-                          )
-                        ]),
-                        _c("br"),
-                        _vm._v("URL : "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "data-behavior": "truncate",
-                              href: "http://tthairsolutions.com/wp-admin/",
-                              target: "_blank"
-                            }
-                          },
-                          [_vm._v("http://tthairsolutions.com/wp-admin/")]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v("User : HairSolutions "),
-                        _c("br"),
-                        _vm._v("Pass : 9sW)D@lTT6qEdQ)d)T"),
-                        _c("br")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [_c("br")]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("b", [_vm._v("godaddy details :")]),
-                        _c("br"),
-                        _vm._v(
-                          "52893053\n                                                    "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [_vm._v("Pinkietwo3243")]),
-                      _vm._v(" "),
-                      _c("div", [_c("br")]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", [_c("b", [_vm._v("FTP Detail:")])]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _vm._v("Server: "),
-                          _c(
-                            "a",
-                            { attrs: { href: "http://tthairsolutions.com" } },
-                            [_vm._v("tthairsolutions.com")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("User: tthairfinal")]),
-                        _vm._v(" "),
-                        _c("div", [_vm._v("Pass: knYh32!@lkh")]),
-                        _vm._v(" "),
-                        _c("div", [_c("br")]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("b", [_vm._v("DB Details : ")]),
-                          _c("br")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _vm._v("DB Name :     tthairDBuser"),
-                          _c("br")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _vm._v(
-                            "DB User :      \n                                                            tthairDBuser"
-                          ),
-                          _c("br")
-                        ]),
-                        _vm._v(
-                          "\n                                                        DB Pass :      Nazipunks1!\n                                                    "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("b", [_vm._v("DB Server:")]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href:
-                                "http://tthairDBuser.db.9411954.hostedresource.com",
-                              title:
-                                "Link: http://tthairDBuser.db.9411954.hostedresource.com"
-                            }
-                          },
-                          [_vm._v("tthairDBuser.db.9411954.hostedresource.com")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [_c("br")]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("b", [_vm._v("phpMyAdmin Link: ")]),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href:
-                                "https://sg2nlsmysqladm1.secureserver.net/grid55/5",
-                              title:
-                                "Link: https://sg2nlsmysqladm1.secureserver.net/grid55/5"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "https://sg2nlsmysqladm1.secureserver.net/grid55/5"
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("br")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "truncated" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column date" }, [
-                _c("span", { staticClass: "description" }, [_vm._v("on ")]),
-                _vm._v(" "),
-                _c(
-                  "time",
-                  {
-                    attrs: {
-                      "data-local": "date",
-                      datetime: "2017-11-09T07:20:04Z",
-                      title: "November 9, 2017 at 12:50pm ",
-                      "data-localized": "true"
-                    }
-                  },
-                  [_vm._v("Nov 9\n                                        ")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column updater" }, [
-                _c("p", { staticClass: "project" }, [
-                  _vm._v("From the project: Random Projects")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "action" }, [
-                  _c("span", { staticClass: "description" }, [
-                    _vm._v("Saved by")
-                  ]),
-                  _vm._v(
-                    " Harishanker ..\n                                            "
-                  ),
-                  _c("span", { staticClass: "description" }, [
-                    _vm._v("on "),
-                    _c(
-                      "time",
-                      {
-                        attrs: {
-                          "data-local": "date",
-                          datetime: "2017-11-09T07:20:04Z",
-                          title: "November 9, 2017 at 12:50pm ",
-                          "data-localized": "true"
-                        }
-                      },
-                      [_vm._v("Nov 9")]
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column actions" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "button edit",
-                    attrs: {
-                      href: "/2501285/projects/6590988/documents/12905846/edit"
-                    }
-                  },
-                  [_vm._v("Edit…")]
-                )
-              ])
-            ])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "column icon" }, [
+      _c("span", { staticClass: "text-doc-icon" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column date" }, [
+      _c("span", { staticClass: "description" }, [_vm._v("on ")]),
+      _vm._v(" "),
+      _c(
+        "time",
+        {
+          attrs: {
+            "data-local": "date",
+            datetime: "2017-11-09T07:20:04Z",
+            title: "November 9, 2017 at 12:50pm ",
+            "data-localized": "true"
+          }
+        },
+        [_vm._v("Nov 9\n                                        ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column actions" }, [
+      _c(
+        "a",
+        {
+          staticClass: "button edit",
+          attrs: { href: "/2501285/projects/6590988/documents/12905846/edit" }
+        },
+        [_vm._v("Edit…")]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -63597,29 +63291,14 @@ if (false) {
 
 /***/ }),
 /* 72 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(83)
+var __vue_script__ = __webpack_require__(73)
 /* template */
-var __vue_template__ = __webpack_require__(84)
+var __vue_template__ = __webpack_require__(74)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -63659,7 +63338,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 83 */
+/* 73 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63847,7 +63526,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 84 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64359,6 +64038,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-38fe1aea", module.exports)
   }
 }
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
