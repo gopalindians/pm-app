@@ -153,7 +153,32 @@ class ProjectController extends Controller
             ->count();
 
 
+        $totalDocuments = DB::table('documents')
+            ->where('project_id', $id)
+            ->count();
+
         foreach ($project as $item) {
+
+            $item->total_documents = $totalDocuments;
+
+            $item->document_detail = DB::table('documents')
+                ->select('documents.*')
+                ->where('documents.project_id', $id)
+                ->orderBy('documents.updated_at', 'desc')->limit(5)->get();
+
+
+
+            foreach ($item->document_detail as $dd){
+                $dd->created_by=DB::table('users')->select('users.name')->where('id',$dd->creator_id)->first();
+
+                $dd->created_at_human = str_replace('before', 'ago', Carbon::parse($dd->created_at)->diffForHumans(Carbon::now()));
+                $dd->created_at_noob = Carbon::parse($dd->created_at)->format('l jS \\of F Y h:i:s A');
+                $dd->updated_at_human = str_replace('before', 'ago', Carbon::parse($dd->updated_at)->diffForHumans(Carbon::now()));
+                $dd->updated_at_noob = Carbon::parse($dd->updated_at)->format('l jS \\of F Y h:i:s A');
+            }
+
+
+
             $item->topic_detail = DB::table('topics')
                 ->select('topics.*')
                 ->where('topics.project_id', $id)
@@ -161,9 +186,6 @@ class ProjectController extends Controller
 
             foreach ($item->topic_detail as $i) {
                 $i->latest_comment = DB::table('topic_comments')->where('topic_id', $i->id)->orderBy('updated_at', 'desc')->first();
-
-
-
 
                 $i->created_at_human = str_replace('before', 'ago', Carbon::parse($i->created_at)->diffForHumans(Carbon::now()));
                 $i->created_at_noob = Carbon::parse($i->created_at)->format('l jS \\of F Y h:i:s A');
