@@ -26,7 +26,8 @@ class DocumentController extends Controller
 
         $documents = DB::table('documents')
             ->where('project_id', $projectId)
-            ->paginate(5);
+            ->orderBy('updated_at','desc')
+            ->paginate(6);
 
         foreach ($documents as $doc) {
 
@@ -48,7 +49,7 @@ class DocumentController extends Controller
     public function postNewDocument(Request $request)
     {
         $title = $request->post('document_title');
-        $body = $request->post('document_title');
+        $body = $request->post('document_body');
         $projectId = $request->route('id');
         $projectName = $request->route('name');
 
