@@ -11,6 +11,7 @@
 |
 */
 
+$sub_url=env('SUB_URL');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -61,3 +62,7 @@ Route::get('/project/{id}/{name?}/document/new', 'DocumentController@getNewDocum
 Route::post('/project/{id}/{name?}/document', 'DocumentController@postNewDocument');
 Route::get('/project/{id}/{name?}/document/{documentId}', 'DocumentController@getDocument');
 Route::get('/api/project/{id}/{name?}/document/{documentId}', 'DocumentController@apiGetDocument');
+
+//Search
+Route::get($sub_url.'/project/{id}/{name?}/search', 'SearchController@getSearch');
+Route::get($sub_url.'/api/project/{id}/{name?}/search', 'SearchController@getSearchQuery');
