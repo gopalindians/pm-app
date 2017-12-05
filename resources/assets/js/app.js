@@ -21,18 +21,20 @@ Vue.component('project-view-component', require('./components/project/ProjectVie
 Vue.component('todo-component', require('./components/todo/TodoComponent.vue'));
 Vue.component('topic-component', require('./components/topic/TopicComponent.vue'));
 
+//message component
 Vue.component('new-message-component', require('./components/message/NewMessageComponent.vue'));
 Vue.component('specific-message-component', require('./components/message/SpecificMessageComponent.vue'));
 Vue.component('edit-message-component', require('./components/message/EditMessageComponent.vue'));
 
-
+//document component
 Vue.component('create-new-document-component', require('./components/document/CreateNewDocumentComponent.vue'));
 Vue.component('view-document-component', require('./components/document/ViewComponent.vue'));
 Vue.component('index-document-component', require('./components/document/IndexDocumentComponent.vue'));
 
 
 
-
+//search component
+Vue.component('search-component', require('./components/search/SearchComponent.vue'));
 
 const app = new Vue({
     el: '#app'
