@@ -25,24 +25,24 @@
             @if(count($projects)==0)
                 <div class="col-md-3">
                     <div class="start_porject">
-                        <a href="/createProject">
+                        <a href="{{ \App\CH::getUrl('')}}">
                             <div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                            <p>Add new porject</p></a>
+                            <p>Add new project</p></a>
                     </div>
                 </div>
             @else
                 <div class="col-md-3">
                     <div class="start_porject">
-                        <a href="/createProject">
+                        <a href="{{ \App\CH::getUrl('createProject')}}">
                             <div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                            <p>Add new porject</p></a>
+                            <p>Add new project</p></a>
                     </div>
                 </div>
                 <div class="row">
                     @foreach($projects as $project)
                         <div class="col-md-3">
                             <div class="project_grid">
-                                <h1><a href="/project/{{$project->project_id}}/{{$project->project_name}}">{{$project->project_name}}</a></h1>
+                                <h1><a href="{{   \App\CH::getUrl( 'project/'.$project->project_id .'/'.$project->project_name)}}">{{$project->project_name}}</a></h1>
                                 <p class="bill_team"><span>Description :</span> {{$project->project_description}}</p>
                                 <div class="last_update">
 
