@@ -4,20 +4,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-6">
-                        <div id="imaginary_container">
-                            <div class="input-group stylish-input-group">
-                                <form method="GET" :action="'/project/'+projectId+'/'+projectName+'/search?q='+query">
-                                    <input type="text" class="form-control" placeholder="Search" v-model="query"
-                                           name="q">
-                                    <button class="action_button button" data-behavior="create_document"
-                                            type="submit">
-                                        <span class="input-group-addon"><span class=""><i class="fa fa-search"
-                                                                                          aria-hidden="true"></i></span></span>
-                                    </button>
-
-                                </form>
-                            </div>
-                        </div>
                         <!--<div class="grid_list pull-right">
                             <div class="grid_view pull-left"><a href="#"><img src="images/grid_view.png" /></a></div>
                             <div class="list_view pull-left"><a href="#"><img src="images/list_view.png" /></a></div>
@@ -29,7 +15,7 @@
         <div class="container">
             <div class="search_list">
                 <div class="search_title">
-                    <h1>Searching for <span><a :href="'/project/'+projectId+'/'+projectName+'/search?q='+query">{{query}}</a></span>
+                    <h1>Searching for <span><a :href="home_page+'search?q='+query">{{query}}</a></span>
                     </h1>
                     <p><span>All matches </span>by <span>anyone</span> in <span>all projects and calendars</span></p>
                 </div>
@@ -41,10 +27,10 @@
                 <div class="search_res" v-for="result in results" v-if="!resultEmpty">
 
 
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-md-2">
                             <div class="emp_img">
-                                <img src="/images/employee_img.jpg" class="img-responsive">
+                                <img :src="asset_url+'images/employee_img.jpg'" class="img-responsive">
                             </div>
                         </div>
                         <div class="col-md-10">
@@ -91,7 +77,9 @@
                 query: '',
                 csrf_token: '',
                 results: '',
-                resultEmpty: false
+                resultEmpty: false,
+                home_page: '',
+                asset_url: '',
 
             }
         },
@@ -99,29 +87,12 @@
             let self = this;
 
             this.csrf_token = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
-            let home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
-            let sub_url = document.querySelector("meta[name='sub-url']").getAttribute("content");
-
-            console.log('Home_page ' + home_page);
-
-
-            let url = window.location.href;
-            let new_url = url.replace(home_page, ' ');
-
-            console.log('URL ' + url);
-
-            console.log('new url' + new_url);
-
-            let segmentableUrl = new_url.split('/');
-
-            console.log('segmentable url ' + segmentableUrl);
-
-            this.projectId = segmentableUrl[1];
-            this.projectName = segmentableUrl[2];
+            this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
 
             self.query = self.getParameterByName('q') ? self.getParameterByName('q') : '';
 
-            axios.get(sub_url + '/api/project/' + this.projectId + '/' + this.projectName + '/search?q=' + self.query)
+            axios.get(this.home_page + 'api/search?q=' + self.query)
                 .then(function (response) {
                     console.log(response.data);
                     self.results = response.data;

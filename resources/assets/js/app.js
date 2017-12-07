@@ -36,6 +36,8 @@ Vue.component('index-document-component', require('./components/document/IndexDo
 //search component
 Vue.component('search-component', require('./components/search/SearchComponent.vue'));
 
+//people component
+Vue.component('people-component', require('./components/people/PeopleComponent'));
 const app = new Vue({
     el: '#app'
 });
