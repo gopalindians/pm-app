@@ -158,9 +158,11 @@
 
                         <p class="more_topics">
                             <a class="decorated"
-                               :href="'/project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open discussions</a>
+                               :href="'/project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open
+                                discussions</a>
                             •
-                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/topics/archived'">1 archived discussion</a>
+                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/topics/archived'">1
+                                archived discussion</a>
                         </p>
                     </section>
 
@@ -1724,7 +1726,11 @@
 
                         <section class="documents in_project project_documents">
                             <article class="document" id="document_12905846" data-behavior="link_container"
+<<<<<<< Updated upstream
                                      v-for="doc in project.document_detail">
+=======
+                                     v-for="document in project.document_detail">
+>>>>>>> Stashed changes
                                 <div class="wrapper">
                                     <div class="column icon">
                                         <span class="text-doc-icon"></span>
@@ -1734,6 +1740,7 @@
                                         <div class="document_page">
                                             <div class="wrap">
                                                 <header>
+<<<<<<< Updated upstream
                                                     <a href="/2501285/projects/6590988/documents/12905846">
                                                         <h3 data-role="live_filter_highlight">{{doc.document_title}}</h3>
                                                     </a>
@@ -1742,6 +1749,21 @@
                                                 </header>
 
                                                 <div class="formatted_content">{{doc.document_body}}</div>
+=======
+                                                    <a :href="'/project/'+projectId+'/'+projectName+'/document/'+document.id">
+                                                        <h3 data-role="live_filter_highlight">
+                                                            {{document.document_title}}</h3>
+                                                    </a>
+                                                    <p class="project">From the project:
+                                                        <a data-default-stack="true"
+                                                           :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a>
+                                                    </p>
+                                                </header>
+
+                                                <div class="formatted_content">
+                                                    {{document.document_body}}
+                                                </div>
+>>>>>>> Stashed changes
                                             </div>
 
                                             <div class="truncated"></div>
@@ -1756,15 +1778,22 @@
                                     </div>
 
                                     <div class="column updater">
-                                        <p class="project">From the project: Random Projects</p>
+                                        <p class="project">From the project: {{projectName}}</p>
 
                                         <span class="action">
+
                                             <span class="description">Saved by</span> {{doc.created_by.name}}
                                             <span class="description">on
                                                 <time data-local="date"
                                                       :datetime="doc.created_at"
                                                       :title="doc.created_at_noob"
                                                       data-localized="true">{{doc.created_at_human}}</time>
+                                            <span class="description">Saved by</span> {{document.user_name}}
+                                            <span class="description">on
+                                                <time data-local="date"
+                                                      :datetime="document.created_at"
+                                                      :title="document.created_at_noob"
+                                                      data-localized="true">{{document.created_at_human}}</time>
                                             </span>
                                         </span>
 
@@ -1772,20 +1801,20 @@
 
                                     <div class="column actions">
                                         <a class="button edit" href="/2501285/projects/6590988/documents/12905846/edit">Edit…</a>
-
                                     </div>
                                 </div>
                             </article>
                         </section>
 
                         <p class="more_documents">
-                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/documents'">18 more documents</a>
+                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}}
+                                &nbsp; more documents</a>
                         </p>
                     </section>
 
                     <section class="forwards" data-collection-name="forwards" style="display: none;">
                         <header class="has_buttons">
-                            <h1><a href="/2501285/projects/6590988/forwards">Forwarded emails</a></h1>
+                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/forwards'">Forwarded emails</a></h1>
 
                             <a class="action_button button" href="/2501285/projects/6590988/dropbox#emails">Forward an
                                 email</a>
