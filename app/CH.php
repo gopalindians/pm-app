@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leadingedge-new
- * Date: 12/7/2017
- * Time: 3:06 PM
- */
 
 namespace App;
 
