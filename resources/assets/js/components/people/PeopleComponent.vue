@@ -13,12 +13,15 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="profile_info">
-                                        <h2>{ {user[0]->name}}<span>(Web Designer)</span></h2>
+                                        <h2>{{result.name}}<span> (Web Designer)</span></h2>
                                         <ul>
-                                            <li><i class="fa fa-envelope" aria-hidden="true"></i> : { { user[0]->email}}
+                                            <li><i class="fa fa-envelope" aria-hidden="true"></i> : {{result.email}}
                                             </li>
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i> : 01-10-2017</li>
-                                            <li><i class="fa fa-birthday-cake" aria-hidden="true"></i> : 27-11-1990</li>
+                                            <li><i class="fa fa-calendar" aria-hidden="true"></i> :
+                                                {{result.created_at}}
+                                            </li>
+                                            <li><i class="fa fa-birthday-cake" aria-hidden="true"></i> : {{result.dob}}
+                                            </li>
                                             <li><i class="fa fa-phone" aria-hidden="true"></i> : +91 980 592 0000</li>
                                         </ul>
                                     </div>
@@ -27,7 +30,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="right_side text-right">
-                                <ul>
+                                <ul v-if="author">
                                     <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>
                                     <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                                     </li>
@@ -120,12 +123,14 @@
                 open: true,
                 projectId: '',
                 projectName: '',
-                results: '',
+                result: '',
                 resultEmpty: false,
                 home_page: '',
                 asset_url: '',
-                routePath:'',
-                routeParameter:''
+                routePath: '',
+                routeParameter: '',
+                authUserId: '',
+                author: false
 
             }
         },
@@ -133,21 +138,22 @@
             let self = this;
             this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
             this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
+            this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
+
 
             self.query = self.getParameterByName('q') ? self.getParameterByName('q') : '';
 
             let u = window.location.href;
 
             let route = u.replace(this.home_page, '').split('/');
-
-            this.routePath=route[0];
-            this.routeParameter=route[1];
-
-            axios.get(this.home_page + 'people/' + this.routeParameter)
+            this.routePath = route[0];
+            this.routeParameter = route[1];
+            axios.get(this.home_page + 'api/people/' + this.routeParameter)
                 .then(function (response) {
-                    console.log(response.data);
-                    self.results = response.data;
-                    self.resultEmpty = self.results.length <= 0;
+                    self.result = response.data;
+                    if(self.result.id==self.authUserId){
+                        self.author=true;
+                    }
                 })
                 .catch(function (error) {
                     console.log(error);

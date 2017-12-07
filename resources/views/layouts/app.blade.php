@@ -11,6 +11,8 @@
     <meta name="asset-url" content="{{\App\CH::getAssetUrl('') }}">
     <meta name="project-id" content="{{  Request::segment(2) }}">
     <meta name="project-name" content="{{ Request::segment(3) }}">
+
+    <meta name="auth-user-id" content="{{ Auth::id() }}">
     <title>@yield('title') - {{ config('', 'LeadCamp') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
