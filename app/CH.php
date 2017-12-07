@@ -20,12 +20,12 @@ class CH
     /**
      * public directory name
      */
-    public const PUBLIC_DIR_NAME = 'public/';
+     const PUBLIC_DIR_NAME = 'public/';
 
     /**
      * index script name
      */
-    public const INDEX_SCRIPT_NAME = 'index.php/';
+    const INDEX_SCRIPT_NAME = 'index.php/';
 
 
     /**
