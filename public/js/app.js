@@ -1072,7 +1072,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(78);
+module.exports = __webpack_require__(81);
 
 
 /***/ }),
@@ -1116,7 +1116,8 @@ Vue.component('index-document-component', __webpack_require__(72));
 Vue.component('search-component', __webpack_require__(75));
 
 //people component
-Vue.component('people-component', __webpack_require__(88));
+Vue.component('people-component', __webpack_require__(78));
+
 var app = new Vue({
   el: '#app'
 });
@@ -64408,29 +64409,14 @@ if (false) {
 
 /***/ }),
 /* 78 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(89)
+var __vue_script__ = __webpack_require__(79)
 /* template */
-var __vue_template__ = __webpack_require__(90)
+var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -64470,11 +64456,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 89 */
+/* 79 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -64597,12 +64586,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             open: true,
             projectId: '',
             projectName: '',
-            results: '',
+            result: '',
             resultEmpty: false,
             home_page: '',
             asset_url: '',
             routePath: '',
-            routeParameter: ''
+            routeParameter: '',
+            authUserId: '',
+            author: false
 
         };
     },
@@ -64610,20 +64601,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var self = this;
         this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
         this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
+        this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
 
         self.query = self.getParameterByName('q') ? self.getParameterByName('q') : '';
 
         var u = window.location.href;
 
         var route = u.replace(this.home_page, '').split('/');
-
         this.routePath = route[0];
         this.routeParameter = route[1];
-
-        axios.get(this.home_page + 'people/' + this.routeParameter).then(function (response) {
-            console.log(response.data);
-            self.results = response.data;
-            self.resultEmpty = self.results.length <= 0;
+        axios.get(this.home_page + 'api/people/' + this.routeParameter).then(function (response) {
+            self.result = response.data;
+            if (self.result.id == self.authUserId) {
+                self.author = true;
+            }
         }).catch(function (error) {
             console.log(error);
         });
@@ -64643,7 +64634,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 90 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64668,14 +64659,71 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(0, false, false)
+                _c("div", { staticClass: "col-md-8" }, [
+                  _c("div", { staticClass: "profile_info" }, [
+                    _c("h2", [
+                      _vm._v(_vm._s(_vm.result.name)),
+                      _c("span", [_vm._v(" (Web Designer)")])
+                    ]),
+                    _vm._v(" "),
+                    _c("ul", [
+                      _c("li", [
+                        _c("i", {
+                          staticClass: "fa fa-envelope",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(
+                          " : " +
+                            _vm._s(_vm.result.email) +
+                            "\n                                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("i", {
+                          staticClass: "fa fa-calendar",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(
+                          " :\n                                            " +
+                            _vm._s(_vm.result.created_at) +
+                            "\n                                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("i", {
+                          staticClass: "fa fa-birthday-cake",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(
+                          " : " +
+                            _vm._s(_vm.result.dob) +
+                            "\n                                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(0, false, false)
+                    ])
+                  ])
+                ])
               ])
             ]),
             _vm._v(" "),
-            _vm._m(1, false, false)
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "right_side text-right" }, [
+                _vm.author
+                  ? _c("ul", [
+                      _vm._m(1, false, false),
+                      _vm._v(" "),
+                      _vm._m(2, false, false)
+                    ])
+                  : _vm._e()
+              ])
+            ])
           ]),
           _vm._v(" "),
-          _vm._m(2, false, false),
+          _vm._m(3, false, false),
           _vm._v(" "),
           _c("section", { staticClass: "shared_files" }, [
             _c("h2", [_vm._v("Your shared files")]),
@@ -64706,7 +64754,7 @@ var render = function() {
                           _c("span", [_vm._v("Added by Ashish S. on Dec 1")])
                         ]),
                         _vm._v(" "),
-                        _vm._m(3, false, false)
+                        _vm._m(4, false, false)
                       ])
                     ])
                   ]
@@ -64736,7 +64784,7 @@ var render = function() {
                           _c("span", [_vm._v("Added by Ashish S. on Dec 1")])
                         ]),
                         _vm._v(" "),
-                        _vm._m(4, false, false)
+                        _vm._m(5, false, false)
                       ])
                     ])
                   ]
@@ -64754,48 +64802,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-8" }, [
-      _c("div", { staticClass: "profile_info" }, [
-        _c("h2", [
-          _vm._v("{ {user[0]->name}}"),
-          _c("span", [_vm._v("(Web Designer)")])
-        ]),
-        _vm._v(" "),
-        _c("ul", [
-          _c("li", [
-            _c("i", {
-              staticClass: "fa fa-envelope",
-              attrs: { "aria-hidden": "true" }
-            }),
-            _vm._v(
-              " : { { user[0]->email}}\n                                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", {
-              staticClass: "fa fa-calendar",
-              attrs: { "aria-hidden": "true" }
-            }),
-            _vm._v(" : 01-10-2017")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", {
-              staticClass: "fa fa-birthday-cake",
-              attrs: { "aria-hidden": "true" }
-            }),
-            _vm._v(" : 27-11-1990")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", {
-              staticClass: "fa fa-phone",
-              attrs: { "aria-hidden": "true" }
-            }),
-            _vm._v(" : +91 980 592 0000")
-          ])
-        ])
+    return _c("li", [
+      _c("i", { staticClass: "fa fa-phone", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" : +91 980 592 0000")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fa fa-cog", attrs: { "aria-hidden": "true" } }),
+        _vm._v("Settings")
       ])
     ])
   },
@@ -64803,29 +64822,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("div", { staticClass: "right_side text-right" }, [
-        _c("ul", [
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("i", {
-                staticClass: "fa fa-cog",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v("Settings")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("i", {
-                staticClass: "fa fa-pencil-square-o",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v("Edit")
-            ])
-          ])
-        ])
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("i", {
+          staticClass: "fa fa-pencil-square-o",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v("Edit")
       ])
     ])
   },
@@ -64932,6 +64935,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-e5eb9950", module.exports)
   }
 }
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
