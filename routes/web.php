@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/people/{people_id}', 'ProfileController@index');
+
 
 Route::prefix('profile')->group(function () {
     Route::get('/edit/{id}', 'ProfileController@editProfile');
@@ -68,4 +68,6 @@ Route::get('/api/search', 'SearchController@getSearchQuery');
 
 //people
 
+Route::get('/people/{people_id}', 'PeopleController@index');
 Route::get('/api/people/{people_id}', 'PeopleController@getPeople');
+
