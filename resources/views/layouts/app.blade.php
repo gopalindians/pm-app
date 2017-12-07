@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="home-page" content="{{env('APP_URL') }}">
+    <meta name="home-page" content="{{\App\CH::getUrl('') }}">
     <meta name="sub-url" content="{{env('SUB_URL') }}">
+    <meta name="asset-url" content="{{\App\CH::getAssetUrl('') }}">
+    <meta name="project-id" content="{{  Request::segment(2) }}">
+    <meta name="project-name" content="{{ Request::segment(3) }}">
     <title>@yield('title') - {{ config('', 'LeadCamp') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <!-- new file -->
-{{--    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"/>--}}
+    {{--    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"/>--}}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Custom styles for this template -->
@@ -51,16 +54,27 @@
                 <ul class="nav navbar-nav">
                     @auth
                         <li>
-                            <a href="/projects">Projects</a>
+                            <a href="{{url('projects')}}">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/team">Team</a>
+                            <a class="nav-link" href="{{url('team')}}">Team</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/you">You</a>
+                            <a class="nav-link" href="{{url('people/'.auth()->id())}}">You</a>
                         </li>
                     @endauth&nbsp;
                 </ul>
+                <div class="col-sm-3 col-md-3">
+
+                    <form method="GET" class="navbar-form" action="{{\App\CH::getUrl('search')}}" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="q">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -68,32 +82,32 @@
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false" aria-haspopup="true">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="/profile/edit/{{Auth::id() }}">
-                                            Edit Profile
-                                        </a>
-                                        <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/profile/edit/{{Auth::id() }}">
+                                        Edit Profile
+                                    </a>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+                                        Logout
+                                    </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                              style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                            @endguest
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endguest
                 </ul>
             </div>
         </div>
