@@ -11,12 +11,11 @@
 |
 */
 
-$sub_url=env('SUB_URL');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/you', 'ProfileController@index')->name('you');
+Route::get('/people/{people_id}', 'ProfileController@index');
 
 Route::prefix('profile')->group(function () {
     Route::get('/edit/{id}', 'ProfileController@editProfile');
@@ -64,5 +63,9 @@ Route::get('/project/{id}/{name?}/document/{documentId}', 'DocumentController@ge
 Route::get('/api/project/{id}/{name?}/document/{documentId}', 'DocumentController@apiGetDocument');
 
 //Search
-Route::get($sub_url.'/project/{id}/{name?}/search', 'SearchController@getSearch');
-Route::get($sub_url.'/api/project/{id}/{name?}/search', 'SearchController@getSearchQuery');
+Route::get('/search', 'SearchController@getSearch');
+Route::get('/api/search', 'SearchController@getSearchQuery');
+
+//people
+
+Route::get('/api/people/{people_id}', 'PeopleController@getPeople');
