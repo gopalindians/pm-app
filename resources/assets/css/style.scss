@@ -1,0 +1,111 @@
+$background: #eaeaea;
+$font-stack: Roboto, sans-serif;
+$primary-color: #333;
+$color_gray: red;
+
+/*--Header--*/
+$header_bg:transparent;
+$head_padding: 20px 0px;
+$head_nav_color: #222222;
+$head_nav_color_hover: #0071bc;
+$head_nav_font: 18px;
+$head_nav_pading: 0px 15px;
+$login_bg: #0071bc;
+/*--//Header--*/
+
+/*--search_view--*/
+$margin_top: 2em;
+$margin_bottom: 2em;
+$grid_list_pad: 4px 0;
+$float_left: left;
+$float_right:right;
+$width_85:85%;
+$bdr-radius0:0px;
+/*--// search_view--*/
+
+/*--all porjects--*/
+$background_dark_blue:#0071bc;
+$color_blue:#0071bc;
+$start_border: 2px solid#045890;
+$box-min_height:260px;
+$box-min_width:260px;
+$box-height-auto:auto;
+$white_bg:#fff;
+$white_text:#fff;
+$plus_h: 70px;
+$plus_w: 70px;
+$vertical_middle:middle;
+$table_cell: table-cell;
+$text_center: center;
+$border_50:50%;
+$start_porject_font:24px;
+$start_porject_title:16px;
+$font_uppercase:uppercase; 
+$margin-top10: 10px;
+$font_16:16px;
+$font_15:15px;
+$font_14:14px;
+$font_12:12px;
+$font_weight3:300;
+$font_weightBold:bold;
+$allProject_bg:#fafafa;
+$allProject_border:1px solid#c9c9c9;
+$all_padding:10px;
+$padding-l-r-10:0 10px;
+$margin-0:0px;
+$grid_color_id:#959595;
+$position-r:relative;
+$position-ab:absolute;
+$position-static:static;
+$grid-pos:0;
+$width-full: 100%;
+$grid-border:1px solid#e0e0e0;
+$margin-30:30px;
+$margin-auto: 0 auto;
+$cursor_point:pointer;
+$border-radius-0:0px;
+$filter-grayscale:grayscale(100%);
+/*--// all porjects--*/
+
+/*--pagination--*/
+$display-flex:inline-flex;
+/*--// pagination--*/
+
+body {font: 100% $font-stack;color: $primary-color;background: $background;}
+.head_navbar{padding: $head_padding;}
+.head_navbar .main_nav a{color:$head_nav_color;font-size:$head_nav_font;padding:$head_nav_pading;}
+.head_navbar .main_nav a:hover{color:$head_nav_color_hover;}
+.login_btn button{background:$login_bg; cursor:$cursor_point;border-radius: $border-radius-0;}
+.search_view{margin-top:$margin_top;margin-bottom:$margin_bottom;}
+/*--Grid View--*/
+.grid_list{padding:$grid_list_pad;}
+.search_view #imaginary_container{float:$float_left;width:$width_85;}
+.start_porject{background:$background_dark_blue; border:$start_border;height:$box-min_height;text-align:$text_center;vertical-align:$vertical_middle;width:$box-min_width;display:$table_cell;}
+.plus_icon{background:$white_bg;height:$plus_h;width:$plus_w;vertical-align:$vertical_middle;display:$table_cell;text-align:$text_center;border-radius:$border_50;}
+.start_porject a i{color:$color_blue;font-size:$start_porject_font;}
+.start_porject p{color:$white_text;font-size:$start_porject_title;text-transform:$font_uppercase;margin-top:$margin-top10;}
+.all_project .grid_title{font-size:$font_16; text-transform:$font_uppercase; font-weight:$font_weight3;}
+.all_project .project_grid h1{font-size:$font_16;font-weight:$font_weightBold;padding:$all_padding;margin-bottom:margin-b-0;}
+.all_project .project_grid h1 a{color:$head_nav_color;}
+.project_grid{background:$allProject_bg;border:$allProject_border;position:$position-r; height:$box-min_height;}
+.project_grid .bill_id{font-size:$font_14;color:$grid_color_id; padding:$padding-l-r-10;margin-bottom:$margin-0}
+.project_grid .bill_team{font-size:$font_14;color:$grid_color_id;padding:$padding-l-r-10;}
+.project_grid .bill_id span{font-size:$font_15;}
+.project_grid .bill_team span{font-size:$font_15;}
+.project_grid .last_update{position:$position-ab;bottom:$grid-pos;width:$width-full;}
+.last_update p{font-size:$font_12;color:$grid_color_id;padding:$all_padding;margin-bottom:$margin-0;border-top:$grid-border;}
+.space-top{margin-top:$margin-30;}
+/*--// Grid View--*/
+
+.project_pagination{margin-top:$margin_top;margin-bottom:$margin_bottom;}
+.project_pagination nav{text-align:$text_center;}
+.project_pagination .pagination{display:$display-flex; margin:$margin-auto;}
+
+/*--List View--*/
+.list_add_porject button{cursor: $cursor_point;background:$background_dark_blue;border:$start_border;text-transform:$font_uppercase; border-radius: $border-radius-0;}
+.project_grid.project_list .last_update{position: $position-static;}
+.project_grid.project_list{height:$box-height-auto;}
+/*--// List View--*/
+
+
+.grid_view img {filter: $filter-grayscale;}
