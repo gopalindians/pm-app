@@ -14,7 +14,7 @@ class AddDobGenderPositionProfilePicToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->timestamp('dob')->nullable()->describe('Date of birth');
+            $table->text('dob')->nullable()->describe('Date of birth');
             $table->enum('gender', ['m', 'f', 't', 'nd'])->nullable()->describe('Gender: Male, Female, Trans gender,Not disclosed');
             $table->text('position')->nullable()->describe('Position at which the user is working');
             $table->text('profile_image')->nullable()->describe('Profile image of the user');
