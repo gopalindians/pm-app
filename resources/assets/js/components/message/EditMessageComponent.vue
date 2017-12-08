@@ -53,10 +53,13 @@
                                                       data-autosave-storage-key="autosave:ffffc0cb84516d6caf679d9e37086802">
                                                 {{messageName}}</textarea>
                                         </h3>
+
+
                                     </header>
 
                                     <div data-behavior="wysiwyg_container" data-wysiwyg-follow-threshold="116" style="">
-                                        <div data-behavior="wysiwyg_toolbar" style="display: block;">
+                                        <div  data-behavior="wysiwyg_toolbar"  style="display: block;">
+
                                             <!--    <a tabindex="-1" data-wysihtml5-command="bold" title="CTRL+B"
                                                    href="javascript:;" unselectable="on">Bold</a>
                                                 <a tabindex="-1" data-wysihtml5-command="italic" title="CTRL+I"
@@ -68,6 +71,9 @@
                                                 <a tabindex="-1" data-wysihtml5-command="pre" href="javascript:;"
                                                    unselectable="on">Quote</a>-->
                                         </div>
+
+                                        <textarea  class="body" rows="7" name="message_body"></textarea>
+
                                         <textarea class="body"
                                                   data-behavior="autosave autoresize wysiwyg dirty_tracking submit_on_control_enter"
                                                   data-role="accept_as_input" id="message_content"
@@ -85,12 +91,6 @@
                                             {{messageName}}
                                         </div>
 
-                                        <textarea class="body"
-                                                  data-behavior="autosave autoresize wysiwyg dirty_tracking submit_on_control_enter"
-                                                  data-role="accept_as_input"
-                                                  name="message[body]" rows="7"
-                                                  placeholder="Type your message here...">{{messageBody}}
-                                        </textarea>
                                         <!--<iframe class="wysihtml5-sandbox" security="restricted" allowtransparency="true"
                                                 frameborder="0" width="0" height="0" marginwidth="0" marginheight="0"
                                                 style="display: inline-block; background-color: rgb(255, 255, 255); border-collapse: separate;
