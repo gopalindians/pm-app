@@ -59088,6 +59088,11 @@ var render = function() {
                                     }
                                   }),
                                   _vm._v(" "),
+                                  _c("textarea", {
+                                    staticClass: "body",
+                                    attrs: { rows: "7", name: "message_body" }
+                                  }),
+                                  _vm._v(" "),
                                   _c(
                                     "textarea",
                                     {
@@ -59142,27 +59147,6 @@ var render = function() {
                                       _vm._v(
                                         "\n                                        " +
                                           _vm._s(_vm.messageName) +
-                                          "\n                                    "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "textarea",
-                                    {
-                                      staticClass: "body",
-                                      attrs: {
-                                        "data-behavior":
-                                          "autosave autoresize wysiwyg dirty_tracking submit_on_control_enter",
-                                        "data-role": "accept_as_input",
-                                        name: "message[body]",
-                                        rows: "7",
-                                        placeholder: "Type your message here..."
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        _vm._s(_vm.messageBody) +
                                           "\n                                    "
                                       )
                                     ]
