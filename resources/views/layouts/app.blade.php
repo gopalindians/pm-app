@@ -9,8 +9,14 @@
     <meta name="home-page" content="{{\App\CH::getUrl('') }}">
     <meta name="sub-url" content="{{env('SUB_URL') }}">
     <meta name="asset-url" content="{{\App\CH::getAssetUrl('') }}">
+
     <meta name="project-id" content="{{  Request::segment(2) }}">
     <meta name="project-name" content="{{ Request::segment(3) }}">
+
+    <meta name="topic-name" content="{{ Request::segment(5) }}">
+    <meta name="topic-id" content="{{ Request::segment(6) }}">
+
+    <meta name="message-id" content="{{ Request::segment(5) }}">
 
     <meta name="auth-user-id" content="{{ Auth::id() }}">
     <title>@yield('title') - {{ config('', 'LeadCamp') }}</title>
@@ -94,7 +100,7 @@
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/profile/edit/{{Auth::id() }}">
+                                    <a href="{{\App\CH::getUrl('profile/edit/'.Auth::id())}}">
                                         Edit Profile
                                     </a>
                                     <a href="{{ route('logout') }}"
