@@ -31,21 +31,21 @@
                     </div>
                 </div>
             @else
-                <div class="col-md-3">
-                    <div class="start_porject">
-                        <a href="{{ \App\CH::getUrl('createProject')}}">
-                            <div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                            <p>Add new project</p></a>
-                    </div>
-                </div>
+
                 <div class="row">
+                    <div class="col-md-3" style="margin-bottom: 30px;">
+                        <div class="start_porject">
+                            <a href="{{ \App\CH::getUrl('createProject')}}">
+                                <div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                <p>Add new project</p></a>
+                        </div>
+                    </div>
                     @foreach($projects as $project)
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="margin-bottom: 30px;">
                             <div class="project_grid">
                                 <h1><a href="{{   \App\CH::getUrl( 'project/'.$project->project_id .'/'.$project->project_name)}}">{{$project->project_name}}</a></h1>
                                 <p class="bill_team"><span>Description :</span> {{$project->project_description}}</p>
                                 <div class="last_update">
-
                                     <p>Last updated on : <span>{{$project->project_updated_at}}</span></p>
                                 </div>
                             </div>

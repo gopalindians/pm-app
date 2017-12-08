@@ -7,7 +7,7 @@
                 <title>{{projectName}}</title>
                 <header>
                     <div class="header_links">
-                        <a :href="'/project/'+projectId+'/'+projectName+'/accesses'">
+                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/accesses'">
                             <span class="link">Invite more people</span><br>
                             <span class="detail">11 people on this project</span>
                         </a>
@@ -179,7 +179,7 @@
                                       class="new_todolist" data-remote="true" id="new_todolist" method="post">
                                     <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
                                     <header class="text_entry">
-                                        <h3><input id="todolist_name" name="todolist[name]" size="10" type="text"
+                                        <h3><input id="todolisfewft_name" name="todolist[name]" size="10" type="text"
                                                    value="Give the list a title"></h3>
                                     </header>
 
@@ -265,7 +265,7 @@
                                                 <input name="_method" type="hidden" value="patch"></div>
                                             <header class="text_entry">
                                                 <h3>
-                                                    <input id="todolist_name" name="todolist[name]" size="10"
+                                                    <input id="todweweeweolist_name" name="todolist[name]" size="10"
                                                            type="text" value="Joomla Website Tasks (bestessayhub.com)">
                                                 </h3>
 
@@ -278,30 +278,38 @@
                                             </header>
 
                                             <span class="privacy_toggle" data-role="privacy_toggle">
-          <label for="todolist_48308664_privacy_toggle"><input name="todolist[private]" type="hidden" value="0"><input
-                  data-behavior="toggle_private_visibility" id="todolist_48308664_privacy_toggle"
-                  name="todolist[private]" type="checkbox" value="1"> Don’t show this to-do list to the client <span
-                  data-behavior="client_list"></span></label>
-          <span class="position_reference" data-behavior="expandable expand_exclusively">
-  – <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
 
-  <div class="balloon right_side expanded_content">
-    <span class="arrow"></span>
-    <span class="arrow"></span>
+                                                <label for="todolist_48308664_privacy_toggle">
+                                                    <input name="todolist[private]" type="hidden" value="0">
+                                                    <input data-behavior="toggle_private_visibility"
+                                                           id="todolist_48308664_privacy_toggle"
+                                                           name="todolist[private]" type="checkbox" value="1"> Don’t show this to-do list to the client
+                                                    <span data-behavior="client_list"></span>
+                                                </label>
+                                                <span class="position_reference"
+                                                      data-behavior="expandable expand_exclusively">
+                                                    <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
+                                                    <div class="balloon right_side expanded_content">
+                                                        <span class="arrow"></span>
+                                                        <span class="arrow"></span>
+                                                        <span class="close"><a class="decorated"
+                                                                               data-behavior="collapse_on_click"
+                                                                               href="#">Close</a></span>
+                                                        <h5>Working with clients?</h5>
+                                                        <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
 
-    <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
+                                                        <p>
+                                                            <a class="decorated"
+                                                               href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a>
+                                                        </p>
+                                                    </div>
+                                                </span>
+                                            </span>
 
-    <h5>Working with clients?</h5>
-    <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
-    <p><a class="decorated"
-          href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
-  </div>
-</span>
-
-        </span>
-
-                                            <span style="display:none;"><div data-behavior="lazy_load_subscribers"
-                                                                             data-url="/2501285/projects/6590988/subscribers?subscribable_id=48308664&amp;subscribable_type=Todolist"></div></span>
+                                            <span style="display:none;">
+                                                <div data-behavior="lazy_load_subscribers"
+                                                     data-url="/2501285/projects/6590988/subscribers?subscribable_id=48308664&amp;subscribable_type=Todolist"></div>
+                                            </span>
 
                                             <p class="submit">
                                                 <input name="commit" type="submit" value="Save changes"> or
@@ -327,80 +335,98 @@
                                             </div>
 
                                             <div class="">
-      <span class="wrapper">
-        <input data-behavior="toggle" data-url="/2501285/projects/6590988/todos/324566530/toggle" name="todo_complete"
-               type="checkbox" value="1">
+                                                <span class="wrapper">
+                                                    <input data-behavior="toggle"
+                                                           data-url="/2501285/projects/6590988/todos/324566530/toggle"
+                                                           name="todo_complete"
+                                                           type="checkbox" value="1">
+                                                    <span class="content" data-behavior="sortable_handle">
+                                                        <a href="/2501285/projects/6590988/todos/324566530">Responsive of website</a>
+                                                        <span class="content_for_perma">Responsive of website</span>
+                                                    </span>
 
-        <span class="content" data-behavior="sortable_handle">
-          <a href="/2501285/projects/6590988/todos/324566530">Responsive of website</a>
-          <span class="content_for_perma">Responsive of website</span>
-        </span>
+                                                    <span class="pill comments" data-comments-counter="">
+                                                        <a href="/2501285/projects/6590988/todos/324566530">1 comment</a>
+                                                    </span>
+                                                    <form accept-charset="UTF-8"
+                                                          action="/2501285/projects/6590988/todos/324566530"
+                                                          class="edit_todo"
+                                                          data-remote="true" id="edit_todo_324566530" method="post">
+                                                        <div style="display:none"><input name="utf8" type="hidden"
+                                                                                         value="✓">
+                                                            <input name="_method" type="hidden" value="patch">
+                                                        </div>
+
+                                                        <span style="position:relative">
+                                                            <span class="pill has_balloon"
+                                                                  data-behavior="expandable expand_exclusively load_assignee_options">
+                                                                <a data-behavior="expand_on_click" href="#">
+                                                                    <span data-behavior="assignee_name"
+                                                                          data-blank-text="Unassigned">
+                                                                        <span data-behavior="todo_assignee_present">Ashish Sharma</span>
+                                                                    </span>
+                                                                    <time data-behavior="due_date"
+                                                                          data-blank-text="No due date"></time>
+                                                                </a>
+                                                                <span class="balloon right_side expanded_content">
+                                                                    <span class="arrow"></span>
+                                                                    <span class="arrow"></span>
+                                                                    <label><b>Assign this to-do to:</b>
+
+                                                                        <select data-assignee-code="p15316135"
+                                                                                data-behavior="assignee_options"
+                                                                                data-original-assignee-code="p15316135"
+                                                                                data-private="false"
+                                                                                data-project-id="6590988"
+                                                                                id="todo_assignee_code"
+                                                                                name="todo[assignee_code]">
+                                                                            <option value="⎈">Loading...</option>
+                                                                        </select>
+                                                                    </label>
+
+                                                                    <div data-display="email-warning-confirmation-on"
+                                                                         class="email_notice confirmation">
+                                                                        <p class="email_warning">
+                                                                            <span data-role="assignee_first_name">This person</span> turned off email notifications and won’t get an email about this to-do.
+                                                                        </p>
+                                                                        <p class="email_warning">Assign it anyway?</p>
+                                                                        <p class="submit">
+                                                                            <a class="action_button button"
+                                                                               data-behavior="confirm_assignee_change"
+                                                                               href="#">Yes, assign it</a>
+                                                                            <a data-behavior="cancel_assignee_change"
+                                                                               href="#">Cancel</a>
+                                                                        </p>
+                                                                    </div>
 
 
-          <span class="pill comments" data-comments-counter="">
-            <a href="/2501285/projects/6590988/todos/324566530">1 comment</a>
-          </span>
+                                                                    <div data-display="email-warning-confirmation-off">
+                                                                        <div class="email_notice">
+                                                                            <p data-display="email-warning-on"
+                                                                               style="display: none" class="alert">This person won’t get an email because they turned off email notifications</p>
+                                                                            <p data-display="email-warning-off"
+                                                                               style="display: none">The person you select will be notified by email</p>
+                                                                        </div>
 
-          <form accept-charset="UTF-8" action="/2501285/projects/6590988/todos/324566530" class="edit_todo"
-                data-remote="true" id="edit_todo_324566530" method="post"><div style="display:none"><input name="utf8"
-                                                                                                           type="hidden"
-                                                                                                           value="✓"><input
-                  name="_method" type="hidden" value="patch"></div>
-            <span style="position:relative">
-  <span class="pill has_balloon" data-behavior="expandable expand_exclusively load_assignee_options">
-    <a data-behavior="expand_on_click" href="#">
-      <span data-behavior="assignee_name" data-blank-text="Unassigned">
-          <span data-behavior="todo_assignee_present">Ashish Sharma</span>
-      </span>
+                                                                        <label class="due_date">
+                                                                            <b>Set the due date:</b>
+                                                                            <hr>
+                                                                            <input data-behavior="alt_date_field"
+                                                                                   name="todo[due_at]" type="hidden">
+                                                                            <div data-behavior="date_picker"
+                                                                                 class="notranslate"></div>
+                                                                        </label>
 
+                                                                        <footer><a class="no_date decorated"
+                                                                                   data-behavior="no_due_date" href="#">No due date</a></footer>
+                                                                    </div>
 
+                                                                </span>
+                                                            </span>
+                                                        </span>
 
-      <time data-behavior="due_date" data-blank-text="No due date">
-      </time>
-</a>
-    <span class="balloon right_side expanded_content">
-      <span class="arrow"></span>
-      <span class="arrow"></span>
-
-      <label>
-        <b>Assign this to-do to:</b>
-        <select data-assignee-code="p15316135" data-behavior="assignee_options" data-original-assignee-code="p15316135"
-                data-private="false" data-project-id="6590988" id="todo_assignee_code" name="todo[assignee_code]"><option
-                value="⎈">Loading...</option></select>
-      </label>
-
-      <div data-display="email-warning-confirmation-on" class="email_notice confirmation">
-        <p class="email_warning">
-          <span data-role="assignee_first_name">This person</span> turned off email notifications and won’t get an email about this to-do.
-        </p>
-        <p class="email_warning">Assign it anyway?</p>
-        <p class="submit">
-          <a class="action_button button" data-behavior="confirm_assignee_change" href="#">Yes, assign it</a>
-          <a data-behavior="cancel_assignee_change" href="#">Cancel</a>
-        </p>
-      </div>
-
-      <div data-display="email-warning-confirmation-off">
-        <div class="email_notice">
-            <p data-display="email-warning-on" style="display: none" class="alert">This person won’t get an email because they turned off email notifications</p>
-            <p data-display="email-warning-off"
-               style="display: none">The person you select will be notified by email</p>
-        </div>
-
-          <label class="due_date">
-            <b>Set the due date:</b>
-            <hr>
-            <input data-behavior="alt_date_field" name="todo[due_at]" type="hidden">
-            <div data-behavior="date_picker" class="notranslate"></div>
-          </label>
-
-          <footer><a class="no_date decorated" data-behavior="no_due_date" href="#">No due date</a></footer>
-      </div>
-
-    </span>
-</span></span>
-
-</form>      </span>
+                                                    </form>
+                                                </span>
                                             </div>
                                         </li>
                                     </ul>
@@ -416,18 +442,20 @@
                                             <article data-behavior="file_drop_target">
                                                 <form accept-charset="UTF-8" action="/2501285/projects/6590988/todos"
                                                       class="new_todo" data-behavior="new_todo" data-remote="true"
-                                                      id="new_todo" method="post">
+                                                      id="nefwefw_todo" method="post">
                                                     <div style="display:none"><input name="utf8" type="hidden"
                                                                                      value="✓"></div>
-                                                    <input id="todo_todolist_id" name="todo[todolist_id]" type="hidden"
+                                                    <input id="todfwefo_todolist_id" name="todo[todolist_id]"
+                                                           type="hidden"
                                                            value="48308664">
 
                                                     <input disabled="disabled" name="todo[completed]" type="hidden"
-                                                           value="0"><input disabled="disabled" id="todo_completed"
+                                                           value="0"><input disabled="disabled"
+                                                                            id="todo_cewfefwompleted"
                                                                             name="todo[completed]" type="checkbox"
                                                                             value="1">
                                                     <textarea data-behavior="autoresize submit_on_enter"
-                                                              id="todo_content" name="todo[content]"
+                                                              id="todo_fwefwfcontent" name="todo[content]"
                                                               placeholder="Add a new to-do..." rows="1"></textarea>
 
                                                     <div class="details">
@@ -435,7 +463,8 @@
                                                             <strong>Assigned to:</strong>
                                                             <select data-behavior="assignee_options"
                                                                     data-private="false" data-project-id="6590988"
-                                                                    id="todo_assignee_code" name="todo[assignee_code]">
+                                                                    id="todo_fwfwfeassignee_code"
+                                                                    name="todo[assignee_code]">
                                                                 <option value="⎈">Loading...</option>
                                                             </select>
                                                         </label>
@@ -445,20 +474,24 @@
                                                             <span class="pill has_balloon"
                                                                   data-behavior="expandable expand_exclusively">
 
-      <a data-behavior="expand_on_click" href="#">
-        <time data-behavior="due_date" data-blank-text="No due date">
-            No due date
-        </time>
-</a>
-      <span class="balloon right_side expanded_content">
-        <span class="arrow"></span>
-        <span class="arrow"></span>
 
-          <input data-behavior="alt_date_field" name="todo[due_at]" type="hidden">
-          <div data-behavior="date_picker" class="notranslate"></div>
-        <footer><a class="no_date" data-behavior="no_due_date" href="#">No due date</a></footer>
-      </span>
-    </span>
+                                                                <a data-behavior="expand_on_click" href="#">
+
+                                                                    <time data-behavior="due_date"
+                                                                          data-blank-text="No due date">No due date</time>
+                                                                </a>
+                                                                <span class="balloon right_side expanded_content">
+                                                                    <span class="arrow"></span>
+                                                                    <span class="arrow"></span>
+
+                                                                    <input data-behavior="alt_date_field"
+                                                                           name="todo[due_at]" type="hidden">
+                                                                    <div data-behavior="date_picker"
+                                                                         class="notranslate"></div>
+                                                                    <footer><a class="no_date"
+                                                                               data-behavior="no_due_date" href="#">No due date</a></footer>
+                                                                </span>
+                                                            </span>
                                                         </label>
 
                                                         <div class="notification_info"
@@ -487,22 +520,29 @@
                                                                      data-sortable="true" class="attachments">
                                                                     <span class="prompt_graphic"></span>
                                                                     <div class="file_input_button">
-    <span data-without-features="files_api">
-      To attach files
-    </span>
+                                                                        <span data-without-features="files_api">
+                                                                            To attach files
+                                                                        </span>
                                                                         <span data-with-features="files_api">
-      To attach files drag &amp; drop here or
-    </span>
+                                                                            To attach files drag &amp; drop here or
+                                                                        </span>
 
                                                                         <span class="file_input_container">
-      <input name="file" type="file" multiple="" onchange="$(document).trigger('ie:change', this)" tabindex="-1">
-      <a class="decorated" data-behavior="local_file_picker" href="#" tabindex="-1">select files from your computer…</a>
-    </span>
+                                                                            <input name="file" type="file" multiple=""
+                                                                                   onchange="$(document).trigger('ie:change', this)"
+                                                                                   tabindex="-1">
+                                                                            <a class="decorated"
+                                                                               data-behavior="local_file_picker"
+                                                                               href="#" tabindex="-1">select files from your computer…</a>
+                                                                        </span>
 
                                                                         <span data-behavior="load_google_client"
                                                                               style="">
-      or <a class="decorated" data-behavior="google_file_picker" href="#" tabindex="-1">Google Docs…</a>
-    </span>
+                                                                            or <a class="decorated"
+                                                                                  data-behavior="google_file_picker"
+                                                                                  href="#"
+                                                                                  tabindex="-1">Google Docs…</a>
+                                                                        </span>
                                                                     </div>
 
                                                                     <ul class="pending_attachments ui-sortable"
@@ -597,8 +637,8 @@
                                             <span class="unlinked_title">we have to make logo for this site .. http://beyourtherapist.com</span>
 
                                             <span class="pill comments">
-            <a href="/2501285/projects/6590988/todolists/43978505">6 comments</a>
-          </span>
+                                                <a href="/2501285/projects/6590988/todolists/43978505">6 comments</a>
+                                            </span>
 
                                         </h3>
 
@@ -614,44 +654,52 @@
                                                     name="_method" type="hidden" value="patch"></div>
                                             <header class="text_entry">
                                                 <h3>
-                                                    <input id="todolist_name" name="todolist[name]" size="10"
+                                                    <input id="teweodofsdfxcvlist_name" name="todolist[name]" size="10"
                                                            type="text"
                                                            value="we have to make logo for this site .. http://beyourtherapist.com">
                                                 </h3>
 
                                                 <p><em>
                                                     <textarea data-behavior="autoresize submit_on_enter"
-                                                              id="todolist_description" name="todolist[description]"
+                                                              id="teefcxvodolist_description"
+                                                              name="todolist[description]"
                                                               placeholder="Optional: describe this list"
                                                               rows="1"></textarea>
                                                 </em></p>
                                             </header>
 
                                             <span class="privacy_toggle" data-role="privacy_toggle">
-          <label for="todolist_43978505_privacy_toggle"><input name="todolist[private]" type="hidden" value="0"><input
-                  data-behavior="toggle_private_visibility" id="todolist_43978505_privacy_toggle"
-                  name="todolist[private]" type="checkbox" value="1"> Don’t show this to-do list to the client <span
-                  data-behavior="client_list"></span></label>
-          <span class="position_reference" data-behavior="expandable expand_exclusively">
-  – <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
+                                                <label for="todolist_43978505_privacy_toggle"><input
+                                                        name="todolist[private]" type="hidden" value="0">
+                                                    <input
+                                                            data-behavior="toggle_private_visibility"
+                                                            id="todolist_43978505_privacy_toggle"
+                                                            name="todolist[private]" type="checkbox" value="1"> Don’t show this to-do list to the client
+                                                    <span data-behavior="client_list"></span>
+                                                </label>
+                                                <span class="position_reference"
+                                                      data-behavior="expandable expand_exclusively">
+                                                    – <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
 
-  <div class="balloon right_side expanded_content">
-    <span class="arrow"></span>
-    <span class="arrow"></span>
+                                                    <div class="balloon right_side expanded_content">
+                                                        <span class="arrow"></span>
+                                                        <span class="arrow"></span>
+                                                        <span class="close"><a class="decorated"
+                                                                               data-behavior="collapse_on_click"
+                                                                               href="#">Close</a></span>
 
-    <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
+                                                        <h5>Working with clients?</h5>
+                                                        <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
+                                                        <p><a class="decorated"
+                                                              href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
+                                                    </div>
+                                                </span>
+                                            </span>
 
-    <h5>Working with clients?</h5>
-    <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
-    <p><a class="decorated"
-          href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
-  </div>
-</span>
-
-        </span>
-
-                                            <span style="display:none;"><div data-behavior="lazy_load_subscribers"
-                                                                             data-url="/2501285/projects/6590988/subscribers?subscribable_id=43978505&amp;subscribable_type=Todolist"></div></span>
+                                            <span style="display:none;">
+                                                <div data-behavior="lazy_load_subscribers"
+                                                     data-url="/2501285/projects/6590988/subscribers?subscribable_id=43978505&amp;subscribable_type=Todolist"></div>
+                                            </span>
 
                                             <p class="submit">
                                                 <input name="commit" type="submit" value="Save changes"> or
@@ -662,8 +710,6 @@
 
                                     <ul class="todos empty" data-behavior="sortable_container"
                                         data-sortable-type="todo">
-
-
                                     </ul>
 
 
@@ -677,18 +723,19 @@
                                             <article data-behavior="file_drop_target">
                                                 <form accept-charset="UTF-8" action="/2501285/projects/6590988/todos"
                                                       class="new_todo" data-behavior="new_todo" data-remote="true"
-                                                      id="new_todo" method="post">
+                                                      id="newwww_todo" method="post">
                                                     <div style="display:none"><input name="utf8" type="hidden"
                                                                                      value="✓"></div>
-                                                    <input id="todo_todolist_id" name="todo[todolist_id]" type="hidden"
+                                                    <input id="toqqdo_todolist_id" name="todo[todolist_id]"
+                                                           type="hidden"
                                                            value="43978505">
 
                                                     <input disabled="disabled" name="todo[completed]" type="hidden"
-                                                           value="0"><input disabled="disabled" id="todo_completed"
+                                                           value="0"><input disabled="disabled" id="todovcvcv_completed"
                                                                             name="todo[completed]" type="checkbox"
                                                                             value="1">
                                                     <textarea data-behavior="autoresize submit_on_enter"
-                                                              id="todo_content" name="todo[content]"
+                                                              id="todoccvvc_content" name="todo[content]"
                                                               placeholder="Add a new to-do..." rows="1"></textarea>
 
                                                     <div class="details">
@@ -696,7 +743,8 @@
                                                             <strong>Assigned to:</strong>
                                                             <select data-behavior="assignee_options"
                                                                     data-private="false" data-project-id="6590988"
-                                                                    id="todo_assignee_code" name="todo[assignee_code]">
+                                                                    id="todo_assivcvvgnee_code"
+                                                                    name="todo[assignee_code]">
                                                                 <option value="⎈">Loading...</option>
                                                             </select>
                                                         </label>
@@ -706,20 +754,24 @@
                                                             <span class="pill has_balloon"
                                                                   data-behavior="expandable expand_exclusively">
 
-      <a data-behavior="expand_on_click" href="#">
-        <time data-behavior="due_date" data-blank-text="No due date">
-            No due date
-        </time>
-</a>
-      <span class="balloon right_side expanded_content">
-        <span class="arrow"></span>
-        <span class="arrow"></span>
+                                                                <a data-behavior="expand_on_click" href="#">
+                                                                    <time data-behavior="due_date"
+                                                                          data-blank-text="No due date">
+                                                                        No due date
+                                                                    </time>
+                                                                </a>
+                                                                <span class="balloon right_side expanded_content">
+                                                                    <span class="arrow"></span>
+                                                                    <span class="arrow"></span>
 
-          <input data-behavior="alt_date_field" name="todo[due_at]" type="hidden">
-          <div data-behavior="date_picker" class="notranslate"></div>
-        <footer><a class="no_date" data-behavior="no_due_date" href="#">No due date</a></footer>
-      </span>
-    </span>
+                                                                    <input data-behavior="alt_date_field"
+                                                                           name="todo[due_at]" type="hidden">
+                                                                    <div data-behavior="date_picker"
+                                                                         class="notranslate"></div>
+                                                                    <footer><a class="no_date"
+                                                                               data-behavior="no_due_date" href="#">No due date</a></footer>
+                                                                </span>
+                                                            </span>
                                                         </label>
 
                                                         <div class="notification_info"
@@ -748,22 +800,29 @@
                                                                      data-sortable="true" class="attachments">
                                                                     <span class="prompt_graphic"></span>
                                                                     <div class="file_input_button">
-    <span data-without-features="files_api">
-      To attach files
-    </span>
+                                                                        <span data-without-features="files_api">
+                                                                            To attach files
+                                                                        </span>
                                                                         <span data-with-features="files_api">
-      To attach files drag &amp; drop here or
-    </span>
+                                                                            To attach files drag &amp; drop here or
+                                                                        </span>
 
                                                                         <span class="file_input_container">
-      <input name="file" type="file" multiple="" onchange="$(document).trigger('ie:change', this)" tabindex="-1">
-      <a class="decorated" data-behavior="local_file_picker" href="#" tabindex="-1">select files from your computer…</a>
-    </span>
+                                                                            <input name="file" type="file" multiple=""
+                                                                                   onchange="$(document).trigger('ie:change', this)"
+                                                                                   tabindex="-1">
+                                                                            <a class="decorated"
+                                                                               data-behavior="local_file_picker"
+                                                                               href="#" tabindex="-1">select files from your computer…</a>
+                                                                        </span>
 
                                                                         <span data-behavior="load_google_client"
                                                                               style="">
-      or <a class="decorated" data-behavior="google_file_picker" href="#" tabindex="-1">Google Docs…</a>
-    </span>
+                                                                            or <a class="decorated"
+                                                                                  data-behavior="google_file_picker"
+                                                                                  href="#"
+                                                                                  tabindex="-1">Google Docs…</a>
+                                                                        </span>
                                                                     </div>
 
                                                                     <ul class="pending_attachments ui-sortable"
@@ -878,37 +937,46 @@
 
                                                 <p><em>
                                                     <textarea data-behavior="autoresize submit_on_enter"
-                                                              id="todolist_description" name="todolist[description]"
+                                                              id="tfefefodolist_description"
+                                                              name="todolist[description]"
                                                               placeholder="Optional: describe this list"
                                                               rows="1"></textarea>
                                                 </em></p>
                                             </header>
 
                                             <span class="privacy_toggle" data-role="privacy_toggle">
-          <label for="todolist_49401648_privacy_toggle"><input name="todolist[private]" type="hidden" value="0"><input
-                  data-behavior="toggle_private_visibility" id="todolist_49401648_privacy_toggle"
-                  name="todolist[private]" type="checkbox" value="1"> Don’t show this to-do list to the client <span
-                  data-behavior="client_list"></span></label>
-          <span class="position_reference" data-behavior="expandable expand_exclusively">
-  – <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
+                                                <label for="todolist_49401648_privacy_toggle">
+                                                    <input name="todolist[private]" type="hidden" value="0">
+                                                    <input
+                                                            data-behavior="toggle_private_visibility"
+                                                            id="todolist_49401648_privacy_toggle"
+                                                            name="todolist[private]" type="checkbox" value="1"> Don’t show this to-do list to the client
+                                                    <span data-behavior="client_list"></span>
+                                                </label>
+                                                <span class="position_reference"
+                                                      data-behavior="expandable expand_exclusively">
+                                                    – <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
 
-  <div class="balloon right_side expanded_content">
-    <span class="arrow"></span>
-    <span class="arrow"></span>
+                                                    <div class="balloon right_side expanded_content">
+                                                        <span class="arrow"></span>
+                                                        <span class="arrow"></span>
 
-    <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
+                                                        <span class="close"><a class="decorated"
+                                                                               data-behavior="collapse_on_click"
+                                                                               href="#">Close</a></span>
 
-    <h5>Working with clients?</h5>
-    <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
-    <p><a class="decorated"
-          href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
-  </div>
-</span>
+                                                        <h5>Working with clients?</h5>
+                                                        <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
+                                                        <p><a class="decorated"
+                                                              href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
+                                                    </div>
+                                                </span>
+                                            </span>
 
-        </span>
-
-                                            <span style="display:none;"><div data-behavior="lazy_load_subscribers"
-                                                                             data-url="/2501285/projects/6590988/subscribers?subscribable_id=49401648&amp;subscribable_type=Todolist"></div></span>
+                                            <span style="display:none;">
+                                                <div data-behavior="lazy_load_subscribers"
+                                                     data-url="/2501285/projects/6590988/subscribers?subscribable_id=49401648&amp;subscribable_type=Todolist"></div>
+                                            </span>
 
                                             <p class="submit">
                                                 <input name="commit" type="submit" value="Save changes"> or
@@ -934,80 +1002,96 @@
                                             </div>
 
                                             <div class="">
-      <span class="wrapper">
-        <input data-behavior="toggle" data-url="/2501285/projects/6590988/todos/332901436/toggle" name="todo_complete"
-               type="checkbox" value="1">
+                                                <span class="wrapper">
+                                                    <input data-behavior="toggle"
+                                                           data-url="/2501285/projects/6590988/todos/332901436/toggle"
+                                                           name="todo_complete" type="checkbox" value="1">
 
-        <span class="content" data-behavior="sortable_handle">
-          <a href="/2501285/projects/6590988/todos/332901436">Login Details</a>
-          <span class="content_for_perma">Login Details</span>
-        </span>
-
-
-          <span class="pill comments" data-comments-counter="">
-            <a href="/2501285/projects/6590988/todos/332901436">1 comment</a>
-          </span>
-
-          <form accept-charset="UTF-8" action="/2501285/projects/6590988/todos/332901436" class="edit_todo"
-                data-remote="true" id="edit_todo_332901436" method="post"><div style="display:none"><input name="utf8"
-                                                                                                           type="hidden"
-                                                                                                           value="✓"><input
-                  name="_method" type="hidden" value="patch"></div>
-            <span style="position:relative">
-  <span class="pill has_balloon blank"
-        data-behavior="expandable expand_exclusively load_assignee_options hover_content">
-    <a data-behavior="expand_on_click" href="#">
-      <span data-behavior="assignee_name" data-blank-text="Unassigned">
-          Unassigned
-      </span>
+                                                    <span class="content" data-behavior="sortable_handle">
+                                                        <a href="/2501285/projects/6590988/todos/332901436">Login Details</a>
+                                                        <span class="content_for_perma">Login Details</span>
+                                                    </span>
 
 
+                                                    <span class="pill comments" data-comments-counter="">
+                                                        <a href="/2501285/projects/6590988/todos/332901436">1 comment</a>
+                                                    </span>
 
-      <time data-behavior="due_date" data-blank-text="No due date">
-      </time>
-</a>
-    <span class="balloon right_side expanded_content">
-      <span class="arrow"></span>
-      <span class="arrow"></span>
+                                                    <form accept-charset="UTF-8"
+                                                          action="/2501285/projects/6590988/todos/332901436"
+                                                          class="edit_todo"
+                                                          data-remote="true" id="edit_todo_332901436" method="post">
+                                                        <div style="display:none">
+                                                        <input name="utf8" type="hidden" value="✓">
+                                                        <input name="_method" type="hidden" value="patch">
+                                                    </div>
 
-      <label>
-        <b>Assign this to-do to:</b>
-        <select data-behavior="assignee_options" data-private="false" data-project-id="6590988" id="todo_assignee_code"
-                name="todo[assignee_code]"><option value="⎈">Loading...</option></select>
-      </label>
+                                                        <span style="position:relative">
+                                                            <span class="pill has_balloon blank"
+                                                                  data-behavior="expandable expand_exclusively load_assignee_options hover_content">
+                                                                <a data-behavior="expand_on_click" href="#">
+                                                                    <span data-behavior="assignee_name"
+                                                                          data-blank-text="Unassigned">Unassigned</span>
 
-      <div data-display="email-warning-confirmation-on" class="email_notice confirmation">
-        <p class="email_warning">
-          <span data-role="assignee_first_name">This person</span> turned off email notifications and won’t get an email about this to-do.
-        </p>
-        <p class="email_warning">Assign it anyway?</p>
-        <p class="submit">
-          <a class="action_button button" data-behavior="confirm_assignee_change" href="#">Yes, assign it</a>
-          <a data-behavior="cancel_assignee_change" href="#">Cancel</a>
-        </p>
-      </div>
 
-      <div data-display="email-warning-confirmation-off">
-        <div class="email_notice">
-            <p data-display="email-warning-on" style="display: none" class="alert">This person won’t get an email because they turned off email notifications</p>
-            <p data-display="email-warning-off"
-               style="display: none">The person you select will be notified by email</p>
-        </div>
 
-          <label class="due_date">
-            <b>Set the due date:</b>
-            <hr>
-            <input data-behavior="alt_date_field" name="todo[due_at]" type="hidden">
-            <div data-behavior="date_picker" class="notranslate"></div>
-          </label>
+                                                                    <time data-behavior="due_date"
+                                                                          data-blank-text="No due date"></time>
+                                                                </a>
+                                                                <span class="balloon right_side expanded_content">
+                                                                    <span class="arrow"></span>
+                                                                    <span class="arrow"></span>
+                                                                    <label>
+                                                                        <b>Assign this to-do to:</b>
+                                                                        <select data-behavior="assignee_options"
+                                                                                data-private="false"
+                                                                                data-project-id="6590988"
+                                                                                id="todo_assignee_code"
+                                                                                name="todo[assignee_code]"><option
+                                                                                value="⎈">Loading...</option>
+                                                                        </select>
+                                                                    </label>
 
-          <footer><a class="no_date decorated" data-behavior="no_due_date" href="#">No due date</a></footer>
-      </div>
+                                                                    <div data-display="email-warning-confirmation-on"
+                                                                         class="email_notice confirmation">
+                                                                        <p class="email_warning">
+                                                                            <span data-role="assignee_first_name">This person</span> turned off email notifications and won’t get an email about this to-do.
+                                                                        </p>
+                                                                        <p class="email_warning">Assign it anyway?</p>
+                                                                        <p class="submit">
+                                                                            <a class="action_button button"
+                                                                               data-behavior="confirm_assignee_change"
+                                                                               href="#">Yes, assign it</a>
+                                                                            <a data-behavior="cancel_assignee_change"
+                                                                               href="#">Cancel</a>
+                                                                        </p>
+                                                                    </div>
 
-    </span>
-</span></span>
+                                                                    <div data-display="email-warning-confirmation-off">
+                                                                        <div class="email_notice">
+                                                                            <p data-display="email-warning-on"
+                                                                               style="display: none" class="alert">This person won’t get an email because they turned off email notifications</p>
+                                                                            <p data-display="email-warning-off"
+                                                                               style="display: none">The person you select will be notified by email</p>
+                                                                        </div>
+                                                                        <label class="due_date">
+                                                                            <b>Set the due date:</b>
+                                                                            <hr>
+                                                                            <input data-behavior="alt_date_field"
+                                                                                   name="todo[due_at]" type="hidden">
+                                                                            <div data-behavior="date_picker"
+                                                                                 class="notranslate"></div>
+                                                                        </label>
 
-</form>      </span>
+                                                                        <footer><a class="no_date decorated"
+                                                                                   data-behavior="no_due_date" href="#">No due date</a></footer>
+                                                                    </div>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+
+                                                    </form>
+                                                </span>
                                             </div>
                                         </li>
                                         <li class="todo show" data-behavior="has_hover_content sortable"
@@ -1025,80 +1109,96 @@
                                             </div>
 
                                             <div class="">
-      <span class="wrapper">
-        <input data-behavior="toggle" data-url="/2501285/projects/6590988/todos/332901246/toggle" name="todo_complete"
-               type="checkbox" value="1">
+                                                <span class="wrapper">
+                                                    <input data-behavior="toggle"
+                                                           data-url="/2501285/projects/6590988/todos/332901246/toggle"
+                                                           name="todo_complete"
+                                                           type="checkbox" value="1">
 
-        <span class="content" data-behavior="sortable_handle">
-          <a href="/2501285/projects/6590988/todos/332901246">Site Details</a>
-          <span class="content_for_perma">Site Details</span>
-        </span>
+                                                    <span class="content" data-behavior="sortable_handle">
+                                                        <a href="/2501285/projects/6590988/todos/332901246">Site Details</a>
+                                                        <span class="content_for_perma">Site Details</span>
+                                                    </span>
+
+                                                     <span class="pill comments" data-comments-counter="">
+                                                         <a href="/2501285/projects/6590988/todos/332901246">3 comments</a>
+                                                     </span>
+
+                                                    <form accept-charset="UTF-8"
+                                                          action="/2501285/projects/6590988/todos/332901246"
+                                                          class="edit_todo"
+                                                          data-remote="true" id="edit_todo_332901246" method="post">
+                                                        <div style="display:none">
+                                                            <input name="utf8" type="hidden" value="✓">
+                                                            <input name="_method" type="hidden" value="patch">
+                                                        </div>
+                                                        <span style="position:relative">
+                                                            <span class="pill has_balloon blank"
+                                                                  data-behavior="expandable expand_exclusively load_assignee_options hover_content">
+                                                                <a data-behavior="expand_on_click" href="#">
+                                                                    <span data-behavior="assignee_name"
+                                                                          data-blank-text="Unassigned">Unassigned</span>
 
 
-          <span class="pill comments" data-comments-counter="">
-            <a href="/2501285/projects/6590988/todos/332901246">3 comments</a>
-          </span>
 
-          <form accept-charset="UTF-8" action="/2501285/projects/6590988/todos/332901246" class="edit_todo"
-                data-remote="true" id="edit_todo_332901246" method="post"><div style="display:none"><input name="utf8"
-                                                                                                           type="hidden"
-                                                                                                           value="✓"><input
-                  name="_method" type="hidden" value="patch"></div>
-            <span style="position:relative">
-  <span class="pill has_balloon blank"
-        data-behavior="expandable expand_exclusively load_assignee_options hover_content">
-    <a data-behavior="expand_on_click" href="#">
-      <span data-behavior="assignee_name" data-blank-text="Unassigned">
-          Unassigned
-      </span>
+                                                                    <time data-behavior="due_date"
+                                                                          data-blank-text="No due date"></time>
 
+                                                                </a>
+                                                                <span class="balloon right_side expanded_content">
+                                                                    <span class="arrow"></span>
+                                                                    <span class="arrow"></span>
+                                                                    <label>
+                                                                        <b>Assign this to-do to:</b>
+                                                                        <select data-behavior="assignee_options"
+                                                                                data-private="false"
+                                                                                data-project-id="6590988"
+                                                                                id="todo_assignee_code"
+                                                                                name="todo[assignee_code]"><option
+                                                                                value="⎈">Loading...</option>
+                                                                        </select>
+                                                                    </label>
 
+                                                                    <div data-display="email-warning-confirmation-on"
+                                                                         class="email_notice confirmation">
+                                                                        <p class="email_warning">
+                                                                            <span data-role="assignee_first_name">This person</span> turned off email notifications and won’t get an email about this to-do.
+                                                                        </p>
+                                                                        <p class="email_warning">Assign it anyway?</p>
+                                                                        <p class="submit">
+                                                                            <a class="action_button button"
+                                                                               data-behavior="confirm_assignee_change"
+                                                                               href="#">Yes, assign it</a>
+                                                                            <a data-behavior="cancel_assignee_change"
+                                                                               href="#">Cancel</a>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div data-display="email-warning-confirmation-off">
+                                                                        <div class="email_notice">
+                                                                            <p data-display="email-warning-on"
+                                                                               style="display: none" class="alert">This person won’t get an email because they turned off email notifications</p>
+                                                                            <p data-display="email-warning-off"
+                                                                               style="display: none">The person you select will be notified by email</p>
+                                                                        </div>
 
-      <time data-behavior="due_date" data-blank-text="No due date">
-      </time>
-</a>
-    <span class="balloon right_side expanded_content">
-      <span class="arrow"></span>
-      <span class="arrow"></span>
+                                                                        <label class="due_date"><b>Set the due date:</b>
+                                                                            <hr>
+                                                                            <input data-behavior="alt_date_field"
+                                                                                   name="todo[due_at]" type="hidden">
+                                                                            <div data-behavior="date_picker"
+                                                                                 class="notranslate"></div>
+                                                                        </label>
 
-      <label>
-        <b>Assign this to-do to:</b>
-        <select data-behavior="assignee_options" data-private="false" data-project-id="6590988" id="todo_assignee_code"
-                name="todo[assignee_code]"><option value="⎈">Loading...</option></select>
-      </label>
+                                                                        <footer><a class="no_date decorated"
+                                                                                   data-behavior="no_due_date" href="#">No due date</a></footer>
+                                                                    </div>
 
-      <div data-display="email-warning-confirmation-on" class="email_notice confirmation">
-        <p class="email_warning">
-          <span data-role="assignee_first_name">This person</span> turned off email notifications and won’t get an email about this to-do.
-        </p>
-        <p class="email_warning">Assign it anyway?</p>
-        <p class="submit">
-          <a class="action_button button" data-behavior="confirm_assignee_change" href="#">Yes, assign it</a>
-          <a data-behavior="cancel_assignee_change" href="#">Cancel</a>
-        </p>
-      </div>
+                                                                </span>
+                                                            </span>
+                                                        </span>
 
-      <div data-display="email-warning-confirmation-off">
-        <div class="email_notice">
-            <p data-display="email-warning-on" style="display: none" class="alert">This person won’t get an email because they turned off email notifications</p>
-            <p data-display="email-warning-off"
-               style="display: none">The person you select will be notified by email</p>
-        </div>
-
-          <label class="due_date">
-            <b>Set the due date:</b>
-            <hr>
-            <input data-behavior="alt_date_field" name="todo[due_at]" type="hidden">
-            <div data-behavior="date_picker" class="notranslate"></div>
-          </label>
-
-          <footer><a class="no_date decorated" data-behavior="no_due_date" href="#">No due date</a></footer>
-      </div>
-
-    </span>
-</span></span>
-
-</form>      </span>
+                                                    </form>
+                                                </span>
                                             </div>
                                         </li>
                                     </ul>
@@ -1133,7 +1233,8 @@
                                                             <strong>Assigned to:</strong>
                                                             <select data-behavior="assignee_options"
                                                                     data-private="false" data-project-id="6590988"
-                                                                    id="todo_assignee_code" name="todo[assignee_code]">
+                                                                    id="todo_asvcvcvcvsignee_code"
+                                                                    name="todo[assignee_code]">
                                                                 <option value="⎈">Loading...</option>
                                                             </select>
                                                         </label>
@@ -1143,20 +1244,21 @@
                                                             <span class="pill has_balloon"
                                                                   data-behavior="expandable expand_exclusively">
 
-      <a data-behavior="expand_on_click" href="#">
-        <time data-behavior="due_date" data-blank-text="No due date">
-            No due date
-        </time>
-</a>
-      <span class="balloon right_side expanded_content">
-        <span class="arrow"></span>
-        <span class="arrow"></span>
-
-          <input data-behavior="alt_date_field" name="todo[due_at]" type="hidden">
-          <div data-behavior="date_picker" class="notranslate"></div>
-        <footer><a class="no_date" data-behavior="no_due_date" href="#">No due date</a></footer>
-      </span>
-    </span>
+                                                                <a data-behavior="expand_on_click" href="#">
+                                                                    <time data-behavior="due_date"
+                                                                          data-blank-text="No due date">No due date</time>
+                                                                </a>
+                                                                <span class="balloon right_side expanded_content">
+                                                                    <span class="arrow"></span>
+                                                                    <span class="arrow"></span>
+                                                                    <input data-behavior="alt_date_field"
+                                                                           name="todo[due_at]" type="hidden">
+                                                                    <div data-behavior="date_picker"
+                                                                         class="notranslate"></div>
+                                                                    <footer><a class="no_date"
+                                                                               data-behavior="no_due_date" href="#">No due date</a></footer>
+                                                                </span>
+                                                            </span>
                                                         </label>
 
                                                         <div class="notification_info"
@@ -1539,17 +1641,13 @@
                                                             <span class="meta"> · </span>
                                                             <span class="meta filesize" data-behavior="direct_download"
                                                                   data-download-path="/2501285/projects/6590988/attachments/312251476/download"
-                                                                  title="Download this image">
-                    34 KB
-                  </span>
+                                                                  title="Download this image">34 KB
+                                                            </span>
                                                         </div>
-
                                                     </a>
                                                     <div class="tags_and_comments">
                                                         <a href="/2501285/projects/6590988/messages/74076213">
-                  <span class="pill comments">
-                    1 comment
-                  </span>
+                                                            <span class="pill comments">1 comment</span>
                                                         </a>
                                                         <div class="taggings" data-behavior="taggings"
                                                              data-url="/2501285/projects/6590988/taggings"
@@ -1609,27 +1707,40 @@
                                                     <a data-attachment-id="310543980" data-behavior="enlargeable"
                                                        data-stacker="false"
                                                        href="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/Website%2520Menu%2520items%2520draft%2520v1.2%2520%25281%2529.pdf">
-              <span class="thumbnail_wrap image pdf">
-                <span><img alt="" class="thumbnail" data-attachment-id="310543980" data-audio-codec="null"
-                           data-classes="image pdf" data-container-id="comment_575887321"
-                           data-content-type="application/pdf" data-created-at="2017-11-12T17:03:17Z"
-                           data-creator-id="6581649" data-creator="Deepanshu T." data-description="file"
-                           data-details-path="/2501285/projects/6590988/attachments/310543980/details"
-                           data-download-path="/2501285/projects/6590988/attachments/310543980/download"
-                           data-embeddable="true" data-extension="PDF" data-file-or-image="file"
-                           data-filename="Website Menu items draft v1.2 (1).pdf" data-filesize="215 KB"
-                           data-height="1240" data-image-id="310543980"
-                           data-large-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/5c57be52-c7cb-11e7-b971-047d7be9fbd4/large.png"
-                           data-linked="null" data-max-size="700"
-                           data-original-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980"
-                           data-path="/2501285/projects/6590988/attachments/310543980"
-                           data-perma-path="/2501285/projects/6590988/messages/73611012?enlarge=310543980#attachment_310543980"
-                           data-previewable="true" data-storage-key="5c57be52-c7cb-11e7-b971-047d7be9fbd4"
-                           data-thumbnail="true" data-trash-path="/2501285/projects/6590988/attachments/310543980/trash"
-                           data-trashed="false" data-type="pdf" data-video-codec="null" data-width="1754"
-                           src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/5c57be52-c7cb-11e7-b971-047d7be9fbd4/thumbnail.png"
-                           data-scaled="true" style="width: 276px; height: 195px;"></span>
-              </span>
+                                                        <span class="thumbnail_wrap image pdf">
+                                                            <span>
+                                                                <img alt="" class="thumbnail"
+                                                                     data-attachment-id="310543980"
+                                                                     data-audio-codec="null"
+                                                                     data-classes="image pdf"
+                                                                     data-container-id="comment_575887321"
+                                                                     data-content-type="application/pdf"
+                                                                     data-created-at="2017-11-12T17:03:17Z"
+                                                                     data-creator-id="6581649"
+                                                                     data-creator="Deepanshu T." data-description="file"
+                                                                     data-details-path="/2501285/projects/6590988/attachments/310543980/details"
+                                                                     data-download-path="/2501285/projects/6590988/attachments/310543980/download"
+                                                                     data-embeddable="true" data-extension="PDF"
+                                                                     data-file-or-image="file"
+                                                                     data-filename="Website Menu items draft v1.2 (1).pdf"
+                                                                     data-filesize="215 KB"
+                                                                     data-height="1240" data-image-id="310543980"
+                                                                     data-large-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/5c57be52-c7cb-11e7-b971-047d7be9fbd4/large.png"
+                                                                     data-linked="null" data-max-size="700"
+                                                                     data-original-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980"
+                                                                     data-path="/2501285/projects/6590988/attachments/310543980"
+                                                                     data-perma-path="/2501285/projects/6590988/messages/73611012?enlarge=310543980#attachment_310543980"
+                                                                     data-previewable="true"
+                                                                     data-storage-key="5c57be52-c7cb-11e7-b971-047d7be9fbd4"
+                                                                     data-thumbnail="true"
+                                                                     data-trash-path="/2501285/projects/6590988/attachments/310543980/trash"
+                                                                     data-trashed="false" data-type="pdf"
+                                                                     data-video-codec="null" data-width="1754"
+                                                                     src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/5c57be52-c7cb-11e7-b971-047d7be9fbd4/thumbnail.png"
+                                                                     data-scaled="true"
+                                                                     style="width: 276px; height: 195px;">
+                                                            </span>
+                                                        </span>
 
                                                         <figcaption data-role="live_filter_highlight"
                                                                     style="width: 277px;">
@@ -1650,17 +1761,15 @@
                                                             <span class="meta"> · </span>
                                                             <span class="meta filesize" data-behavior="direct_download"
                                                                   data-download-path="/2501285/projects/6590988/attachments/310543980/download"
-                                                                  title="Download this file">
-                    215 KB
-                  </span>
+                                                                  title="Download this file">215 KB</span>
                                                         </div>
 
                                                     </a>
                                                     <div class="tags_and_comments">
                                                         <a href="/2501285/projects/6590988/messages/73611012">
-                  <span class="pill comments">
-                    11 comments
-                  </span>
+                                                            <span class="pill comments">
+                                                                11 comments
+                                                            </span>
                                                         </a>
                                                         <div class="taggings" data-behavior="taggings"
                                                              data-url="/2501285/projects/6590988/taggings"
@@ -1726,30 +1835,32 @@
 
                         <section class="documents in_project project_documents">
                             <article class="document" id="document_12905846" data-behavior="link_container"
-<<<<<<< Updated upstream
                                      v-for="doc in project.document_detail">
-=======
-                                     v-for="document in project.document_detail">
->>>>>>> Stashed changes
-                                <div class="wrapper">
-                                    <div class="column icon">
-                                        <span class="text-doc-icon"></span>
-                                    </div>
 
-                                    <div class="column content">
-                                        <div class="document_page">
-                                            <div class="wrap">
-                                                <header>
-<<<<<<< Updated upstream
-                                                    <a href="/2501285/projects/6590988/documents/12905846">
-                                                        <h3 data-role="live_filter_highlight">{{doc.document_title}}</h3>
-                                                    </a>
-                                                    <p class="project">From the project:
-                                                        <a data-default-stack="true" href="/2501285/projects/6590988">{{projectName}}</a></p>
-                                                </header>
+                                <div v-for="document in project.document_detail">
 
-                                                <div class="formatted_content">{{doc.document_body}}</div>
-=======
+                                    <div class="wrapper">
+                                        <div class="column icon">
+                                            <span class="text-doc-icon"></span>
+                                        </div>
+
+                                        <div class="column content">
+                                            <div class="document_page">
+                                                <div class="wrap">
+                                                    <header>
+
+                                                        <a href="/2501285/projects/6590988/documents/12905846">
+                                                            <h3 data-role="live_filter_highlight">
+                                                                {{doc.document_title}}</h3>
+                                                        </a>
+                                                        <p class="project">From the project:
+                                                            <a data-default-stack="true"
+                                                               href="/2501285/projects/6590988">{{projectName}}</a>
+                                                        </p>
+                                                    </header>
+
+                                                    <div class="formatted_content">{{doc.document_body}}</div>
+
                                                     <a :href="'/project/'+projectId+'/'+projectName+'/document/'+document.id">
                                                         <h3 data-role="live_filter_highlight">
                                                             {{document.document_title}}</h3>
@@ -1758,29 +1869,28 @@
                                                         <a data-default-stack="true"
                                                            :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a>
                                                     </p>
-                                                </header>
 
-                                                <div class="formatted_content">
-                                                    {{document.document_body}}
+
+                                                    <div class="formatted_content">
+                                                        {{document.document_body}}
+                                                    </div>
                                                 </div>
->>>>>>> Stashed changes
+
+                                                <div class="truncated"></div>
                                             </div>
-
-                                            <div class="truncated"></div>
                                         </div>
-                                    </div>
 
-                                    <div class="column date">
-                                        <span class="description">on </span>
-                                        <time data-local="date" datetime="2017-11-09T07:20:04Z"
-                                              title="November 9, 2017 at 12:50pm " data-localized="true">Nov 9
-                                        </time>
-                                    </div>
+                                        <div class="column date">
+                                            <span class="description">on </span>
+                                            <time data-local="date" datetime="2017-11-09T07:20:04Z"
+                                                  title="November 9, 2017 at 12:50pm " data-localized="true">Nov 9
+                                            </time>
+                                        </div>
 
-                                    <div class="column updater">
-                                        <p class="project">From the project: {{projectName}}</p>
+                                        <div class="column updater">
+                                            <p class="project">From the project: {{projectName}}</p>
 
-                                        <span class="action">
+                                            <span class="action">
 
                                             <span class="description">Saved by</span> {{doc.created_by.name}}
                                             <span class="description">on
@@ -1788,26 +1898,29 @@
                                                       :datetime="doc.created_at"
                                                       :title="doc.created_at_noob"
                                                       data-localized="true">{{doc.created_at_human}}</time>
-                                            <span class="description">Saved by</span> {{document.user_name}}
-                                            <span class="description">on
-                                                <time data-local="date"
-                                                      :datetime="document.created_at"
-                                                      :title="document.created_at_noob"
-                                                      data-localized="true">{{document.created_at_human}}</time>
+                                                <span class="description">Saved by</span> {{document.user_name}}
+                                                <span class="description">on
+                                                    <time data-local="date"
+                                                          :datetime="document.created_at"
+                                                          :title="document.created_at_noob"
+                                                          data-localized="true">{{document.created_at_human}}</time>
+                                                </span>
                                             </span>
                                         </span>
+                                        </div>
 
-                                    </div>
 
-                                    <div class="column actions">
-                                        <a class="button edit" href="/2501285/projects/6590988/documents/12905846/edit">Edit…</a>
+                                        <div class="column actions">
+                                            <a class="button edit"
+                                               href="/2501285/projects/6590988/documents/12905846/edit">Edit…</a>
+                                        </div>
                                     </div>
                                 </div>
                             </article>
                         </section>
 
                         <p class="more_documents">
-                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}}
+                            <a class="decorated" :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}}
                                 &nbsp; more documents</a>
                         </p>
                     </section>
@@ -1845,14 +1958,20 @@
                 projectId: '',
                 projectName: '',
                 totalTopics: '',
-                project: ''
+                project: '',
+
+                home_page: '',
+                result: '',
             }
         },
         mounted() {
             let self = this;
-            console.log('Component mounted.');
-            let segment = window.location.href.split('/');
-            axios.get('/api/project/' + segment[4] + '/' + segment[5])
+
+            this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+            this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+
+            axios.get(this.home_page+'api/project/' + this.projectId + '/' + this.projectName)
                 .then(function (response) {
                     console.log(response.data);
                     self.project = response.data;
@@ -1865,7 +1984,7 @@
                 });
 
 
-            window.onscroll = function(ev) {
+            window.onscroll = function (ev) {
                 if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
                     // you're at the bottom of the page
                     console.log('you reached end');

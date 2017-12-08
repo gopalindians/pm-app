@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title',  'Project xyz')
+@section('title','')
 
 @section('content')
     <project-view-component></project-view-component>
