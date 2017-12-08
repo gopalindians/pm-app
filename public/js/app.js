@@ -45251,9 +45251,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ProjectViewComponent',
@@ -45359,7 +45356,8 @@ var render = function() {
                   {
                     attrs: {
                       href:
-                        "/project/" +
+                        _vm.home_page +
+                        "project/" +
                         _vm.projectId +
                         "/" +
                         _vm.projectName +
@@ -45400,18 +45398,7 @@ var render = function() {
                               "\n                                "
                           )
                         ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "star",
-                        attrs: {
-                          "data-behavior": "project_star",
-                          "data-project-id": _vm.projectId,
-                          "data-refresh-project-view": "false",
-                          title:
-                            "Starring a project will highlight it on the projects index page"
-                        }
-                      })
+                      )
                     ])
                   ])
                 ]
@@ -45431,7 +45418,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -45453,7 +45441,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -45469,7 +45458,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -45485,7 +45475,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -45501,7 +45492,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -45534,7 +45526,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -45551,7 +45544,8 @@ var render = function() {
                         staticClass: "action_button button",
                         attrs: {
                           href:
-                            "/project/" +
+                            _vm.home_page +
+                            "project/" +
                             _vm.projectId +
                             "/" +
                             _vm.projectName +
@@ -45579,7 +45573,8 @@ var render = function() {
                                 {
                                   attrs: {
                                     href:
-                                      "/project/" +
+                                      _vm.home_page +
+                                      "project/" +
                                       _vm.projectId +
                                       "/" +
                                       _vm.projectName +
@@ -45608,7 +45603,8 @@ var render = function() {
                                 {
                                   attrs: {
                                     href:
-                                      "/project/" +
+                                      _vm.home_page +
+                                      "project/" +
                                       _vm.projectId +
                                       "/" +
                                       _vm.projectName +
@@ -45627,7 +45623,8 @@ var render = function() {
                                 {
                                   attrs: {
                                     href:
-                                      "/project/" +
+                                      _vm.home_page +
+                                      "project/" +
                                       _vm.projectId +
                                       "/" +
                                       _vm.projectName +
@@ -45673,7 +45670,8 @@ var render = function() {
                                 {
                                   attrs: {
                                     href:
-                                      "/project/" +
+                                      _vm.home_page +
+                                      "project/" +
                                       _vm.projectId +
                                       "/" +
                                       _vm.projectName +
@@ -45733,7 +45731,8 @@ var render = function() {
                                 {
                                   attrs: {
                                     href:
-                                      "/project/" +
+                                      _vm.home_page +
+                                      "project/" +
                                       _vm.projectId +
                                       "/" +
                                       _vm.projectName +
@@ -45764,7 +45763,8 @@ var render = function() {
                         staticClass: "decorated",
                         attrs: {
                           href:
-                            "/project/" +
+                            _vm.home_page +
+                            "project/" +
                             _vm.projectId +
                             "/" +
                             _vm.projectName +
@@ -45787,7 +45787,8 @@ var render = function() {
                         staticClass: "decorated",
                         attrs: {
                           href:
-                            "/project/" +
+                            _vm.home_page +
+                            "project/" +
                             _vm.projectId +
                             "/" +
                             _vm.projectName +
@@ -45818,7 +45819,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -45904,7 +45906,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -45921,7 +45924,8 @@ var render = function() {
                         staticClass: "action_button button",
                         attrs: {
                           href:
-                            "/project/" +
+                            _vm.home_page +
+                            "project/" +
                             _vm.projectId +
                             "/" +
                             _vm.projectName +
@@ -46015,7 +46019,8 @@ var render = function() {
                                       {
                                         attrs: {
                                           href:
-                                            "/project/" +
+                                            _vm.home_page +
+                                            "project/" +
                                             _vm.projectId +
                                             "/" +
                                             _vm.projectName +
@@ -46052,7 +46057,8 @@ var render = function() {
                                           attrs: {
                                             "data-default-stack": "true",
                                             href:
-                                              "/project/" +
+                                              _vm.home_page +
+                                              "project/" +
                                               _vm.projectId +
                                               "/" +
                                               _vm.projectName
@@ -46197,7 +46203,8 @@ var render = function() {
                         {
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -54445,6 +54452,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'TopicComponent',
@@ -54454,16 +54473,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             projectId: '',
             projectName: '',
             topics: '',
-            showError: ''
+            showError: '',
+
+            home_page: '',
+            result: ''
         };
     },
     mounted: function mounted() {
         var self = this;
-        var segment = window.location.href.split('/');
-        self.projectId = segment[4];
-        self.projectName = segment[5];
-        axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/topics').then(function (response) {
-            console.log(response.data);
+
+        this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+        this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+
+        axios.get(this.home_page + 'api/project/' + this.projectId + '/' + self.projectName + '/topics').then(function (response) {
             self.topics = response.data.data;
         }).catch(function (error) {
             console.log(error);
@@ -54510,7 +54533,8 @@ var render = function() {
                     attrs: {
                       "data-restore-position": "",
                       href:
-                        "/project/" +
+                        _vm.home_page +
+                        "project/" +
                         _vm.projectId +
                         "/" +
                         _vm.projectName +
@@ -54533,7 +54557,9 @@ var render = function() {
                 attrs: { "data-behavior": "" }
               },
               [
-                _c("title", [_vm._v("Random Projects: Discussions")]),
+                _c("title", [
+                  _vm._v(_vm._s(_vm.projectName) + ": Discussions")
+                ]),
                 _vm._v(" "),
                 _c("header", { staticClass: "has_buttons" }, [
                   _c("h1", { staticClass: "inactive_title" }, [
@@ -54550,7 +54576,8 @@ var render = function() {
                           staticClass: "action_button button",
                           attrs: {
                             href:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -54598,23 +54625,23 @@ var render = function() {
                                   {
                                     attrs: {
                                       href:
-                                        "/2501285/projects/6590988/messages/74066242"
+                                        _vm.home_page +
+                                        "project/" +
+                                        _vm.projectId +
+                                        "/" +
+                                        _vm.projectName +
+                                        "/messages/" +
+                                        topic.topic_id
                                     }
                                   },
                                   [
                                     _c("img", {
                                       staticClass: "avatar",
                                       attrs: {
-                                        alt:
-                                          topic.topic_comment_latest_posted_by
-                                            .comment_poster_name,
                                         height: "30",
                                         src:
-                                          "https://asset1.basecamp.com/2501285/people/13182570/photo/avatar.40.gif",
-                                        width: "30",
-                                        title:
-                                          topic.topic_comment_latest_posted_by
-                                            .comment_poster_name
+                                          "//asset1.basecamp.com/2501285/people/13182570/photo/avatar.40.gif",
+                                        width: "30"
                                       }
                                     })
                                   ]
@@ -54622,34 +54649,48 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("td", { staticClass: "who" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "/2501285/projects/6590988/messages/74066242"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(
-                                        topic.topic_comment_latest_posted_by
-                                          .comment_poster_name
-                                      )
-                                    )
-                                  ]
-                                )
+                                topic.topic_comment_latest == null
+                                  ? _c("a", {
+                                      attrs: {
+                                        href:
+                                          _vm.home_page +
+                                          "project/" +
+                                          _vm.projectId +
+                                          "/" +
+                                          _vm.projectName +
+                                          "/people/" +
+                                          topic.creater_id
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                topic.topic_comment_latest !== null
+                                  ? _c("a", {
+                                      attrs: {
+                                        href:
+                                          _vm.home_page +
+                                          "project/" +
+                                          _vm.projectId +
+                                          "/" +
+                                          _vm.projectName +
+                                          "/people/" +
+                                          topic.topic_comment_latest_posted_by
+                                            .comment_poster_id
+                                      }
+                                    })
+                                  : _vm._e()
                               ]),
                               _vm._v(" "),
                               _c("td", { staticClass: "what" }, [
-                                _vm._m(1, true, false),
+                                _c("div", { staticClass: "attachments" }),
                                 _vm._v(" "),
                                 _c(
                                   "a",
                                   {
                                     attrs: {
                                       href:
-                                        "/project/" +
+                                        _vm.home_page +
+                                        "project/" +
                                         _vm.projectId +
                                         "/" +
                                         _vm.projectName +
@@ -54674,14 +54715,25 @@ var render = function() {
                                       )
                                     ]),
                                     _vm._v(" "),
-                                    _c("span", { staticClass: "excerpt" }, [
-                                      _vm._v(
-                                        " - " +
-                                          _vm._s(
-                                            topic.topic_comment_latest.comment
+                                    topic.topic_comment_latest !== null
+                                      ? _c("span", { staticClass: "excerpt" }, [
+                                          _vm._v(
+                                            " - " +
+                                              _vm._s(
+                                                topic.topic_comment_latest
+                                                  .comment
+                                              )
                                           )
-                                      )
-                                    ])
+                                        ])
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    topic.topic_comment_latest === null
+                                      ? _c("span", { staticClass: "excerpt" }, [
+                                          _vm._v(
+                                            " - " + _vm._s(topic.topic_body)
+                                          )
+                                        ])
+                                      : _vm._e()
                                   ]
                                 )
                               ]),
@@ -54692,7 +54744,8 @@ var render = function() {
                                   {
                                     attrs: {
                                       href:
-                                        "/project/" +
+                                        _vm.home_page +
+                                        "project/" +
                                         _vm.projectId +
                                         "/" +
                                         _vm.projectName +
@@ -54714,7 +54767,7 @@ var render = function() {
                                       [
                                         _vm._v(
                                           _vm._s(topic.topic_updated_at_human) +
-                                            "\n                                            "
+                                            "\n                                        "
                                         )
                                       ]
                                     )
@@ -54729,7 +54782,8 @@ var render = function() {
                                       {
                                         attrs: {
                                           href:
-                                            "/project/" +
+                                            _vm.home_page +
+                                            "project/" +
                                             _vm.projectId +
                                             "/" +
                                             _vm.projectName +
@@ -54782,7 +54836,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("span", { staticClass: "sort_options" }, [
-          _vm._v("sorted by\n                                    "),
+          _vm._v("sorted by\n                                "),
           _c(
             "div",
             {
@@ -54863,7 +54917,7 @@ var staticRenderFns = [
             ]
           )
         ]),
-        _vm._v("and filter by\n                                "),
+        _vm._v("and filter by\n                            "),
         _c("input", {
           staticClass: "live_filter",
           attrs: {
@@ -54875,62 +54929,6 @@ var staticRenderFns = [
             id: "",
             placeholder: "title…",
             type: "text"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "attachments" }, [
-      _c("figure", [
-        _c("img", {
-          staticClass: "thumbnail hoverZoomLink",
-          attrs: {
-            alt: "",
-            "data-attachment-id": "309624226",
-            "data-audio-codec": "null",
-            "data-behavior": "enlargeable",
-            "data-classes": "image",
-            "data-container-id": "comment_574119436",
-            "data-content-type": "image/jpeg",
-            "data-created-at": "2017-11-06T09:54:34Z",
-            "data-creator-id": "13772519",
-            "data-creator": "Rupali",
-            "data-description": "image",
-            "data-details-path":
-              "/2501285/projects/6590988/attachments/309624226/details",
-            "data-download-path":
-              "/2501285/projects/6590988/attachments/309624226/download",
-            "data-embeddable": "false",
-            "data-extension": "JPG",
-            "data-file-or-image": "image",
-            "data-filename": "version-2.jpg",
-            "data-filesize": "58 KB",
-            "data-height": "360",
-            "data-image-id": "309624226",
-            "data-large-src":
-              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226/78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0/large.jpg",
-            "data-linked": "null",
-            "data-max-size": "700",
-            "data-original-src":
-              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226",
-            "data-path": "/2501285/projects/6590988/attachments/309624226",
-            "data-perma-path":
-              "/2501285/projects/6590988/messages/73572563?enlarge=309624226#attachment_309624226",
-            "data-previewable": "true",
-            "data-storage-key": "78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0",
-            "data-thumbnail": "true",
-            "data-trash-path":
-              "/2501285/projects/6590988/attachments/309624226/trash",
-            "data-trashed": "false",
-            "data-type": "image",
-            "data-video-codec": "null",
-            "data-width": "800",
-            src:
-              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226/78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0/thumbnail.jpg"
           }
         })
       ])
@@ -55091,298 +55089,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'NewMessageComponent',
@@ -55392,23 +55098,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             showError: '',
             projectId: '',
             projectName: '',
-            csrf: ''
+            csrf: '',
+
+            home_page: '',
+            result: ''
         };
     },
     mounted: function mounted() {
-
         var self = this;
-        self.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        var segment = window.location.href.split('/');
-        console.log(segment);
-        self.projectId = segment[4];
-        self.projectName = segment[5];
 
-        axios.get('/api/projects').then(function (response) {
-            self.projects = response.data.data;
-        }).catch(function (error) {
-            console.log(error);
-        });
+        this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+        this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+        this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+
+        /*axios.get(this.home_page+'api/projects')
+            .then(function (response) {
+                self.projects = response.data.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });*/
     },
 
     methods: {}
@@ -55443,7 +55153,25 @@ var render = function() {
             }
           },
           [
-            _vm._m(0, false, false),
+            _c("header", [
+              _c("h1", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      "data-restore-position": "",
+                      href:
+                        _vm.home_page +
+                        "project/" +
+                        _vm.projectId +
+                        "/" +
+                        _vm.projectName
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.projectName))]
+                )
+              ])
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -55452,9 +55180,11 @@ var render = function() {
                 staticStyle: { "margin-left": "20", "margin-bottom": "-20" }
               },
               [
-                _c("title", [_vm._v("Random Projects: Post a new message")]),
+                _c("title", [
+                  _vm._v(_vm._s(_vm.projectName) + ": Post a new message")
+                ]),
                 _vm._v(" "),
-                _vm._m(1, false, false),
+                _vm._m(0, false, false),
                 _vm._v(" "),
                 _c("div", { staticClass: "sheet_body" }, [
                   _c(
@@ -55471,7 +55201,8 @@ var render = function() {
                           attrs: {
                             "accept-charset": "UTF-8",
                             action:
-                              "/project/" +
+                              _vm.home_page +
+                              "project/" +
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
@@ -55483,26 +55214,18 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._m(2, false, false),
+                          _vm._m(1, false, false),
                           _vm._v(" "),
                           _c("input", {
                             attrs: { type: "hidden", name: "_token" },
                             domProps: { value: _vm.csrf }
                           }),
                           _vm._v(" "),
+                          _vm._m(2, false, false),
+                          _vm._v(" "),
                           _vm._m(3, false, false),
                           _vm._v(" "),
-                          _vm._m(4, false, false),
-                          _vm._v(" "),
-                          _vm._m(5, false, false),
-                          _vm._v(" "),
-                          _vm._m(6, false, false),
-                          _vm._v(" "),
-                          _vm._m(7, false, false),
-                          _vm._v(" "),
-                          _vm._m(8, false, false),
-                          _vm._v(" "),
-                          _vm._m(9, false, false)
+                          _vm._m(4, false, false)
                         ]
                       )
                     ]
@@ -55517,25 +55240,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", [
-      _c("h1", [
-        _c(
-          "a",
-          {
-            attrs: {
-              "data-restore-position": "",
-              href: "/2501285/projects/6590988"
-            }
-          },
-          [_vm._v("Random Projects")]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -55602,6 +55306,7 @@ var staticRenderFns = [
             placeholder: "Type the subject of this message...",
             rows: "1",
             "data-autoresize": "true",
+            required: "",
             "data-autosave-storage-key":
               "autosave:04e35ae58879813172c08ecfa54742f2"
           }
@@ -55632,7 +55337,8 @@ var staticRenderFns = [
             name: "message[content]",
             rows: "7",
             placeholder: "Type your message here...",
-            "data-dirty": "true"
+            "data-dirty": "true",
+            required: ""
           }
         }),
         _vm._v(" "),
@@ -55674,289 +55380,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
-      {
-        staticClass: "attachments",
-        attrs: {
-          "data-behavior": "pending_attachments file_drop_target",
-          "data-sortable": "true"
-        }
-      },
-      [
-        _c("span", { staticClass: "prompt_graphic" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "file_input_button" }, [
-          _c("span", { attrs: { "data-without-features": "files_api" } }, [
-            _vm._v("To attach files")
-          ]),
-          _vm._v(" "),
-          _c("span", { attrs: { "data-with-features": "files_api" } }, [
-            _vm._v("To attach files drag & drop here or")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "file_input_container" }, [
-            _c("input", {
-              attrs: {
-                name: "file",
-                type: "file",
-                multiple: "",
-                onchange: "$(document).trigger('ie:change', this)",
-                tabindex: "-1"
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "decorated",
-                attrs: {
-                  "data-behavior": "local_file_picker",
-                  href: "#",
-                  tabindex: "-1"
-                }
-              },
-              [_vm._v("select files from your computer…")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("span", { attrs: { "data-behavior": "load_google_client" } }, [
-            _vm._v("or\n                                            "),
-            _c(
-              "a",
-              {
-                staticClass: "decorated",
-                attrs: {
-                  "data-behavior": "google_file_picker",
-                  href: "#",
-                  tabindex: "-1"
-                }
-              },
-              [_vm._v("Google Docs…")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("ul", {
-          staticClass: "pending_attachments ui-sortable",
-          attrs: { "data-role": "accept_as_input" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "picker_account_switcher",
-        attrs: { "data-behavior": "picker_account_switcher" }
-      },
-      [
-        _c("strong", [
-          _vm._v("You’re signed in to Google as "),
-          _c("span", { attrs: { "data-role": "picker_account_email" } })
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          { attrs: { "data-behavior": "google_account_switcher", href: "#" } },
-          [
-            _vm._v(
-              "Sign out and use a different\n                                    Google account"
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "google_connector",
-        attrs: { "data-behavior": "google_connector" }
-      },
-      [
-        _c("p", [
-          _c("b", [_vm._v("Connect your Google account")]),
-          _c("br"),
-          _vm._v(
-            "\n                                    Before you can attach Google Docs in Basecamp, we’ll need your OK first. Do\n                                    you want to connect your account now?\n                                "
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "submit" }, [
-          _c(
-            "button",
-            {
-              staticClass: "action_button",
-              attrs: { "data-behavior": "create_google_file_picker" }
-            },
-            [
-              _vm._v(
-                "Yes,\n                                        connect my Google account\n                                    "
-              )
-            ]
-          ),
-          _vm._v("\n                                    or "),
-          _c(
-            "a",
-            { attrs: { "data-behavior": "cancel_google_connect", href: "#" } },
-            [_vm._v("Cancel")]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "google_connector",
-        attrs: { "data-behavior": "google_connector_access_denied" }
-      },
-      [
-        _c("p", [
-          _c("b", [_vm._v("Basecamp couldn’t access your Google account")]),
-          _c("br"),
-          _vm._v(
-            "\n                                    To attach Google Docs, you’ll need to give Basecamp permission. Do you want\n                                    to try again?\n                                "
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "submit" }, [
-          _c(
-            "button",
-            {
-              staticClass: "action_button",
-              attrs: { "data-behavior": "create_google_file_picker" }
-            },
-            [
-              _vm._v(
-                "\n                                        Connect a Google account\n                                    "
-              )
-            ]
-          ),
-          _vm._v("\n                                    or "),
-          _c(
-            "a",
-            { attrs: { "data-behavior": "cancel_google_connect", href: "#" } },
-            [_vm._v("Cancel")]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
       "footer",
       { attrs: { "data-behavior": "compose_footer expandable" } },
       [
-        _c(
-          "span",
-          {
-            staticStyle: { display: "none" },
-            attrs: { "data-role": "privacy_toggle" }
-          },
-          [
-            _c("label", { attrs: { for: "new_message_privacy_toggle" } }, [
-              _c("input", {
-                attrs: { name: "message[private]", type: "hidden", value: "0" }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  "data-behavior": "toggle_private_visibility",
-                  id: "new_message_privacy_toggle",
-                  name: "message[private]",
-                  type: "checkbox",
-                  value: "1"
-                }
-              }),
-              _vm._v(" Don’t show this message to the client "),
-              _c("span", { attrs: { "data-behavior": "client_list" } })
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                staticClass: "position_reference",
-                attrs: { "data-behavior": "expandable expand_exclusively" }
-              },
-              [
-                _vm._v("–\n                                        "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "decorated",
-                    attrs: { "data-behavior": "expand_on_click", href: "#" }
-                  },
-                  [_vm._v("what's this?")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "balloon right_side expanded_content" },
-                  [
-                    _c("span", { staticClass: "arrow" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "arrow" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "close" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "decorated",
-                          attrs: {
-                            "data-behavior": "collapse_on_click",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Close")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("h5", [_vm._v("Working with clients?")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "decorated",
-                          attrs: {
-                            href: "/2501285/projects/6590988/accesses#client"
-                          }
-                        },
-                        [_vm._v("Invite your first client to this project...")]
-                      )
-                    ])
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("br"),
-            _c("br")
-          ]
-        ),
-        _vm._v(" "),
         _c("br"),
         _vm._v(" "),
         _c("br"),
@@ -56785,37 +56211,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             projectName: '',
             csrf: '',
             clicked: false,
-            topicId: '',
-            topicName: '',
-            topicBody: '',
-            createrName: '',
-            topicCreatedAt: '',
-            topicCreatedAtHuman: '',
-            topicCreatedAtNoob: '',
 
-            topicComments: ''
+            messageId: '',
+            messageName: '',
+            messageBody: '',
+            messageCreatorName: '',
+            messageCreatedAt: '',
+            messageCreatedAtHuman: '',
+            messageCreatedAtNoob: '',
+
+            messageComments: '',
+            home_page: ''
         };
     },
     mounted: function mounted() {
 
         var self = this;
-        self.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        var segment = window.location.href.split('/');
-        console.log(segment);
-        self.projectId = segment[4];
-        self.projectName = segment[5];
-        self.topicId = segment[7];
 
-        axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/messages' + '/' + self.topicId).then(function (response) {
+        this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+        this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+        this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+        this.messageId = document.querySelector("meta[name='message-id']").getAttribute("content");
+
+        axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages' + '/' + this.messageId).then(function (response) {
             console.log(response.data);
-            self.topicName = response.data.topic_name;
-            self.topicBody = response.data.topic_body;
-            self.createrName = response.data.creater_name;
-            self.topicCreatedAt = response.data.topic_created_at;
-            self.topicCreatedAtHuman = response.data.topic_created_at_human;
-            self.topicCreatedAtNoob = response.data.topic_created_at_noob;
-
-            self.topicComments = response.data.topic_comments;
+            self.messageName = response.data.topic_name;
+            self.messageBody = response.data.topic_body;
+            self.messageCreatorName = response.data.creater_name;
+            self.messageCreatedAt = response.data.topic_created_at;
+            self.messageCreatedAtHuman = response.data.topic_created_at_human;
+            self.messageCreatedAtNoob = response.data.topic_created_at_noob;
+            self.messageComments = response.data.topic_comments;
         }).catch(function (error) {
             console.log(error);
         });
@@ -56868,7 +56295,12 @@ var render = function() {
                   {
                     attrs: {
                       "data-restore-position": "",
-                      href: "/project/" + _vm.projectId + "/" + _vm.projectName
+                      href:
+                        _vm.home_page +
+                        "project/" +
+                        _vm.projectId +
+                        "/" +
+                        _vm.projectName
                     }
                   },
                   [_vm._v(_vm._s(_vm.projectName))]
@@ -56895,7 +56327,8 @@ var render = function() {
                         attrs: {
                           "data-restore-position": "",
                           href:
-                            "/project/" +
+                            _vm.home_page +
+                            "project/" +
                             _vm.projectId +
                             "/" +
                             _vm.projectName +
@@ -56933,7 +56366,12 @@ var render = function() {
                           {
                             attrs: {
                               "data-stacker": "false",
-                              href: "/2501285/projects/6590988"
+                              href:
+                                _vm.home_page +
+                                "project/" +
+                                _vm.projectId +
+                                "/" +
+                                _vm.projectName
                             }
                           },
                           [_vm._v(_vm._s(_vm.projectName))]
@@ -56955,12 +56393,12 @@ var render = function() {
                           [
                             _c("article", { staticClass: "message" }, [
                               _c("header", [
-                                _c("h3", [_vm._v(_vm._s(_vm.topicName))]),
+                                _c("h3", [_vm._v(_vm._s(_vm.messageName))]),
                                 _vm._v(" "),
                                 _c("p", [
                                   _vm._v(
                                     "Posted by " +
-                                      _vm._s(_vm.createrName) +
+                                      _vm._s(_vm.messageCreatorName) +
                                       "\n                                            "
                                   ),
                                   _c(
@@ -56968,13 +56406,13 @@ var render = function() {
                                     {
                                       attrs: {
                                         "data-local": "time-ago",
-                                        datetime: _vm.topicCreatedAt,
-                                        title: _vm.topicCreatedAtNoob
+                                        datetime: _vm.messageCreatedAt,
+                                        title: _vm.messageCreatedAtNoob
                                       }
                                     },
                                     [
                                       _vm._v(
-                                        _vm._s(_vm.topicCreatedAtHuman) +
+                                        _vm._s(_vm.messageCreatedAtHuman) +
                                           "\n                                            "
                                       )
                                     ]
@@ -56994,11 +56432,11 @@ var render = function() {
                                   _c("img", {
                                     staticClass: "avatar",
                                     attrs: {
-                                      alt: _vm.createrName,
+                                      alt: _vm.messageCreatorName,
                                       height: "59",
                                       src:
                                         "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
-                                      title: _vm.createrName,
+                                      title: _vm.messageCreatorName,
                                       width: "59"
                                     }
                                   })
@@ -57017,7 +56455,7 @@ var render = function() {
                                 [
                                   _vm._v(
                                     "\n                                        " +
-                                      _vm._s(_vm.topicBody) +
+                                      _vm._s(_vm.messageBody) +
                                       "\n                                    "
                                   )
                                 ]
@@ -57038,7 +56476,7 @@ var render = function() {
                                   [
                                     _c("h4", [_vm._v("Discuss this message")]),
                                     _vm._v(" "),
-                                    _vm._l(_vm.topicComments, function(
+                                    _vm._l(_vm.messageComments, function(
                                       comment
                                     ) {
                                       return _c(
@@ -57169,7 +56607,7 @@ var render = function() {
                                               "true",
                                             src:
                                               "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
-                                            title: _vm.createrName
+                                            title: _vm.messageCreatorName
                                           }
                                         }),
                                         _vm._v(" "),
@@ -57229,12 +56667,13 @@ var render = function() {
                                           "data-behavior": "tool_action",
                                           "data-replace-sheet": "true",
                                           href:
-                                            "/project/" +
+                                            _vm.home_page +
+                                            "project/" +
                                             _vm.projectId +
                                             "/" +
                                             _vm.projectName +
                                             "/messages/" +
-                                            _vm.topicId +
+                                            _vm.messageId +
                                             "/edit"
                                         }
                                       },
@@ -59384,90 +58823,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'EditMessageComponent',
@@ -59479,32 +58834,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             projectName: '',
             csrf: '',
             clicked: false,
-            topicId: '',
-            topicName: '',
-            topicBody: '',
-            createrName: '',
-            topicCreatedAt: '',
-            topicCreatedAtHuman: '',
-            topicCreatedAtNoob: ''
+            messageId: '',
+            messageName: '',
+            messageBody: '',
+            messageCreatorName: '',
+            messageCreatedAt: '',
+            messageCreatedAtHuman: '',
+            messageCreatedAtNoob: '',
+
+            home_page: ''
         };
     },
     mounted: function mounted() {
         var self = this;
-        self.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        var segment = window.location.href.split('/');
-        console.log(segment);
-        self.projectId = segment[4];
-        self.projectName = segment[5];
-        self.topicId = segment[7];
 
-        axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/messages' + '/' + self.topicId).then(function (response) {
+        this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+        this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+        this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+        this.messageId = document.querySelector("meta[name='message-id']").getAttribute("content");
+
+        axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages' + '/' + this.messageId).then(function (response) {
             console.log(response.data);
-            self.topicName = response.data.topic_name;
-            self.topicBody = response.data.topic_body;
-            self.createrName = response.data.creater_name;
-            self.topicCreatedAt = response.data.topic_created_at;
-            self.topicCreatedAtHuman = response.data.topic_created_at_human;
-            self.topicCreatedAtNoob = response.data.topic_created_at_noob;
+            self.messageName = response.data.topic_name;
+            self.messageBody = response.data.topic_body;
+            self.messageCreatorName = response.data.creater_name;
+            self.messageCreatedAt = response.data.topic_created_at;
+            self.messageCreatedAtHuman = response.data.topic_created_at_human;
+            self.messageCreatedAtNoob = response.data.topic_created_at_noob;
         }).catch(function (error) {
             console.log(error);
         });
@@ -59557,7 +58914,7 @@ var render = function() {
                   {
                     attrs: {
                       "data-restore-position": "",
-                      href: "/project/" + _vm.projectId
+                      href: _vm.home_page + "project/" + _vm.projectId
                     }
                   },
                   [_vm._v(_vm._s(_vm.projectName))]
@@ -59584,7 +58941,8 @@ var render = function() {
                         attrs: {
                           "data-restore-position": "",
                           href:
-                            "/project/" +
+                            _vm.home_page +
+                            "project/" +
                             _vm.projectId +
                             "/" +
                             _vm.projectName +
@@ -59607,7 +58965,7 @@ var render = function() {
                   },
                   [
                     _c("title", [
-                      _vm._v("Random Projects: Post a new message")
+                      _vm._v(_vm._s(_vm.projectName) + ": Post a new message")
                     ]),
                     _vm._v(" "),
                     _vm._m(0, false, false),
@@ -59631,12 +58989,13 @@ var render = function() {
                               attrs: {
                                 "accept-charset": "UTF-8",
                                 action:
-                                  "/project/" +
+                                  _vm.home_page +
+                                  "project/" +
                                   _vm.projectId +
                                   "/" +
                                   _vm.projectName +
                                   "/messages/" +
-                                  _vm.topicId +
+                                  _vm.messageId +
                                   "/edit",
                                 "data-behavior": "",
                                 "data-remote": "true",
@@ -59674,7 +59033,7 @@ var render = function() {
                                     [
                                       _vm._v(
                                         "\n                                            " +
-                                          _vm._s(_vm.topicName) +
+                                          _vm._s(_vm.messageName) +
                                           "\n                                        "
                                       )
                                     ]
@@ -59706,7 +59065,7 @@ var render = function() {
                                     [
                                       _vm._v(
                                         "                                            " +
-                                          _vm._s(_vm.topicName)
+                                          _vm._s(_vm.messageName)
                                       )
                                     ]
                                   )
@@ -59739,14 +59098,14 @@ var render = function() {
                                           "autosave autoresize wysiwyg dirty_tracking submit_on_control_enter",
                                         "data-role": "accept_as_input",
                                         id: "message_content",
-                                        name: "message[content]",
+                                        name: "message[name]",
                                         rows: "7",
                                         "data-autosave-storage-key":
                                           "autosave:342232010cc2b9de5642e5a53f0edba5",
                                         placeholder: "Type your message here..."
                                       }
                                     },
-                                    [_vm._v(_vm._s(_vm.topicName))]
+                                    [_vm._v(_vm._s(_vm.messageName))]
                                   ),
                                   _vm._v(" "),
                                   _c("input", {
@@ -59782,65 +59141,81 @@ var render = function() {
                                     [
                                       _vm._v(
                                         "\n                                        " +
-                                          _vm._s(_vm.topicName) +
+                                          _vm._s(_vm.messageName) +
                                           "\n                                    "
                                       )
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c("iframe", {
-                                    staticClass: "wysihtml5-sandbox",
-                                    staticStyle: {
-                                      display: "inline-block",
-                                      "background-color": "rgb(255, 255, 255)",
-                                      "border-collapse": "separate",
-                                      border: "0 none rgb(0, 0, 0)",
-                                      clear: "none",
-                                      float: "none",
-                                      margin: "0",
-                                      outline: "rgb(0, 0, 0) none 0",
-                                      "outline-offset": "0",
-                                      padding: "0 65px",
-                                      position: "static",
-                                      top: "auto",
-                                      left: "auto",
-                                      right: "auto",
-                                      bottom: "auto",
-                                      "z-index": "auto",
-                                      "vertical-align": "baseline",
-                                      "text-align": "start",
-                                      "box-sizing": "content-box",
-                                      "box-shadow": "none",
-                                      "border-radius": "0",
-                                      width: "830px",
-                                      height: "175px",
-                                      resize: "none",
-                                      "min-height": "176px"
+                                  _c(
+                                    "textarea",
+                                    {
+                                      staticClass: "body",
+                                      attrs: {
+                                        "data-behavior":
+                                          "autosave autoresize wysiwyg dirty_tracking submit_on_control_enter",
+                                        "data-role": "accept_as_input",
+                                        name: "message[body]",
+                                        rows: "7",
+                                        placeholder: "Type your message here..."
+                                      }
                                     },
-                                    attrs: {
-                                      security: "restricted",
-                                      allowtransparency: "true",
-                                      frameborder: "0",
-                                      width: "0",
-                                      height: "0",
-                                      marginwidth: "0",
-                                      marginheight: "0",
-                                      "data-behavior": " autoresize",
-                                      "data-autoresize": "true"
-                                    }
-                                  })
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.messageBody) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(2, false, false),
-                              _vm._v(" "),
-                              _vm._m(3, false, false),
-                              _vm._v(" "),
-                              _vm._m(4, false, false),
-                              _vm._v(" "),
-                              _vm._m(5, false, false),
-                              _vm._v(" "),
-                              _vm._m(6, false, false)
+                              _c(
+                                "footer",
+                                {
+                                  attrs: {
+                                    "data-behavior": "compose_footer expandable"
+                                  }
+                                },
+                                [
+                                  _vm._m(2, false, false),
+                                  _vm._v(" "),
+                                  _vm._m(3, false, false),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "submit" }, [
+                                    _c("input", {
+                                      staticClass: "action_button green",
+                                      attrs: {
+                                        "data-role": "uploader",
+                                        name: "commit",
+                                        type: "submit",
+                                        value: "Save changes"
+                                      }
+                                    }),
+                                    _vm._v(
+                                      " or\n                                        "
+                                    ),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "cancel",
+                                        attrs: {
+                                          "data-replace-sheet": "true",
+                                          href:
+                                            _vm.home_page +
+                                            "project/" +
+                                            _vm.projectId +
+                                            "/" +
+                                            _vm.projectName +
+                                            "/messages/" +
+                                            _vm.messageId
+                                        }
+                                      },
+                                      [_vm._v("Cancel")]
+                                    )
+                                  ])
+                                ]
+                              )
                             ]
                           )
                         ]
@@ -59884,1020 +59259,622 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
+      "span",
       {
-        staticClass: "attachments has_attachments",
-        attrs: {
-          "data-behavior": "pending_attachments file_drop_target",
-          "data-sortable": "false"
-        }
+        staticStyle: { display: "none" },
+        attrs: { "data-role": "privacy_toggle" }
       },
       [
-        _c("span", { staticClass: "prompt_graphic" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "file_input_button" }, [
-          _c("span", { attrs: { "data-without-features": "files_api" } }, [
-            _vm._v("To attach files")
-          ]),
+        _c("label", { attrs: { for: "message_74076148_privacy_toggle" } }, [
+          _c("input", {
+            attrs: { name: "message[private]", type: "hidden", value: "0" }
+          }),
           _vm._v(" "),
-          _c("span", { attrs: { "data-with-features": "files_api" } }, [
-            _vm._v("To attach files drag & drop here or")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "file_input_container" }, [
-            _c("input", {
-              attrs: {
-                name: "file",
-                type: "file",
-                multiple: "",
-                onchange: "$(document).trigger('ie:change', this)",
-                tabindex: "-1"
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "decorated",
-                attrs: {
-                  "data-behavior": "local_file_picker",
-                  href: "#",
-                  tabindex: "-1"
-                }
-              },
-              [_vm._v("select files from your computer…")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("span", { attrs: { "data-behavior": "load_google_client" } }, [
-            _vm._v("\n                                            or "),
-            _c(
-              "a",
-              {
-                staticClass: "decorated",
-                attrs: {
-                  "data-behavior": "google_file_picker",
-                  href: "#",
-                  tabindex: "-1"
-                }
-              },
-              [_vm._v("Google Docs…")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "ul",
-          {
-            staticClass: "pending_attachments",
-            attrs: { "data-role": "accept_as_input" }
-          },
-          [
-            _c("li", { staticClass: "image", attrs: { "data-dirty": "" } }, [
-              _c("img", {
-                staticClass: "thumbnail",
-                attrs: {
-                  src:
-                    "https://asset1.basecamp.com/2501285/projects/6590988/attachments/312250536/4d5d0976-d1ed-11e7-baf6-e89a8fbdc254/thumbnail.jpg"
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "hidden",
-                  name: "attachments[][id]",
-                  value: "312250536"
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "hidden",
-                  name: "attachments[][_trash]",
-                  value: ""
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "hidden",
-                  name: "attachments[][name]",
-                  value: "c4dca50987bca80d6f42449e97dd96fe.jpg",
-                  "data-role": "name",
-                  "data-extname": ".jpg"
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "hidden",
-                  name: "attachments[][content_type]",
-                  value: "image/jpeg"
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "hidden",
-                  name: "attachments[][token]",
-                  value: ""
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "remove",
-                  attrs: { "data-behavior": "remove", href: "#" }
-                },
-                [_c("span", [_vm._v("Remove")])]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "icon" }, [
-                _c("img", {
-                  staticClass: "file_icon",
-                  attrs: {
-                    src:
-                      "https://bcx.basecamp-static.com/assets/file_icons/icon_JPG_big-a1256164bc7ed9bd9db5c07f4800658e.png",
-                    width: "32",
-                    height: "32"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "progress",
-                  attrs: { "data-behavior": "progress" }
-                },
-                [_c("div")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "filename" }, [
-                _c("input", {
-                  staticClass: "name",
-                  staticStyle: { width: "217px" },
-                  attrs: {
-                    type: "text",
-                    "data-role": "basename",
-                    value: "c4dca50987bca80d6f42449e97dd96fe"
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "extension" }, [_vm._v(".jpg")])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "taggings",
-                  attrs: { "data-behavior": "taggings pending_taggings" }
-                },
-                [
-                  _c("ul", { staticClass: "tags" }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "edit_taggings",
-                      attrs: {
-                        "data-behavior":
-                          "expandable expand_exclusively edit_taggings"
-                      }
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href: "#",
-                            "data-behavior": "expand_on_click"
-                          }
-                        },
-                        [_vm._v("Label...")]
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "picker_account_switcher",
-        attrs: { "data-behavior": "picker_account_switcher" }
-      },
-      [
-        _c("strong", [
-          _vm._v("You’re signed in to Google as "),
-          _c("span", { attrs: { "data-role": "picker_account_email" } })
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          { attrs: { "data-behavior": "google_account_switcher", href: "#" } },
-          [
-            _vm._v(
-              "Sign out and use a different\n                                        Google account"
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "google_connector",
-        attrs: { "data-behavior": "google_connector" }
-      },
-      [
-        _c("p", [
-          _c("b", [_vm._v("Connect your Google account")]),
-          _c("br"),
+          _c("input", {
+            attrs: {
+              "data-behavior": "toggle_private_visibility",
+              id: "message_74076148_privacy_toggle",
+              name: "message[private]",
+              type: "checkbox",
+              value: "1",
+              title:
+                "overall type: UNKNOWN_TYPE\n                                                   server type: NO_SERVER_DATA\n                                                   heuristic type: UNKNOWN_TYPE\n                                                   label: Don’t show this message to the client\n                                                   parseable name: message[private]\n                                                   field signature: 1649888584\n                                                   form signature: 11015918875615214810",
+              "autofill-prediction": "UNKNOWN_TYPE"
+            }
+          }),
           _vm._v(
-            "\n                                        Before you can attach Google Docs in Basecamp, we’ll need your OK first. Do\n                                        you want to connect your account now?\n                                    "
-          )
+            " Don’t show this message to the client\n                                            "
+          ),
+          _c("span", { attrs: { "data-behavior": "client_list" } })
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "submit" }, [
-          _c(
-            "button",
-            {
-              staticClass: "action_button",
-              attrs: { "data-behavior": "create_google_file_picker" }
-            },
-            [
-              _vm._v(
-                "Yes,\n                                            connect my Google account\n                                        "
-              )
-            ]
-          ),
-          _vm._v("\n                                        or "),
-          _c(
-            "a",
-            { attrs: { "data-behavior": "cancel_google_connect", href: "#" } },
-            [_vm._v("Cancel")]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "google_connector",
-        attrs: { "data-behavior": "google_connector_access_denied" }
-      },
-      [
-        _c("p", [
-          _c("b", [_vm._v("Basecamp couldn’t access your Google account")]),
-          _c("br"),
-          _vm._v(
-            "\n                                        To attach Google Docs, you’ll need to give Basecamp permission. Do you want\n                                        to try again?\n                                    "
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "submit" }, [
-          _c(
-            "button",
-            {
-              staticClass: "action_button",
-              attrs: { "data-behavior": "create_google_file_picker" }
-            },
-            [
-              _vm._v(
-                "\n                                            Connect a Google account\n                                        "
-              )
-            ]
-          ),
-          _vm._v("\n                                        or "),
-          _c(
-            "a",
-            { attrs: { "data-behavior": "cancel_google_connect", href: "#" } },
-            [_vm._v("Cancel")]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "footer",
-      { attrs: { "data-behavior": "compose_footer expandable" } },
-      [
         _c(
           "span",
           {
-            staticStyle: { display: "none" },
-            attrs: { "data-role": "privacy_toggle" }
+            staticClass: "position_reference",
+            attrs: { "data-behavior": "expandable expand_exclusively" }
           },
           [
-            _c("label", { attrs: { for: "message_74076148_privacy_toggle" } }, [
-              _c("input", {
-                attrs: { name: "message[private]", type: "hidden", value: "0" }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  "data-behavior": "toggle_private_visibility",
-                  id: "message_74076148_privacy_toggle",
-                  name: "message[private]",
-                  type: "checkbox",
-                  value: "1",
-                  title:
-                    "overall type: UNKNOWN_TYPE\n                                                   server type: NO_SERVER_DATA\n                                                   heuristic type: UNKNOWN_TYPE\n                                                   label: Don’t show this message to the client\n                                                   parseable name: message[private]\n                                                   field signature: 1649888584\n                                                   form signature: 11015918875615214810",
-                  "autofill-prediction": "UNKNOWN_TYPE"
-                }
-              }),
-              _vm._v(
-                " Don’t show this message to the client\n                                            "
-              ),
-              _c("span", { attrs: { "data-behavior": "client_list" } })
-            ]),
-            _vm._v(" "),
+            _vm._v("\n                                            – "),
             _c(
-              "span",
+              "a",
               {
-                staticClass: "position_reference",
-                attrs: { "data-behavior": "expandable expand_exclusively" }
+                staticClass: "decorated",
+                attrs: { "data-behavior": "expand_on_click", href: "#" }
               },
-              [
-                _vm._v("\n                                            – "),
+              [_vm._v("what's this?")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "balloon right_side expanded_content" }, [
+              _c("span", { staticClass: "arrow" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "arrow" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "close" }, [
                 _c(
                   "a",
                   {
                     staticClass: "decorated",
-                    attrs: { "data-behavior": "expand_on_click", href: "#" }
+                    attrs: { "data-behavior": "collapse_on_click", href: "#" }
                   },
-                  [_vm._v("what's this?")]
+                  [_vm._v("Close")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("h5", [_vm._v("Working with clients?")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "decorated",
+                    attrs: { href: "/2501285/projects/6590988/accesses#client" }
+                  },
+                  [_vm._v("Invite your first client to this project...")]
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("br"),
+        _c("br")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticStyle: { display: "none" } }, [
+      _c(
+        "div",
+        {
+          attrs: {
+            "data-behavior": "lazy_load_subscribers",
+            "data-url":
+              "/2501285/projects/6590988/subscribers?subscribable_id=74076148&subscribable_type=Message"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "subscribable",
+              attrs: {
+                "data-subscribers":
+                  '[{"id":13361242,"name":"Aditi Mehra","wants_notifications":true},{"id":14779244,"name":"Ankush development","wants_notifications":true},{"id":15316135,"name":"Ashish Sharma","wants_notifications":true},{"id":6581649,"name":"Deepanshu Thakral","wants_notifications":true},{"id":11648374,"name":"Deepika Sharma","wants_notifications":true},{"id":13182570,"name":"Harishanker .","wants_notifications":true},{"id":13489389,"name":"Prabhjot Kaur","wants_notifications":true},{"id":13772519,"name":"Rupali","wants_notifications":true},{"id":13182577,"name":"Surinder kaur","wants_notifications":true},{"id":15159411,"name":"Yograj","wants_notifications":true}]'
+              }
+            },
+            [
+              _c("div", { staticClass: "expanded_content" }, [
+                _c(
+                  "span",
+                  { attrs: { "data-behavior": "multiple_subscribers" } },
+                  [
+                    _c(
+                      "div",
+                      {
+                        attrs: {
+                          "data-behavior": "subscriber_list",
+                          "data-subscribable": "message",
+                          "data-new-subscribable": "false",
+                          "data-people":
+                            '[{"id":"person_6581649","person_id":6581649,"name":"Deepanshu Thakral","wants_notifications":true},{"id":"person_11648374","person_id":11648374,"name":"Deepika Sharma","wants_notifications":true},{"id":"person_13182570","person_id":13182570,"name":"Harishanker .","wants_notifications":true},{"id":"person_13182577","person_id":13182577,"name":"Surinder kaur","wants_notifications":true},{"id":"person_13361242","person_id":13361242,"name":"Aditi Mehra","wants_notifications":true},{"id":"person_13489389","person_id":13489389,"name":"Prabhjot Kaur","wants_notifications":true},{"id":"person_13772519","person_id":13772519,"name":"Rupali","wants_notifications":true},{"id":"person_14779244","person_id":14779244,"name":"Ankush development","wants_notifications":true},{"id":"person_15159411","person_id":15159411,"name":"Yograj","wants_notifications":true},{"id":"person_15316135","person_id":15316135,"name":"Ashish Sharma","wants_notifications":true},{"id":"person_15531397","person_id":15531397,"name":"Gopal Sharma","wants_notifications":true}]',
+                          "data-client-ids": "[]",
+                          "data-private": "false",
+                          "data-groups":
+                            '[{"id":"group_1202686","group_id":1202686,"parent_id":null,"name":"Leading Edge Team","member_ids":["person_6581649","person_11651333","person_13182570","person_13182577","person_13361242","person_13489389","person_13772519"]},{"id":"group_1623490","group_id":1623490,"parent_id":1202686,"name":"BD Team","member_ids":[]},{"id":"group_1623491","group_id":1623491,"parent_id":1202686,"name":"Seo Team","member_ids":[]},{"id":"group_1623492","group_id":1623492,"parent_id":1202686,"name":"HR Team","member_ids":[]},{"id":"group_1697479","group_id":1697479,"parent_id":1202686,"name":"QA Team","member_ids":[]},{"id":"group_1794085","group_id":1794085,"parent_id":1202686,"name":"Design Team","member_ids":[]},{"id":"group_1794086","group_id":1794086,"parent_id":1202686,"name":"Php team","member_ids":["person_6581649","person_13182570","person_13489389"]},{"id":"group_1943115","group_id":1943115,"parent_id":1202686,"name":"BD Team","member_ids":["person_6581649","person_13361242"]},{"id":"group_1954781","group_id":1954781,"parent_id":1202686,"name":"Design Team","member_ids":["person_6581649","person_13182577","person_13772519"]},{"id":"group_1954782","group_id":1954782,"parent_id":1202686,"name":"Seo Team","member_ids":["person_11651333"]},{"id":"group_1954783","group_id":1954783,"parent_id":1202686,"name":"hr team","member_ids":[]}]',
+                          "data-subscriber-ids":
+                            "[13361242,14779244,15316135,6581649,11648374,13182570,13489389,13772519,13182577,15159411]"
+                        }
+                      },
+                      [
+                        _c("table", [
+                          _c("tbody", [
+                            _c("tr", [
+                              _c("td", { staticClass: "subscribers" }, [
+                                _c("h4", [
+                                  _vm._v("Email "),
+                                  _c(
+                                    "span",
+                                    {
+                                      attrs: {
+                                        "data-behavior":
+                                          "pluralize_subscribable_label"
+                                      }
+                                    },
+                                    [_vm._v("this message")]
+                                  ),
+                                  _vm._v(" to people on the project:")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "select_all_or_none" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass:
+                                          "decorated select_everyone",
+                                        attrs: {
+                                          href: "#",
+                                          "data-behavior":
+                                            "subscriber_select_all"
+                                        }
+                                      },
+                                      [_vm._v("Select all")]
+                                    ),
+                                    _vm._v(
+                                      " |\n                                                                        "
+                                    ),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass:
+                                          "decorated select_everyone",
+                                        attrs: {
+                                          href: "#",
+                                          "data-behavior":
+                                            "subscriber_select_none"
+                                        }
+                                      },
+                                      [_vm._v("Select none")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass:
+                                          "decorated select_everyone",
+                                        staticStyle: { display: "none" },
+                                        attrs: {
+                                          href: "#",
+                                          "data-behavior":
+                                            "subscriber_select_remembered"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                                                            Select remembered (only included as a gateway for the label click)\n                                                                        "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "subscribers" }, [
+                                  _c("div", [
+                                    _c("div", { staticClass: "column" }, [
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "13361242",
+                                            title: "Aditi Mehra"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "13361242"
+                                            }
+                                          }),
+                                          _vm._v(
+                                            "\n                                                                                Aditi Mehra\n                                                                            "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "14779244",
+                                            title: "Ankush development"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "14779244"
+                                            }
+                                          }),
+                                          _vm._v(
+                                            "\n                                                                                Ankush development\n                                                                            "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "15316135",
+                                            title: "Ashish Sharma"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "15316135"
+                                            }
+                                          }),
+                                          _vm._v("Ashish Sharma")
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "6581649",
+                                            title: "Deepanshu Thakral"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "6581649"
+                                            }
+                                          }),
+                                          _vm._v("Deepanshu Thakral")
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "column" }, [
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "11648374",
+                                            title: "Deepika Sharma"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "11648374"
+                                            }
+                                          }),
+                                          _vm._v(
+                                            "\n                                                                                Deepika Sharma\n                                                                            "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "13182570",
+                                            title: "Harishanker ."
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "13182570"
+                                            }
+                                          }),
+                                          _vm._v(
+                                            "\n                                                                                Harishanker .\n                                                                            "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "13489389",
+                                            title: "Prabhjot Kaur"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "13489389"
+                                            }
+                                          }),
+                                          _vm._v(
+                                            "\n                                                                                Prabhjot Kaur\n                                                                            "
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "column" }, [
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "13772519",
+                                            title: "Rupali"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "13772519"
+                                            }
+                                          }),
+                                          _vm._v(
+                                            "\n                                                                                Rupali\n                                                                            "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "13182577",
+                                            title: "Surinder kaur"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "13182577"
+                                            }
+                                          }),
+                                          _vm._v(
+                                            "\n                                                                                Surinder kaur\n                                                                            "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          attrs: {
+                                            "data-subscriber-id": "15159411",
+                                            title: "Yograj"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            attrs: {
+                                              name: "message[subscribers][]",
+                                              type: "checkbox",
+                                              value: "15159411"
+                                            }
+                                          }),
+                                          _vm._v(
+                                            "\n                                                                                Yograj\n                                                                            "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "groups" }, [
+                                _c("h4", [_vm._v("Select people from:")]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "group_options" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "activated",
+                                      attrs: {
+                                        href: "#",
+                                        "data-member-ids":
+                                          "[6581649,13182570,13182577,13361242,13489389,13772519]",
+                                        "data-group-id": "group_1202686"
+                                      }
+                                    },
+                                    [_c("span", [_vm._v("Leading Edge Team")])]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "subgroup_options" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "subgroup activated",
+                                          attrs: {
+                                            href: "#",
+                                            "data-member-ids":
+                                              "[6581649,13361242]",
+                                            "data-group-id": "group_1943115",
+                                            "data-parent-group-id":
+                                              "group_1202686"
+                                          }
+                                        },
+                                        [_c("span", [_vm._v("BD Team")])]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "subgroup activated",
+                                          attrs: {
+                                            href: "#",
+                                            "data-member-ids":
+                                              "[6581649,13182577,13772519]",
+                                            "data-group-id": "group_1954781",
+                                            "data-parent-group-id":
+                                              "group_1202686"
+                                          }
+                                        },
+                                        [_c("span", [_vm._v("Design Team")])]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "subgroup activated",
+                                          attrs: {
+                                            href: "#",
+                                            "data-member-ids":
+                                              "[6581649,13182570,13489389]",
+                                            "data-group-id": "group_1794086",
+                                            "data-parent-group-id":
+                                              "group_1202686"
+                                          }
+                                        },
+                                        [_c("span", [_vm._v("Php team")])]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "balloon right_side expanded_content" },
+                  {
+                    staticClass: "share_note",
+                    staticStyle: { display: "none" },
+                    attrs: { "data-behavior": "single_subscriber" }
+                  },
                   [
-                    _c("span", { staticClass: "arrow" }),
+                    _c("h4", [_vm._v("You can share this with others:")]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "arrow" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "close" }, [
+                    _c("span", [
                       _c(
                         "a",
                         {
                           staticClass: "decorated",
-                          attrs: {
-                            "data-behavior": "collapse_on_click",
-                            href: "#"
-                          }
+                          attrs: { href: "/2501285/projects/6590988/accesses" }
                         },
-                        [_vm._v("Close")]
+                        [_vm._v("Invite people to the project")]
                       )
                     ]),
-                    _vm._v(" "),
-                    _c("h5", [_vm._v("Working with clients?")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
-                      )
+                    _vm._v(
+                      "\n                                                        so they can collaborate with you\n                                                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "subscribers ad-hoc",
+                    attrs: { "data-behavior": "expandable" }
+                  },
+                  [
+                    _c("div", { staticClass: "collapsed_content" }, [
+                      _c("span", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "decorated",
+                            attrs: {
+                              "data-behavior": "expand_on_click",
+                              href: "#"
+                            }
+                          },
+                          [_vm._v("Loop-in someone who isn't on the project")]
+                        ),
+                        _vm._v(
+                          " to share this by email only\n                                                                "
+                        ),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "watch",
+                            attrs: {
+                              "data-behavior": "open_videobox",
+                              "data-video-src":
+                                "//fast.wistia.net/embed/iframe/ne85k8gw8w",
+                              href: "#"
+                            }
+                          },
+                          [_vm._v("(What is this?)")]
+                        )
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c("p", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "decorated",
-                          attrs: {
-                            href: "/2501285/projects/6590988/accesses#client"
-                          }
-                        },
-                        [_vm._v("Invite your first client to this project...")]
-                      )
+                    _c("div", { staticClass: "expanded_content" }, [
+                      _c("h4", [
+                        _vm._v(
+                          "Loop-in someone who isn't on the project to share this by email only:"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "note" }, [
+                        _vm._v(
+                          "\n                                                                They’ll see the whole discussion, and they can reply via email, but they can’t see anything else in the project."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "fieldset",
+                        attrs: {
+                          "data-behavior": "adhoc_subscribers",
+                          "data-subscribable": "message",
+                          "data-disabled-people-ids":
+                            '["person_6581649","person_11648374","person_13182570","person_13182577","person_13361242","person_13489389","person_13772519","person_14779244","person_15159411","person_15316135","person_15531397"]',
+                          "data-outside-subscribers": "[]"
+                        }
+                      })
                     ])
                   ]
                 )
-              ]
-            ),
-            _vm._v(" "),
-            _c("br"),
-            _c("br")
-          ]
-        ),
-        _vm._v(" "),
-        _c("span", { staticStyle: { display: "none" } }, [
-          _c(
-            "div",
-            {
-              attrs: {
-                "data-behavior": "lazy_load_subscribers",
-                "data-url":
-                  "/2501285/projects/6590988/subscribers?subscribable_id=74076148&subscribable_type=Message"
-              }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "subscribable",
-                  attrs: {
-                    "data-subscribers":
-                      '[{"id":13361242,"name":"Aditi Mehra","wants_notifications":true},{"id":14779244,"name":"Ankush development","wants_notifications":true},{"id":15316135,"name":"Ashish Sharma","wants_notifications":true},{"id":6581649,"name":"Deepanshu Thakral","wants_notifications":true},{"id":11648374,"name":"Deepika Sharma","wants_notifications":true},{"id":13182570,"name":"Harishanker .","wants_notifications":true},{"id":13489389,"name":"Prabhjot Kaur","wants_notifications":true},{"id":13772519,"name":"Rupali","wants_notifications":true},{"id":13182577,"name":"Surinder kaur","wants_notifications":true},{"id":15159411,"name":"Yograj","wants_notifications":true}]'
-                  }
-                },
-                [
-                  _c("div", { staticClass: "expanded_content" }, [
-                    _c(
-                      "span",
-                      { attrs: { "data-behavior": "multiple_subscribers" } },
-                      [
-                        _c(
-                          "div",
-                          {
-                            attrs: {
-                              "data-behavior": "subscriber_list",
-                              "data-subscribable": "message",
-                              "data-new-subscribable": "false",
-                              "data-people":
-                                '[{"id":"person_6581649","person_id":6581649,"name":"Deepanshu Thakral","wants_notifications":true},{"id":"person_11648374","person_id":11648374,"name":"Deepika Sharma","wants_notifications":true},{"id":"person_13182570","person_id":13182570,"name":"Harishanker .","wants_notifications":true},{"id":"person_13182577","person_id":13182577,"name":"Surinder kaur","wants_notifications":true},{"id":"person_13361242","person_id":13361242,"name":"Aditi Mehra","wants_notifications":true},{"id":"person_13489389","person_id":13489389,"name":"Prabhjot Kaur","wants_notifications":true},{"id":"person_13772519","person_id":13772519,"name":"Rupali","wants_notifications":true},{"id":"person_14779244","person_id":14779244,"name":"Ankush development","wants_notifications":true},{"id":"person_15159411","person_id":15159411,"name":"Yograj","wants_notifications":true},{"id":"person_15316135","person_id":15316135,"name":"Ashish Sharma","wants_notifications":true},{"id":"person_15531397","person_id":15531397,"name":"Gopal Sharma","wants_notifications":true}]',
-                              "data-client-ids": "[]",
-                              "data-private": "false",
-                              "data-groups":
-                                '[{"id":"group_1202686","group_id":1202686,"parent_id":null,"name":"Leading Edge Team","member_ids":["person_6581649","person_11651333","person_13182570","person_13182577","person_13361242","person_13489389","person_13772519"]},{"id":"group_1623490","group_id":1623490,"parent_id":1202686,"name":"BD Team","member_ids":[]},{"id":"group_1623491","group_id":1623491,"parent_id":1202686,"name":"Seo Team","member_ids":[]},{"id":"group_1623492","group_id":1623492,"parent_id":1202686,"name":"HR Team","member_ids":[]},{"id":"group_1697479","group_id":1697479,"parent_id":1202686,"name":"QA Team","member_ids":[]},{"id":"group_1794085","group_id":1794085,"parent_id":1202686,"name":"Design Team","member_ids":[]},{"id":"group_1794086","group_id":1794086,"parent_id":1202686,"name":"Php team","member_ids":["person_6581649","person_13182570","person_13489389"]},{"id":"group_1943115","group_id":1943115,"parent_id":1202686,"name":"BD Team","member_ids":["person_6581649","person_13361242"]},{"id":"group_1954781","group_id":1954781,"parent_id":1202686,"name":"Design Team","member_ids":["person_6581649","person_13182577","person_13772519"]},{"id":"group_1954782","group_id":1954782,"parent_id":1202686,"name":"Seo Team","member_ids":["person_11651333"]},{"id":"group_1954783","group_id":1954783,"parent_id":1202686,"name":"hr team","member_ids":[]}]',
-                              "data-subscriber-ids":
-                                "[13361242,14779244,15316135,6581649,11648374,13182570,13489389,13772519,13182577,15159411]"
-                            }
-                          },
-                          [
-                            _c("table", [
-                              _c("tbody", [
-                                _c("tr", [
-                                  _c("td", { staticClass: "subscribers" }, [
-                                    _c("h4", [
-                                      _vm._v("Email "),
-                                      _c(
-                                        "span",
-                                        {
-                                          attrs: {
-                                            "data-behavior":
-                                              "pluralize_subscribable_label"
-                                          }
-                                        },
-                                        [_vm._v("this message")]
-                                      ),
-                                      _vm._v(" to people on the project:")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "select_all_or_none" },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            staticClass:
-                                              "decorated select_everyone",
-                                            attrs: {
-                                              href: "#",
-                                              "data-behavior":
-                                                "subscriber_select_all"
-                                            }
-                                          },
-                                          [_vm._v("Select all")]
-                                        ),
-                                        _vm._v(
-                                          " |\n                                                                        "
-                                        ),
-                                        _c(
-                                          "a",
-                                          {
-                                            staticClass:
-                                              "decorated select_everyone",
-                                            attrs: {
-                                              href: "#",
-                                              "data-behavior":
-                                                "subscriber_select_none"
-                                            }
-                                          },
-                                          [_vm._v("Select none")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "a",
-                                          {
-                                            staticClass:
-                                              "decorated select_everyone",
-                                            staticStyle: { display: "none" },
-                                            attrs: {
-                                              href: "#",
-                                              "data-behavior":
-                                                "subscriber_select_remembered"
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                                                            Select remembered (only included as a gateway for the label click)\n                                                                        "
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "subscribers" }, [
-                                      _c("div", [
-                                        _c("div", { staticClass: "column" }, [
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "13361242",
-                                                title: "Aditi Mehra"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "13361242"
-                                                }
-                                              }),
-                                              _vm._v(
-                                                "\n                                                                                Aditi Mehra\n                                                                            "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "14779244",
-                                                title: "Ankush development"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "14779244"
-                                                }
-                                              }),
-                                              _vm._v(
-                                                "\n                                                                                Ankush development\n                                                                            "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "15316135",
-                                                title: "Ashish Sharma"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "15316135"
-                                                }
-                                              }),
-                                              _vm._v("Ashish Sharma")
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id": "6581649",
-                                                title: "Deepanshu Thakral"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "6581649"
-                                                }
-                                              }),
-                                              _vm._v("Deepanshu Thakral")
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "column" }, [
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "11648374",
-                                                title: "Deepika Sharma"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "11648374"
-                                                }
-                                              }),
-                                              _vm._v(
-                                                "\n                                                                                Deepika Sharma\n                                                                            "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "13182570",
-                                                title: "Harishanker ."
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "13182570"
-                                                }
-                                              }),
-                                              _vm._v(
-                                                "\n                                                                                Harishanker .\n                                                                            "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "13489389",
-                                                title: "Prabhjot Kaur"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "13489389"
-                                                }
-                                              }),
-                                              _vm._v(
-                                                "\n                                                                                Prabhjot Kaur\n                                                                            "
-                                              )
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "column" }, [
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "13772519",
-                                                title: "Rupali"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "13772519"
-                                                }
-                                              }),
-                                              _vm._v(
-                                                "\n                                                                                Rupali\n                                                                            "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "13182577",
-                                                title: "Surinder kaur"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "13182577"
-                                                }
-                                              }),
-                                              _vm._v(
-                                                "\n                                                                                Surinder kaur\n                                                                            "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              attrs: {
-                                                "data-subscriber-id":
-                                                  "15159411",
-                                                title: "Yograj"
-                                              }
-                                            },
-                                            [
-                                              _c("input", {
-                                                attrs: {
-                                                  name:
-                                                    "message[subscribers][]",
-                                                  type: "checkbox",
-                                                  value: "15159411"
-                                                }
-                                              }),
-                                              _vm._v(
-                                                "\n                                                                                Yograj\n                                                                            "
-                                              )
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", { staticClass: "groups" }, [
-                                    _c("h4", [_vm._v("Select people from:")]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "group_options" },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            staticClass: "activated",
-                                            attrs: {
-                                              href: "#",
-                                              "data-member-ids":
-                                                "[6581649,13182570,13182577,13361242,13489389,13772519]",
-                                              "data-group-id": "group_1202686"
-                                            }
-                                          },
-                                          [
-                                            _c("span", [
-                                              _vm._v("Leading Edge Team")
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "subgroup_options" },
-                                          [
-                                            _c(
-                                              "a",
-                                              {
-                                                staticClass:
-                                                  "subgroup activated",
-                                                attrs: {
-                                                  href: "#",
-                                                  "data-member-ids":
-                                                    "[6581649,13361242]",
-                                                  "data-group-id":
-                                                    "group_1943115",
-                                                  "data-parent-group-id":
-                                                    "group_1202686"
-                                                }
-                                              },
-                                              [_c("span", [_vm._v("BD Team")])]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "a",
-                                              {
-                                                staticClass:
-                                                  "subgroup activated",
-                                                attrs: {
-                                                  href: "#",
-                                                  "data-member-ids":
-                                                    "[6581649,13182577,13772519]",
-                                                  "data-group-id":
-                                                    "group_1954781",
-                                                  "data-parent-group-id":
-                                                    "group_1202686"
-                                                }
-                                              },
-                                              [
-                                                _c("span", [
-                                                  _vm._v("Design Team")
-                                                ])
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "a",
-                                              {
-                                                staticClass:
-                                                  "subgroup activated",
-                                                attrs: {
-                                                  href: "#",
-                                                  "data-member-ids":
-                                                    "[6581649,13182570,13489389]",
-                                                  "data-group-id":
-                                                    "group_1794086",
-                                                  "data-parent-group-id":
-                                                    "group_1202686"
-                                                }
-                                              },
-                                              [_c("span", [_vm._v("Php team")])]
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                ])
-                              ])
-                            ])
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "share_note",
-                        staticStyle: { display: "none" },
-                        attrs: { "data-behavior": "single_subscriber" }
-                      },
-                      [
-                        _c("h4", [_vm._v("You can share this with others:")]),
-                        _vm._v(" "),
-                        _c("span", [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "decorated",
-                              attrs: {
-                                href: "/2501285/projects/6590988/accesses"
-                              }
-                            },
-                            [_vm._v("Invite people to the project")]
-                          )
-                        ]),
-                        _vm._v(
-                          "\n                                                        so they can collaborate with you\n                                                    "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "subscribers ad-hoc",
-                        attrs: { "data-behavior": "expandable" }
-                      },
-                      [
-                        _c("div", { staticClass: "collapsed_content" }, [
-                          _c("span", [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "decorated",
-                                attrs: {
-                                  "data-behavior": "expand_on_click",
-                                  href: "#"
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "Loop-in someone who isn't on the project"
-                                )
-                              ]
-                            ),
-                            _vm._v(
-                              " to share this by email only\n                                                                "
-                            ),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "watch",
-                                attrs: {
-                                  "data-behavior": "open_videobox",
-                                  "data-video-src":
-                                    "//fast.wistia.net/embed/iframe/ne85k8gw8w",
-                                  href: "#"
-                                }
-                              },
-                              [_vm._v("(What is this?)")]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "expanded_content" }, [
-                          _c("h4", [
-                            _vm._v(
-                              "Loop-in someone who isn't on the project to share this by email only:"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "note" }, [
-                            _vm._v(
-                              "\n                                                                They’ll see the whole discussion, and they can reply via email, but they can’t see anything else in the project."
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", {
-                            staticClass: "fieldset",
-                            attrs: {
-                              "data-behavior": "adhoc_subscribers",
-                              "data-subscribable": "message",
-                              "data-disabled-people-ids":
-                                '["person_6581649","person_11648374","person_13182570","person_13182577","person_13361242","person_13489389","person_13772519","person_14779244","person_15159411","person_15316135","person_15531397"]',
-                              "data-outside-subscribers": "[]"
-                            }
-                          })
-                        ])
-                      ]
-                    )
-                  ])
-                ]
-              )
+              ])
             ]
           )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "submit" }, [
-          _c("input", {
-            staticClass: "action_button green",
-            attrs: {
-              "data-role": "uploader",
-              name: "commit",
-              type: "submit",
-              value: "Save changes"
-            }
-          }),
-          _vm._v(" or\n                                        "),
-          _c(
-            "a",
-            {
-              staticClass: "cancel",
-              attrs: {
-                "data-replace-sheet": "true",
-                href: "/2501285/projects/6590988/messages/74076148"
-              }
-            },
-            [_vm._v("Cancel")]
-          )
-        ])
-      ]
-    )
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
