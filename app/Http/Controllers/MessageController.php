@@ -45,6 +45,13 @@ class MessageController extends Controller {
 			             'updated_at' => Carbon::now(),
 		             ] );
 
+
+        DB::table('projects')
+            ->where('id', $projectId)
+            ->update([
+                'updated_at' => Carbon::now()
+            ]);
+
 		return redirect( 'project/' . $projectId . '/' . $projectName . '/messages/' . $topicId );
 	}
 
