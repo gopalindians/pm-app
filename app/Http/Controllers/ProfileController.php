@@ -67,14 +67,16 @@ class ProfileController extends Controller
 
         $request->validate([
             'name' => 'required|min:1|max:255',
+			'email' => 'required',
             'dob' => 'nullable|date',
-            'gender' => 'nullable|date',
-            'position' => 'nullable|date',
+			'phone' => 'nullable|min:10|max:15',
+            'position' => 'nullable',
             'profile_image' => 'nullable|mimes:jpeg,bmp,png,gif,webp',
         ]);
         $name = $request->post('name');
+		$email = $request->post('email');
         $dob = $request->post('dob');
-        $gender = $request->post('gender');
+        $phone = $request->post('phone');
         $position = $request->post('position');
         $profile_image = $request->file('profile_image');
 
@@ -89,10 +91,11 @@ class ProfileController extends Controller
                 ->where('id', Auth::id())
                 ->update([
                     'name' => $name,
+					'email' => $email,
                     'dob' => $dob,
-                    'gender' => $gender,
                     'position' => $position,
                     'profile_image' => str_replace('public/', '', $file),
+					'phone' => $phone,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]);
@@ -103,10 +106,11 @@ class ProfileController extends Controller
                 ->where('id', Auth::id())
                 ->update([
                     'name' => $name,
+                    'email' => $email,
                     'dob' => $dob,
-                    'gender' => $gender,
                     'position' => $position,
                     'profile_image' => $profile_image,
+					'phone' => $phone,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]);
