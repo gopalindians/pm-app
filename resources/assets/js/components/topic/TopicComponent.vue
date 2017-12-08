@@ -7,12 +7,12 @@
                 <header>
                     <h1>
                         <a data-restore-position=""
-                           :href="'/project/'+projectId+'/'+projectName+'/topics'">{{projectName}}</a>
+                           :href="home_page+'project/'+projectId+'/'+projectName+'/topics'">{{projectName}}</a>
                     </h1>
                 </header>
                 <div class="panel sheet topics has_sorting" style="margin-left: 20px; margin-bottom: -20px;"
                      data-behavior="">
-                    <title>Random Projects: Discussions</title>
+                    <title>{{projectName}}: Discussions</title>
 
                     <header class="has_buttons">
                         <h1 class="inactive_title">Discussions</h1>
@@ -22,20 +22,30 @@
                                 <span data-role="topics_status_options">Show discussions</span>
 
                                 <span class="sort_options">sorted by
-                                    <div class="facet" data-behavior="expandable collapse_on_clickoutside"
-                                         data-role="facet">
-  <a data-behavior="expand_on_click" data-role="toggle" href="#">newest</a>
-  <div class="expanded_content balloon top_left_side">
-    <div class="arrow"></div>
-    <div class="arrow"></div>
-    <div class="contents">
-        <span class="type selected" data-role="option"><a data-replace-sheet="true" data-sort="newest"
-                                                          href="/2501285/projects/6590988/topics?sort=newest">newest</a></span>
-        <span class="type " data-role="option"><a data-replace-sheet="true" data-sort="oldest"
-                                                  href="/2501285/projects/6590988/topics?sort=oldest">oldest</a></span>
-    </div>
-  </div>
-</div>
+                                    <div class="facet" data-behavior="expandable collapse_on_clickoutside" data-role="facet">
+
+                                        <a data-behavior="expand_on_click" data-role="toggle" href="#">newest</a>
+
+                                        <div class="expanded_content balloon top_left_side">
+
+                                            <div class="arrow"></div>
+
+                                            <div class="arrow"></div>
+
+                                            <div class="contents">
+
+                                                <span class="type selected" data-role="option">
+                                                    <a data-replace-sheet="true" data-sort="newest"
+                                                          href="/2501285/projects/6590988/topics?sort=newest">newest</a>
+                                                </span>
+                                                <span class="type " data-role="option">
+                                                    <a data-replace-sheet="true"
+                                                       data-sort="oldest"
+                                                       href="/2501285/projects/6590988/topics?sort=oldest">oldest</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </span>and filter by
                                 <input class="live_filter" data-behavior="live_filter"
@@ -49,7 +59,7 @@
                         <div class="actions">
                             <span class="position_reference">
                                 <a class="action_button button"
-                                   :href="'/project/'+projectId+'/'+projectName+'/messages/new'">Post a new message</a>
+                                   :href="home_page+'project/'+projectId+'/'+projectName+'/messages/new'">Post a new message</a>
                                     <div class="blank_slate_arrow"></div>
                             </span>
                         </div>
@@ -62,23 +72,24 @@
 
                                 <tr class="topic message_74066242" id="topic_175636030" v-for="topic in topics">
                                     <td class="avatar">
-                                        <a href="/2501285/projects/6590988/messages/74066242">
-                                            <img :alt="topic.topic_comment_latest_posted_by.comment_poster_name"
-                                                 class="avatar"
+
+
+                                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id">
+                                            <img class="avatar"
                                                  height="30"
-                                                 src="https://asset1.basecamp.com/2501285/people/13182570/photo/avatar.40.gif"
-                                                 width="30"
-                                                 :title="topic.topic_comment_latest_posted_by.comment_poster_name">
+                                                 src="//asset1.basecamp.com/2501285/people/13182570/photo/avatar.40.gif"
+                                                 width="30">
                                         </a>
                                     </td>
 
                                     <td class="who">
-                                        <a href="/2501285/projects/6590988/messages/74066242">{{topic.topic_comment_latest_posted_by.comment_poster_name}}</a>
+                                        <a  v-if="topic.topic_comment_latest==null" :href="home_page+'project/'+projectId+'/'+projectName+'/people/'+topic.creater_id"></a>
+                                        <a  v-if="topic.topic_comment_latest!==null" :href="home_page+'project/'+projectId+'/'+projectName+'/people/'+topic.topic_comment_latest_posted_by.comment_poster_id"></a>
                                     </td>
 
                                     <td class="what">
                                         <div class="attachments">
-                                            <figure>
+                                          <!--  <figure>
                                                 <img alt="" class="thumbnail hoverZoomLink"
                                                      data-attachment-id="309624226" data-audio-codec="null"
                                                      data-behavior="enlargeable" data-classes="image"
@@ -103,25 +114,26 @@
                                                      data-trashed="false" data-type="image" data-video-codec="null"
                                                      data-width="800"
                                                      src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226/78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0/thumbnail.jpg">
-                                            </figure>
+                                            </figure>-->
                                         </div>
 
-                                        <a :href="'/project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id">
+                                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id">
                                             <strong data-role="live_filter_highlight">{{topic.topic_name}}</strong>
                                             <span class="bucket_name">({{projectName}})</span>
-                                            <span class="excerpt"> - {{topic.topic_comment_latest.comment}}</span>
+                                            <span class="excerpt" v-if="topic.topic_comment_latest!==null"> - {{topic.topic_comment_latest.comment}}</span>
+                                            <span class="excerpt" v-if="topic.topic_comment_latest===null"> - {{topic.topic_body}}</span>
                                         </a>
                                     </td>
 
                                     <td class="when">
-                                        <a :href="'/project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id">
+                                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id">
                                             <time data-local="time-or-date" :datetime="topic.topic_updated_at_human"
                                                   :title="topic.topic_updated_at_noob">{{topic.topic_updated_at_human}}
                                             </time>
                                         </a></td>
 
                                     <td class="comments">
-                                        <a :href="'/project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id"
+                                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id"
                                            v-if="topic.topic_comments_total>0">
                                             <span class="pill comments circle">{{topic.topic_comments_total}}</span>
                                         </a>
@@ -148,17 +160,21 @@
                 projectId: '',
                 projectName: '',
                 topics: '',
-                showError: ''
+                showError: '',
+
+                home_page: '',
+                result: '',
             }
         },
         mounted() {
             let self = this;
-            let segment = window.location.href.split('/');
-            self.projectId = segment[4];
-            self.projectName = segment[5];
-            axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/topics')
+
+            this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+            this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+
+            axios.get(this.home_page+'api/project/' + this.projectId + '/' + self.projectName + '/topics')
                 .then(function (response) {
-                    console.log(response.data);
                     self.topics = response.data.data;
                 })
                 .catch(function (error) {
