@@ -11,7 +11,7 @@
                             <span class="link">Invite more people</span><br>
                             <span class="detail">11 people on this project</span>
                         </a>
-                        <a :href="'/project/'+projectId+'/'+projectName+'/summary'">
+                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/summary'">
                             <span class="link">Catch up</span><br>
                             <span class="detail">on recent changes</span>
                         </a>
@@ -25,9 +25,6 @@
                                 <h1 class="field" data-behavior="editable_field_prompt">
                                     {{projectName}}
                                 </h1>
-                                <div class="star" data-behavior="project_star" :data-project-id="projectId"
-                                     data-refresh-project-view="false"
-                                     title="Starring a project will highlight it on the projects index page"></div>
                             </div>
                         </div>
                     </div>
@@ -36,22 +33,22 @@
                     <div id="project_toolbar_6590988" class="project_toolbar" data-autoview="">
                         <div class="tools has_tools_in_project">
                             <div class="group in_project">
-                                <a :href="'/project/'+projectId+'/'+projectName+'/topics'" data-tool-name="topics">
+                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/topics'" data-tool-name="topics">
                                     <span class=""><strong>{{totalTopics}} Discussions</strong></span>
                                 </a>
-                                <a :href="'/project/'+projectId+'/'+projectName+'/todolists'"
+                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/todolists'"
                                    data-tool-name="todolists">
                                     <span class=""><strong>3 To-dos</strong></span>
                                 </a>
-                                <a :href="'/project/'+projectId+'/'+projectName+'/attachments'"
+                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/attachments'"
                                    data-tool-name="attachments">
                                     <span class=""><strong>657 Files</strong></span>
                                 </a>
-                                <a :href="'/project/'+projectId+'/'+projectName+'/documents'"
+                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/documents'"
                                    data-tool-name="documents">
                                     <span class=""><strong>24 Text documents</strong></span>
                                 </a>
-                                <a :href="'/project/'+projectId+'/'+projectName+'/calendar_events'"
+                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/calendar_events'"
                                    data-tool-name="calendar_events">
                                     <span class=""><strong>Events</strong></span>
                                 </a>
@@ -69,16 +66,16 @@
 
                     <section class="topics " data-collection-name="topics">
                         <header class="has_buttons">
-                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/topics'">Discussions</a></h1>
+                            <h1><a :href="home_page+'project/'+projectId+'/'+projectName+'/topics'">Discussions</a></h1>
                             <a class="action_button button"
-                               :href="'/project/'+projectId+'/'+projectName+'/messages/new'">Post a new message</a>
+                               :href="home_page+'project/'+projectId+'/'+projectName+'/messages/new'">Post a new message</a>
                         </header>
 
                         <table class="inbox">
                             <tbody>
                             <tr class="topic todo_289596969" id="topic_152633325" v-for="p in project.topic_detail">
                                 <td class="avatar">
-                                    <a :href="'/project/'+projectId+'/'+projectName+'/todos/todoid'">
+                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/todos/todoid'">
                                         <img :alt="p.latest_comment_by.name"
                                              class="avatar" height="30"
                                              src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.40.gif"
@@ -88,7 +85,7 @@
                                 </td>
 
                                 <td class="who">
-                                    <a :href="'/project/'+projectId+'/'+projectName+'/todos/todoid'">{{p.latest_comment_by.name}}</a>
+                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/todos/todoid'">{{p.latest_comment_by.name}}</a>
                                 </td>
 
                                 <td class="what">
@@ -122,7 +119,7 @@
                                         </figure>-->
                                     </div>
 
-                                    <a :href="'/project/'+projectId+'/'+projectName+'todos/todoid'">
+                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'todos/todoid'">
                                         <strong data-role="live_filter_highlight">{{p.topic_name}}</strong>
                                         <span class="bucket_name">({{projectName}})</span>
                                         <span class="excerpt"
@@ -133,7 +130,7 @@
                                 </td>
 
                                 <td class="when">
-                                    <a :href="'/project/'+projectId+'/'+projectName+'/todos/todoid'">
+                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/todos/todoid'">
                                         <time data-local="time-or-date" :datetime="p.updated_at"
                                               :title="p.updated_at_noob" v-if="p.latest_comment != null ">
                                             {{p.latest_comment.updated_at_human}}
@@ -146,7 +143,7 @@
                                 </td>
 
                                 <td class="comments">
-                                    <a :href="'/project/'+projectId+'/'+projectName+'/todos/'">
+                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/todos/'">
                                         <span class="pill comments circle">{{p.total_comments}}</span>
                                     </a>
                                 </td>
@@ -158,10 +155,10 @@
 
                         <p class="more_topics">
                             <a class="decorated"
-                               :href="'/project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open
+                               :href="home_page+'project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open
                                 discussions</a>
                             •
-                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/topics/archived'">1
+                            <a class="decorated" :href="home_page+'project/'+projectId+'/'+projectName+'/topics/archived'">1
                                 archived discussion</a>
                         </p>
                     </section>
@@ -169,7 +166,7 @@
 
                     <section class="todos " data-collection-name="todolists">
                         <header class="has_buttons">
-                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/todolists'">To-do lists</a></h1>
+                            <h1><a :href="home_page+'project/'+projectId+'/'+projectName+'/todolists'">To-do lists</a></h1>
                             <button data-behavior="new_todolist" class="action_button">Add a to-do list</button>
                         </header>
 
@@ -1826,9 +1823,9 @@
 
                     <section class="documents " data-collection-name="documents">
                         <header class="has_buttons">
-                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/documents'">Text Documents</a></h1>
+                            <h1><a :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">Text Documents</a></h1>
                             <a class="action_button button"
-                               :href="'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
+                               :href="home_page+'project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
                         </header>
 
                         <p class="blank_slate">Keep notes and important information in Text Documents</p>
@@ -1861,13 +1858,13 @@
 
                                                     <div class="formatted_content">{{doc.document_body}}</div>
 
-                                                    <a :href="'/project/'+projectId+'/'+projectName+'/document/'+document.id">
+                                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+document.id">
                                                         <h3 data-role="live_filter_highlight">
                                                             {{document.document_title}}</h3>
                                                     </a>
                                                     <p class="project">From the project:
                                                         <a data-default-stack="true"
-                                                           :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a>
+                                                           :href="home_page+'project/'+projectId+'/'+projectName">{{projectName}}</a>
                                                     </p>
 
 
@@ -1927,7 +1924,7 @@
 
                     <section class="forwards" data-collection-name="forwards" style="display: none;">
                         <header class="has_buttons">
-                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/forwards'">Forwarded emails</a></h1>
+                            <h1><a :href="home_page+'project/'+projectId+'/'+projectName+'/forwards'">Forwarded emails</a></h1>
 
                             <a class="action_button button" href="/2501285/projects/6590988/dropbox#emails">Forward an
                                 email</a>
