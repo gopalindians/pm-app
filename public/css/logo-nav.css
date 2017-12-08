@@ -9,4 +9,241 @@
 body {
   padding-top: 0px;
 }
-
+a:hover {
+    text-decoration: none;
+}
+/*-Search page-*/
+.search_list .search_title h1 a {
+    color: #0178C8;
+}
+.search_list .search_title h1 {
+    font-size: 18px;
+    margin: 0px 0 5px;
+}
+.search_list .search_title p {
+    font-size: 14px;
+	margin-bottom: 15px;
+}
+.search_discription p {
+    float: right;
+    color: #6e0402;
+    font-size: 13px;
+    font-weight: 400;
+}
+.search_list {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 2px 3px #ccc;
+}
+.search_title {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.search_discription h2 {
+    margin: 0px 0 20px;
+    color: #015790;
+    font-size: 18px;
+    font-weight: 500;
+}
+.search_discription .single_dis {
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+	line-height: 21px;
+}
+.search_discription .search_cmt a {
+    color: #1c5c76;
+    font-size: 14px;
+}
+.search_discription .search_cmt {
+    text-align: right;
+    vertical-align: middle;
+    padding: 25px 0;
+}
+.search_discription {
+    position: relative;
+}
+.search_discription .search_projectName {
+    position: absolute;
+    bottom: -15px;
+    margin-bottom: 0;
+}
+.search_discription .search_projectName span {
+    color: #888;
+    font-weight: 500;
+}
+.search_list .search_res {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0 15px;
+}
+.search_res .emp_img img {
+    width: 100%;
+}
+/*-// Search page-*/
+/*-Profile page-*/
+.profile_img img {
+    width: 100%;
+}
+.my_profile .profile_info i {
+    color: #0071bc;
+	font-size: 17px;
+}
+.my_profile .profile_info li {
+    list-style: none;
+    margin-bottom: 12px;
+	font-size: 14px;
+	color: #474747
+}
+.my_profile .profile_info h2 span {
+    font-size: 14px;
+	color: #474747
+}
+.my_profile .profile_info h2 {
+    color: #0071bc;
+    font-size: 22px;
+	font-weight: 500;
+}
+.right_side li {
+    display: inline-block;
+	margin-left: 15px;
+}
+.right_side li a {
+    font-size: 14px;
+    color: #0071bc;
+}
+.right_side li a i {
+    margin-right: 4px;
+}
+.profile_head {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0px 4px 2px #ccc;
+}
+.profile_project_activity h2 {
+    font-size: 19px;
+    font-weight: 500;
+    padding: 10px;
+    border-bottom: 1px solid #b4b4b4;
+}
+.profile_project_activity {
+    border: 1px solid #b4b4b4;
+}
+.see_ll_activity {
+    font-size: 14px;
+    font-weight: 400;
+}
+.profile_project_activity li {
+    list-style: none;
+	font-size: 13px;
+	margin-bottom: 14px;
+}
+.profile_project_activity ul {
+    padding: 10px;
+	margin-bottom: 0;
+}
+.profile_project_activity li a {
+    color: #176294;
+}
+.profile_activities {
+    margin-top: 40px;
+}
+.media_file .media_img {
+    width: 50%;
+    margin: 0 auto;
+}
+.media_file .media_detail span {
+    display: block;
+	color: #3b3b3b;
+	font-size: 13px;
+}
+.media_file .media_detail {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+.media_file {
+    border: 1px solid #ccc;
+}
+.media_file .media_img img {
+    border: 0;
+}
+.media_file .media_detail .media_comment {
+    margin-top: 5px;
+}
+.media_file .media_detail .media_comment a {
+    font-size: 13px;
+    color: #3b3b3b;
+}
+.shared_files h2 {
+    font-size: 19px;
+    color: #3b3b3b;
+	margin-bottom: 20px;
+}
+.shared_files {
+    margin-top: 40px;
+}
+.shared_files .media_row {
+    margin-bottom: 30px;
+}
+.see_ll_activity a {
+    color: #0071bc;
+    font-size: 13px;
+}
+/*-// Profile page-*/
+/*--browse button--*/
+  .btn-bs-file{
+    position:relative;
+}
+.btn-bs-file input[type="file"]{
+    position: absolute;
+    top: -9999999;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    width:0;
+    height:0;
+    outline: none;
+    cursor: inherit;
+}
+/*--// browse button--*/
+.editProfile_img .file_btn {
+    margin: 10px 0 0;
+}
+.editProfile_img .file_btn label {
+    background: #eee;
+    color: #333;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    border-radius: 0;
+    margin: 0;
+	cursor: pointer;
+}
+.editPersonal_info .form-control:focus {
+    box-shadow: 0 0 0 .0rem rgba(0,123,255,.25);
+}
+.editPersonal_info .form-control{border-radius:0px;font-size: 14px;}
+.editPersonal_info .edit_submit button {
+    border-radius: 0;
+	cursor: pointer;
+}
+.my_profile {
+    margin-bottom: 30px;
+}
+.lead_team .add_people {
+    background: #0071bc;
+    border: 2px solid #045890;
+    text-align: center;
+    vertical-align: middle;
+	padding: 33px 0;
+}
+.lead_team .add_people .plus_icon {
+    height: 50px;
+    width: 50px;
+	color:#007bff
+}
+.lead_team .add_people a {
+    color: #fff;
+}
+.lead_team .team_title {
+    font-size: 18px;
+    font-weight: 400;
+}
