@@ -5,18 +5,18 @@
                  data-creator-id="6581649" data-status="active">
                 <header>
                     <h1>
-                        <a data-restore-position="" :href="'/project/'+projectId">{{projectName}}</a>
+                        <a data-restore-position="" :href="home_page+'project/'+projectId">{{projectName}}</a>
                     </h1>
                 </header>
                 <div class="panel sheet topics has_sorting inactive" style="margin-left: 20px; margin-bottom: -20px;"
                      data-behavior=" prevent_reload_when_stacked">
                     <header>
                         <h1>
-                            <a data-restore-position="" :href="'/project/'+projectId+'/'+projectName+'/topics'">Discussions</a>
+                            <a data-restore-position="" :href="home_page+'project/'+projectId+'/'+projectName+'/topics'">Discussions</a>
                         </h1>
                     </header>
                     <div class="panel sheet message new" style="margin-left: 20px; margin-bottom: -20px;">
-                        <title>Random Projects: Post a new message</title>
+                        <title>{{projectName}}: Post a new message</title>
 
                         <header>
                             <h1 style="display: none">Post a new message</h1>
@@ -25,7 +25,8 @@
                         <div class="sheet_body">
                             <article class="message new expanded" data-behavior="expandable"
                                      data-attachments="[[{&quot;id&quot;:312250536,&quot;type&quot;:&quot;image/jpeg&quot;,&quot;name&quot;:&quot;c4dca50987bca80d6f42449e97dd96fe.jpg&quot;,&quot;thumbnailURL&quot;:&quot;https://asset1.basecamp.com/2501285/projects/6590988/attachments/312250536/4d5d0976-d1ed-11e7-baf6-e89a8fbdc254/thumbnail.jpg&quot;}]]">
-                                <form accept-charset="UTF-8" :action="'/project/'+projectId+'/'+projectName+'/messages/'+topicId+'/edit'"
+                                <form accept-charset="UTF-8"
+                                      :action="home_page+'project/'+projectId+'/'+projectName+'/messages/'+messageId+'/edit'"
                                       class="edit_message" data-behavior="" data-remote="true"
                                       id="edit_message_74076148" method="post">
                                     <div style="display:none">
@@ -40,7 +41,7 @@
                                                    font-weight: 400; letter-spacing: 0; line-height: 36px; text-decoration: none solid rgb(0, 0, 0);
                                                     padding: 0 0 2px; text-rendering: auto;
                                                   max-width: 830px;">
-                                                {{topicName}}
+                                                {{messageName}}
                                             </div>
                                             <textarea autofocus="autofocus"
                                                       data-behavior="autosave autoresize dirty_tracking"
@@ -50,7 +51,7 @@
                                                       data-autoresize="true"
                                                       style="resize: none; overflow: hidden; min-height: 37px;"
                                                       data-autosave-storage-key="autosave:ffffc0cb84516d6caf679d9e37086802">
-                                                {{topicName}}</textarea>
+                                                {{messageName}}</textarea>
                                         </h3>
                                     </header>
 
@@ -70,10 +71,10 @@
                                         <textarea class="body"
                                                   data-behavior="autosave autoresize wysiwyg dirty_tracking submit_on_control_enter"
                                                   data-role="accept_as_input" id="message_content"
-                                                  name="message[content]" rows="7"
+                                                  name="message[name]" rows="7"
                                                   data-autosave-storage-key="autosave:342232010cc2b9de5642e5a53f0edba5"
                                                   style="display: none;"
-                                                  placeholder="Type your message here...">{{topicName}}</textarea>
+                                                  placeholder="Type your message here...">{{messageName}}</textarea>
                                         <input type="hidden"
                                                name="_wysihtml5_mode"
                                                value="1">
@@ -81,9 +82,16 @@
                                              style="position: absolute; left: -9999px; top: 0;
                                               word-wrap: break-word; font-size: 17px; font-family: Segue UI, helvetica, arial, sans-serif; font-weight: 400; letter-spacing: 0; line-height: 25px;
                                               text-decoration: none solid rgb(0, 0, 0); padding: 1px 0 0; text-rendering: auto; max-width: 830px;">
-                                            {{topicName}}
+                                            {{messageName}}
                                         </div>
-                                        <iframe class="wysihtml5-sandbox" security="restricted" allowtransparency="true"
+
+                                        <textarea class="body"
+                                                  data-behavior="autosave autoresize wysiwyg dirty_tracking submit_on_control_enter"
+                                                  data-role="accept_as_input"
+                                                  name="message[body]" rows="7"
+                                                  placeholder="Type your message here...">{{messageBody}}
+                                        </textarea>
+                                        <!--<iframe class="wysihtml5-sandbox" security="restricted" allowtransparency="true"
                                                 frameborder="0" width="0" height="0" marginwidth="0" marginheight="0"
                                                 style="display: inline-block; background-color: rgb(255, 255, 255); border-collapse: separate;
                                                  border: 0 none rgb(0, 0, 0);clear: none; float: none; margin: 0; outline: rgb(0, 0, 0) none 0; outline-offset: 0; padding: 0 65px;
@@ -93,102 +101,10 @@
                                                  box-sizing: content-box;
                                                  box-shadow: none; border-radius: 0;
                                                  width: 830px; height: 175px; resize: none; min-height: 176px;"
-                                                data-behavior=" autoresize" data-autoresize="true"></iframe>
-                                    </div>
-
-                                    <div data-behavior="pending_attachments file_drop_target" data-sortable="false" class="attachments has_attachments">
-                                        <span class="prompt_graphic"></span>
-                                        <div class="file_input_button">
-                                            <span data-without-features="files_api">To attach files</span>
-                                            <span data-with-features="files_api">To attach files drag &amp; drop here or</span>
-
-                                            <span class="file_input_container">
-                                                <input name="file" type="file" multiple=""
-                                                       onchange="$(document).trigger('ie:change', this)" tabindex="-1">
-                                                <a class="decorated" data-behavior="local_file_picker" href="#"
-                                                   tabindex="-1">select files from your computer…</a>
-                                            </span>
-
-                                            <span data-behavior="load_google_client" style="">
-                                                or <a class="decorated" data-behavior="google_file_picker" href="#"
-                                                      tabindex="-1">Google Docs…</a>
-                                            </span>
-                                        </div>
-
-                                        <ul class="pending_attachments" data-role="accept_as_input">
-                                            <li data-dirty="" class="image">
-                                                <img src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/312250536/4d5d0976-d1ed-11e7-baf6-e89a8fbdc254/thumbnail.jpg"
-                                                     class="thumbnail">
-                                                <input type="hidden" name="attachments[][id]" value="312250536">
-                                                <input type="hidden" name="attachments[][_trash]" value="">
-                                                <input type="hidden" name="attachments[][name]" value="c4dca50987bca80d6f42449e97dd96fe.jpg" data-role="name" data-extname=".jpg">
-                                                <input type="hidden" name="attachments[][content_type]" value="image/jpeg">
-                                                <input type="hidden" name="attachments[][token]" value="">
-                                                <a class="remove" data-behavior="remove" href="#"><span>Remove</span></a>
-                                                <div class="icon">
-                                                    <img src="https://bcx.basecamp-static.com/assets/file_icons/icon_JPG_big-a1256164bc7ed9bd9db5c07f4800658e.png"
-                                                         class="file_icon" width="32" height="32">
-                                                </div>
-                                                <div class="progress" data-behavior="progress">
-                                                    <div>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="filename">
-                                                    <input type="text" class="name" data-role="basename"
-                                                           value="c4dca50987bca80d6f42449e97dd96fe"
-                                                           style="width: 217px;">
-                                                    <span class="extension">.jpg</span>
-                                                </div>
-
-                                                <div data-behavior="taggings pending_taggings" class="taggings">
-                                                    <ul class="tags"></ul>
-                                                    <div class="edit_taggings"
-                                                         data-behavior="expandable expand_exclusively edit_taggings">
-                                                        <a href="#" data-behavior="expand_on_click">Label...</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                data-behavior=" autoresize" data-autoresize="true"></iframe>-->
                                     </div>
 
 
-                                    <div data-behavior="picker_account_switcher" class="picker_account_switcher">
-                                        <strong>You’re signed in to Google as <span
-                                                data-role="picker_account_email"></span>
-                                        </strong>
-                                        <a data-behavior="google_account_switcher" href="#">Sign out and use a different
-                                            Google account</a>
-                                    </div>
-
-                                    <div data-behavior="google_connector" class="google_connector">
-                                        <p>
-                                            <b>Connect your Google account</b><br>
-                                            Before you can attach Google Docs in Basecamp, we’ll need your OK first. Do
-                                            you want to connect your account now?
-                                        </p>
-                                        <p class="submit">
-                                            <button class="action_button" data-behavior="create_google_file_picker">Yes,
-                                                connect my Google account
-                                            </button>
-                                            or <a data-behavior="cancel_google_connect" href="#">Cancel</a>
-                                        </p>
-                                    </div>
-
-                                    <div data-behavior="google_connector_access_denied" class="google_connector">
-                                        <p>
-                                            <b>Basecamp couldn’t access your Google account</b><br>
-                                            To attach Google Docs, you’ll need to give Basecamp permission. Do you want
-                                            to try again?
-                                        </p>
-                                        <p class="submit">
-                                            <button class="action_button" data-behavior="create_google_file_picker">
-                                                Connect a Google account
-                                            </button>
-                                            or <a data-behavior="cancel_google_connect" href="#">Cancel</a>
-                                        </p>
-                                    </div>
 
 
                                     <footer data-behavior="compose_footer expandable">
@@ -428,7 +344,7 @@
                                             <input class="action_button green" data-role="uploader" name="commit"
                                                    type="submit" value="Save changes"> or
                                             <a class="cancel" data-replace-sheet="true"
-                                               href="/2501285/projects/6590988/messages/74076148">Cancel</a>
+                                               :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+messageId">Cancel</a>
                                         </div>
                                     </footer>
                                 </form>
@@ -452,33 +368,35 @@
                 projectName: '',
                 csrf: '',
                 clicked: false,
-                topicId: '',
-                topicName: '',
-                topicBody: '',
-                createrName: '',
-                topicCreatedAt: '',
-                topicCreatedAtHuman: '',
-                topicCreatedAtNoob: '',
+                messageId: '',
+                messageName: '',
+                messageBody: '',
+                messageCreatorName: '',
+                messageCreatedAt: '',
+                messageCreatedAtHuman: '',
+                messageCreatedAtNoob: '',
+
+                home_page: ''
             }
         },
         mounted() {
             let self = this;
-            self.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            let segment = window.location.href.split('/');
-            console.log(segment);
-            self.projectId = segment[4];
-            self.projectName = segment[5];
-            self.topicId = segment[7];
 
-            axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/messages' + '/' + self.topicId)
+            this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+            this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+            this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+            this.messageId = document.querySelector("meta[name='message-id']").getAttribute("content");
+
+            axios.get(this.home_page+'api/project/' + this.projectId + '/' + this.projectName + '/messages' + '/' + this.messageId)
                 .then(function (response) {
                     console.log(response.data);
-                    self.topicName = response.data.topic_name;
-                    self.topicBody = response.data.topic_body;
-                    self.createrName = response.data.creater_name;
-                    self.topicCreatedAt = response.data.topic_created_at;
-                    self.topicCreatedAtHuman = response.data.topic_created_at_human;
-                    self.topicCreatedAtNoob = response.data.topic_created_at_noob;
+                    self.messageName = response.data.topic_name;
+                    self.messageBody = response.data.topic_body;
+                    self.messageCreatorName = response.data.creater_name;
+                    self.messageCreatedAt = response.data.topic_created_at;
+                    self.messageCreatedAtHuman = response.data.topic_created_at_human;
+                    self.messageCreatedAtNoob = response.data.topic_created_at_noob;
                 })
                 .catch(function (error) {
                     console.log(error);

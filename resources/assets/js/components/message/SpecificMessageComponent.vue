@@ -6,14 +6,14 @@
                 <header>
                     <h1>
                         <a data-restore-position=""
-                           :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a>
+                           :href="home_page+'project/'+projectId+'/'+projectName">{{projectName}}</a>
                     </h1>
                 </header>
                 <div class="panel sheet topics has_sorting inactive" style="margin-left: 20px; margin-bottom: -20px;"
                      data-behavior=" prevent_reload_when_stacked">
                     <header>
                         <h1>
-                            <a data-restore-position="" :href="'/project/'+projectId+'/'+projectName+'/topics'">Discussions</a>
+                            <a data-restore-position="" :href="home_page+'project/'+projectId+'/'+projectName+'/topics'">Discussions</a>
                         </h1>
                     </header>
                     <div class="panel sheet message" style=" margin-left: 20px; margin-bottom: -20px;">
@@ -53,7 +53,7 @@
                         <header>
                             <h1 style="display: none;">Message</h1>
                             <p class="reference_to_project">Project:
-                                <a data-stacker="false" href="/2501285/projects/6590988">{{projectName}}</a></p>
+                                <a data-stacker="false" :href="home_page+'project/'+projectId+'/'+projectName">{{projectName}}</a></p>
                         </header>
 
                         <div class="sheet_body">
@@ -61,21 +61,21 @@
                                 <div id="message" class="has_tools" data-creator-id="15531397">
                                     <article class="message">
                                         <header>
-                                            <h3>{{topicName}}</h3>
-                                            <p>Posted by {{createrName}}
-                                                <time data-local="time-ago" :datetime="topicCreatedAt"
-                                                      :title="topicCreatedAtNoob">{{topicCreatedAtHuman}}
+                                            <h3>{{messageName}}</h3>
+                                            <p>Posted by {{messageCreatorName}}
+                                                <time data-local="time-ago" :datetime="messageCreatedAt"
+                                                      :title="messageCreatedAtNoob">{{messageCreatedAtHuman}}
                                                 </time>
                                             </p>
                                         </header>
 
                                         <a data-replace-stack="true" href="/2501285/people/15531397">
-                                            <img :alt="createrName" class="avatar" height="59"
+                                            <img :alt="messageCreatorName" class="avatar" height="59"
                                                  src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif"
-                                                 :title="createrName" width="59">
+                                                 :title="messageCreatorName" width="59">
                                         </a>
                                         <div class="formatted_content" data-embeddable="" data-skip-stacker-links="">
-                                            {{topicBody}}
+                                            {{messageBody}}
                                         </div>
 
                                         <div class="attachments">
@@ -93,7 +93,7 @@
 
 
                                                 <article class="comment" id="comment_579199320"
-                                                         data-creator-id="15531397" v-for="comment in topicComments">
+                                                         data-creator-id="15531397" v-for="comment in messageComments">
                                                     <a data-replace-stack="true" href="/2501285/people/15531397">
                                                         <img alt="Gopal Sharma" class="avatar" height="96"
                                                              src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif"
@@ -129,7 +129,7 @@
                                                          data-behavior="expandable file_drop_target">
                                                     <img alt="" class="avatar" data-current-person-avatar="true"
                                                          src="https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif"
-                                                         :title="createrName">
+                                                         :title="messageCreatorName">
 
                                                     <div @click="toggle" class="expanded_content"
                                                          v-bind:class="{ collapsed_content: clicked }">
@@ -487,7 +487,7 @@
                                     <aside class="tools" data-visible-to="creator admin" data-behavior="perma_tools">
                                         <div class="tool" data-behavior="tool">
                                             <a data-behavior="tool_action" data-replace-sheet="true"
-                                               :href="'/project/'+projectId+'/'+projectName+'/messages/'+topicId+'/edit'">Edit
+                                               :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+messageId+'/edit'">Edit
                                             </a>
                                         </div>
 
@@ -744,39 +744,40 @@
                 projectName: '',
                 csrf: '',
                 clicked: false,
-                topicId: '',
-                topicName: '',
-                topicBody: '',
-                createrName: '',
-                topicCreatedAt: '',
-                topicCreatedAtHuman: '',
-                topicCreatedAtNoob: '',
 
-                topicComments: '',
+                messageId: '',
+                messageName: '',
+                messageBody: '',
+                messageCreatorName: '',
+                messageCreatedAt: '',
+                messageCreatedAtHuman: '',
+                messageCreatedAtNoob: '',
+
+                messageComments: '',
+                home_page:''
             }
         },
         mounted() {
 
 
             let self = this;
-            self.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            let segment = window.location.href.split('/');
-            console.log(segment);
-            self.projectId = segment[4];
-            self.projectName = segment[5];
-            self.topicId = segment[7];
 
-            axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/messages' + '/' + self.topicId)
+            this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+            this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+            this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+            this.messageId = document.querySelector("meta[name='message-id']").getAttribute("content");
+
+            axios.get(this.home_page+'api/project/' + this.projectId + '/' + this.projectName + '/messages' + '/' + this.messageId)
                 .then(function (response) {
                     console.log(response.data);
-                    self.topicName = response.data.topic_name;
-                    self.topicBody = response.data.topic_body;
-                    self.createrName = response.data.creater_name;
-                    self.topicCreatedAt = response.data.topic_created_at;
-                    self.topicCreatedAtHuman = response.data.topic_created_at_human;
-                    self.topicCreatedAtNoob = response.data.topic_created_at_noob;
-
-                    self.topicComments = response.data.topic_comments;
+                    self.messageName = response.data.topic_name;
+                    self.messageBody = response.data.topic_body;
+                    self.messageCreatorName = response.data.creater_name;
+                    self.messageCreatedAt = response.data.topic_created_at;
+                    self.messageCreatedAtHuman = response.data.topic_created_at_human;
+                    self.messageCreatedAtNoob = response.data.topic_created_at_noob;
+                    self.messageComments = response.data.topic_comments;
                 })
                 .catch(function (error) {
                     console.log(error);
