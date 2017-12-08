@@ -35,7 +35,7 @@ Route::get('/api/projects', 'ProjectController@apiGetProjects');
 Route::get('/api/project/{id}/{projectName?}', 'ProjectController@apiGetProject');
 
 Route::get('/createProject', 'ProjectController@createProject');
-Route::post('/createProject', 'ProjectController@postCreateProject');
+Route::post('/api/createProject', 'ProjectController@postCreateProject');
 
 //Todolists
 Route::get('/project/{id}/{name?}/todolists', 'TodoController@index');
