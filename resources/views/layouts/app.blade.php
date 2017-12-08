@@ -18,7 +18,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <!-- new file -->
-    {{--    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"/>--}}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Custom styles for this template -->
@@ -66,6 +65,7 @@
                         </li>
                     @endauth&nbsp;
                 </ul>
+                @auth
                 <div class="col-sm-3 col-md-3">
 
                     <form method="GET" class="navbar-form" action="{{\App\CH::getUrl('search')}}" role="search">
@@ -77,6 +77,7 @@
                         </div>
                     </form>
                 </div>
+                @endauth&nbsp;
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
