@@ -20,14 +20,8 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    /*public function index()
-    {
-        return view('home');
-    }*/
     public function index(): View
     {
         $id = Auth::id();
@@ -46,7 +40,8 @@ class HomeController extends Controller
             )
             ->join('users', 'users.id', '=', 'projects.owner_id')
             ->where('owner_id', '=', $id)
-            ->paginate(2);
+            ->orderBy('project_updated_at','desc')
+            ->paginate(7);
         foreach ($projects as $project) {
             $project->project_created_at = str_replace('before', 'ago', Carbon::parse($project->project_created_at)->diffForHumans(Carbon::now()));
             $project->project_updated_at = str_replace('before', 'ago', Carbon::parse($project->project_updated_at)->diffForHumans(Carbon::now()));
