@@ -2,56 +2,38 @@
 
 @section('title',  '('.count($teams).') Your Team')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
 
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-danger">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    @if(count($teams)==0)
-
-                        <div class="alert alert-danger">
-                            You don't have any team members yet
-                            add new <a href="/team/add">Team</a>
-                        </div>
-                    @else
-                        <a href="/team/add"> Add new team member</a>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Total Members - {{count($teams)}}</div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    @foreach($teams as $team)
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="thumbnail">
-                                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTM0IiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzNCAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTVmYzlmMjdkNjYgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNWZjOWYyN2Q2NiI+PHJlY3Qgd2lkdGg9IjEzNCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI0MC41IiB5PSI5NC44Ij4xMzR4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
-                                                     alt="...">
-                                                <div class="caption">
-                                                    <a href="/profile/{{$team->member_id}}/{{$team->member_name}}">
-                                                        <h5>{{$team->member_name}}</h5>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
+    <section class="lead_team">
+        <div class="container">
+            <h2 class="team_title">Our Active Team</h2>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="add_people">
+                        <a href="{{url('/team/add')}}">
+                            <div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                            <p>Add new project</p></a>
+                    </div>
                 </div>
-
-
-                @endif
-
-                {{ $teams->links() }}
+                @foreach($teams as $team)
+                    <div class="col-md-2">
+                        <div class="team_member">
+                            <a href="{{url('people/'.$team->member_id)}}">
+                                <img src="{{asset('images/employee_img.jpg')}}" class="img-thumbnail">
+                                <div class="emp_name_pos">
+                                    <p>{{$team->member_name}}</p>
+                                    <span>{{$team->member_position}}</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row space-top">
 
             </div>
+            {{ $teams->links() }}
         </div>
-    </div>
-    </div>
+
+    </section>
+
 @endsection

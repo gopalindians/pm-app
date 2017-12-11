@@ -25,7 +25,7 @@
             @if(count($projects)==0)
                 <div class="col-md-3">
                     <div class="start_porject">
-                        <a href="{{ \App\CH::getUrl('')}}">
+                        <a href="{{ \App\CH::getUrl('createProject')}}">
                             <div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
                             <p>Add new project</p></a>
                     </div>
