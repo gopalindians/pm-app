@@ -130,5 +130,10 @@ class MessageController extends Controller {
 	public function getEditTopic() {
 		return view( 'message.edit' );
 	}
+
+    public function postEditTopic()
+    {
+        
+	}
 }
 
