@@ -3,7 +3,7 @@
         <div class="container stack_container" data-container-id="1" style="width: 980px;">
             <div class="panel sheet project inactive isnt_client_project" data-behavior=" "
                  data-creator-id="6581649" data-status="active" data-path="/2501285/projects/6590988">
-                <header><h1><a :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a></h1></header>
+                <header><h1><a :href="home_page+'project/'+projectId+'/'+projectName">{{projectName}}</a></h1></header>
 
                 <div class="panel sheet has_sidebar document" style="margin-left: 20px; margin-bottom: -20px;">
                     <title>{{projectName}} : {{documentTitle}}</title>
@@ -12,7 +12,7 @@
                     <header>
                         <h1 style="display: none;">Text Document</h1>
                         <p class="reference_to_project">Project:
-                            <a data-stacker="false" :href="'/project/'+projectId+'/'+projectName">Random Projects</a>
+                            <a data-stacker="false" :href="home_page+'project/'+projectId+'/'+projectName">{{projectName}}</a>
                         </p>
                     </header>
 
@@ -467,7 +467,8 @@
                 documentTitle: '',
                 documentBody: '',
                 documentId: '',
-                csrf_token: ''
+                csrf_token: '',
+                home_page:''
             }
         },
         methods: {
@@ -477,14 +478,14 @@
         },
         mounted() {
             let self = this;
-            this.csrf_token = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
-            console.log('Component mounted.');
-            let segment = window.location.href.split('/');
-            self.projectId = segment[4];
-            self.projectName = segment[5];
-            self.documentId = segment[7];
+            this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.csrf_token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+            this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+            this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+            this.documentId = document.querySelector("meta[name='document-id']").getAttribute("content");
 
-            axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/document' + '/' + self.documentId)
+
+            axios.get(this.home_page+'api/project/' + this.projectId + '/' + this.projectName + '/document' + '/' + this.documentId)
                 .then(function (response) {
                     console.log(response.data);
                     self.documentTitle = response.data.document_title;

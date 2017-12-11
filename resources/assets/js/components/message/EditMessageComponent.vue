@@ -23,15 +23,13 @@
                         </header>
 
                         <div class="sheet_body">
-                            <article class="message new expanded" data-behavior="expandable"
-                                     data-attachments="[[{&quot;id&quot;:312250536,&quot;type&quot;:&quot;image/jpeg&quot;,&quot;name&quot;:&quot;c4dca50987bca80d6f42449e97dd96fe.jpg&quot;,&quot;thumbnailURL&quot;:&quot;https://asset1.basecamp.com/2501285/projects/6590988/attachments/312250536/4d5d0976-d1ed-11e7-baf6-e89a8fbdc254/thumbnail.jpg&quot;}]]">
+                            <article class="message new expanded" data-behavior="expandable">
                                 <form accept-charset="UTF-8"
                                       :action="home_page+'project/'+projectId+'/'+projectName+'/messages/'+messageId+'/edit'"
-                                      class="edit_message" data-behavior="" data-remote="true"
-                                      id="edit_message_74076148" method="post">
+                                      class="edit_message"
+                                       method="POST">
                                     <div style="display:none">
                                         <input name="utf8" type="hidden" value="✓">
-                                        <input name="_method" type="hidden" value="patch">
                                     </div>
                                     <header>
                                         <h3>

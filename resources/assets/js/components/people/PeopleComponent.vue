@@ -31,8 +31,8 @@
                         <div class="col-md-4">
                             <div class="right_side text-right">
                                 <ul v-if="author">
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>
-                                    <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+                                   <!-- <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>-->
+                                    <li><a :href="home_page+'profile/edit/'+result.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                                     </li>
                                 </ul>
                             </div>

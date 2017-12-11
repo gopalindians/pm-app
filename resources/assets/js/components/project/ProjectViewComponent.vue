@@ -48,10 +48,6 @@
                                    data-tool-name="documents">
                                     <span class=""><strong>24 Text documents</strong></span>
                                 </a>
-                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/calendar_events'"
-                                   data-tool-name="calendar_events">
-                                    <span class=""><strong>Events</strong></span>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -1828,13 +1824,12 @@
                                :href="home_page+'project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
                         </header>
 
-                        <p class="blank_slate">Keep notes and important information in Text Documents</p>
-
                         <section class="documents in_project project_documents">
                             <article class="document" id="document_12905846" data-behavior="link_container"
                                      v-for="doc in project.document_detail">
 
-                                <div v-for="document in project.document_detail">
+                                <!--v-for="document in project.document_detail"-->
+                                <div>
 
                                     <div class="wrapper">
                                         <div class="column icon">
@@ -1845,8 +1840,7 @@
                                             <div class="document_page">
                                                 <div class="wrap">
                                                     <header>
-
-                                                        <a href="/2501285/projects/6590988/documents/12905846">
+                                                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+doc.id">
                                                             <h3 data-role="live_filter_highlight">
                                                                 {{doc.document_title}}</h3>
                                                         </a>
@@ -1858,9 +1852,9 @@
 
                                                     <div class="formatted_content">{{doc.document_body}}</div>
 
-                                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+document.id">
+                                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+doc.id">
                                                         <h3 data-role="live_filter_highlight">
-                                                            {{document.document_title}}</h3>
+                                                            {{doc.document_title}}</h3>
                                                     </a>
                                                     <p class="project">From the project:
                                                         <a data-default-stack="true"
@@ -1869,7 +1863,7 @@
 
 
                                                     <div class="formatted_content">
-                                                        {{document.document_body}}
+                                                        {{doc.document_body}}
                                                     </div>
                                                 </div>
 
@@ -1895,12 +1889,12 @@
                                                       :datetime="doc.created_at"
                                                       :title="doc.created_at_noob"
                                                       data-localized="true">{{doc.created_at_human}}</time>
-                                                <span class="description">Saved by</span> {{document.user_name}}
+                                                <span class="description">Saved by</span> {{doc.user_name}}
                                                 <span class="description">on
                                                     <time data-local="date"
-                                                          :datetime="document.created_at"
-                                                          :title="document.created_at_noob"
-                                                          data-localized="true">{{document.created_at_human}}</time>
+                                                          :datetime="doc.created_at"
+                                                          :title="doc.created_at_noob"
+                                                          data-localized="true">{{doc.created_at_human}}</time>
                                                 </span>
                                             </span>
                                         </span>
@@ -1920,22 +1914,6 @@
                             <a class="decorated" :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}}
                                 &nbsp; more documents</a>
                         </p>
-                    </section>
-
-                    <section class="forwards" data-collection-name="forwards" style="display: none;">
-                        <header class="has_buttons">
-                            <h1><a :href="home_page+'project/'+projectId+'/'+projectName+'/forwards'">Forwarded emails</a></h1>
-
-                            <a class="action_button button" href="/2501285/projects/6590988/dropbox#emails">Forward an
-                                email</a>
-                        </header>
-
-                        <p class="blank_slate">Forward emails into this project for safekeeping.</p>
-
-                        <section class="forwards grouped_by_date">
-
-                        </section>
-
                     </section>
                 </div>
             </div>
