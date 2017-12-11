@@ -219,7 +219,10 @@ class ProjectController extends Controller
 
                 $i->total_comments = DB::table('topic_comments')->where('topic_id', $i->id)->orderBy('updated_at', 'desc')->count();
 
-                if (count($i->latest_comment) === 0) {
+
+
+
+                if ($i->latest_comment == 0) {
                     $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->creater_id)->first();
                 } else {
                     $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->latest_comment->poster_id)->first();
@@ -283,7 +286,7 @@ class ProjectController extends Controller
 
                     $i->total_comments = DB::table('topic_comments')->where('topic_id', $i->id)->orderBy('updated_at', 'desc')->count();
 
-                    if (count($i->latest_comment) === 0) {
+                    if ($i->latest_comment == 0) {
                         $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->creater_id)->first();
                     } else {
                         $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->latest_comment->poster_id)->first();
