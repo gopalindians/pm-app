@@ -41,7 +41,8 @@ class TeamController extends Controller
             ->select(
                 'users.name as member_name',
                 'users.email as member_email',
-                'users.id as member_id'
+                'users.id as member_id',
+                'users.position as member_position'
             )
             ->join('users', 'users.id', '=', 'teams.user_id')
             ->where('owner_id', '=', Auth::id())
