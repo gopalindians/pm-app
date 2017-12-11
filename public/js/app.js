@@ -45229,28 +45229,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ProjectViewComponent',
@@ -45485,23 +45463,6 @@ var render = function() {
                           }
                         },
                         [_vm._m(2, false, false)]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              _vm.home_page +
-                              "project/" +
-                              _vm.projectId +
-                              "/" +
-                              _vm.projectName +
-                              "/calendar_events",
-                            "data-tool-name": "calendar_events"
-                          }
-                        },
-                        [_vm._m(3, false, false)]
                       )
                     ])
                   ])
@@ -45510,7 +45471,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "sheet_body" }, [
-              _vm._m(4, false, false),
+              _vm._m(3, false, false),
               _vm._v(" "),
               _c(
                 "section",
@@ -45869,28 +45830,28 @@ var render = function() {
                             }
                           },
                           [
+                            _vm._m(4, false, false),
+                            _vm._v(" "),
                             _vm._m(5, false, false),
                             _vm._v(" "),
                             _vm._m(6, false, false),
                             _vm._v(" "),
                             _vm._m(7, false, false),
                             _vm._v(" "),
-                            _vm._m(8, false, false),
-                            _vm._v(" "),
-                            _vm._m(9, false, false)
+                            _vm._m(8, false, false)
                           ]
                         )
                       ])
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(10, false, false),
+                  _vm._m(9, false, false),
                   _vm._v(" "),
-                  _vm._m(11, false, false)
+                  _vm._m(10, false, false)
                 ]
               ),
               _vm._v(" "),
-              _vm._m(12, false, false),
+              _vm._m(11, false, false),
               _vm._v(" "),
               _c(
                 "section",
@@ -45936,12 +45897,6 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "blank_slate" }, [
-                    _vm._v(
-                      "Keep notes and important information in Text Documents"
-                    )
-                  ]),
-                  _vm._v(" "),
                   _c(
                     "section",
                     { staticClass: "documents in_project project_documents" },
@@ -45955,10 +45910,10 @@ var render = function() {
                             "data-behavior": "link_container"
                           }
                         },
-                        _vm._l(_vm.project.document_detail, function(document) {
-                          return _c("div", [
+                        [
+                          _c("div", [
                             _c("div", { staticClass: "wrapper" }, [
-                              _vm._m(13, true, false),
+                              _vm._m(12, true, false),
                               _vm._v(" "),
                               _c("div", { staticClass: "column content" }, [
                                 _c("div", { staticClass: "document_page" }, [
@@ -45969,7 +45924,13 @@ var render = function() {
                                         {
                                           attrs: {
                                             href:
-                                              "/2501285/projects/6590988/documents/12905846"
+                                              _vm.home_page +
+                                              "project/" +
+                                              _vm.projectId +
+                                              "/" +
+                                              _vm.projectName +
+                                              "/document/" +
+                                              doc.id
                                           }
                                         },
                                         [
@@ -46025,7 +45986,7 @@ var render = function() {
                                             "/" +
                                             _vm.projectName +
                                             "/document/" +
-                                            document.id
+                                            doc.id
                                         }
                                       },
                                       [
@@ -46040,7 +46001,7 @@ var render = function() {
                                           [
                                             _vm._v(
                                               "\n                                                            " +
-                                                _vm._s(document.document_title)
+                                                _vm._s(doc.document_title)
                                             )
                                           ]
                                         )
@@ -46074,7 +46035,7 @@ var render = function() {
                                       [
                                         _vm._v(
                                           "\n                                                        " +
-                                            _vm._s(document.document_body) +
+                                            _vm._s(doc.document_body) +
                                             "\n                                                    "
                                         )
                                       ]
@@ -46085,7 +46046,7 @@ var render = function() {
                                 ])
                               ]),
                               _vm._v(" "),
-                              _vm._m(14, true, false),
+                              _vm._m(13, true, false),
                               _vm._v(" "),
                               _c("div", { staticClass: "column updater" }, [
                                 _c("p", { staticClass: "project" }, [
@@ -46126,7 +46087,7 @@ var render = function() {
                                     ]),
                                     _vm._v(
                                       " " +
-                                        _vm._s(document.user_name) +
+                                        _vm._s(doc.user_name) +
                                         "\n                                                "
                                     ),
                                     _c("span", { staticClass: "description" }, [
@@ -46138,26 +46099,22 @@ var render = function() {
                                         {
                                           attrs: {
                                             "data-local": "date",
-                                            datetime: document.created_at,
-                                            title: document.created_at_noob,
+                                            datetime: doc.created_at,
+                                            title: doc.created_at_noob,
                                             "data-localized": "true"
                                           }
                                         },
-                                        [
-                                          _vm._v(
-                                            _vm._s(document.created_at_human)
-                                          )
-                                        ]
+                                        [_vm._v(_vm._s(doc.created_at_human))]
                                       )
                                     ])
                                   ])
                                 ])
                               ]),
                               _vm._v(" "),
-                              _vm._m(15, true, false)
+                              _vm._m(14, true, false)
                             ])
                           ])
-                        })
+                        ]
                       )
                     })
                   ),
@@ -46186,57 +46143,6 @@ var render = function() {
                     )
                   ])
                 ]
-              ),
-              _vm._v(" "),
-              _c(
-                "section",
-                {
-                  staticClass: "forwards",
-                  staticStyle: { display: "none" },
-                  attrs: { "data-collection-name": "forwards" }
-                },
-                [
-                  _c("header", { staticClass: "has_buttons" }, [
-                    _c("h1", [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              _vm.home_page +
-                              "project/" +
-                              _vm.projectId +
-                              "/" +
-                              _vm.projectName +
-                              "/forwards"
-                          }
-                        },
-                        [_vm._v("Forwarded emails")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "action_button button",
-                        attrs: {
-                          href: "/2501285/projects/6590988/dropbox#emails"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "Forward an\n                                email"
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "blank_slate" }, [
-                    _vm._v("Forward emails into this project for safekeeping.")
-                  ]),
-                  _vm._v(" "),
-                  _c("section", { staticClass: "forwards grouped_by_date" })
-                ]
               )
             ])
           ]
@@ -46263,12 +46169,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", {}, [_c("strong", [_vm._v("24 Text documents")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", {}, [_c("strong", [_vm._v("Events")])])
   },
   function() {
     var _vm = this
@@ -58821,8 +58721,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'EditMessageComponent',
@@ -58975,11 +58873,7 @@ var render = function() {
                         "article",
                         {
                           staticClass: "message new expanded",
-                          attrs: {
-                            "data-behavior": "expandable",
-                            "data-attachments":
-                              '[[{"id":312250536,"type":"image/jpeg","name":"c4dca50987bca80d6f42449e97dd96fe.jpg","thumbnailURL":"https://asset1.basecamp.com/2501285/projects/6590988/attachments/312250536/4d5d0976-d1ed-11e7-baf6-e89a8fbdc254/thumbnail.jpg"}]]'
-                          }
+                          attrs: { "data-behavior": "expandable" }
                         },
                         [
                           _c(
@@ -58997,10 +58891,7 @@ var render = function() {
                                   "/messages/" +
                                   _vm.messageId +
                                   "/edit",
-                                "data-behavior": "",
-                                "data-remote": "true",
-                                id: "edit_message_74076148",
-                                method: "post"
+                                method: "POST"
                               }
                             },
                             [
@@ -59231,11 +59122,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticStyle: { display: "none" } }, [
-      _c("input", { attrs: { name: "utf8", type: "hidden", value: "✓" } }),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { name: "_method", type: "hidden", value: "patch" }
-      })
+      _c("input", { attrs: { name: "utf8", type: "hidden", value: "✓" } })
     ])
   },
   function() {
@@ -60960,7 +60847,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             documentTitle: '',
             documentBody: '',
             documentId: '',
-            csrf_token: ''
+            csrf_token: '',
+            home_page: ''
         };
     },
 
@@ -60971,14 +60859,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         var self = this;
-        this.csrf_token = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
-        console.log('Component mounted.');
-        var segment = window.location.href.split('/');
-        self.projectId = segment[4];
-        self.projectName = segment[5];
-        self.documentId = segment[7];
+        this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.csrf_token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+        this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+        this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+        this.documentId = document.querySelector("meta[name='document-id']").getAttribute("content");
 
-        axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/document' + '/' + self.documentId).then(function (response) {
+        axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/document' + '/' + this.documentId).then(function (response) {
             console.log(response.data);
             self.documentTitle = response.data.document_title;
             self.documentBody = response.data.document_body;
@@ -61023,7 +60910,12 @@ var render = function() {
                   "a",
                   {
                     attrs: {
-                      href: "/project/" + _vm.projectId + "/" + _vm.projectName
+                      href:
+                        _vm.home_page +
+                        "project/" +
+                        _vm.projectId +
+                        "/" +
+                        _vm.projectName
                     }
                   },
                   [_vm._v(_vm._s(_vm.projectName))]
@@ -61057,10 +60949,14 @@ var render = function() {
                         attrs: {
                           "data-stacker": "false",
                           href:
-                            "/project/" + _vm.projectId + "/" + _vm.projectName
+                            _vm.home_page +
+                            "project/" +
+                            _vm.projectId +
+                            "/" +
+                            _vm.projectName
                         }
                       },
-                      [_vm._v("Random Projects")]
+                      [_vm._v(_vm._s(_vm.projectName))]
                     )
                   ])
                 ]),
@@ -63867,16 +63763,31 @@ var render = function() {
               _c("div", { staticClass: "right_side text-right" }, [
                 _vm.author
                   ? _c("ul", [
-                      _vm._m(1, false, false),
-                      _vm._v(" "),
-                      _vm._m(2, false, false)
+                      _c("li", [
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href:
+                                _vm.home_page + "profile/edit/" + _vm.result.id
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fa fa-pencil-square-o",
+                              attrs: { "aria-hidden": "true" }
+                            }),
+                            _vm._v("Edit")
+                          ]
+                        )
+                      ])
                     ])
                   : _vm._e()
               ])
             ])
           ]),
           _vm._v(" "),
-          _vm._m(3, false, false),
+          _vm._m(1, false, false),
           _vm._v(" "),
           _c("section", { staticClass: "shared_files" }, [
             _c("h2", [_vm._v("Your shared files")]),
@@ -63907,7 +63818,7 @@ var render = function() {
                           _c("span", [_vm._v("Added by Ashish S. on Dec 1")])
                         ]),
                         _vm._v(" "),
-                        _vm._m(4, false, false)
+                        _vm._m(2, false, false)
                       ])
                     ])
                   ]
@@ -63937,7 +63848,7 @@ var render = function() {
                           _c("span", [_vm._v("Added by Ashish S. on Dec 1")])
                         ]),
                         _vm._v(" "),
-                        _vm._m(5, false, false)
+                        _vm._m(3, false, false)
                       ])
                     ])
                   ]
@@ -63958,31 +63869,6 @@ var staticRenderFns = [
     return _c("li", [
       _c("i", { staticClass: "fa fa-phone", attrs: { "aria-hidden": "true" } }),
       _vm._v(" : +91 980 592 0000")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-cog", attrs: { "aria-hidden": "true" } }),
-        _vm._v("Settings")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", {
-          staticClass: "fa fa-pencil-square-o",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v("Edit")
-      ])
     ])
   },
   function() {
