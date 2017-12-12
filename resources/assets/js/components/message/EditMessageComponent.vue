@@ -28,6 +28,9 @@
                                       :action="home_page+'project/'+projectId+'/'+projectName+'/messages/'+messageId+'/edit'"
                                       class="edit_message"
                                        method="POST">
+
+                                    <input type="hidden" name="_token" :value="csrf">
+
                                     <div style="display:none">
                                         <input name="utf8" type="hidden" value="✓">
                                     </div>
@@ -44,10 +47,12 @@
                                             <textarea autofocus="autofocus"
                                                       data-behavior="autosave autoresize dirty_tracking"
                                                       data-role="accept_as_input" id="message_subject"
-                                                      name="message[subject]"
+                                                      name="message_name"
                                                       placeholder="Type the subject of this message..." rows="1"
                                                       data-autoresize="true"
                                                       style="resize: none; overflow: hidden; min-height: 37px;"
+
+                                                      required
                                                       data-autosave-storage-key="autosave:ffffc0cb84516d6caf679d9e37086802">
                                                 {{messageName}}</textarea>
                                         </h3>
@@ -70,12 +75,12 @@
                                                    unselectable="on">Quote</a>-->
                                         </div>
 
-                                        <textarea  class="body" rows="7" name="message_body"></textarea>
+                                        <textarea  class="body" rows="7" name="message_body" required></textarea>
 
                                         <textarea class="body"
                                                   data-behavior="autosave autoresize wysiwyg dirty_tracking submit_on_control_enter"
                                                   data-role="accept_as_input" id="message_content"
-                                                  name="message[name]" rows="7"
+                                                  name="message[body]" rows="7"
                                                   data-autosave-storage-key="autosave:342232010cc2b9de5642e5a53f0edba5"
                                                   style="display: none;"
                                                   placeholder="Type your message here...">{{messageName}}</textarea>
