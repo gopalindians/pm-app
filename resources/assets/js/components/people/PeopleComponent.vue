@@ -22,7 +22,7 @@
                                             </li>
                                             <li><i class="fa fa-birthday-cake" aria-hidden="true"></i> : {{result.dob}}
                                             </li>
-                                            <li><i class="fa fa-phone" aria-hidden="true"></i> : +91 980 592 0000</li>
+                                            <li><i class="fa fa-phone" aria-hidden="true"></i> : {{result.phone}}</li>
                                         </ul>
                                     </div>
                                 </div>
