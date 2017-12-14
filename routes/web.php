@@ -99,8 +99,10 @@ Route::prefix('/api')->group(function () {
     Route::post('/createProject', 'ProjectController@postCreateProject');
     Route::get('/project/{id}/{name?}/topics', 'TopicController@apiGetTopics');
     Route::get('/project/{id}/{name?}/messages/{topicId}', 'MessageController@apiGetTopic');
+    Route::post('/project/{id}/{name?}/messages/{topicId}', 'MessageController@apiPostTopicComment');
     Route::get('/project/{id}/{name?}/documents', 'DocumentController@apiGetDocuments');
     Route::get('/project/{id}/{name?}/messages/{topicId}', 'MessageController@apiGetTopic');
+
 });
 
 
