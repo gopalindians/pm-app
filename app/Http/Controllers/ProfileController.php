@@ -87,6 +87,8 @@ class ProfileController extends Controller
             $file = Storage::putFile('public/uploads/' . Auth::id() . '/profile_image', $request->file('profile_image'));
 
 
+
+
             DB::table('users')
                 ->where('id', Auth::id())
                 ->update([
