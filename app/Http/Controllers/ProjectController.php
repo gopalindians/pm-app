@@ -32,7 +32,7 @@ class ProjectController extends Controller
      *
      * @return View
      */
-    public function index(): View
+    public function index()
     {
 
         $id = Auth::id();
@@ -51,7 +51,7 @@ class ProjectController extends Controller
             )
             ->join('users', 'users.id', '=', 'projects.owner_id')
             ->where('owner_id', '=', $id)
-            ->orderBy('project_updated_at','desc')
+            ->orderBy('project_updated_at', 'desc')
             ->paginate(7);
         foreach ($projects as $project) {
             $project->project_created_at = str_replace('before', 'ago', Carbon::parse($project->project_created_at)->diffForHumans(Carbon::now()));
@@ -65,7 +65,7 @@ class ProjectController extends Controller
     /**
      * @return View
      */
-    public function createProject(): View
+    public function createProject()
     {
         return view('project.create_new');
     }
@@ -92,7 +92,7 @@ class ProjectController extends Controller
             $data['type'] = 'success';
             $data['message'] = 'Project created successfully! Go to Project';
             $data['status_code'] = Response::HTTP_CREATED;
-            $data['project_url'] = CH::getUrl('project/'.$id);
+            $data['project_url'] = CH::getUrl('project/' . $id);
             return response()->json(['data' => $data]);
         } else {
 
@@ -127,7 +127,7 @@ class ProjectController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function apiGetProjects(): JsonResponse
+    public function apiGetProjects()
     {
         $id = Auth::id();
         $projects = DB::table('projects')
@@ -221,8 +221,7 @@ class ProjectController extends Controller
 
 
 
-
-                if ($i->latest_comment == 0) {
+                if ($i->latest_comment == null) {
                     $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->creater_id)->first();
                 } else {
                     $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->latest_comment->poster_id)->first();
@@ -286,7 +285,7 @@ class ProjectController extends Controller
 
                     $i->total_comments = DB::table('topic_comments')->where('topic_id', $i->id)->orderBy('updated_at', 'desc')->count();
 
-                    if ($i->latest_comment == 0) {
+                    if ($i->latest_comment == null) {
                         $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->creater_id)->first();
                     } else {
                         $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->latest_comment->poster_id)->first();
