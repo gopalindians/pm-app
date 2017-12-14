@@ -44796,439 +44796,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ProjectViewComponent',
@@ -45262,13 +44829,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).catch(function (error) {
             console.log(error);
         });
-
-        window.onscroll = function (ev) {
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                // you're at the bottom of the page
-                console.log('you reached end');
-            }
-        };
     }
 });
 
@@ -45371,9 +44931,9 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                    " +
+                            "\n                                " +
                               _vm._s(_vm.projectName) +
-                              "\n                                "
+                              "\n                            "
                           )
                         ]
                       )
@@ -45441,28 +45001,20 @@ var render = function() {
                               _vm.projectId +
                               "/" +
                               _vm.projectName +
-                              "/attachments",
-                            "data-tool-name": "attachments"
-                          }
-                        },
-                        [_vm._m(1, false, false)]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              _vm.home_page +
-                              "project/" +
-                              _vm.projectId +
-                              "/" +
-                              _vm.projectName +
                               "/documents",
                             "data-tool-name": "documents"
                           }
                         },
-                        [_vm._m(2, false, false)]
+                        [
+                          _c("span", {}, [
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(_vm.project.total_documents) +
+                                  " Text documents"
+                              )
+                            ])
+                          ])
+                        ]
                       )
                     ])
                   ])
@@ -45471,7 +45023,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "sheet_body" }, [
-              _vm._m(3, false, false),
+              _vm._m(1, false, false),
               _vm._v(" "),
               _c(
                 "section",
@@ -45539,7 +45091,8 @@ var render = function() {
                                       _vm.projectId +
                                       "/" +
                                       _vm.projectName +
-                                      "/todos/todoid"
+                                      "/messages/" +
+                                      p.id
                                   }
                                 },
                                 [
@@ -45569,7 +45122,8 @@ var render = function() {
                                       _vm.projectId +
                                       "/" +
                                       _vm.projectName +
-                                      "/todos/todoid"
+                                      "/messages/" +
+                                      p.id
                                   }
                                 },
                                 [_vm._v(_vm._s(p.latest_comment_by.name))]
@@ -45589,7 +45143,8 @@ var render = function() {
                                       _vm.projectId +
                                       "/" +
                                       _vm.projectName +
-                                      "todos/todoid"
+                                      "/messages/" +
+                                      p.id
                                   }
                                 },
                                 [
@@ -45652,12 +45207,12 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                            " +
+                                            "\n                                        " +
                                               _vm._s(
                                                 p.latest_comment
                                                   .updated_at_human
                                               ) +
-                                              "\n                                        "
+                                              "\n                                    "
                                           )
                                         ]
                                       )
@@ -45675,9 +45230,9 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                            " +
+                                            "\n                                        " +
                                               _vm._s(p.updated_at_human) +
-                                              "\n                                        "
+                                              "\n                                    "
                                           )
                                         ]
                                       )
@@ -45735,30 +45290,7 @@ var render = function() {
                       [
                         _vm._v(
                           _vm._s(_vm.project.total_topics) +
-                            " open\n                                discussions"
-                        )
-                      ]
-                    ),
-                    _vm._v(
-                      "\n                            •\n                            "
-                    ),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "decorated",
-                        attrs: {
-                          href:
-                            _vm.home_page +
-                            "project/" +
-                            _vm.projectId +
-                            "/" +
-                            _vm.projectName +
-                            "/topics/archived"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "1\n                                archived discussion"
+                            " open\n                            discussions"
                         )
                       ]
                     )
@@ -45830,28 +45362,26 @@ var render = function() {
                             }
                           },
                           [
+                            _vm._m(2, false, false),
+                            _vm._v(" "),
+                            _vm._m(3, false, false),
+                            _vm._v(" "),
                             _vm._m(4, false, false),
                             _vm._v(" "),
                             _vm._m(5, false, false),
                             _vm._v(" "),
-                            _vm._m(6, false, false),
-                            _vm._v(" "),
-                            _vm._m(7, false, false),
-                            _vm._v(" "),
-                            _vm._m(8, false, false)
+                            _vm._m(6, false, false)
                           ]
                         )
                       ])
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(9, false, false),
+                  _vm._m(7, false, false),
                   _vm._v(" "),
-                  _vm._m(10, false, false)
+                  _vm._m(8, false, false)
                 ]
               ),
-              _vm._v(" "),
-              _vm._m(11, false, false),
               _vm._v(" "),
               _c(
                 "section",
@@ -45913,7 +45443,7 @@ var render = function() {
                         [
                           _c("div", [
                             _c("div", { staticClass: "wrapper" }, [
-                              _vm._m(12, true, false),
+                              _vm._m(9, true, false),
                               _vm._v(" "),
                               _c("div", { staticClass: "column content" }, [
                                 _c("div", { staticClass: "document_page" }, [
@@ -45944,7 +45474,7 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                                                " +
+                                                "\n                                                            " +
                                                   _vm._s(doc.document_title)
                                               )
                                             ]
@@ -45954,7 +45484,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("p", { staticClass: "project" }, [
                                         _vm._v(
-                                          "From the project:\n                                                            "
+                                          "From the project:\n                                                        "
                                         ),
                                         _c(
                                           "a",
@@ -46000,7 +45530,7 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              "\n                                                            " +
+                                              "\n                                                        " +
                                                 _vm._s(doc.document_title)
                                             )
                                           ]
@@ -46010,7 +45540,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("p", { staticClass: "project" }, [
                                       _vm._v(
-                                        "From the project:\n                                                        "
+                                        "From the project:\n                                                    "
                                       ),
                                       _c(
                                         "a",
@@ -46034,9 +45564,9 @@ var render = function() {
                                       { staticClass: "formatted_content" },
                                       [
                                         _vm._v(
-                                          "\n                                                        " +
+                                          "\n                                                    " +
                                             _vm._s(doc.document_body) +
-                                            "\n                                                    "
+                                            "\n                                                "
                                         )
                                       ]
                                     )
@@ -46046,7 +45576,7 @@ var render = function() {
                                 ])
                               ]),
                               _vm._v(" "),
-                              _vm._m(13, true, false),
+                              _vm._m(10, true, false),
                               _vm._v(" "),
                               _c("div", { staticClass: "column updater" }, [
                                 _c("p", { staticClass: "project" }, [
@@ -46067,7 +45597,7 @@ var render = function() {
                                   ),
                                   _c("span", { staticClass: "description" }, [
                                     _vm._v(
-                                      "on\n                                                "
+                                      "on\n                                            "
                                     ),
                                     _c(
                                       "time",
@@ -46080,38 +45610,12 @@ var render = function() {
                                         }
                                       },
                                       [_vm._v(_vm._s(doc.created_at_human))]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "description" }, [
-                                      _vm._v("Saved by")
-                                    ]),
-                                    _vm._v(
-                                      " " +
-                                        _vm._s(doc.user_name) +
-                                        "\n                                                "
-                                    ),
-                                    _c("span", { staticClass: "description" }, [
-                                      _vm._v(
-                                        "on\n                                                    "
-                                      ),
-                                      _c(
-                                        "time",
-                                        {
-                                          attrs: {
-                                            "data-local": "date",
-                                            datetime: doc.created_at,
-                                            title: doc.created_at_noob,
-                                            "data-localized": "true"
-                                          }
-                                        },
-                                        [_vm._v(_vm._s(doc.created_at_human))]
-                                      )
-                                    ])
+                                    )
                                   ])
                                 ])
                               ]),
                               _vm._v(" "),
-                              _vm._m(14, true, false)
+                              _vm._m(11, true, false)
                             ])
                           ])
                         ]
@@ -46137,7 +45641,7 @@ var render = function() {
                       [
                         _vm._v(
                           _vm._s(_vm.project.total_documents) +
-                            "\n                                  more documents"
+                            "\n                              more documents"
                         )
                       ]
                     )
@@ -46157,18 +45661,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", {}, [_c("strong", [_vm._v("3 To-dos")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", {}, [_c("strong", [_vm._v("657 Files")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", {}, [_c("strong", [_vm._v("24 Text documents")])])
   },
   function() {
     var _vm = this
@@ -46234,7 +45726,7 @@ var staticRenderFns = [
             }
           }),
           _vm._v(
-            " Don’t show this to-do list to the client\n                                            "
+            " Don’t show this to-do list to the client\n                                        "
           ),
           _c("span", { attrs: { "data-behavior": "client_list" } })
         ]),
@@ -46246,7 +45738,7 @@ var staticRenderFns = [
             attrs: { "data-behavior": "expandable expand_exclusively" }
           },
           [
-            _vm._v(" –\n                                            "),
+            _vm._v(" –\n                                        "),
             _c(
               "a",
               {
@@ -46322,7 +45814,7 @@ var staticRenderFns = [
           value: "Save and start adding to-dos"
         }
       }),
-      _vm._v(" or\n                                        "),
+      _vm._v(" or\n                                    "),
       _c(
         "a",
         {
@@ -46431,7 +45923,7 @@ var staticRenderFns = [
                               _vm._v("Random Projects —")
                             ]),
                             _vm._v(
-                              "\n                                                Joomla Website Tasks (bestessayhub.com)\n                                            "
+                              "\n                                            Joomla Website Tasks (bestessayhub.com)\n                                        "
                             )
                           ]
                         ),
@@ -46533,7 +46025,7 @@ var staticRenderFns = [
                                 }
                               }),
                               _vm._v(
-                                " Don’t show this to-do list to the client\n                                                    "
+                                " Don’t show this to-do list to the client\n                                                "
                               ),
                               _c("span", {
                                 attrs: { "data-behavior": "client_list" }
@@ -46638,7 +46130,7 @@ var staticRenderFns = [
                           }
                         }),
                         _vm._v(
-                          " or\n                                                "
+                          " or\n                                            "
                         ),
                         _c(
                           "a",
@@ -46950,7 +46442,7 @@ var staticRenderFns = [
                                                       [_vm._v("This person")]
                                                     ),
                                                     _vm._v(
-                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                        "
+                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -47339,7 +46831,7 @@ var staticRenderFns = [
                                           [_vm._v("This person")]
                                         ),
                                         _vm._v(
-                                          "\n                                                                won’t get an email because they turned off email\n                                                                notifications.\n                                                            "
+                                          "\n                                                            won’t get an email because they turned off email\n                                                            notifications.\n                                                        "
                                         )
                                       ]
                                     ),
@@ -47364,7 +46856,7 @@ var staticRenderFns = [
                                           [_vm._v("This person")]
                                         ),
                                         _vm._v(
-                                          "\n                                                                will be notified by email.\n                                                            "
+                                          "\n                                                            will be notified by email.\n                                                        "
                                         )
                                       ]
                                     )
@@ -47397,7 +46889,7 @@ var staticRenderFns = [
                                           },
                                           [
                                             _vm._v(
-                                              "Attach\n                                                                    files..."
+                                              "Attach\n                                                                files..."
                                             )
                                           ]
                                         )
@@ -47439,7 +46931,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            To attach files\n                                                                        "
+                                                      "\n                                                                        To attach files\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -47454,7 +46946,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            To attach files drag & drop here or\n                                                                        "
+                                                      "\n                                                                        To attach files drag & drop here or\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -47508,7 +47000,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            or "
+                                                      "\n                                                                        or "
                                                     ),
                                                     _c(
                                                       "a",
@@ -47573,7 +47065,7 @@ var staticRenderFns = [
                                               },
                                               [
                                                 _vm._v(
-                                                  "Sign\n                                                                        out and use a different Google account"
+                                                  "Sign\n                                                                    out and use a different Google account"
                                                 )
                                               ]
                                             )
@@ -47598,7 +47090,7 @@ var staticRenderFns = [
                                               ]),
                                               _c("br"),
                                               _vm._v(
-                                                "\n                                                                        Before you can attach Google Docs in Basecamp,\n                                                                        we’ll need your OK first. Do you want to connect\n                                                                        your account now?\n                                                                    "
+                                                "\n                                                                    Before you can attach Google Docs in Basecamp,\n                                                                    we’ll need your OK first. Do you want to connect\n                                                                    your account now?\n                                                                "
                                               )
                                             ]),
                                             _vm._v(" "),
@@ -47614,12 +47106,12 @@ var staticRenderFns = [
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                                            Yes, connect my Google account\n                                                                        "
+                                                    "\n                                                                        Yes, connect my Google account\n                                                                    "
                                                   )
                                                 ]
                                               ),
                                               _vm._v(
-                                                "\n                                                                        or "
+                                                "\n                                                                    or "
                                               ),
                                               _c(
                                                 "a",
@@ -47649,12 +47141,12 @@ var staticRenderFns = [
                                             _c("p", [
                                               _c("b", [
                                                 _vm._v(
-                                                  "Basecamp couldn’t access your Google\n                                                                            account"
+                                                  "Basecamp couldn’t access your Google\n                                                                        account"
                                                 )
                                               ]),
                                               _c("br"),
                                               _vm._v(
-                                                "\n                                                                        To attach Google Docs, you’ll need to give\n                                                                        Basecamp permission. Do you want to try again?\n                                                                    "
+                                                "\n                                                                    To attach Google Docs, you’ll need to give\n                                                                    Basecamp permission. Do you want to try again?\n                                                                "
                                               )
                                             ]),
                                             _vm._v(" "),
@@ -47670,12 +47162,12 @@ var staticRenderFns = [
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                                            Connect a Google account\n                                                                        "
+                                                    "\n                                                                        Connect a Google account\n                                                                    "
                                                   )
                                                 ]
                                               ),
                                               _vm._v(
-                                                "\n                                                                        or "
+                                                "\n                                                                    or "
                                               ),
                                               _c(
                                                 "a",
@@ -47708,7 +47200,7 @@ var staticRenderFns = [
                                   }
                                 }),
                                 _vm._v(
-                                  " or\n                                                        "
+                                  " or\n                                                    "
                                 ),
                                 _c(
                                   "a",
@@ -47820,7 +47312,7 @@ var staticRenderFns = [
                               _vm._v("Random Projects —")
                             ]),
                             _vm._v(
-                              "\n                                                we have to make logo for this site .. http://beyourtherapist.com\n                                            "
+                              "\n                                            we have to make logo for this site .. http://beyourtherapist.com\n                                        "
                             )
                           ]
                         ),
@@ -47937,7 +47429,7 @@ var staticRenderFns = [
                                 }
                               }),
                               _vm._v(
-                                " Don’t show this to-do list to the client\n                                                    "
+                                " Don’t show this to-do list to the client\n                                                "
                               ),
                               _c("span", {
                                 attrs: { "data-behavior": "client_list" }
@@ -47955,7 +47447,7 @@ var staticRenderFns = [
                             },
                             [
                               _vm._v(
-                                "\n                                                    – "
+                                "\n                                                – "
                               ),
                               _c(
                                 "a",
@@ -48045,7 +47537,7 @@ var staticRenderFns = [
                           }
                         }),
                         _vm._v(
-                          " or\n                                                "
+                          " or\n                                            "
                         ),
                         _c(
                           "a",
@@ -48217,7 +47709,7 @@ var staticRenderFns = [
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                                                        No due date\n                                                                    "
+                                                "\n                                                                    No due date\n                                                                "
                                               )
                                             ]
                                           )
@@ -48300,7 +47792,7 @@ var staticRenderFns = [
                                           [_vm._v("This person")]
                                         ),
                                         _vm._v(
-                                          "\n                                                                won’t get an email because they turned off email\n                                                                notifications.\n                                                            "
+                                          "\n                                                            won’t get an email because they turned off email\n                                                            notifications.\n                                                        "
                                         )
                                       ]
                                     ),
@@ -48325,7 +47817,7 @@ var staticRenderFns = [
                                           [_vm._v("This person")]
                                         ),
                                         _vm._v(
-                                          "\n                                                                will be notified by email.\n                                                            "
+                                          "\n                                                            will be notified by email.\n                                                        "
                                         )
                                       ]
                                     )
@@ -48358,7 +47850,7 @@ var staticRenderFns = [
                                           },
                                           [
                                             _vm._v(
-                                              "Attach\n                                                                    files..."
+                                              "Attach\n                                                                files..."
                                             )
                                           ]
                                         )
@@ -48400,7 +47892,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            To attach files\n                                                                        "
+                                                      "\n                                                                        To attach files\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -48415,7 +47907,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            To attach files drag & drop here or\n                                                                        "
+                                                      "\n                                                                        To attach files drag & drop here or\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -48469,7 +47961,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            or "
+                                                      "\n                                                                        or "
                                                     ),
                                                     _c(
                                                       "a",
@@ -48534,7 +48026,7 @@ var staticRenderFns = [
                                               },
                                               [
                                                 _vm._v(
-                                                  "Sign\n                                                                        out and use a different Google account"
+                                                  "Sign\n                                                                    out and use a different Google account"
                                                 )
                                               ]
                                             )
@@ -48559,7 +48051,7 @@ var staticRenderFns = [
                                               ]),
                                               _c("br"),
                                               _vm._v(
-                                                "\n                                                                        Before you can attach Google Docs in Basecamp,\n                                                                        we’ll need your OK first. Do you want to connect\n                                                                        your account now?\n                                                                    "
+                                                "\n                                                                    Before you can attach Google Docs in Basecamp,\n                                                                    we’ll need your OK first. Do you want to connect\n                                                                    your account now?\n                                                                "
                                               )
                                             ]),
                                             _vm._v(" "),
@@ -48575,12 +48067,12 @@ var staticRenderFns = [
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                                            Yes, connect my Google account\n                                                                        "
+                                                    "\n                                                                        Yes, connect my Google account\n                                                                    "
                                                   )
                                                 ]
                                               ),
                                               _vm._v(
-                                                "\n                                                                        or "
+                                                "\n                                                                    or "
                                               ),
                                               _c(
                                                 "a",
@@ -48610,12 +48102,12 @@ var staticRenderFns = [
                                             _c("p", [
                                               _c("b", [
                                                 _vm._v(
-                                                  "Basecamp couldn’t access your Google\n                                                                            account"
+                                                  "Basecamp couldn’t access your Google\n                                                                        account"
                                                 )
                                               ]),
                                               _c("br"),
                                               _vm._v(
-                                                "\n                                                                        To attach Google Docs, you’ll need to give\n                                                                        Basecamp permission. Do you want to try again?\n                                                                    "
+                                                "\n                                                                    To attach Google Docs, you’ll need to give\n                                                                    Basecamp permission. Do you want to try again?\n                                                                "
                                               )
                                             ]),
                                             _vm._v(" "),
@@ -48631,12 +48123,12 @@ var staticRenderFns = [
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                                            Connect a Google account\n                                                                        "
+                                                    "\n                                                                        Connect a Google account\n                                                                    "
                                                   )
                                                 ]
                                               ),
                                               _vm._v(
-                                                "\n                                                                        or "
+                                                "\n                                                                    or "
                                               ),
                                               _c(
                                                 "a",
@@ -48669,7 +48161,7 @@ var staticRenderFns = [
                                   }
                                 }),
                                 _vm._v(
-                                  " or\n                                                        "
+                                  " or\n                                                    "
                                 ),
                                 _c(
                                   "a",
@@ -48781,7 +48273,7 @@ var staticRenderFns = [
                               _vm._v("Random Projects —")
                             ]),
                             _vm._v(
-                              "\n                                                Shopify Website Replica\n                                            "
+                              "\n                                            Shopify Website Replica\n                                        "
                             )
                           ]
                         ),
@@ -48882,7 +48374,7 @@ var staticRenderFns = [
                                 }
                               }),
                               _vm._v(
-                                " Don’t show this to-do list to the client\n                                                    "
+                                " Don’t show this to-do list to the client\n                                                "
                               ),
                               _c("span", {
                                 attrs: { "data-behavior": "client_list" }
@@ -48900,7 +48392,7 @@ var staticRenderFns = [
                             },
                             [
                               _vm._v(
-                                "\n                                                    – "
+                                "\n                                                – "
                               ),
                               _c(
                                 "a",
@@ -48990,7 +48482,7 @@ var staticRenderFns = [
                           }
                         }),
                         _vm._v(
-                          " or\n                                                "
+                          " or\n                                            "
                         ),
                         _c(
                           "a",
@@ -49286,7 +48778,7 @@ var staticRenderFns = [
                                                       [_vm._v("This person")]
                                                     ),
                                                     _vm._v(
-                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                        "
+                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -49716,7 +49208,7 @@ var staticRenderFns = [
                                                       [_vm._v("This person")]
                                                     ),
                                                     _vm._v(
-                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                        "
+                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -50105,7 +49597,7 @@ var staticRenderFns = [
                                           [_vm._v("This person")]
                                         ),
                                         _vm._v(
-                                          "\n                                                                won’t get an email because they turned off email\n                                                                notifications.\n                                                            "
+                                          "\n                                                            won’t get an email because they turned off email\n                                                            notifications.\n                                                        "
                                         )
                                       ]
                                     ),
@@ -50130,7 +49622,7 @@ var staticRenderFns = [
                                           [_vm._v("This person")]
                                         ),
                                         _vm._v(
-                                          "\n                                                                will be notified by email.\n                                                            "
+                                          "\n                                                            will be notified by email.\n                                                        "
                                         )
                                       ]
                                     )
@@ -50163,7 +49655,7 @@ var staticRenderFns = [
                                           },
                                           [
                                             _vm._v(
-                                              "Attach\n                                                                    files..."
+                                              "Attach\n                                                                files..."
                                             )
                                           ]
                                         )
@@ -50205,7 +49697,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            To attach files\n                                                                        "
+                                                      "\n                                                                        To attach files\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -50220,7 +49712,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            To attach files drag & drop here or\n                                                                        "
+                                                      "\n                                                                        To attach files drag & drop here or\n                                                                    "
                                                     )
                                                   ]
                                                 ),
@@ -50274,7 +49766,7 @@ var staticRenderFns = [
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                                            or "
+                                                      "\n                                                                        or "
                                                     ),
                                                     _c(
                                                       "a",
@@ -50339,7 +49831,7 @@ var staticRenderFns = [
                                               },
                                               [
                                                 _vm._v(
-                                                  "Sign\n                                                                        out and use a different Google account"
+                                                  "Sign\n                                                                    out and use a different Google account"
                                                 )
                                               ]
                                             )
@@ -50364,7 +49856,7 @@ var staticRenderFns = [
                                               ]),
                                               _c("br"),
                                               _vm._v(
-                                                "\n                                                                        Before you can attach Google Docs in Basecamp,\n                                                                        we’ll need your OK first. Do you want to connect\n                                                                        your account now?\n                                                                    "
+                                                "\n                                                                    Before you can attach Google Docs in Basecamp,\n                                                                    we’ll need your OK first. Do you want to connect\n                                                                    your account now?\n                                                                "
                                               )
                                             ]),
                                             _vm._v(" "),
@@ -50380,12 +49872,12 @@ var staticRenderFns = [
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                                            Yes, connect my Google account\n                                                                        "
+                                                    "\n                                                                        Yes, connect my Google account\n                                                                    "
                                                   )
                                                 ]
                                               ),
                                               _vm._v(
-                                                "\n                                                                        or "
+                                                "\n                                                                    or "
                                               ),
                                               _c(
                                                 "a",
@@ -50415,12 +49907,12 @@ var staticRenderFns = [
                                             _c("p", [
                                               _c("b", [
                                                 _vm._v(
-                                                  "Basecamp couldn’t access your Google\n                                                                            account"
+                                                  "Basecamp couldn’t access your Google\n                                                                        account"
                                                 )
                                               ]),
                                               _c("br"),
                                               _vm._v(
-                                                "\n                                                                        To attach Google Docs, you’ll need to give\n                                                                        Basecamp permission. Do you want to try again?\n                                                                    "
+                                                "\n                                                                    To attach Google Docs, you’ll need to give\n                                                                    Basecamp permission. Do you want to try again?\n                                                                "
                                               )
                                             ]),
                                             _vm._v(" "),
@@ -50436,12 +49928,12 @@ var staticRenderFns = [
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                                            Connect a Google account\n                                                                        "
+                                                    "\n                                                                        Connect a Google account\n                                                                    "
                                                   )
                                                 ]
                                               ),
                                               _vm._v(
-                                                "\n                                                                        or "
+                                                "\n                                                                    or "
                                               ),
                                               _c(
                                                 "a",
@@ -50474,7 +49966,7 @@ var staticRenderFns = [
                                   }
                                 }),
                                 _vm._v(
-                                  " or\n                                                        "
+                                  " or\n                                                    "
                                 ),
                                 _c(
                                   "a",
@@ -50517,22 +50009,22 @@ var staticRenderFns = [
             staticClass: "decorated",
             attrs: { href: "/2501285/projects/6590988/todolists/completed" }
           },
-          [_vm._v("56 completed\n                                    to-dos")]
+          [_vm._v("56 completed\n                                to-dos")]
         ),
         _vm._v(
-          "\n\n                                across 26 to-do lists\n                            "
+          "\n\n                            across 26 to-do lists\n                        "
         )
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "completed" }, [
-        _vm._v("\n                                Completed lists: "),
+        _vm._v("\n                            Completed lists: "),
         _c(
           "a",
           {
             staticClass: "decorated",
             attrs: { href: "/2501285/projects/6590988/todolists/46596032" }
           },
-          [_vm._v("\n                                Gymreapers.com")]
+          [_vm._v("\n                            Gymreapers.com")]
         ),
         _vm._v(", "),
         _c(
@@ -50541,1282 +50033,10 @@ var staticRenderFns = [
             staticClass: "decorated",
             attrs: { href: "/2501285/projects/6590988/todolists/43680349" }
           },
-          [
-            _vm._v(
-              "Akal\n                                Transport site updates"
-            )
-          ]
+          [_vm._v("Akal\n                            Transport site updates")]
         )
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      {
-        staticClass: "project_attachments ",
-        attrs: { "data-collection-name": "attachments" }
-      },
-      [
-        _c("header", { staticClass: "has_buttons" }, [
-          _c("h1", [
-            _c(
-              "a",
-              { attrs: { href: "/2501285/projects/6590988/attachments" } },
-              [_vm._v("Files")]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "action_button",
-              attrs: { "data-behavior": "new_upload file_drop_target" }
-            },
-            [_vm._v("Add files")]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "article",
-          {
-            staticClass: "upload new",
-            attrs: {
-              "data-behavior":
-                "expandable file_drop_target hide_buttons_on_expand"
-            }
-          },
-          [
-            _c("div", { staticClass: "expanded_content bubble" }, [
-              _c(
-                "form",
-                {
-                  staticClass: "new_upload",
-                  attrs: {
-                    "accept-charset": "UTF-8",
-                    action: "/2501285/projects/6590988/uploads",
-                    "data-behavior": "no_reset toggle_file_label require_input",
-                    "data-remote": "true",
-                    "data-role": "account_upgrade_wrapper",
-                    id: "new_upload",
-                    method: "post"
-                  }
-                },
-                [
-                  _c("div", { staticStyle: { display: "none" } }, [
-                    _c("input", {
-                      attrs: { name: "utf8", type: "hidden", value: "✓" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("header", { staticClass: "text_entry" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "limit storage prod notify",
-                        staticStyle: { display: "block" },
-                        attrs: {
-                          "data-hidden-from": "accountManager",
-                          "data-behavior": "link_to_notify_owner_thanks"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v("You're almost out of storage space! "),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                "data-behavior": "link_to_notify_owner",
-                                "data-method": "post",
-                                "data-remote": "true",
-                                href:
-                                  "/2501285/account/notification?type=storage",
-                                rel: "nofollow"
-                              }
-                            },
-                            [_vm._v("Notify your account owner")]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "attachments",
-                        attrs: {
-                          "data-behavior":
-                            "pending_attachments file_drop_target",
-                          "data-sortable": "true"
-                        }
-                      },
-                      [
-                        _c("span", { staticClass: "prompt_graphic" }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "file_input_button" }, [
-                          _c(
-                            "span",
-                            { attrs: { "data-without-features": "files_api" } },
-                            [_vm._v("\n      To attach files\n    ")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { attrs: { "data-with-features": "files_api" } },
-                            [
-                              _vm._v(
-                                "\n      To attach files drag & drop here or\n    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "file_input_container" }, [
-                            _c("input", {
-                              attrs: {
-                                name: "file",
-                                type: "file",
-                                multiple: "",
-                                onchange:
-                                  "$(document).trigger('ie:change', this)",
-                                tabindex: "-1"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "decorated",
-                                attrs: {
-                                  "data-behavior": "local_file_picker",
-                                  href: "#",
-                                  tabindex: "-1"
-                                }
-                              },
-                              [_vm._v("select files from your computer…")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              attrs: { "data-behavior": "load_google_client" }
-                            },
-                            [
-                              _vm._v("\n      or "),
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "decorated",
-                                  attrs: {
-                                    "data-behavior": "google_file_picker",
-                                    href: "#",
-                                    tabindex: "-1"
-                                  }
-                                },
-                                [_vm._v("Google Docs…")]
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("ul", {
-                          staticClass: "pending_attachments ui-sortable",
-                          attrs: { "data-role": "accept_as_input" }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "picker_account_switcher",
-                        attrs: { "data-behavior": "picker_account_switcher" }
-                      },
-                      [
-                        _c("strong", [
-                          _vm._v("You’re signed in to Google as "),
-                          _c("span", {
-                            attrs: { "data-role": "picker_account_email" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "data-behavior": "google_account_switcher",
-                              href: "#"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "Sign out and use a\n                                                different Google account"
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "google_connector",
-                        attrs: { "data-behavior": "google_connector" }
-                      },
-                      [
-                        _c("p", [
-                          _c("b", [_vm._v("Connect your Google account")]),
-                          _c("br"),
-                          _vm._v(
-                            "\n                                                Before you can attach Google Docs in Basecamp, we’ll need your OK first.\n                                                Do you want to connect your account now?\n                                            "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "submit" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "action_button",
-                              attrs: {
-                                "data-behavior": "create_google_file_picker"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                                    Yes, connect my Google account\n                                                "
-                              )
-                            ]
-                          ),
-                          _vm._v(
-                            "\n                                                or "
-                          ),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                "data-behavior": "cancel_google_connect",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Cancel")]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "google_connector",
-                        attrs: {
-                          "data-behavior": "google_connector_access_denied"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _c("b", [
-                            _vm._v(
-                              "Basecamp couldn’t access your Google account"
-                            )
-                          ]),
-                          _c("br"),
-                          _vm._v(
-                            "\n                                                To attach Google Docs, you’ll need to give Basecamp permission. Do you\n                                                want to try again?\n                                            "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "submit" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "action_button",
-                              attrs: {
-                                "data-behavior": "create_google_file_picker"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                                    Connect a Google account\n                                                "
-                              )
-                            ]
-                          ),
-                          _vm._v(
-                            "\n                                                or "
-                          ),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                "data-behavior": "cancel_google_connect",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Cancel")]
-                          )
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("footer", [
-                    _c(
-                      "span",
-                      {
-                        staticStyle: { display: "none" },
-                        attrs: { "data-role": "privacy_toggle" }
-                      },
-                      [
-                        _c(
-                          "label",
-                          { attrs: { for: "new_upload_privacy_toggle" } },
-                          [
-                            _c("input", {
-                              attrs: {
-                                name: "upload[private]",
-                                type: "hidden",
-                                value: "0"
-                              }
-                            }),
-                            _c("input", {
-                              attrs: {
-                                "data-behavior": "toggle_private_visibility",
-                                id: "new_upload_privacy_toggle",
-                                name: "upload[private]",
-                                type: "checkbox",
-                                value: "1"
-                              }
-                            }),
-                            _vm._v(" Don’t show "),
-                            _c(
-                              "span",
-                              {
-                                attrs: {
-                                  "data-behavior":
-                                    "pluralize_subscribable_label"
-                                }
-                              },
-                              [_vm._v("this file")]
-                            ),
-                            _vm._v(" to the client "),
-                            _c("span", {
-                              attrs: { "data-behavior": "client_list" }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            staticClass: "position_reference",
-                            attrs: {
-                              "data-behavior": "expandable expand_exclusively"
-                            }
-                          },
-                          [
-                            _vm._v("\n  – "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "decorated",
-                                attrs: {
-                                  "data-behavior": "expand_on_click",
-                                  href: "#"
-                                }
-                              },
-                              [_vm._v("what's this?")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "balloon right_side expanded_content"
-                              },
-                              [
-                                _c("span", { staticClass: "arrow" }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "arrow" }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "close" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "decorated",
-                                      attrs: {
-                                        "data-behavior": "collapse_on_click",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Close")]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("h5", [_vm._v("Working with clients?")]),
-                                _vm._v(" "),
-                                _c("p", [
-                                  _vm._v(
-                                    "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("p", [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "decorated",
-                                      attrs: {
-                                        href:
-                                          "/2501285/projects/6590988/accesses#client"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "Invite your first client to this project..."
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
-                        _c("br")
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", {}, [
-                      _c("div", {
-                        attrs: {
-                          "data-behavior": "lazy_load_subscribers",
-                          "data-url":
-                            "/2501285/projects/6590988/subscribers?subscribable_type=Upload"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button green",
-                        attrs: {
-                          "data-role": "uploader",
-                          disabled: "disabled",
-                          name: "commit",
-                          type: "submit",
-                          value: "Add this file"
-                        }
-                      }),
-                      _vm._v(
-                        " or\n                                            "
-                      ),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "cancel",
-                          attrs: {
-                            "data-behavior": "cancel",
-                            "data-role": "cancel",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Cancel")]
-                      )
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "limit storage reached notify",
-                  staticStyle: { display: "none" },
-                  attrs: { "data-hidden-from": "accountManager" }
-                },
-                [
-                  _c("form", [
-                    _c("h1", [_vm._v("You're out of storage space!")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "\n                                            To upload more files, ask your Basecamp account owner to upgrade the\n                                            account."
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n                                            Just click the button below and we'll send them a quick reminder.\n                                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "action_button green button",
-                        attrs: {
-                          "data-behavior": "link_to_notify_owner",
-                          "data-method": "post",
-                          "data-remote": "true",
-                          href: "/2501285/account/notification?type=storage",
-                          rel: "nofollow"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "Notify your\n                                            account owner"
-                        )
-                      ]
-                    ),
-                    _vm._v(" or\n                                        "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "decorated",
-                        attrs: {
-                          "data-behavior": "cancel",
-                          "data-role": "cancel",
-                          href: "#"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "Never\n                                            mind"
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "limit storage reached thanks",
-                  staticStyle: { display: "none" },
-                  attrs: { "data-role": "account_upgrade_notice" }
-                },
-                [
-                  _c("form", [
-                    _c("h1", [_vm._v("Thanks, you're all set!")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v("You've upgraded to the "),
-                      _c("strong", [_vm._v("100 projects")]),
-                      _vm._v(" plan with "),
-                      _c("strong", [
-                        _vm._v(
-                          "40\n                                            GB"
-                        )
-                      ]),
-                      _vm._v(" storage space.")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "action_button green button",
-                        attrs: {
-                          "data-behavior": "account_upgrade_confirmation",
-                          href: "#"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "Continue uploading\n                                            files"
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("article", { staticClass: "blank_slate" }, [
-          _c("header", [
-            _c("img", {
-              attrs: {
-                alt: "Files",
-                height: "270",
-                src:
-                  "https://bcx.basecamp-static.com/assets/blank_slates/blank_slate_icon_files@2x-b7d234f97b1aa678c32d2ab1f3e38dbf.png",
-                width: "254"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "blank_slate_body" }, [
-            _c("h1", [_vm._v("Upload the first file to share with the team.")]),
-            _vm._v(" "),
-            _c("h3", [
-              _vm._v(
-                "Share files, documents, images, movies, screenshots, presentations, designs, or any\n                                    other type of file with your entire team."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _c(
-                "a",
-                {
-                  staticClass: "watch videothumb",
-                  attrs: {
-                    "data-behavior": "open_videobox",
-                    "data-video-src":
-                      "//fast.wistia.net/embed/iframe/psi99hz46t",
-                    href: "#"
-                  }
-                },
-                [
-                  _vm._v(
-                    "Watch a quick\n                                    video about Files"
-                  )
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "attachments" }, [
-          _c(
-            "div",
-            {
-              staticClass: "grid_view in_3_columns",
-              attrs: {
-                "data-columns": "3",
-                "data-role": "index",
-                "data-type": "attachments",
-                "data-scaled": "true"
-              }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "cell image",
-                  attrs: {
-                    id: "attachment_312251476",
-                    "data-container-id": "comment_579184130"
-                  }
-                },
-                [
-                  _c("article", { staticClass: "attachment" }, [
-                    _c("figure", { staticClass: "thumbnail proportional" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "background ",
-                          staticStyle: { height: "373px", width: "277px" },
-                          attrs: { "data-role": "content_container" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "image_details list_column" },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "hoverZoomLink",
-                                  attrs: {
-                                    "data-attachment-id": "312251476",
-                                    "data-behavior": "enlargeable",
-                                    "data-stacker": "false",
-                                    href:
-                                      "https://asset1.basecamp.com/2501285/projects/6590988/attachments/312251476/c4dca50987bca80d6f42449e97dd96fe.jpg"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    { staticClass: "thumbnail_wrap image" },
-                                    [
-                                      _c("span", [
-                                        _c("img", {
-                                          staticClass:
-                                            "thumbnail hoverZoomLink",
-                                          staticStyle: {
-                                            width: "276px",
-                                            height: "276px"
-                                          },
-                                          attrs: {
-                                            alt: "",
-                                            "data-attachment-id": "312251476",
-                                            "data-audio-codec": "null",
-                                            "data-classes": "image",
-                                            "data-container-id":
-                                              "comment_579184130",
-                                            "data-content-type": "image/jpeg",
-                                            "data-created-at":
-                                              "2017-11-25T15:36:41Z",
-                                            "data-creator-id": "15531397",
-                                            "data-creator": "Gopal S.",
-                                            "data-description": "image",
-                                            "data-details-path":
-                                              "/2501285/projects/6590988/attachments/312251476/details",
-                                            "data-download-path":
-                                              "/2501285/projects/6590988/attachments/312251476/download",
-                                            "data-embeddable": "false",
-                                            "data-extension": "JPG",
-                                            "data-file-or-image": "image",
-                                            "data-filename":
-                                              "c4dca50987bca80d6f42449e97dd96fe.jpg",
-                                            "data-filesize": "34 KB",
-                                            "data-height": "564",
-                                            "data-image-id": "312251476",
-                                            "data-large-src":
-                                              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/312251476/6cf05226-d1f6-11e7-aa21-089e019fd4bb/large.jpg",
-                                            "data-linked": "null",
-                                            "data-max-size": "700",
-                                            "data-original-src":
-                                              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/312251476",
-                                            "data-path":
-                                              "/2501285/projects/6590988/attachments/312251476",
-                                            "data-perma-path":
-                                              "/2501285/projects/6590988/messages/74076213?enlarge=312251476#attachment_312251476",
-                                            "data-previewable": "true",
-                                            "data-storage-key":
-                                              "6cf05226-d1f6-11e7-aa21-089e019fd4bb",
-                                            "data-thumbnail": "true",
-                                            "data-trash-path":
-                                              "/2501285/projects/6590988/attachments/312251476/trash",
-                                            "data-trashed": "false",
-                                            "data-type": "image",
-                                            "data-video-codec": "null",
-                                            "data-width": "564",
-                                            src:
-                                              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/312251476/6cf05226-d1f6-11e7-aa21-089e019fd4bb/thumbnail.jpg",
-                                            "data-scaled": "true"
-                                          }
-                                        })
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "figcaption",
-                                    {
-                                      staticStyle: { width: "277px" },
-                                      attrs: {
-                                        "data-role": "live_filter_highlight"
-                                      }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "file_name" }, [
-                                        _vm._v(
-                                          "c4dca50987bca80d6f42449e97dd96fe"
-                                        )
-                                      ]),
-                                      _vm._v("."),
-                                      _c(
-                                        "span",
-                                        { staticClass: "file_extension" },
-                                        [_vm._v("jpg")]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "bucket" }, [
-                                    _vm._v(
-                                      "\n                                                            Project: Random Projects\n                                                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "metadata_for_grid" },
-                                    [
-                                      _c("span", { staticClass: "meta date" }, [
-                                        _vm._v("Added by Gopal S. on "),
-                                        _c(
-                                          "time",
-                                          {
-                                            attrs: {
-                                              "data-local": "date",
-                                              datetime: "2017-11-25T15:36:41Z",
-                                              "data-localized": "true",
-                                              title:
-                                                "November 25, 2017 at 9:06pm "
-                                            }
-                                          },
-                                          [_vm._v("Nov 25")]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("span", { staticClass: "meta" }, [
-                                        _vm._v(" · ")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass: "meta filesize",
-                                          attrs: {
-                                            "data-behavior": "direct_download",
-                                            "data-download-path":
-                                              "/2501285/projects/6590988/attachments/312251476/download",
-                                            title: "Download this image"
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "34 KB\n                                                            "
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "tags_and_comments" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "/2501285/projects/6590988/messages/74076213"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "span",
-                                      { staticClass: "pill comments" },
-                                      [_vm._v("1 comment")]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "taggings",
-                                    attrs: {
-                                      "data-behavior": "taggings",
-                                      "data-url":
-                                        "/2501285/projects/6590988/taggings",
-                                      "data-taggable-type": "Attachment",
-                                      "data-taggable-id": "312251476",
-                                      "data-role":
-                                        "tags_for_attachment_312251476"
-                                    }
-                                  },
-                                  [
-                                    _c("ul", { staticClass: "tags" }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "edit_taggings",
-                                        attrs: {
-                                          "data-behavior":
-                                            "expandable expand_exclusively edit_taggings"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: {
-                                              "data-behavior":
-                                                "expand_on_click",
-                                              href: "#"
-                                            }
-                                          },
-                                          [_vm._v("Label...")]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "list_column date" }, [
-                            _c(
-                              "time",
-                              {
-                                attrs: {
-                                  "data-local": "date",
-                                  datetime: "2017-11-25T15:36:41Z",
-                                  "data-localized": "true",
-                                  title: "November 25, 2017 at 9:06pm "
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "Nov\n                                                        25\n                                                    "
-                                )
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "list_column filesize" }, [
-                            _vm._v(
-                              "\n                                                    34 KB\n                                                "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "list_column creator" }, [
-                            _vm._v(
-                              "\n                                                    Gopal S.\n                                                "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "list_column actions" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "button download",
-                                attrs: {
-                                  "data-behavior": "direct_download",
-                                  "data-download-path":
-                                    "/2501285/projects/6590988/attachments/312251476/download",
-                                  href: "#"
-                                }
-                              },
-                              [_vm._v("Download")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "button delete",
-                                attrs: {
-                                  "data-creator-id": "15531397",
-                                  "data-method": "post",
-                                  "data-remote": "true",
-                                  "data-visible-to": "admin creator",
-                                  href:
-                                    "/2501285/projects/6590988/attachments/312251476/trash",
-                                  rel: "nofollow",
-                                  title: "Delete this file"
-                                }
-                              },
-                              [_vm._v("Delete")]
-                            )
-                          ])
-                        ]
-                      )
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "cell image pdf",
-                  attrs: {
-                    id: "attachment_310543980",
-                    "data-container-id": "comment_575887321"
-                  }
-                },
-                [
-                  _c("article", { staticClass: "attachment" }, [
-                    _c("figure", { staticClass: "thumbnail proportional" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "background ",
-                          staticStyle: { height: "373px", width: "277px" },
-                          attrs: { "data-role": "content_container" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "image_details list_column" },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    "data-attachment-id": "310543980",
-                                    "data-behavior": "enlargeable",
-                                    "data-stacker": "false",
-                                    href:
-                                      "https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/Website%2520Menu%2520items%2520draft%2520v1.2%2520%25281%2529.pdf"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    { staticClass: "thumbnail_wrap image pdf" },
-                                    [
-                                      _c("span", [
-                                        _c("img", {
-                                          staticClass: "thumbnail",
-                                          staticStyle: {
-                                            width: "276px",
-                                            height: "195px"
-                                          },
-                                          attrs: {
-                                            alt: "",
-                                            "data-attachment-id": "310543980",
-                                            "data-audio-codec": "null",
-                                            "data-classes": "image pdf",
-                                            "data-container-id":
-                                              "comment_575887321",
-                                            "data-content-type":
-                                              "application/pdf",
-                                            "data-created-at":
-                                              "2017-11-12T17:03:17Z",
-                                            "data-creator-id": "6581649",
-                                            "data-creator": "Deepanshu T.",
-                                            "data-description": "file",
-                                            "data-details-path":
-                                              "/2501285/projects/6590988/attachments/310543980/details",
-                                            "data-download-path":
-                                              "/2501285/projects/6590988/attachments/310543980/download",
-                                            "data-embeddable": "true",
-                                            "data-extension": "PDF",
-                                            "data-file-or-image": "file",
-                                            "data-filename":
-                                              "Website Menu items draft v1.2 (1).pdf",
-                                            "data-filesize": "215 KB",
-                                            "data-height": "1240",
-                                            "data-image-id": "310543980",
-                                            "data-large-src":
-                                              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/5c57be52-c7cb-11e7-b971-047d7be9fbd4/large.png",
-                                            "data-linked": "null",
-                                            "data-max-size": "700",
-                                            "data-original-src":
-                                              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980",
-                                            "data-path":
-                                              "/2501285/projects/6590988/attachments/310543980",
-                                            "data-perma-path":
-                                              "/2501285/projects/6590988/messages/73611012?enlarge=310543980#attachment_310543980",
-                                            "data-previewable": "true",
-                                            "data-storage-key":
-                                              "5c57be52-c7cb-11e7-b971-047d7be9fbd4",
-                                            "data-thumbnail": "true",
-                                            "data-trash-path":
-                                              "/2501285/projects/6590988/attachments/310543980/trash",
-                                            "data-trashed": "false",
-                                            "data-type": "pdf",
-                                            "data-video-codec": "null",
-                                            "data-width": "1754",
-                                            src:
-                                              "https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/5c57be52-c7cb-11e7-b971-047d7be9fbd4/thumbnail.png",
-                                            "data-scaled": "true"
-                                          }
-                                        })
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "figcaption",
-                                    {
-                                      staticStyle: { width: "277px" },
-                                      attrs: {
-                                        "data-role": "live_filter_highlight"
-                                      }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "file_name" }, [
-                                        _vm._v(
-                                          "Website Menu items draft v1.2 (1)"
-                                        )
-                                      ]),
-                                      _vm._v("."),
-                                      _c(
-                                        "span",
-                                        { staticClass: "file_extension" },
-                                        [_vm._v("pdf")]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "bucket" }, [
-                                    _vm._v(
-                                      "\n                                                            Project: Random Projects\n                                                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "metadata_for_grid" },
-                                    [
-                                      _c("span", { staticClass: "meta date" }, [
-                                        _vm._v("Added by Deepanshu T. on "),
-                                        _c(
-                                          "time",
-                                          {
-                                            attrs: {
-                                              "data-local": "date",
-                                              datetime: "2017-11-12T17:03:17Z",
-                                              "data-localized": "true",
-                                              title:
-                                                "November 12, 2017 at 10:33pm "
-                                            }
-                                          },
-                                          [_vm._v("Nov 12")]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("span", { staticClass: "meta" }, [
-                                        _vm._v(" · ")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass: "meta filesize",
-                                          attrs: {
-                                            "data-behavior": "direct_download",
-                                            "data-download-path":
-                                              "/2501285/projects/6590988/attachments/310543980/download",
-                                            title: "Download this file"
-                                          }
-                                        },
-                                        [_vm._v("215 KB")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "tags_and_comments" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "/2501285/projects/6590988/messages/73611012"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "span",
-                                      { staticClass: "pill comments" },
-                                      [
-                                        _vm._v(
-                                          "\n                                                                11 comments\n                                                            "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "taggings",
-                                    attrs: {
-                                      "data-behavior": "taggings",
-                                      "data-url":
-                                        "/2501285/projects/6590988/taggings",
-                                      "data-taggable-type": "Attachment",
-                                      "data-taggable-id": "310543980",
-                                      "data-role":
-                                        "tags_for_attachment_310543980"
-                                    }
-                                  },
-                                  [
-                                    _c("ul", { staticClass: "tags" }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "edit_taggings",
-                                        attrs: {
-                                          "data-behavior":
-                                            "expandable expand_exclusively edit_taggings"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: {
-                                              "data-behavior":
-                                                "expand_on_click",
-                                              href: "#"
-                                            }
-                                          },
-                                          [_vm._v("Label...")]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "list_column date" }, [
-                            _c(
-                              "time",
-                              {
-                                attrs: {
-                                  "data-local": "date",
-                                  datetime: "2017-11-12T17:03:17Z",
-                                  "data-localized": "true",
-                                  title: "November 12, 2017 at 10:33pm "
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                                        Nov 12\n                                                    "
-                                )
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "list_column filesize" }, [
-                            _vm._v(
-                              "\n                                                    215 KB\n                                                "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "list_column creator" }, [
-                            _vm._v(
-                              "\n                                                    Deepanshu T.\n                                                "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "list_column actions" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "button download",
-                                attrs: {
-                                  "data-behavior": "direct_download",
-                                  "data-download-path":
-                                    "/2501285/projects/6590988/attachments/310543980/download",
-                                  href: "#"
-                                }
-                              },
-                              [_vm._v("Download")]
-                            )
-                          ])
-                        ]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "more_files" }, [
-          _c(
-            "a",
-            {
-              staticClass: "decorated",
-              attrs: { href: "/2501285/projects/6590988/attachments" }
-            },
-            [_vm._v("651 more files")]
-          )
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -51843,7 +50063,7 @@ var staticRenderFns = [
             "data-localized": "true"
           }
         },
-        [_vm._v("Nov 9\n                                            ")]
+        [_vm._v("Nov 9\n                                        ")]
       )
     ])
   },
@@ -55540,188 +53760,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'SpecificMessageComponent',
@@ -55743,7 +53781,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             messageCreatedAtNoob: '',
 
             messageComments: '',
-            home_page: ''
+            home_page: '',
+
+            commentMessage: '',
+
+            authUserId: '',
+            authUserData: ''
         };
     },
     mounted: function mounted() {
@@ -55755,6 +53798,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
         this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
         this.messageId = document.querySelector("meta[name='message-id']").getAttribute("content");
+
+        this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
 
         axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages' + '/' + this.messageId).then(function (response) {
             console.log(response.data);
@@ -55768,14 +53813,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).catch(function (error) {
             console.log(error);
         });
+
+        axios.get(this.home_page + 'api/people/' + this.authUserId).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.log(error);
+        });
     },
+
 
     methods: {
         toggle: function toggle() {
-            if (self.clicked) {
-                self.clicked = false;
-            } else {
-                self.clicked = true;
+            self.clicked = !self.clicked;
+        },
+        postComment: function postComment() {
+            var _this = this;
+
+            if (this.commentMessage !== '') {
+                axios.post(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages/' + this.messageId, {
+                    topicComment: this.commentMessage,
+                    posterId: this.authUserId
+                }).then(function (response) {
+                    _this.commentMessage = '';
+                    _this.messageComments.push(response.data.data.topic_comments[0]);
+                }).catch(function (error) {
+                    console.log(error);
+                });
             }
         }
     }
@@ -56134,11 +54197,42 @@ var render = function() {
                                         }),
                                         _vm._v(" "),
                                         _c("textarea", {
-                                          attrs: {
-                                            name: "topic_comment",
-                                            width: ""
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.commentMessage,
+                                              expression: "commentMessage"
+                                            }
+                                          ],
+                                          staticStyle: { width: "100%" },
+                                          attrs: { name: "topic_comment" },
+                                          domProps: {
+                                            value: _vm.commentMessage
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.commentMessage =
+                                                $event.target.value
+                                            }
                                           }
-                                        })
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-primary",
+                                            on: {
+                                              click: function($event) {
+                                                _vm.postComment()
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Post")]
+                                        )
                                       ]
                                     )
                                   ],
@@ -56190,11 +54284,7 @@ var render = function() {
                                   ]
                                 ),
                                 _vm._v(" "),
-                                _vm._m(4, false, false),
-                                _vm._v(" "),
-                                _vm._m(5, false, false),
-                                _vm._v(" "),
-                                _vm._m(6, false, false)
+                                _vm._m(4, false, false)
                               ]
                             )
                           ]
@@ -56390,497 +54480,6 @@ var staticRenderFns = [
                 attrs: { "data-behavior": "collapse_on_click", href: "#" }
               },
               [_vm._v("Never mind")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tool",
-        attrs: {
-          "data-visible-to": "creator admin",
-          "data-skip_busy": "",
-          "data-behavior": "tool bucket_operation_tool expandable",
-          "data-label": "Copy",
-          "data-new-bucket-operation-path": "/2501285/copy_operations/new",
-          "data-bucket-operation-type": "CopyOperation",
-          "data-source-resource-type": "Message",
-          "data-source-resource-id": "74076213",
-          "data-source-resource-human-name": "message"
-        }
-      },
-      [
-        _c(
-          "a",
-          {
-            attrs: {
-              "data-behavior": "expand_on_click hide_on_expand",
-              href: "#"
-            }
-          },
-          [_vm._v("Copy…")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "confirm", attrs: { "data-role": "confirm_view" } },
-          [
-            _c(
-              "div",
-              { staticClass: "change", attrs: { "data-role": "form" } },
-              [
-                _c(
-                  "form",
-                  {
-                    staticClass: "new_copy_operation",
-                    attrs: {
-                      "accept-charset": "UTF-8",
-                      action: "/2501285/copy_operations",
-                      id: "new_copy_operation",
-                      method: "post"
-                    }
-                  },
-                  [
-                    _c("div", { staticStyle: { display: "none" } }, [
-                      _c("input", {
-                        attrs: { name: "utf8", type: "hidden", value: "✓" }
-                      }),
-                      _c("input", {
-                        attrs: {
-                          name: "authenticity_token",
-                          type: "hidden",
-                          value: "j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas="
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Copy this message")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        attrs: {
-                          "data-role": "destination_bucket_select",
-                          disabled: "disabled",
-                          id: "copy_operation_destination_bucket",
-                          name: "copy_operation[destination_bucket]"
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Loading…")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "explanation" }, [
-                      _vm._v(
-                        "We’ll add a copy of this message to the\n                                                        project you choose above. Changes you make to the copy won’t\n                                                        affect the original."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "copy_options todolist" }, [
-                      _c(
-                        "label",
-                        {
-                          staticStyle: { display: "none" },
-                          attrs: { "data-role": "keep_comments_label" }
-                        },
-                        [
-                          _c("input", {
-                            attrs: {
-                              name: "copy_operation[keep_comments]",
-                              type: "hidden",
-                              value: "0"
-                            }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              "data-role": "keep_comments_option",
-                              id: "copy_operation_keep_wcomments",
-                              name: "copy_operation[keep_comments]",
-                              type: "checkbox",
-                              value: "1"
-                            }
-                          }),
-                          _vm._v(
-                            "\n                                                            Include original comments\n                                                        "
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button",
-                        attrs: {
-                          "data-behavior": "tool_action",
-                          disabled: "disabled",
-                          name: "commit",
-                          type: "submit",
-                          value: "Copy this message"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "cancel",
-                          attrs: {
-                            "data-behavior": "collapse_on_click",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Never mind")]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "no_destinations",
-                    attrs: { "data-role": "no_destinations_notice" }
-                  },
-                  [
-                    _c("p", [
-                      _vm._v(
-                        "We can’t copy this message because there’s nowhere else to\n                                                        put it! You’ll be able to move it if you make more projects\n                                                        or calendars."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "cancel",
-                        attrs: {
-                          "data-behavior": "collapse_on_click",
-                          href: "#"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "OK,\n                                                        close this"
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "change",
-                staticStyle: { display: "none" },
-                attrs: { "data-role": "form_for_new_project" }
-              },
-              [
-                _c(
-                  "form",
-                  {
-                    staticClass: "new_copy_operation",
-                    attrs: {
-                      "accept-charset": "UTF-8",
-                      action: "/2501285/copy_operations",
-                      id: "new_copy_operation",
-                      method: "post"
-                    }
-                  },
-                  [
-                    _c("div", { staticStyle: { display: "none" } }, [
-                      _c("input", {
-                        attrs: { name: "utf8", type: "hidden", value: "✓" }
-                      }),
-                      _c("input", {
-                        attrs: {
-                          name: "authenticity_token",
-                          type: "hidden",
-                          value: "j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas="
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Copy this to a new project")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: {
-                        "data-role": "new_project_name",
-                        id: "copy_operation_new_project_name",
-                        name: "copy_operation[new_project_name]",
-                        placeholder: "Name the project",
-                        type: "text"
-                      }
-                    })
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "confirm conflict",
-              attrs: { "data-role": "conflict" }
-            })
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tool",
-        attrs: {
-          "data-visible-to": "creator admin",
-          "data-skip_busy": "",
-          "data-behavior": "tool bucket_operation_tool expandable",
-          "data-label": "Move",
-          "data-new-bucket-operation-path": "/2501285/move_operations/new",
-          "data-bucket-operation-type": "MoveOperation",
-          "data-source-resource-type": "Message",
-          "data-source-resource-id": "74076213",
-          "data-source-resource-human-name": "message"
-        }
-      },
-      [
-        _c(
-          "a",
-          {
-            attrs: {
-              "data-behavior": "expand_on_click hide_on_expand",
-              href: "#"
-            }
-          },
-          [_vm._v("Move…")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "confirm", attrs: { "data-role": "confirm_view" } },
-          [
-            _c(
-              "div",
-              { staticClass: "change", attrs: { "data-role": "form" } },
-              [
-                _c(
-                  "form",
-                  {
-                    staticClass: "new_move_operation",
-                    attrs: {
-                      "accept-charset": "UTF-8",
-                      action: "/2501285/move_operations",
-                      id: "new_move_operation",
-                      method: "post"
-                    }
-                  },
-                  [
-                    _c("div", { staticStyle: { display: "none" } }, [
-                      _c("input", {
-                        attrs: { name: "utf8", type: "hidden", value: "✓" }
-                      }),
-                      _c("input", {
-                        attrs: {
-                          name: "authenticity_token",
-                          type: "hidden",
-                          value: "j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas="
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Move this message")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        attrs: {
-                          "data-role": "destination_bucket_select",
-                          disabled: "disabled",
-                          id: "move_operation_destination_bucket",
-                          name: "move_operation[destination_bucket]"
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Loading…")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button",
-                        attrs: {
-                          "data-behavior": "tool_action",
-                          disabled: "disabled",
-                          name: "commit",
-                          type: "submit",
-                          value: "Move this message"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "cancel",
-                          attrs: {
-                            "data-behavior": "collapse_on_click",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Never mind")]
-                      )
-                    ])
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "change",
-                staticStyle: { display: "none" },
-                attrs: { "data-role": "form_for_new_project" }
-              },
-              [
-                _c(
-                  "form",
-                  {
-                    staticClass: "new_move_operation",
-                    attrs: {
-                      "accept-charset": "UTF-8",
-                      action: "/2501285/move_operations",
-                      id: "new_move_operation",
-                      method: "post"
-                    }
-                  },
-                  [
-                    _c("div", { staticStyle: { display: "none" } }, [
-                      _c("input", {
-                        attrs: { name: "utf8", type: "hidden", value: "✓" }
-                      }),
-                      _c("input", {
-                        attrs: {
-                          name: "authenticity_token",
-                          type: "hidden",
-                          value: "j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas="
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Move this to a new project")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: {
-                        "data-role": "new_project_name",
-                        id: "move_operation_new_project_name",
-                        name: "move_operation[new_project_name]",
-                        placeholder: "Name the project",
-                        type: "text"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button",
-                        attrs: {
-                          "data-behavior": "tool_action",
-                          disabled: "disabled",
-                          name: "commit",
-                          type: "submit",
-                          value: "Move and create project"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "cancel",
-                          attrs: {
-                            "data-behavior": "collapse_on_click",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Never mind")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "projects_limit_reached",
-                        attrs: { "data-role": "projects_limit_reached_notice" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "limit projects reached notify",
-                            attrs: { "data-hidden-from": "accountManager" }
-                          },
-                          [
-                            _c("h1", [_vm._v("You're out of projects!")]),
-                            _vm._v(" "),
-                            _c("p", [
-                              _vm._v(
-                                "To create more projects, ask your Basecamp account\n                                                                owner to upgrade the account."
-                              ),
-                              _c("br"),
-                              _vm._v(
-                                "\n                                                                Just click the button below and we'll send them a\n                                                                quick reminder."
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "action_button green button",
-                                attrs: {
-                                  "data-behavior": "link_to_notify_owner",
-                                  "data-method": "post",
-                                  "data-remote": "true",
-                                  href:
-                                    "/2501285/account/notification?type=projects",
-                                  rel: "nofollow"
-                                }
-                              },
-                              [_vm._v("Notify your account owner")]
-                            ),
-                            _vm._v(
-                              " or\n                                                            "
-                            ),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "decorated",
-                                attrs: {
-                                  "data-behavior": "cancel_new_project",
-                                  "data-role": "cancel",
-                                  href: "#"
-                                }
-                              },
-                              [_vm._v("Never mind")]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
             )
           ]
         )
