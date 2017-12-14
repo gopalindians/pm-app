@@ -28,22 +28,14 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="editProfile_img">
-                                            @php
-                                                if($user[0]->profile_image == ''){
-                                                  @endphp
-                                                 <img src="{{\App\CH::getAssetUrl('/images/default_img.jpg')}}"
-                                                 class="img-thumbnail" alt=""/>
-                                          
-                                                     @php 
-                                                 } else{
-                                                     @endphp
-                                                    
-                                                   <img src="{{ URL::asset('storage/'.$user[0]->profile_image) }}"
-                                                 class="img-thumbnail" alt=""/>
-                                                    @php 
-                                                     }
-                                                  @endphp
-                                               
+                                            @if($user[0]->profile_image == '')
+                                                <img src="{{\App\CH::getAssetUrl('/images/default_img.jpg')}}"
+                                                     class="img-thumbnail" alt=""/>
+                                            @else
+                                                <img src="{{ URL::asset('storage/'.$user[0]->profile_image) }}"
+                                                     class="img-thumbnail" alt=""/>
+                                            @endif
+
                                             <p class="file_btn">
                                                 <label class="btn-bs-file btn btn-primary">
                                                     Upload Image
@@ -69,7 +61,9 @@
 
                                             <div class="form-group">
                                                 <label for="usr">Date of birth:</label>
-                                                <input type="text" class="form-control" placeholder="" name="dob" id="dob" value="{{$user[0]->dob??old('dob')}}" aria-describedby="sizing-addon2" >
+                                                <input type="text" class="form-control" placeholder="" name="dob"
+                                                       id="dob" value="{{$user[0]->dob??old('dob')}}"
+                                                       aria-describedby="sizing-addon2">
                                             </div>
                                             <div class="form-group">
                                                 <label for="usr">Phone:</label>
