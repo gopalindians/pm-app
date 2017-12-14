@@ -68,10 +68,10 @@ class ProfileController extends Controller
         $request->validate([
             'name' => 'required|min:1|max:255',
 			'email' => 'required',
-            'dob' => 'nullable|date',
+            'dob' => 'nullable',
 			'phone' => 'nullable|min:10|max:15',
             'position' => 'nullable',
-            'profile_image' => 'nullable|mimes:jpeg,bmp,png,gif,webp',
+            'profile_image' => 'nullable|mimes:jpeg,bmp,png,gif,webp|dimensions:max_width=1024,max_height=768',
         ]);
         $name = $request->post('name');
 		$email = $request->post('email');
@@ -85,6 +85,8 @@ class ProfileController extends Controller
             //$path = $request->profile_image->store('uploads/profile_image');
             //Storage::disk('local')->put($profile_image, 'Contents');
             $file = Storage::putFile('public/uploads/' . Auth::id() . '/profile_image', $request->file('profile_image'));
+            $user=DB::table('users')->where('id',Auth::id())->get();
+            Storage::delete('public/'.$user[0]->profile_image);
 
 
             DB::table('users')
@@ -109,7 +111,6 @@ class ProfileController extends Controller
                     'email' => $email,
                     'dob' => $dob,
                     'position' => $position,
-                    'profile_image' => $profile_image,
 					'phone' => $phone,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
