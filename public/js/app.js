@@ -59953,7 +59953,13 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(0, false, false)
+                      _c("li", [
+                        _c("i", {
+                          staticClass: "fa fa-phone",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" : " + _vm._s(_vm.result.phone))
+                      ])
                     ])
                   ])
                 ])
@@ -59988,7 +59994,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(1, false, false),
+          _vm._m(0, false, false),
           _vm._v(" "),
           _c("section", { staticClass: "shared_files" }, [
             _c("h2", [_vm._v("Your shared files")]),
@@ -60019,7 +60025,7 @@ var render = function() {
                           _c("span", [_vm._v("Added by Ashish S. on Dec 1")])
                         ]),
                         _vm._v(" "),
-                        _vm._m(2, false, false)
+                        _vm._m(1, false, false)
                       ])
                     ])
                   ]
@@ -60049,7 +60055,7 @@ var render = function() {
                           _c("span", [_vm._v("Added by Ashish S. on Dec 1")])
                         ]),
                         _vm._v(" "),
-                        _vm._m(3, false, false)
+                        _vm._m(2, false, false)
                       ])
                     ])
                   ]
@@ -60063,15 +60069,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("i", { staticClass: "fa fa-phone", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" : +91 980 592 0000")
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
