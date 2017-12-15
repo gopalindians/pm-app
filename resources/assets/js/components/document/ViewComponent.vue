@@ -22,12 +22,54 @@
                                 <div class="disabled name formatted_content">{{documentTitle}}</div>
 
                                 <div class="document_body">
-                                    <div class="disabled body formatted_content" data-skip-stacker-links="">{{documentBody}}</div>
+                                    <div class="disabled body formatted_content" data-skip-stacker-links="">
+                                        {{documentBody}}
+                                    </div>
                                 </div>
                             </article>
 
                             <section class="comments" id="comments_for_document_12992150" data-comments-count="0">
                                 <h4>Discuss this document</h4>
+
+
+                                <article class="comment" id="comment_584232109" data-creator-id="15531397" style=""
+                                         v-for="comment in documentComments">
+                                    <a data-replace-stack="true" href="/2501285/people/15531397">
+                                        <img alt="Gopal Sharma" class="avatar" height="96"
+                                             src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif"
+                                             title="Gopal Sharma" width="96">
+                                    </a>
+                                    <div class="formatted_content" data-embeddable="" data-skip-stacker-links="">
+                                        <strong>Gopal Sharma</strong> <br>
+                                        {{comment.comment}}
+                                    </div>
+
+                                    <footer class="time">
+                                        <a data-stacker="false"
+                                           href="/2501285/projects/12880198/todolists/49407588#comment_584232109">Posted
+                                            <time data-local="time-ago" datetime="2017-12-15T13:33:57Z"
+                                                  title="December 15, 2017 at 7:03pm ">a second ago
+                                            </time>
+                                        </a>
+                                        <span data-available-until="2017-12-15T13:48:57Z"
+                                              data-visible-to="admin creator">
+                                            –<a class="edit"
+                                                :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+documentId+'/edit'">Edit</a> or
+                                            <a class="delete"
+                                               data-confirm="Are you sure you want to delete this comment?"
+                                               data-method="post" data-remote="true"
+                                               href="/2501285/projects/12880198/comments/584232109/trash"
+                                               rel="nofollow">Delete
+                                            </a>
+                                            for <span data-display="available_time_left">14 minutes</span>
+                                        </span>
+                                    </footer>
+
+                                    <div id="attachments_for_comment_584232109" class="partitioned_attachments ">
+                                        <div class="attachments_actions">
+                                        </div>
+                                    </div>
+                                </article>
 
 
                                 <article class="comment new" data-behavior="expandable file_drop_target">
@@ -36,11 +78,13 @@
                                          title="Gopal Sharma">
 
                                     <div class="collapsed_content">
+
+
                                         <header class="text_entry no_shadow">
-                                            <div class="prompt" data-behavior="expand_on_click" role="button">
-                                                Add a comment or upload a file…
-                                            </div>
+                                            <textarea v-model="document_comment"></textarea>
                                         </header>
+                                        <button type="button" class="btn btn-primary" @click="submitComment()">Submit
+                                        </button>
                                     </div>
 
                                     <div class="expanded_content">
@@ -103,13 +147,15 @@
                                                     <strong>You’re signed in to Google as <span
                                                             data-role="picker_account_email"></span>
                                                     </strong>
-                                                    <a data-behavior="google_account_switcher" href="#">Sign out and use a different Google account</a>
+                                                    <a data-behavior="google_account_switcher" href="#">Sign out and use
+                                                        a different Google account</a>
                                                 </div>
 
                                                 <div data-behavior="google_connector" class="google_connector">
                                                     <p>
                                                         <b>Connect your Google account</b><br>
-                                                        Before you can attach Google Docs in Basecamp, we’ll need your OK first. Do you want to connect your account now?
+                                                        Before you can attach Google Docs in Basecamp, we’ll need your
+                                                        OK first. Do you want to connect your account now?
                                                     </p>
                                                     <p class="submit">
                                                         <button class="action_button"
@@ -124,7 +170,8 @@
                                                      class="google_connector">
                                                     <p>
                                                         <b>Basecamp couldn’t access your Google account</b><br>
-                                                        To attach Google Docs, you’ll need to give Basecamp permission. Do you want to try again?
+                                                        To attach Google Docs, you’ll need to give Basecamp permission.
+                                                        Do you want to try again?
                                                     </p>
                                                     <p class="submit">
                                                         <button class="action_button"
@@ -149,19 +196,13 @@
                                         </form>
                                     </div>
                                 </article>
-
-                                <span style="" data-role="topic_archiving_tool">
-
-                                </span>
-
+                                <span style="" data-role="topic_archiving_tool"></span>
                             </section>
-
                             <section class="event_stream" id="events_document_12992150">
                                 <a data-behavior="reveal_event_history"
                                    data-recordable-sgid="BAhJIhZEb2N1bWVudC0xMjk5MjE1MAY6BkVU--26ab10761fbd44346a1a682d6cf0b7357acc5fcb"
                                    href="#">By-the-minute history for this document...</a>
                             </section>
-
                         </section>
                     </div>
 
@@ -171,7 +212,8 @@
                             <div class="notice">
                                 <h3>Want to make changes?</h3>
                                 <p></p>
-                                <form action="/2501285/projects/6590988/documents/12992150/edit" class="button_to"
+                                <form :action="home_page+'project/'+projectId+'/'+projectName+'/document/'+documentId+'/edit/'"
+                                      class="button_to"
                                       data-remote="true" method="get">
                                     <div><input class="action_button button" type="submit" value="Edit this document">
                                     </div>
@@ -199,251 +241,6 @@
                             </span>
                         </div>
 
-
-                        <div class="tool" data-visible-to="creator admin" data-skip_busy=""
-                             data-behavior="tool bucket_operation_tool expandable" data-label="Copy"
-                             data-new-bucket-operation-path="/2501285/copy_operations/new"
-                             data-bucket-operation-type="CopyOperation" data-source-resource-type="Document"
-                             data-source-resource-id="12992150" data-source-resource-human-name="document">
-                            <a data-behavior="expand_on_click hide_on_expand" href="#">Copy…</a>
-
-                            <div class="confirm" data-role="confirm_view">
-                                <div class="change" data-role="form">
-                                    <form accept-charset="UTF-8" action="/2501285/copy_operations"
-                                          class="new_copy_operation" id="new_copy_operation" method="post">
-                                        <div style="display:none"><input name="utf8" type="hidden" value="✓"><input
-                                                name="authenticity_token" type="hidden"
-                                                value="p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="></div>
-                                        <strong>Copy this document</strong>
-
-                                        <select data-role="destination_bucket_select" disabled="disabled"
-                                                id="copy_operation_destination_bucket"
-                                                name="copy_operation[destination_bucket]">
-                                            <option value="">Loading…</option>
-                                        </select>
-
-
-                                        <p class="explanation">
-                                            We’ll add a copy of this document to the project you choose above. Changes you make to the copy won’t affect the original.</p>
-
-                                        <p class="explanation">
-                                            No previous versions of this document will be copied over. Just the latest version.</p>
-
-                                        <p class="copy_options todolist">
-                                            <label style="display: none;" data-role="keep_comments_label">
-                                                <input name="copy_operation[keep_comments]" type="hidden"
-                                                       value="0">
-                                                <input data-role="keep_comments_option"
-                                                       id="copy_operation_keep_comments"
-                                                       name="copy_operation[keep_comments]"
-                                                       type="checkbox" value="1">
-                                                Include original comments
-                                            </label>
-
-                                        </p>
-
-
-                                        <div class="submit">
-                                            <input class="action_button" data-behavior="tool_action" disabled="disabled"
-                                                   name="commit" type="submit" value="Copy this document">
-                                            <a class="cancel" data-behavior="collapse_on_click" href="#">Never mind</a>
-                                        </div>
-                                    </form>
-                                    <div class="no_destinations" data-role="no_destinations_notice">
-                                        <p>
-                                            We can’t copy this document because there’s nowhere else to put it! You’ll be able to move it if you make more projects or calendars.</p>
-                                        <a class="cancel" data-behavior="collapse_on_click" href="#">OK, close this</a>
-                                    </div>
-                                </div>
-
-                                <div class="change" data-role="form_for_new_project" style="display: none;">
-                                    <form accept-charset="UTF-8" action="/2501285/copy_operations"
-                                          class="new_copy_operation" id="new_copy_operation" method="post">
-                                        <div style="display:none"><input name="utf8" type="hidden" value="✓"><input
-                                                name="authenticity_token" type="hidden"
-                                                value="p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="></div>
-                                        <strong>Copy this to a new project</strong>
-
-                                        <input data-role="new_project_name" id="copy_operation_new_project_name"
-                                               name="copy_operation[new_project_name]" placeholder="Name the project"
-                                               type="text">
-
-
-                                        <p class="explanation">
-                                            We’ll add a copy of this document to the project you choose above. Changes you make to the copy won’t affect the original.</p>
-
-                                        <p class="explanation">
-                                            No previous versions of this document will be copied over. Just the latest version.</p>
-
-                                        <p class="copy_options todolist">
-                                            <label style="display: none;" data-role="keep_comments_label">
-                                                <input name="copy_operation[keep_comments]" type="hidden"
-                                                       value="0"><input data-role="keep_comments_option"
-                                                                        id="copy_operation_keep_comments"
-                                                                        name="copy_operation[keep_comments]"
-                                                                        type="checkbox" value="1">
-                                                Include original comments
-                                            </label>
-
-                                        </p>
-
-
-                                        <div class="submit">
-                                            <input class="action_button" data-behavior="tool_action" disabled="disabled"
-                                                   name="commit" type="submit" value="Copy and create project">
-                                            <a class="cancel" data-behavior="collapse_on_click" href="#">Never mind</a>
-                                        </div>
-
-                                        <div class="projects_limit_reached" data-role="projects_limit_reached_notice">
-
-                                            <div class="limit projects reached notify"
-                                                 data-hidden-from="accountManager">
-
-                                                <h1>You're out of projects!</h1>
-
-                                                <p>
-                                                    To create more projects, ask your Basecamp account owner to upgrade the account.<br>
-                                                    Just click the button below and we'll send them a quick reminder.
-                                                </p>
-
-                                                <a class="action_button green button"
-                                                   data-behavior="link_to_notify_owner" data-method="post"
-                                                   data-remote="true" href="/2501285/account/notification?type=projects"
-                                                   rel="nofollow">Notify your account owner</a> or
-                                                <a class="decorated" data-behavior="cancel_new_project"
-                                                   data-role="cancel" href="#">Never mind</a>
-
-                                            </div>
-
-
-                                            <div class="limit projects reached" style="display:none"
-                                                 data-role="account_upgrade_notice">
-                                                <form>
-                                                    <h1>Thanks, you're all set!</h1>
-                                                    <p>You've upgraded to the <strong>100 projects</strong>
-                                                        plan with <strong>40 GB</strong> storage space.</p>
-                                                    <a class="action_button green button"
-                                                       data-behavior="account_upgrade_confirmation" href="#">Continue starting a new project</a>
-                                                    or
-                                                    <a data-behavior="cancel_new_project" data-role="cancel" href="#">Go back to the projects page</a>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div class="confirm error" data-role="error">
-                                    <p><b>We couldn't copy this page</b><br>
-                                        <a data-behavior="reload_current_sheet" href="#">Try again</a> or <a
-                                                href="mailto:support@basecamp.com?body=Reference%3A%20Document%20ID%20%2312992150&amp;subject=Couldn%27t%20copy%20a%20document">Email support</a>.
-                                    </p>
-                                </div>
-
-                                <div class="confirm conflict" data-role="conflict">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tool" data-visible-to="creator admin" data-skip_busy=""
-                             data-behavior="tool bucket_operation_tool expandable" data-label="Move"
-                             data-new-bucket-operation-path="/2501285/move_operations/new"
-                             data-bucket-operation-type="MoveOperation" data-source-resource-type="Document"
-                             data-source-resource-id="12992150" data-source-resource-human-name="document">
-                            <a data-behavior="expand_on_click hide_on_expand" href="#">Move…</a>
-
-                            <div class="confirm" data-role="confirm_view">
-                                <div class="change" data-role="form">
-                                    <form accept-charset="UTF-8" action="/2501285/move_operations"
-                                          class="new_move_operation" id="new_move_operation" method="post">
-                                        <div style="display:none"><input name="utf8" type="hidden" value="✓"><input
-                                                name="authenticity_token" type="hidden"
-                                                value="p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="></div>
-                                        <strong>Move this document</strong>
-
-                                        <select data-role="destination_bucket_select" disabled="disabled"
-                                                id="move_operation_destination_bucket"
-                                                name="move_operation[destination_bucket]">
-                                            <option value="">Loading…</option>
-                                        </select>
-
-
-                                        <div class="submit">
-                                            <input class="action_button" data-behavior="tool_action" disabled="disabled"
-                                                   name="commit" type="submit" value="Move this document">
-                                            <a class="cancel" data-behavior="collapse_on_click" href="#">Never mind</a>
-                                        </div>
-                                    </form>
-                                    <div class="no_destinations" data-role="no_destinations_notice">
-                                        <p>
-                                            We can’t move this document because there’s nowhere else to put it! You’ll be able to move it if you make more projects or calendars.</p>
-                                        <a class="cancel" data-behavior="collapse_on_click" href="#">OK, close this</a>
-                                    </div>
-                                </div>
-
-                                <div class="change" data-role="form_for_new_project" style="display: none;">
-                                    <form accept-charset="UTF-8" action="/2501285/move_operations"
-                                          class="new_move_operation" id="new_move_operation" method="post">
-                                        <div style="display:none"><input name="utf8" type="hidden" value="✓"><input
-                                                name="authenticity_token" type="hidden"
-                                                value="p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="></div>
-                                        <strong>Move this to a new project</strong>
-
-                                        <input data-role="new_project_name" id="move_operation_new_project_name"
-                                               name="move_operation[new_project_name]" placeholder="Name the project"
-                                               type="text">
-
-
-                                        <div class="submit">
-                                            <input class="action_button" data-behavior="tool_action" disabled="disabled"
-                                                   name="commit" type="submit" value="Move and create project">
-                                            <a class="cancel" data-behavior="collapse_on_click" href="#">Never mind</a>
-                                        </div>
-
-                                        <div class="projects_limit_reached" data-role="projects_limit_reached_notice">
-
-                                            <div class="limit projects reached notify"
-                                                 data-hidden-from="accountManager">
-
-                                                <h1>You're out of projects!</h1>
-
-                                                <p>
-                                                    To create more projects, ask your Basecamp account owner to upgrade the account.<br>
-                                                    Just click the button below and we'll send them a quick reminder.
-                                                </p>
-
-                                                <a class="action_button green button"
-                                                   data-behavior="link_to_notify_owner" data-method="post"
-                                                   data-remote="true" href="/2501285/account/notification?type=projects"
-                                                   rel="nofollow">Notify your account owner</a> or
-                                                <a class="decorated" data-behavior="cancel_new_project"
-                                                   data-role="cancel" href="#">Never mind</a>
-
-                                            </div>
-
-
-                                            <div class="limit projects reached" style="display:none"
-                                                 data-role="account_upgrade_notice">
-                                                <form>
-                                                    <h1>Thanks, you're all set!</h1>
-                                                    <p>You've upgraded to the <strong>100 projects</strong>
-                                                        plan with <strong>40 GB</strong> storage space.</p>
-                                                    <a class="action_button green button"
-                                                       data-behavior="account_upgrade_confirmation" href="#">Continue starting a new project</a>
-                                                    or
-                                                    <a data-behavior="cancel_new_project" data-role="cancel" href="#">Go back to the projects page</a>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                    </form>
-                                </div>
-
-
-                                <div class="confirm conflict" data-role="conflict">
-                                </div>
-                            </div>
-                        </div>
-
                     </aside>
 
                 </div>
@@ -467,13 +264,34 @@
                 documentTitle: '',
                 documentBody: '',
                 documentId: '',
+                documentComments: '',
                 csrf_token: '',
-                home_page:''
+                home_page: '',
+
+
+                document_comment: ''
             }
         },
         methods: {
             saveDocument() {
                 console.log('saving');
+            },
+            submitComment() {
+                let self = this;
+                if (this.document_comment.length != 0) {
+                    axios.post(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/document' + '/' + this.documentId, {
+                        document_comment: this.document_comment
+                    }).then(function (response) {
+                        if (response.data.type === 'SUCCESS') {
+                            self.documentComments.push(response.data.data);
+                            self.document_comment='';
+
+                        }
+                    }).catch(function (error) {
+                        console.log(error);
+
+                    });
+                }
             }
         },
         mounted() {
@@ -485,11 +303,12 @@
             this.documentId = document.querySelector("meta[name='document-id']").getAttribute("content");
 
 
-            axios.get(this.home_page+'api/project/' + this.projectId + '/' + this.projectName + '/document' + '/' + this.documentId)
+            axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/document' + '/' + this.documentId)
                 .then(function (response) {
                     console.log(response.data);
                     self.documentTitle = response.data.document_title;
                     self.documentBody = response.data.document_body;
+                    self.documentComments = response.data.comments;
                 })
                 .catch(function (error) {
                     console.log(error);
