@@ -8,12 +8,24 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="profile_img">
-                                        <img :src="asset_url+'images/employee_img_2.jpg'" alt="Profile">
+                                        <transition name="fade" mode="out-in">
+                                            <img v-if="result.profile_image!==null"
+                                                 :src="asset_url+'storage/'+result.profile_image" alt="Profile">
+                                        </transition>
+
+                                        <transition name="fade" mode="out-in">
+                                            <img v-if="result.profile_image==null"
+                                                 :src="asset_url+'images/employee_img_2.jpg'" alt="Profile">
+                                        </transition>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="profile_info">
-                                        <h2>{{result.name}}<span> (Web Designer)</span></h2>
+
+                                        {{result.position}}
+                                        <h2 v-if="result.position!= null">
+                                            {{result.name}}<span> ({{result.position}})</span></h2>
+                                        <h2 v-if="result.position==null || result.position==''">{{result.name}}</h2>
                                         <ul>
                                             <li><i class="fa fa-envelope" aria-hidden="true"></i> : {{result.email}}
                                             </li>
@@ -31,8 +43,9 @@
                         <div class="col-md-4">
                             <div class="right_side text-right">
                                 <ul v-if="author">
-                                   <!-- <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>-->
-                                    <li><a :href="home_page+'profile/edit/'+result.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+                                    <!-- <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>-->
+                                    <li><a :href="home_page+'profile/edit/'+result.id"><i class="fa fa-pencil-square-o"
+                                                                                          aria-hidden="true"></i>Edit</a>
                                     </li>
                                 </ul>
                             </div>
@@ -140,19 +153,11 @@
             this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
             this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
 
-
-            self.query = self.getParameterByName('q') ? self.getParameterByName('q') : '';
-
-            let u = window.location.href;
-
-            let route = u.replace(this.home_page, '').split('/');
-            this.routePath = route[0];
-            this.routeParameter = route[1];
-            axios.get(this.home_page + 'api/people/' + this.routeParameter)
+            axios.get(this.home_page + 'api/people/' + this.authUserId)
                 .then(function (response) {
                     self.result = response.data;
-                    if(self.result.id==self.authUserId){
-                        self.author=true;
+                    if (self.result.id == self.authUserId) {
+                        self.author = true;
                     }
                 })
                 .catch(function (error) {
@@ -172,3 +177,13 @@
         }
     }
 </script>
+
+<style>
+    .component-fade-enter-active, .component-fade-leave-active {
+        transition: opacity .3s ease;
+    }
+    .component-fade-enter, .component-fade-leave-to
+        /* .component-fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
+</style>
