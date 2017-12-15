@@ -56830,209 +56830,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ViewDocumentComponent',
@@ -57048,14 +56845,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             documentTitle: '',
             documentBody: '',
             documentId: '',
+            documentComments: '',
             csrf_token: '',
-            home_page: ''
+            home_page: '',
+
+            document_comment: ''
         };
     },
 
     methods: {
         saveDocument: function saveDocument() {
             console.log('saving');
+        },
+        submitComment: function submitComment() {
+            var self = this;
+            if (this.document_comment.length != 0) {
+                axios.post(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/document' + '/' + this.documentId, {
+                    document_comment: this.document_comment
+                }).then(function (response) {
+                    if (response.data.type === 'SUCCESS') {
+                        self.documentComments.push(response.data.data);
+                        self.document_comment = '';
+                    }
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
         }
     },
     mounted: function mounted() {
@@ -57070,6 +56885,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log(response.data);
             self.documentTitle = response.data.document_title;
             self.documentBody = response.data.document_body;
+            self.documentComments = response.data.comments;
         }).catch(function (error) {
             console.log(error);
         });
@@ -57187,20 +57003,273 @@ var render = function() {
                                 staticClass: "disabled body formatted_content",
                                 attrs: { "data-skip-stacker-links": "" }
                               },
-                              [_vm._v(_vm._s(_vm.documentBody))]
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(_vm.documentBody) +
+                                    "\n                                "
+                                )
+                              ]
                             )
                           ])
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(0, false, false),
+                      _c(
+                        "section",
+                        {
+                          staticClass: "comments",
+                          attrs: {
+                            id: "comments_for_document_12992150",
+                            "data-comments-count": "0"
+                          }
+                        },
+                        [
+                          _c("h4", [_vm._v("Discuss this document")]),
+                          _vm._v(" "),
+                          _vm._l(_vm.documentComments, function(comment) {
+                            return _c(
+                              "article",
+                              {
+                                staticClass: "comment",
+                                attrs: {
+                                  id: "comment_584232109",
+                                  "data-creator-id": "15531397"
+                                }
+                              },
+                              [
+                                _vm._m(0, true, false),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "formatted_content",
+                                    attrs: {
+                                      "data-embeddable": "",
+                                      "data-skip-stacker-links": ""
+                                    }
+                                  },
+                                  [
+                                    _c("strong", [_vm._v("Gopal Sharma")]),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(comment.comment) +
+                                        "\n                                "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("footer", { staticClass: "time" }, [
+                                  _vm._m(1, true, false),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      attrs: {
+                                        "data-available-until":
+                                          "2017-12-15T13:48:57Z",
+                                        "data-visible-to": "admin creator"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        –"
+                                      ),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "edit",
+                                          attrs: {
+                                            href:
+                                              _vm.home_page +
+                                              "project/" +
+                                              _vm.projectId +
+                                              "/" +
+                                              _vm.projectName +
+                                              "/document/" +
+                                              _vm.documentId +
+                                              "/edit"
+                                          }
+                                        },
+                                        [_vm._v("Edit")]
+                                      ),
+                                      _vm._v(
+                                        " or\n                                        "
+                                      ),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "delete",
+                                          attrs: {
+                                            "data-confirm":
+                                              "Are you sure you want to delete this comment?",
+                                            "data-method": "post",
+                                            "data-remote": "true",
+                                            href:
+                                              "/2501285/projects/12880198/comments/584232109/trash",
+                                            rel: "nofollow"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "Delete\n                                        "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(
+                                        "\n                                        for "
+                                      ),
+                                      _c(
+                                        "span",
+                                        {
+                                          attrs: {
+                                            "data-display":
+                                              "available_time_left"
+                                          }
+                                        },
+                                        [_vm._v("14 minutes")]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm._m(2, true, false)
+                              ]
+                            )
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "article",
+                            {
+                              staticClass: "comment new",
+                              attrs: {
+                                "data-behavior": "expandable file_drop_target"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "avatar",
+                                attrs: {
+                                  alt: "",
+                                  "data-current-person-avatar": "true",
+                                  src:
+                                    "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
+                                  title: "Gopal Sharma"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "collapsed_content" }, [
+                                _c(
+                                  "header",
+                                  { staticClass: "text_entry no_shadow" },
+                                  [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.document_comment,
+                                          expression: "document_comment"
+                                        }
+                                      ],
+                                      domProps: { value: _vm.document_comment },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.document_comment =
+                                            $event.target.value
+                                        }
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-primary",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.submitComment()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Submit\n                                    "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(3, false, false)
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("span", {
+                            attrs: { "data-role": "topic_archiving_tool" }
+                          })
+                        ],
+                        2
+                      ),
                       _vm._v(" "),
-                      _vm._m(1, false, false)
+                      _vm._m(4, false, false)
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(2, false, false)
+                _c(
+                  "aside",
+                  {
+                    staticClass: "tools noresize wide",
+                    attrs: {
+                      id: "document_sidebar_document_12992150",
+                      "data-behavior": "perma_tools",
+                      "data-creator-id": "15531397"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "tool save" }, [
+                      _c("div", { staticClass: "notice" }, [
+                        _c("h3", [_vm._v("Want to make changes?")]),
+                        _vm._v(" "),
+                        _c("p"),
+                        _vm._v(" "),
+                        _c(
+                          "form",
+                          {
+                            staticClass: "button_to",
+                            attrs: {
+                              action:
+                                _vm.home_page +
+                                "project/" +
+                                _vm.projectId +
+                                "/" +
+                                _vm.projectName +
+                                "/document/" +
+                                _vm.documentId +
+                                "/edit/",
+                              "data-remote": "true",
+                              method: "get"
+                            }
+                          },
+                          [_vm._m(5, false, false)]
+                        ),
+                        _vm._v(" "),
+                        _c("p"),
+                        _vm._v(" "),
+                        _vm._m(6, false, false)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(7, false, false)
+                  ]
+                )
               ]
             )
           ]
@@ -57215,381 +57284,372 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "section",
+      "a",
       {
-        staticClass: "comments",
         attrs: {
-          id: "comments_for_document_12992150",
-          "data-comments-count": "0"
+          "data-replace-stack": "true",
+          href: "/2501285/people/15531397"
         }
       },
       [
-        _c("h4", [_vm._v("Discuss this document")]),
-        _vm._v(" "),
+        _c("img", {
+          staticClass: "avatar",
+          attrs: {
+            alt: "Gopal Sharma",
+            height: "96",
+            src:
+              "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
+            title: "Gopal Sharma",
+            width: "96"
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        attrs: {
+          "data-stacker": "false",
+          href:
+            "/2501285/projects/12880198/todolists/49407588#comment_584232109"
+        }
+      },
+      [
+        _vm._v("Posted\n                                        "),
         _c(
-          "article",
+          "time",
           {
-            staticClass: "comment new",
-            attrs: { "data-behavior": "expandable file_drop_target" }
+            attrs: {
+              "data-local": "time-ago",
+              datetime: "2017-12-15T13:33:57Z",
+              title: "December 15, 2017 at 7:03pm "
+            }
           },
-          [
-            _c("img", {
-              staticClass: "avatar",
+          [_vm._v("a second ago\n                                        ")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "partitioned_attachments ",
+        attrs: { id: "attachments_for_comment_584232109" }
+      },
+      [_c("div", { staticClass: "attachments_actions" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "expanded_content" }, [
+      _c(
+        "form",
+        {
+          staticClass: "new_comment",
+          attrs: {
+            "accept-charset": "UTF-8",
+            action: "/2501285/projects/6590988/comments",
+            "data-behavior": "no_reset require_input",
+            "data-remote": "true",
+            id: "new_comment",
+            method: "post"
+          }
+        },
+        [
+          _c("div", { staticStyle: { display: "none" } }, [
+            _c("input", { attrs: { name: "utf8", type: "hidden", value: "✓" } })
+          ]),
+          _vm._v(" "),
+          _c("header", { staticClass: "text_entry" }, [
+            _c("input", {
               attrs: {
-                alt: "",
-                "data-current-person-avatar": "true",
-                src:
-                  "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
-                title: "Gopal Sharma"
+                id: "comment_commentable_type",
+                name: "comment[commentable_type]",
+                type: "hidden",
+                value: "Document"
               }
             }),
             _vm._v(" "),
-            _c("div", { staticClass: "collapsed_content" }, [
-              _c("header", { staticClass: "text_entry no_shadow" }, [
+            _c("input", {
+              attrs: {
+                id: "comment_commentable_id",
+                name: "comment[commentable_id]",
+                type: "hidden",
+                value: "12992150"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                attrs: {
+                  "data-behavior": "wysiwyg_container",
+                  "data-wysiwyg-follow-threshold": "136"
+                }
+              },
+              [
+                _c("textarea", {
+                  staticClass: "comment_content",
+                  attrs: {
+                    autofocus: "autofocus",
+                    "data-behavior":
+                      "autosave autoresize wysiwyg dirty_tracking submit_on_control_enter",
+                    "data-role": "accept_as_input",
+                    id: "comment_content",
+                    name: "comment[content]",
+                    placeholder: "Type your comment here…",
+                    rows: "4",
+                    "data-autosave-storage-key":
+                      "autosave:f0fb1479bce392279342fb9b07fcfde4"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "attachments",
+                attrs: {
+                  "data-behavior": "pending_attachments file_drop_target",
+                  "data-sortable": "true"
+                }
+              },
+              [
+                _c("span", { staticClass: "prompt_graphic" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "file_input_button" }, [
+                  _c(
+                    "span",
+                    { attrs: { "data-without-features": "files_api" } },
+                    [
+                      _vm._v(
+                        "\n                                                        To attach files\n                                                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { attrs: { "data-with-features": "files_api" } }, [
+                    _vm._v(
+                      "\n                                                        To attach files drag & drop here or\n                                                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "file_input_container" }, [
+                    _c("input", {
+                      attrs: {
+                        name: "file",
+                        type: "file",
+                        multiple: "",
+                        onchange: "$(document).trigger('ie:change', this)",
+                        tabindex: "-1"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "decorated",
+                        attrs: {
+                          "data-behavior": "local_file_picker",
+                          href: "#",
+                          tabindex: "-1"
+                        }
+                      },
+                      [_vm._v("select files from your computer…")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    { attrs: { "data-behavior": "load_google_client" } },
+                    [
+                      _vm._v(
+                        "\n                                                        or "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "decorated",
+                          attrs: {
+                            "data-behavior": "google_file_picker",
+                            href: "#",
+                            tabindex: "-1"
+                          }
+                        },
+                        [_vm._v("Google Docs…")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("ul", {
+                  staticClass: "pending_attachments ui-sortable",
+                  attrs: { "data-role": "accept_as_input" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "picker_account_switcher",
+                attrs: { "data-behavior": "picker_account_switcher" }
+              },
+              [
+                _c("strong", [
+                  _vm._v("You’re signed in to Google as "),
+                  _c("span", { attrs: { "data-role": "picker_account_email" } })
+                ]),
+                _vm._v(" "),
                 _c(
-                  "div",
+                  "a",
                   {
-                    staticClass: "prompt",
                     attrs: {
-                      "data-behavior": "expand_on_click",
-                      role: "button"
+                      "data-behavior": "google_account_switcher",
+                      href: "#"
                     }
                   },
                   [
                     _vm._v(
-                      "\n                                            Add a comment or upload a file…\n                                        "
+                      "Sign out and use\n                                                    a different Google account"
                     )
                   ]
                 )
-              ])
-            ]),
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "expanded_content" }, [
-              _c(
-                "form",
-                {
-                  staticClass: "new_comment",
-                  attrs: {
-                    "accept-charset": "UTF-8",
-                    action: "/2501285/projects/6590988/comments",
-                    "data-behavior": "no_reset require_input",
-                    "data-remote": "true",
-                    id: "new_comment",
-                    method: "post"
-                  }
-                },
-                [
-                  _c("div", { staticStyle: { display: "none" } }, [
-                    _c("input", {
-                      attrs: { name: "utf8", type: "hidden", value: "✓" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("header", { staticClass: "text_entry" }, [
-                    _c("input", {
-                      attrs: {
-                        id: "comment_commentable_type",
-                        name: "comment[commentable_type]",
-                        type: "hidden",
-                        value: "Document"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: {
-                        id: "comment_commentable_id",
-                        name: "comment[commentable_id]",
-                        type: "hidden",
-                        value: "12992150"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        attrs: {
-                          "data-behavior": "wysiwyg_container",
-                          "data-wysiwyg-follow-threshold": "136"
-                        }
-                      },
-                      [
-                        _c("textarea", {
-                          staticClass: "comment_content",
-                          attrs: {
-                            autofocus: "autofocus",
-                            "data-behavior":
-                              "autosave autoresize wysiwyg dirty_tracking submit_on_control_enter",
-                            "data-role": "accept_as_input",
-                            id: "comment_content",
-                            name: "comment[content]",
-                            placeholder: "Type your comment here…",
-                            rows: "4",
-                            "data-autosave-storage-key":
-                              "autosave:f0fb1479bce392279342fb9b07fcfde4"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "attachments",
-                        attrs: {
-                          "data-behavior":
-                            "pending_attachments file_drop_target",
-                          "data-sortable": "true"
-                        }
-                      },
-                      [
-                        _c("span", { staticClass: "prompt_graphic" }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "file_input_button" }, [
-                          _c(
-                            "span",
-                            { attrs: { "data-without-features": "files_api" } },
-                            [
-                              _vm._v(
-                                "\n                                                        To attach files\n                                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { attrs: { "data-with-features": "files_api" } },
-                            [
-                              _vm._v(
-                                "\n                                                        To attach files drag & drop here or\n                                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "file_input_container" }, [
-                            _c("input", {
-                              attrs: {
-                                name: "file",
-                                type: "file",
-                                multiple: "",
-                                onchange:
-                                  "$(document).trigger('ie:change', this)",
-                                tabindex: "-1"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "decorated",
-                                attrs: {
-                                  "data-behavior": "local_file_picker",
-                                  href: "#",
-                                  tabindex: "-1"
-                                }
-                              },
-                              [_vm._v("select files from your computer…")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              attrs: { "data-behavior": "load_google_client" }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                                        or "
-                              ),
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "decorated",
-                                  attrs: {
-                                    "data-behavior": "google_file_picker",
-                                    href: "#",
-                                    tabindex: "-1"
-                                  }
-                                },
-                                [_vm._v("Google Docs…")]
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("ul", {
-                          staticClass: "pending_attachments ui-sortable",
-                          attrs: { "data-role": "accept_as_input" }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "picker_account_switcher",
-                        attrs: { "data-behavior": "picker_account_switcher" }
-                      },
-                      [
-                        _c("strong", [
-                          _vm._v("You’re signed in to Google as "),
-                          _c("span", {
-                            attrs: { "data-role": "picker_account_email" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "data-behavior": "google_account_switcher",
-                              href: "#"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "Sign out and use a different Google account"
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "google_connector",
-                        attrs: { "data-behavior": "google_connector" }
-                      },
-                      [
-                        _c("p", [
-                          _c("b", [_vm._v("Connect your Google account")]),
-                          _c("br"),
-                          _vm._v(
-                            "\n                                                    Before you can attach Google Docs in Basecamp, we’ll need your OK first. Do you want to connect your account now?\n                                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "submit" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "action_button",
-                              attrs: {
-                                "data-behavior": "create_google_file_picker"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                                        Yes, connect my Google account\n                                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(
-                            "\n                                                    or "
-                          ),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                "data-behavior": "cancel_google_connect",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Cancel")]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "google_connector",
-                        attrs: {
-                          "data-behavior": "google_connector_access_denied"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _c("b", [
-                            _vm._v(
-                              "Basecamp couldn’t access your Google account"
-                            )
-                          ]),
-                          _c("br"),
-                          _vm._v(
-                            "\n                                                    To attach Google Docs, you’ll need to give Basecamp permission. Do you want to try again?\n                                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "submit" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "action_button",
-                              attrs: {
-                                "data-behavior": "create_google_file_picker"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                                        Connect a Google account\n                                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(
-                            "\n                                                    or "
-                          ),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                "data-behavior": "cancel_google_connect",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Cancel")]
-                          )
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("footer", [
-                    _c("div", {
-                      attrs: {
-                        "data-subscribers":
-                          "/2501285/projects/6590988/subscribers?new_comment=true&subscribable_id=12992150&subscribable_type=Document"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button green",
-                        attrs: {
-                          "data-role": "uploader",
-                          name: "commit",
-                          type: "submit",
-                          value: "Add this comment"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "hidden_from_client inactive" },
-                        [_vm._v("The client won’t see your comment")]
+            _c(
+              "div",
+              {
+                staticClass: "google_connector",
+                attrs: { "data-behavior": "google_connector" }
+              },
+              [
+                _c("p", [
+                  _c("b", [_vm._v("Connect your Google account")]),
+                  _c("br"),
+                  _vm._v(
+                    "\n                                                    Before you can attach Google Docs in Basecamp, we’ll need your\n                                                    OK first. Do you want to connect your account now?\n                                                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "submit" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "action_button",
+                      attrs: { "data-behavior": "create_google_file_picker" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                                        Yes, connect my Google account\n                                                    "
                       )
-                    ])
-                  ])
-                ]
-              )
+                    ]
+                  ),
+                  _vm._v(
+                    "\n                                                    or "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-behavior": "cancel_google_connect",
+                        href: "#"
+                      }
+                    },
+                    [_vm._v("Cancel")]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "google_connector",
+                attrs: { "data-behavior": "google_connector_access_denied" }
+              },
+              [
+                _c("p", [
+                  _c("b", [
+                    _vm._v("Basecamp couldn’t access your Google account")
+                  ]),
+                  _c("br"),
+                  _vm._v(
+                    "\n                                                    To attach Google Docs, you’ll need to give Basecamp permission.\n                                                    Do you want to try again?\n                                                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "submit" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "action_button",
+                      attrs: { "data-behavior": "create_google_file_picker" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                                        Connect a Google account\n                                                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(
+                    "\n                                                    or "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-behavior": "cancel_google_connect",
+                        href: "#"
+                      }
+                    },
+                    [_vm._v("Cancel")]
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("footer", [
+            _c("div", {
+              attrs: {
+                "data-subscribers":
+                  "/2501285/projects/6590988/subscribers?new_comment=true&subscribable_id=12992150&subscribable_type=Document"
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "submit" }, [
+              _c("input", {
+                staticClass: "action_button green",
+                attrs: {
+                  "data-role": "uploader",
+                  name: "commit",
+                  type: "submit",
+                  value: "Add this comment"
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "hidden_from_client inactive" }, [
+                _vm._v("The client won’t see your comment")
+              ])
             ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("span", { attrs: { "data-role": "topic_archiving_tool" } })
-      ]
-    )
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -57621,916 +57681,81 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("input", {
+        staticClass: "action_button button",
+        attrs: { type: "submit", value: "Edit this document" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v(
+        "\n                                Gopal Sharma created this document\n                                "
+      ),
+      _c(
+        "time",
+        {
+          attrs: {
+            "data-local": "time-ago",
+            datetime: "2017-11-27T12:18:40Z",
+            title: "November 27, 2017 at 5:48pm "
+          }
+        },
+        [_vm._v("an hour ago\n                                ")]
+      ),
+      _vm._v(
+        "\n                                .\n                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
-      "aside",
-      {
-        staticClass: "tools noresize wide",
-        attrs: {
-          id: "document_sidebar_document_12992150",
-          "data-behavior": "perma_tools",
-          "data-creator-id": "15531397"
-        }
-      },
+      "div",
+      { staticClass: "tool", attrs: { "data-behavior": "tool expandable" } },
       [
-        _c("div", { staticClass: "tool save" }, [
-          _c("div", { staticClass: "notice" }, [
-            _c("h3", [_vm._v("Want to make changes?")]),
-            _vm._v(" "),
-            _c("p"),
-            _vm._v(" "),
+        _c(
+          "a",
+          {
+            attrs: {
+              "data-behavior": "expand_on_click hide_on_expand",
+              href: "#"
+            }
+          },
+          [_vm._v("Delete…")]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          { staticClass: "confirm", attrs: { "data-role": "confirm_view" } },
+          [
             _c(
-              "form",
+              "a",
               {
-                staticClass: "button_to",
                 attrs: {
-                  action: "/2501285/projects/6590988/documents/12992150/edit",
+                  "data-behavior": "tool_action",
+                  "data-method": "post",
                   "data-remote": "true",
-                  method: "get"
+                  href: "/2501285/projects/6590988/documents/12992150/trash",
+                  rel: "nofollow"
                 }
               },
-              [
-                _c("div", [
-                  _c("input", {
-                    staticClass: "action_button button",
-                    attrs: { type: "submit", value: "Edit this document" }
-                  })
-                ])
-              ]
+              [_vm._v("Delete this document?")]
             ),
             _vm._v(" "),
-            _c("p"),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                                Gopal Sharma created this document\n                                "
-              ),
-              _c(
-                "time",
-                {
-                  attrs: {
-                    "data-local": "time-ago",
-                    datetime: "2017-11-27T12:18:40Z",
-                    title: "November 27, 2017 at 5:48pm "
-                  }
-                },
-                [_vm._v("an hour ago\n                                ")]
-              ),
-              _vm._v(
-                "\n                                .\n                            "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tool",
-            attrs: { "data-behavior": "tool expandable" }
-          },
-          [
             _c(
               "a",
               {
-                attrs: {
-                  "data-behavior": "expand_on_click hide_on_expand",
-                  href: "#"
-                }
+                staticClass: "cancel",
+                attrs: { "data-behavior": "collapse_on_click", href: "#" }
               },
-              [_vm._v("Delete…")]
-            ),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                staticClass: "confirm",
-                attrs: { "data-role": "confirm_view" }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      "data-behavior": "tool_action",
-                      "data-method": "post",
-                      "data-remote": "true",
-                      href:
-                        "/2501285/projects/6590988/documents/12992150/trash",
-                      rel: "nofollow"
-                    }
-                  },
-                  [_vm._v("Delete this document?")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "cancel",
-                    attrs: { "data-behavior": "collapse_on_click", href: "#" }
-                  },
-                  [_vm._v("Never mind")]
-                )
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tool",
-            attrs: {
-              "data-visible-to": "creator admin",
-              "data-skip_busy": "",
-              "data-behavior": "tool bucket_operation_tool expandable",
-              "data-label": "Copy",
-              "data-new-bucket-operation-path": "/2501285/copy_operations/new",
-              "data-bucket-operation-type": "CopyOperation",
-              "data-source-resource-type": "Document",
-              "data-source-resource-id": "12992150",
-              "data-source-resource-human-name": "document"
-            }
-          },
-          [
-            _c(
-              "a",
-              {
-                attrs: {
-                  "data-behavior": "expand_on_click hide_on_expand",
-                  href: "#"
-                }
-              },
-              [_vm._v("Copy…")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "confirm",
-                attrs: { "data-role": "confirm_view" }
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "change", attrs: { "data-role": "form" } },
-                  [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "new_copy_operation",
-                        attrs: {
-                          "accept-charset": "UTF-8",
-                          action: "/2501285/copy_operations",
-                          id: "new_copy_operation",
-                          method: "post"
-                        }
-                      },
-                      [
-                        _c("div", { staticStyle: { display: "none" } }, [
-                          _c("input", {
-                            attrs: { name: "utf8", type: "hidden", value: "✓" }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              name: "authenticity_token",
-                              type: "hidden",
-                              value:
-                                "p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Copy this document")]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            attrs: {
-                              "data-role": "destination_bucket_select",
-                              disabled: "disabled",
-                              id: "copy_operation_destination_bucket",
-                              name: "copy_operation[destination_bucket]"
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("Loading…")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "explanation" }, [
-                          _vm._v(
-                            "\n                                        We’ll add a copy of this document to the project you choose above. Changes you make to the copy won’t affect the original."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "explanation" }, [
-                          _vm._v(
-                            "\n                                        No previous versions of this document will be copied over. Just the latest version."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "copy_options todolist" }, [
-                          _c(
-                            "label",
-                            {
-                              staticStyle: { display: "none" },
-                              attrs: { "data-role": "keep_comments_label" }
-                            },
-                            [
-                              _c("input", {
-                                attrs: {
-                                  name: "copy_operation[keep_comments]",
-                                  type: "hidden",
-                                  value: "0"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("input", {
-                                attrs: {
-                                  "data-role": "keep_comments_option",
-                                  id: "copy_operation_keep_comments",
-                                  name: "copy_operation[keep_comments]",
-                                  type: "checkbox",
-                                  value: "1"
-                                }
-                              }),
-                              _vm._v(
-                                "\n                                            Include original comments\n                                        "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "submit" }, [
-                          _c("input", {
-                            staticClass: "action_button",
-                            attrs: {
-                              "data-behavior": "tool_action",
-                              disabled: "disabled",
-                              name: "commit",
-                              type: "submit",
-                              value: "Copy this document"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "cancel",
-                              attrs: {
-                                "data-behavior": "collapse_on_click",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Never mind")]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "no_destinations",
-                        attrs: { "data-role": "no_destinations_notice" }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v(
-                            "\n                                        We can’t copy this document because there’s nowhere else to put it! You’ll be able to move it if you make more projects or calendars."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "cancel",
-                            attrs: {
-                              "data-behavior": "collapse_on_click",
-                              href: "#"
-                            }
-                          },
-                          [_vm._v("OK, close this")]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "change",
-                    staticStyle: { display: "none" },
-                    attrs: { "data-role": "form_for_new_project" }
-                  },
-                  [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "new_copy_operation",
-                        attrs: {
-                          "accept-charset": "UTF-8",
-                          action: "/2501285/copy_operations",
-                          id: "new_copy_operation",
-                          method: "post"
-                        }
-                      },
-                      [
-                        _c("div", { staticStyle: { display: "none" } }, [
-                          _c("input", {
-                            attrs: { name: "utf8", type: "hidden", value: "✓" }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              name: "authenticity_token",
-                              type: "hidden",
-                              value:
-                                "p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Copy this to a new project")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          attrs: {
-                            "data-role": "new_project_name",
-                            id: "copy_operation_new_project_name",
-                            name: "copy_operation[new_project_name]",
-                            placeholder: "Name the project",
-                            type: "text"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "explanation" }, [
-                          _vm._v(
-                            "\n                                        We’ll add a copy of this document to the project you choose above. Changes you make to the copy won’t affect the original."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "explanation" }, [
-                          _vm._v(
-                            "\n                                        No previous versions of this document will be copied over. Just the latest version."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "copy_options todolist" }, [
-                          _c(
-                            "label",
-                            {
-                              staticStyle: { display: "none" },
-                              attrs: { "data-role": "keep_comments_label" }
-                            },
-                            [
-                              _c("input", {
-                                attrs: {
-                                  name: "copy_operation[keep_comments]",
-                                  type: "hidden",
-                                  value: "0"
-                                }
-                              }),
-                              _c("input", {
-                                attrs: {
-                                  "data-role": "keep_comments_option",
-                                  id: "copy_operation_keep_comments",
-                                  name: "copy_operation[keep_comments]",
-                                  type: "checkbox",
-                                  value: "1"
-                                }
-                              }),
-                              _vm._v(
-                                "\n                                            Include original comments\n                                        "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "submit" }, [
-                          _c("input", {
-                            staticClass: "action_button",
-                            attrs: {
-                              "data-behavior": "tool_action",
-                              disabled: "disabled",
-                              name: "commit",
-                              type: "submit",
-                              value: "Copy and create project"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "cancel",
-                              attrs: {
-                                "data-behavior": "collapse_on_click",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Never mind")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "projects_limit_reached",
-                            attrs: {
-                              "data-role": "projects_limit_reached_notice"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "limit projects reached notify",
-                                attrs: { "data-hidden-from": "accountManager" }
-                              },
-                              [
-                                _c("h1", [_vm._v("You're out of projects!")]),
-                                _vm._v(" "),
-                                _c("p", [
-                                  _vm._v(
-                                    "\n                                                To create more projects, ask your Basecamp account owner to upgrade the account."
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                                                Just click the button below and we'll send them a quick reminder.\n                                            "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "action_button green button",
-                                    attrs: {
-                                      "data-behavior": "link_to_notify_owner",
-                                      "data-method": "post",
-                                      "data-remote": "true",
-                                      href:
-                                        "/2501285/account/notification?type=projects",
-                                      rel: "nofollow"
-                                    }
-                                  },
-                                  [_vm._v("Notify your account owner")]
-                                ),
-                                _vm._v(
-                                  " or\n                                            "
-                                ),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "decorated",
-                                    attrs: {
-                                      "data-behavior": "cancel_new_project",
-                                      "data-role": "cancel",
-                                      href: "#"
-                                    }
-                                  },
-                                  [_vm._v("Never mind")]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "limit projects reached",
-                                staticStyle: { display: "none" },
-                                attrs: { "data-role": "account_upgrade_notice" }
-                              },
-                              [
-                                _c("form", [
-                                  _c("h1", [_vm._v("Thanks, you're all set!")]),
-                                  _vm._v(" "),
-                                  _c("p", [
-                                    _vm._v("You've upgraded to the "),
-                                    _c("strong", [_vm._v("100 projects")]),
-                                    _vm._v(
-                                      "\n                                                    plan with "
-                                    ),
-                                    _c("strong", [_vm._v("40 GB")]),
-                                    _vm._v(" storage space.")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "action_button green button",
-                                      attrs: {
-                                        "data-behavior":
-                                          "account_upgrade_confirmation",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Continue starting a new project")]
-                                  ),
-                                  _vm._v(
-                                    "\n                                                or\n                                                "
-                                  ),
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-behavior": "cancel_new_project",
-                                        "data-role": "cancel",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Go back to the projects page")]
-                                  )
-                                ])
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "confirm error",
-                    attrs: { "data-role": "error" }
-                  },
-                  [
-                    _c("p", [
-                      _c("b", [_vm._v("We couldn't copy this page")]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            "data-behavior": "reload_current_sheet",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Try again")]
-                      ),
-                      _vm._v(" or "),
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              "mailto:support@basecamp.com?body=Reference%3A%20Document%20ID%20%2312992150&subject=Couldn%27t%20copy%20a%20document"
-                          }
-                        },
-                        [_vm._v("Email support")]
-                      ),
-                      _vm._v(".\n                                ")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "confirm conflict",
-                  attrs: { "data-role": "conflict" }
-                })
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tool",
-            attrs: {
-              "data-visible-to": "creator admin",
-              "data-skip_busy": "",
-              "data-behavior": "tool bucket_operation_tool expandable",
-              "data-label": "Move",
-              "data-new-bucket-operation-path": "/2501285/move_operations/new",
-              "data-bucket-operation-type": "MoveOperation",
-              "data-source-resource-type": "Document",
-              "data-source-resource-id": "12992150",
-              "data-source-resource-human-name": "document"
-            }
-          },
-          [
-            _c(
-              "a",
-              {
-                attrs: {
-                  "data-behavior": "expand_on_click hide_on_expand",
-                  href: "#"
-                }
-              },
-              [_vm._v("Move…")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "confirm",
-                attrs: { "data-role": "confirm_view" }
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "change", attrs: { "data-role": "form" } },
-                  [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "new_move_operation",
-                        attrs: {
-                          "accept-charset": "UTF-8",
-                          action: "/2501285/move_operations",
-                          id: "new_move_operation",
-                          method: "post"
-                        }
-                      },
-                      [
-                        _c("div", { staticStyle: { display: "none" } }, [
-                          _c("input", {
-                            attrs: { name: "utf8", type: "hidden", value: "✓" }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              name: "authenticity_token",
-                              type: "hidden",
-                              value:
-                                "p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Move this document")]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            attrs: {
-                              "data-role": "destination_bucket_select",
-                              disabled: "disabled",
-                              id: "move_operation_destination_bucket",
-                              name: "move_operation[destination_bucket]"
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("Loading…")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "submit" }, [
-                          _c("input", {
-                            staticClass: "action_button",
-                            attrs: {
-                              "data-behavior": "tool_action",
-                              disabled: "disabled",
-                              name: "commit",
-                              type: "submit",
-                              value: "Move this document"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "cancel",
-                              attrs: {
-                                "data-behavior": "collapse_on_click",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Never mind")]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "no_destinations",
-                        attrs: { "data-role": "no_destinations_notice" }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v(
-                            "\n                                        We can’t move this document because there’s nowhere else to put it! You’ll be able to move it if you make more projects or calendars."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "cancel",
-                            attrs: {
-                              "data-behavior": "collapse_on_click",
-                              href: "#"
-                            }
-                          },
-                          [_vm._v("OK, close this")]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "change",
-                    staticStyle: { display: "none" },
-                    attrs: { "data-role": "form_for_new_project" }
-                  },
-                  [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "new_move_operation",
-                        attrs: {
-                          "accept-charset": "UTF-8",
-                          action: "/2501285/move_operations",
-                          id: "new_move_operation",
-                          method: "post"
-                        }
-                      },
-                      [
-                        _c("div", { staticStyle: { display: "none" } }, [
-                          _c("input", {
-                            attrs: { name: "utf8", type: "hidden", value: "✓" }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              name: "authenticity_token",
-                              type: "hidden",
-                              value:
-                                "p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Move this to a new project")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          attrs: {
-                            "data-role": "new_project_name",
-                            id: "move_operation_new_project_name",
-                            name: "move_operation[new_project_name]",
-                            placeholder: "Name the project",
-                            type: "text"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "submit" }, [
-                          _c("input", {
-                            staticClass: "action_button",
-                            attrs: {
-                              "data-behavior": "tool_action",
-                              disabled: "disabled",
-                              name: "commit",
-                              type: "submit",
-                              value: "Move and create project"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "cancel",
-                              attrs: {
-                                "data-behavior": "collapse_on_click",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Never mind")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "projects_limit_reached",
-                            attrs: {
-                              "data-role": "projects_limit_reached_notice"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "limit projects reached notify",
-                                attrs: { "data-hidden-from": "accountManager" }
-                              },
-                              [
-                                _c("h1", [_vm._v("You're out of projects!")]),
-                                _vm._v(" "),
-                                _c("p", [
-                                  _vm._v(
-                                    "\n                                                To create more projects, ask your Basecamp account owner to upgrade the account."
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                                                Just click the button below and we'll send them a quick reminder.\n                                            "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "action_button green button",
-                                    attrs: {
-                                      "data-behavior": "link_to_notify_owner",
-                                      "data-method": "post",
-                                      "data-remote": "true",
-                                      href:
-                                        "/2501285/account/notification?type=projects",
-                                      rel: "nofollow"
-                                    }
-                                  },
-                                  [_vm._v("Notify your account owner")]
-                                ),
-                                _vm._v(
-                                  " or\n                                            "
-                                ),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "decorated",
-                                    attrs: {
-                                      "data-behavior": "cancel_new_project",
-                                      "data-role": "cancel",
-                                      href: "#"
-                                    }
-                                  },
-                                  [_vm._v("Never mind")]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "limit projects reached",
-                                staticStyle: { display: "none" },
-                                attrs: { "data-role": "account_upgrade_notice" }
-                              },
-                              [
-                                _c("form", [
-                                  _c("h1", [_vm._v("Thanks, you're all set!")]),
-                                  _vm._v(" "),
-                                  _c("p", [
-                                    _vm._v("You've upgraded to the "),
-                                    _c("strong", [_vm._v("100 projects")]),
-                                    _vm._v(
-                                      "\n                                                    plan with "
-                                    ),
-                                    _c("strong", [_vm._v("40 GB")]),
-                                    _vm._v(" storage space.")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "action_button green button",
-                                      attrs: {
-                                        "data-behavior":
-                                          "account_upgrade_confirmation",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Continue starting a new project")]
-                                  ),
-                                  _vm._v(
-                                    "\n                                                or\n                                                "
-                                  ),
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-behavior": "cancel_new_project",
-                                        "data-role": "cancel",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Go back to the projects page")]
-                                  )
-                                ])
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "confirm conflict",
-                  attrs: { "data-role": "conflict" }
-                })
-              ]
+              [_vm._v("Never mind")]
             )
           ]
         )
@@ -59662,6 +58887,10 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(91)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(79)
@@ -59670,7 +58899,7 @@ var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -59828,6 +59057,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'PeopleComponent',
@@ -59853,14 +59095,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
         this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
 
-        self.query = self.getParameterByName('q') ? self.getParameterByName('q') : '';
-
-        var u = window.location.href;
-
-        var route = u.replace(this.home_page, '').split('/');
-        this.routePath = route[0];
-        this.routeParameter = route[1];
-        axios.get(this.home_page + 'api/people/' + this.routeParameter).then(function (response) {
+        axios.get(this.home_page + 'api/people/' + this.authUserId).then(function (response) {
             self.result = response.data;
             if (self.result.id == self.authUserId) {
                 self.author = true;
@@ -59899,22 +59134,70 @@ var render = function() {
             _c("div", { staticClass: "col-md-8" }, [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-4" }, [
-                  _c("div", { staticClass: "profile_img" }, [
-                    _c("img", {
-                      attrs: {
-                        src: _vm.asset_url + "images/employee_img_2.jpg",
-                        alt: "Profile"
-                      }
-                    })
-                  ])
+                  _c(
+                    "div",
+                    { staticClass: "profile_img" },
+                    [
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.result.profile_image !== null
+                            ? _c("img", {
+                                attrs: {
+                                  src:
+                                    _vm.asset_url +
+                                    "storage/" +
+                                    _vm.result.profile_image,
+                                  alt: "Profile"
+                                }
+                              })
+                            : _vm._e()
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.result.profile_image == null
+                            ? _c("img", {
+                                attrs: {
+                                  src:
+                                    _vm.asset_url + "images/employee_img_2.jpg",
+                                  alt: "Profile"
+                                }
+                              })
+                            : _vm._e()
+                        ]
+                      )
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-8" }, [
                   _c("div", { staticClass: "profile_info" }, [
-                    _c("h2", [
-                      _vm._v(_vm._s(_vm.result.name)),
-                      _c("span", [_vm._v(" (Web Designer)")])
-                    ]),
+                    _vm._v(
+                      "\n\n                                    " +
+                        _vm._s(_vm.result.position) +
+                        "\n                                    "
+                    ),
+                    _vm.result.position != null
+                      ? _c("h2", [
+                          _vm._v(
+                            "\n                                        " +
+                              _vm._s(_vm.result.name)
+                          ),
+                          _c("span", [
+                            _vm._v(" (" + _vm._s(_vm.result.position) + ")")
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.result.position == null || _vm.result.position == ""
+                      ? _c("h2", [_vm._v(_vm._s(_vm.result.name))])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("ul", [
                       _c("li", [
@@ -60178,6 +59461,390 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 82 */,
+/* 83 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(92);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(93)("fef51122", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e5eb9950\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./PeopleComponent.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e5eb9950\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./PeopleComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(83)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.component-fade-enter-active, .component-fade-leave-active {\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.component-fade-enter, .component-fade-leave-to\n    /* .component-fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(94)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction) {
+  isProduction = _isProduction
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
 
 /***/ })
 /******/ ]);
