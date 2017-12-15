@@ -26,7 +26,7 @@ class DocumentController extends Controller
 
         $documents = DB::table('documents')
             ->where('project_id', $projectId)
-            ->orderBy('updated_at','desc')
+            ->orderBy('updated_at', 'desc')
             ->paginate(6);
 
         foreach ($documents as $doc) {
@@ -80,7 +80,48 @@ class DocumentController extends Controller
             'project_id' => $projectId,
             'id' => $documentId
         ])->first();
-
+        $document->comments = DB::table('document_comments')->where('document_id', $document->id)->get();
         return response()->json($document);
+    }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function apiPostDocumentComment(Request $request)
+    {
+        $documentComment = $request->post('document_comment');
+        $projectId = $request->route('id');
+        $documentId = $request->route('documentId');
+
+
+        $commentId = DB::table('document_comments')
+            ->insertGetId([
+                'project_id' => $projectId,
+                'document_id' => $documentId,
+                'poster_id' => Auth::id(),
+                'comment' => $documentComment,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+        $commentData = DB::table('document_comments')
+            ->where('id', $commentId)
+            ->get();
+
+        DB::table('documents')
+            ->where('id', $documentId)
+            ->update(['updated_at' => Carbon::now()]);
+
+        DB::table('projects')
+            ->where('id', $projectId)
+            ->update(['updated_at' => Carbon::now()]);
+
+
+        $response['message'] = 'Comment posted successfully!';
+        $response['type'] = 'SUCCESS';
+        $response['data'] = $commentData[0];
+        return response()->json($response);
     }
 }
