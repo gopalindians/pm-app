@@ -1,1 +1,1 @@
-Pm-app  ![](https://travis-ci.org/gopalindians/pm-app.svg?branch=master) 
+ Pm-app  <p align="center"><img src="https://travis-ci.org/gopalindians/pm-app.svg?branch=master"></p> 
