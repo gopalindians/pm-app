@@ -55535,193 +55535,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'SpecificMessageComponent',
@@ -55743,7 +55556,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             messageCreatedAtNoob: '',
 
             messageComments: '',
-            home_page: ''
+            home_page: '',
+            showBeforeDelete: false
         };
     },
     mounted: function mounted() {
@@ -55777,6 +55591,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
                 self.clicked = true;
             }
+        },
+        del: function del() {
+            this.showBeforeDelete = true;
+        },
+        undo: function undo() {
+            this.showBeforeDelete = false;
         }
     }
 });
@@ -56190,11 +56010,88 @@ var render = function() {
                                   ]
                                 ),
                                 _vm._v(" "),
-                                _vm._m(4, false, false),
-                                _vm._v(" "),
-                                _vm._m(5, false, false),
-                                _vm._v(" "),
-                                _vm._m(6, false, false)
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "tool",
+                                    attrs: {
+                                      "data-behavior": "tool expandable"
+                                    }
+                                  },
+                                  [
+                                    !_vm.showBeforeDelete
+                                      ? _c(
+                                          "a",
+                                          {
+                                            attrs: {
+                                              "data-behavior":
+                                                "expand_on_click hide_on_expand",
+                                              href: "#"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.del()
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Delete…")]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.showBeforeDelete
+                                      ? _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-role": "confirm_view"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "tool_action",
+                                                  "data-method": "post",
+                                                  "data-remote": "true",
+                                                  href:
+                                                    _vm.home_page +
+                                                    "project/" +
+                                                    _vm.projectId +
+                                                    "/" +
+                                                    _vm.projectName +
+                                                    "/messages/" +
+                                                    _vm.messageId +
+                                                    "/trash",
+                                                  rel: "nofollow"
+                                                }
+                                              },
+                                              [_vm._v("Delete this message?")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "cancel",
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "collapse_on_click",
+                                                  href: "#"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    _vm.undo()
+                                                  }
+                                                }
+                                              },
+                                              [_vm._v("Never mind")]
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ]
+                                )
                               ]
                             )
                           ]
@@ -56344,547 +56241,6 @@ var staticRenderFns = [
         attrs: { id: "attachments_for_comment_579199320" }
       },
       [_c("div", { staticClass: "attachments_actions" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "tool", attrs: { "data-behavior": "tool expandable" } },
-      [
-        _c(
-          "a",
-          {
-            attrs: {
-              "data-behavior": "expand_on_click hide_on_expand",
-              href: "#"
-            }
-          },
-          [_vm._v("Delete…")]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "confirm", attrs: { "data-role": "confirm_view" } },
-          [
-            _c(
-              "a",
-              {
-                attrs: {
-                  "data-behavior": "tool_action",
-                  "data-method": "post",
-                  "data-remote": "true",
-                  href: "/2501285/projects/6590988/messages/74076213/trash",
-                  rel: "nofollow"
-                }
-              },
-              [_vm._v("Delete this message?")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "cancel",
-                attrs: { "data-behavior": "collapse_on_click", href: "#" }
-              },
-              [_vm._v("Never mind")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tool",
-        attrs: {
-          "data-visible-to": "creator admin",
-          "data-skip_busy": "",
-          "data-behavior": "tool bucket_operation_tool expandable",
-          "data-label": "Copy",
-          "data-new-bucket-operation-path": "/2501285/copy_operations/new",
-          "data-bucket-operation-type": "CopyOperation",
-          "data-source-resource-type": "Message",
-          "data-source-resource-id": "74076213",
-          "data-source-resource-human-name": "message"
-        }
-      },
-      [
-        _c(
-          "a",
-          {
-            attrs: {
-              "data-behavior": "expand_on_click hide_on_expand",
-              href: "#"
-            }
-          },
-          [_vm._v("Copy…")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "confirm", attrs: { "data-role": "confirm_view" } },
-          [
-            _c(
-              "div",
-              { staticClass: "change", attrs: { "data-role": "form" } },
-              [
-                _c(
-                  "form",
-                  {
-                    staticClass: "new_copy_operation",
-                    attrs: {
-                      "accept-charset": "UTF-8",
-                      action: "/2501285/copy_operations",
-                      id: "new_copy_operation",
-                      method: "post"
-                    }
-                  },
-                  [
-                    _c("div", { staticStyle: { display: "none" } }, [
-                      _c("input", {
-                        attrs: { name: "utf8", type: "hidden", value: "✓" }
-                      }),
-                      _c("input", {
-                        attrs: {
-                          name: "authenticity_token",
-                          type: "hidden",
-                          value: "j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas="
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Copy this message")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        attrs: {
-                          "data-role": "destination_bucket_select",
-                          disabled: "disabled",
-                          id: "copy_operation_destination_bucket",
-                          name: "copy_operation[destination_bucket]"
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Loading…")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "explanation" }, [
-                      _vm._v(
-                        "We’ll add a copy of this message to the\n                                                        project you choose above. Changes you make to the copy won’t\n                                                        affect the original."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "copy_options todolist" }, [
-                      _c(
-                        "label",
-                        {
-                          staticStyle: { display: "none" },
-                          attrs: { "data-role": "keep_comments_label" }
-                        },
-                        [
-                          _c("input", {
-                            attrs: {
-                              name: "copy_operation[keep_comments]",
-                              type: "hidden",
-                              value: "0"
-                            }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              "data-role": "keep_comments_option",
-                              id: "copy_operation_keep_wcomments",
-                              name: "copy_operation[keep_comments]",
-                              type: "checkbox",
-                              value: "1"
-                            }
-                          }),
-                          _vm._v(
-                            "\n                                                            Include original comments\n                                                        "
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button",
-                        attrs: {
-                          "data-behavior": "tool_action",
-                          disabled: "disabled",
-                          name: "commit",
-                          type: "submit",
-                          value: "Copy this message"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "cancel",
-                          attrs: {
-                            "data-behavior": "collapse_on_click",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Never mind")]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "no_destinations",
-                    attrs: { "data-role": "no_destinations_notice" }
-                  },
-                  [
-                    _c("p", [
-                      _vm._v(
-                        "We can’t copy this message because there’s nowhere else to\n                                                        put it! You’ll be able to move it if you make more projects\n                                                        or calendars."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "cancel",
-                        attrs: {
-                          "data-behavior": "collapse_on_click",
-                          href: "#"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "OK,\n                                                        close this"
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "change",
-                staticStyle: { display: "none" },
-                attrs: { "data-role": "form_for_new_project" }
-              },
-              [
-                _c(
-                  "form",
-                  {
-                    staticClass: "new_copy_operation",
-                    attrs: {
-                      "accept-charset": "UTF-8",
-                      action: "/2501285/copy_operations",
-                      id: "new_copy_operation",
-                      method: "post"
-                    }
-                  },
-                  [
-                    _c("div", { staticStyle: { display: "none" } }, [
-                      _c("input", {
-                        attrs: { name: "utf8", type: "hidden", value: "✓" }
-                      }),
-                      _c("input", {
-                        attrs: {
-                          name: "authenticity_token",
-                          type: "hidden",
-                          value: "j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas="
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Copy this to a new project")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: {
-                        "data-role": "new_project_name",
-                        id: "copy_operation_new_project_name",
-                        name: "copy_operation[new_project_name]",
-                        placeholder: "Name the project",
-                        type: "text"
-                      }
-                    })
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "confirm conflict",
-              attrs: { "data-role": "conflict" }
-            })
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tool",
-        attrs: {
-          "data-visible-to": "creator admin",
-          "data-skip_busy": "",
-          "data-behavior": "tool bucket_operation_tool expandable",
-          "data-label": "Move",
-          "data-new-bucket-operation-path": "/2501285/move_operations/new",
-          "data-bucket-operation-type": "MoveOperation",
-          "data-source-resource-type": "Message",
-          "data-source-resource-id": "74076213",
-          "data-source-resource-human-name": "message"
-        }
-      },
-      [
-        _c(
-          "a",
-          {
-            attrs: {
-              "data-behavior": "expand_on_click hide_on_expand",
-              href: "#"
-            }
-          },
-          [_vm._v("Move…")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "confirm", attrs: { "data-role": "confirm_view" } },
-          [
-            _c(
-              "div",
-              { staticClass: "change", attrs: { "data-role": "form" } },
-              [
-                _c(
-                  "form",
-                  {
-                    staticClass: "new_move_operation",
-                    attrs: {
-                      "accept-charset": "UTF-8",
-                      action: "/2501285/move_operations",
-                      id: "new_move_operation",
-                      method: "post"
-                    }
-                  },
-                  [
-                    _c("div", { staticStyle: { display: "none" } }, [
-                      _c("input", {
-                        attrs: { name: "utf8", type: "hidden", value: "✓" }
-                      }),
-                      _c("input", {
-                        attrs: {
-                          name: "authenticity_token",
-                          type: "hidden",
-                          value: "j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas="
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Move this message")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        attrs: {
-                          "data-role": "destination_bucket_select",
-                          disabled: "disabled",
-                          id: "move_operation_destination_bucket",
-                          name: "move_operation[destination_bucket]"
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Loading…")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button",
-                        attrs: {
-                          "data-behavior": "tool_action",
-                          disabled: "disabled",
-                          name: "commit",
-                          type: "submit",
-                          value: "Move this message"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "cancel",
-                          attrs: {
-                            "data-behavior": "collapse_on_click",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Never mind")]
-                      )
-                    ])
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "change",
-                staticStyle: { display: "none" },
-                attrs: { "data-role": "form_for_new_project" }
-              },
-              [
-                _c(
-                  "form",
-                  {
-                    staticClass: "new_move_operation",
-                    attrs: {
-                      "accept-charset": "UTF-8",
-                      action: "/2501285/move_operations",
-                      id: "new_move_operation",
-                      method: "post"
-                    }
-                  },
-                  [
-                    _c("div", { staticStyle: { display: "none" } }, [
-                      _c("input", {
-                        attrs: { name: "utf8", type: "hidden", value: "✓" }
-                      }),
-                      _c("input", {
-                        attrs: {
-                          name: "authenticity_token",
-                          type: "hidden",
-                          value: "j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas="
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Move this to a new project")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: {
-                        "data-role": "new_project_name",
-                        id: "move_operation_new_project_name",
-                        name: "move_operation[new_project_name]",
-                        placeholder: "Name the project",
-                        type: "text"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button",
-                        attrs: {
-                          "data-behavior": "tool_action",
-                          disabled: "disabled",
-                          name: "commit",
-                          type: "submit",
-                          value: "Move and create project"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "cancel",
-                          attrs: {
-                            "data-behavior": "collapse_on_click",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Never mind")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "projects_limit_reached",
-                        attrs: { "data-role": "projects_limit_reached_notice" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "limit projects reached notify",
-                            attrs: { "data-hidden-from": "accountManager" }
-                          },
-                          [
-                            _c("h1", [_vm._v("You're out of projects!")]),
-                            _vm._v(" "),
-                            _c("p", [
-                              _vm._v(
-                                "To create more projects, ask your Basecamp account\n                                                                owner to upgrade the account."
-                              ),
-                              _c("br"),
-                              _vm._v(
-                                "\n                                                                Just click the button below and we'll send them a\n                                                                quick reminder."
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "action_button green button",
-                                attrs: {
-                                  "data-behavior": "link_to_notify_owner",
-                                  "data-method": "post",
-                                  "data-remote": "true",
-                                  href:
-                                    "/2501285/account/notification?type=projects",
-                                  rel: "nofollow"
-                                }
-                              },
-                              [_vm._v("Notify your account owner")]
-                            ),
-                            _vm._v(
-                              " or\n                                                            "
-                            ),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "decorated",
-                                attrs: {
-                                  "data-behavior": "cancel_new_project",
-                                  "data-role": "cancel",
-                                  href: "#"
-                                }
-                              },
-                              [_vm._v("Never mind")]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
-          ]
-        )
-      ]
     )
   }
 ]
