@@ -147,205 +147,18 @@
                                         </div>
 
                                         <div class="tool" data-behavior="tool expandable">
-                                            <a data-behavior="expand_on_click hide_on_expand" href="#">Delete…</a>
+                                            <a data-behavior="expand_on_click hide_on_expand" @click="del()" v-if="!showBeforeDelete"
+                                               href="#">Delete…</a>
 
-                                            <span class="confirm" data-role="confirm_view">
+                                            <span data-role="confirm_view" v-if="showBeforeDelete">
                                                 <a data-behavior="tool_action" data-method="post" data-remote="true"
-                                                   href="/2501285/projects/6590988/messages/74076213/trash"
+                                                   :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+messageId+'/trash'"
                                                    rel="nofollow">Delete this message?</a>
-                                                <a class="cancel" data-behavior="collapse_on_click"
+                                                <a class="cancel" data-behavior="collapse_on_click" @click="undo()"
                                                    href="#">Never mind</a></span>
                                         </div>
-
-
-                                        <div class="tool" data-visible-to="creator admin" data-skip_busy=""
-                                             data-behavior="tool bucket_operation_tool expandable" data-label="Copy"
-                                             data-new-bucket-operation-path="/2501285/copy_operations/new"
-                                             data-bucket-operation-type="CopyOperation"
-                                             data-source-resource-type="Message" data-source-resource-id="74076213"
-                                             data-source-resource-human-name="message">
-                                            <a data-behavior="expand_on_click hide_on_expand" href="#">Copy…</a>
-
-                                            <div class="confirm" data-role="confirm_view">
-                                                <div class="change" data-role="form">
-                                                    <form accept-charset="UTF-8" action="/2501285/copy_operations"
-                                                          class="new_copy_operation" id="new_copy_operation"
-                                                          method="post">
-                                                        <div style="display:none">
-                                                            <input name="utf8" type="hidden"
-                                                                   value="✓"><input
-                                                                name="authenticity_token" type="hidden"
-                                                                value="j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas=">
-                                                        </div>
-                                                        <strong>Copy this message</strong>
-
-                                                        <select data-role="destination_bucket_select"
-                                                                disabled="disabled"
-                                                                id="copy_operation_destination_bucket"
-                                                                name="copy_operation[destination_bucket]">
-                                                            <option value="">Loading…</option>
-                                                        </select>
-
-
-                                                        <p class="explanation">We’ll add a copy of this message to the
-                                                            project you choose above. Changes you make to the copy won’t
-                                                            affect the original.</p>
-
-
-                                                        <p class="copy_options todolist">
-                                                            <label style="display: none;"
-                                                                   data-role="keep_comments_label">
-                                                                <input name="copy_operation[keep_comments]"
-                                                                       type="hidden" value="0"><input
-                                                                    data-role="keep_comments_option"
-                                                                    id="copy_operation_keep_wcomments"
-                                                                    name="copy_operation[keep_comments]" type="checkbox"
-                                                                    value="1">
-                                                                Include original comments
-                                                            </label>
-
-                                                        </p>
-
-
-                                                        <div class="submit">
-                                                            <input class="action_button" data-behavior="tool_action"
-                                                                   disabled="disabled" name="commit" type="submit"
-                                                                   value="Copy this message">
-                                                            <a class="cancel" data-behavior="collapse_on_click"
-                                                               href="#">Never mind</a>
-                                                        </div>
-                                                    </form>
-                                                    <div class="no_destinations" data-role="no_destinations_notice">
-                                                        <p>We can’t copy this message because there’s nowhere else to
-                                                            put it! You’ll be able to move it if you make more projects
-                                                            or calendars.</p>
-                                                        <a class="cancel" data-behavior="collapse_on_click" href="#">OK,
-                                                            close this</a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="change" data-role="form_for_new_project"
-                                                     style="display: none;">
-                                                    <form accept-charset="UTF-8" action="/2501285/copy_operations"
-                                                          class="new_copy_operation" id="new_copy_operation"
-                                                          method="post">
-                                                        <div style="display:none"><input name="utf8" type="hidden"
-                                                                                         value="✓"><input
-                                                                name="authenticity_token" type="hidden"
-                                                                value="j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas=">
-                                                        </div>
-                                                        <strong>Copy this to a new project</strong>
-
-                                                        <input data-role="new_project_name"
-                                                               id="copy_operation_new_project_name"
-                                                               name="copy_operation[new_project_name]"
-                                                               placeholder="Name the project" type="text">
-
-
-                                                    </form>
-                                                </div>
-
-                                                <div class="confirm conflict" data-role="conflict">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tool" data-visible-to="creator admin" data-skip_busy=""
-                                             data-behavior="tool bucket_operation_tool expandable" data-label="Move"
-                                             data-new-bucket-operation-path="/2501285/move_operations/new"
-                                             data-bucket-operation-type="MoveOperation"
-                                             data-source-resource-type="Message" data-source-resource-id="74076213"
-                                             data-source-resource-human-name="message">
-                                            <a data-behavior="expand_on_click hide_on_expand" href="#">Move…</a>
-
-                                            <div class="confirm" data-role="confirm_view">
-                                                <div class="change" data-role="form">
-                                                    <form accept-charset="UTF-8" action="/2501285/move_operations"
-                                                          class="new_move_operation" id="new_move_operation"
-                                                          method="post">
-                                                        <div style="display:none"><input name="utf8" type="hidden"
-                                                                                         value="✓"><input
-                                                                name="authenticity_token" type="hidden"
-                                                                value="j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas=">
-                                                        </div>
-                                                        <strong>Move this message</strong>
-
-                                                        <select data-role="destination_bucket_select"
-                                                                disabled="disabled"
-                                                                id="move_operation_destination_bucket"
-                                                                name="move_operation[destination_bucket]">
-                                                            <option value="">Loading…</option>
-                                                        </select>
-
-
-                                                        <div class="submit">
-                                                            <input class="action_button" data-behavior="tool_action"
-                                                                   disabled="disabled" name="commit" type="submit"
-                                                                   value="Move this message">
-                                                            <a class="cancel" data-behavior="collapse_on_click"
-                                                               href="#">Never mind</a>
-                                                        </div>
-                                                    </form>
-
-                                                </div>
-
-                                                <div class="change" data-role="form_for_new_project"
-                                                     style="display: none;">
-                                                    <form accept-charset="UTF-8" action="/2501285/move_operations"
-                                                          class="new_move_operation" id="new_move_operation"
-                                                          method="post">
-                                                        <div style="display:none"><input name="utf8" type="hidden"
-                                                                                         value="✓"><input
-                                                                name="authenticity_token" type="hidden"
-                                                                value="j2ptbJPQFcVvIzd6aGeGEwPv74v/63d3GdCH4yrgdas=">
-                                                        </div>
-                                                        <strong>Move this to a new project</strong>
-
-                                                        <input data-role="new_project_name"
-                                                               id="move_operation_new_project_name"
-                                                               name="move_operation[new_project_name]"
-                                                               placeholder="Name the project" type="text">
-
-
-                                                        <div class="submit">
-                                                            <input class="action_button" data-behavior="tool_action"
-                                                                   disabled="disabled" name="commit" type="submit"
-                                                                   value="Move and create project">
-                                                            <a class="cancel" data-behavior="collapse_on_click"
-                                                               href="#">Never mind</a>
-                                                        </div>
-
-                                                        <div class="projects_limit_reached"
-                                                             data-role="projects_limit_reached_notice">
-
-                                                            <div class="limit projects reached notify"
-                                                                 data-hidden-from="accountManager">
-
-                                                                <h1>You're out of projects!</h1>
-
-                                                                <p>To create more projects, ask your Basecamp account
-                                                                    owner to upgrade the account.<br>
-                                                                    Just click the button below and we'll send them a
-                                                                    quick reminder.</p>
-
-                                                                <a class="action_button green button"
-                                                                   data-behavior="link_to_notify_owner"
-                                                                   data-method="post" data-remote="true"
-                                                                   href="/2501285/account/notification?type=projects"
-                                                                   rel="nofollow">Notify your account owner</a> or
-                                                                <a class="decorated" data-behavior="cancel_new_project"
-                                                                   data-role="cancel" href="#">Never mind</a>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </aside>
-
                                 </div>
-
-
                             </section>
                         </div>
                     </div>
@@ -376,7 +189,8 @@
                 messageCreatedAtNoob: '',
 
                 messageComments: '',
-                home_page: ''
+                home_page: '',
+                showBeforeDelete: false
             }
         },
         mounted() {
@@ -412,6 +226,12 @@
                 } else {
                     self.clicked = true;
                 }
+            },
+            del() {
+                this.showBeforeDelete = true;
+            },
+            undo(){
+                this.showBeforeDelete = false;
             }
         }
     }
