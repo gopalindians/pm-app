@@ -44796,6 +44796,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -55535,6 +55536,9209 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+=======
+>>>>>>> ecca18b4a9f2c73c5e5ae082b42788a581202e7a
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'ProjectViewComponent',
+    data: function data() {
+        return {
+            open: true,
+            projects: '',
+            showError: '',
+            projectId: '',
+            projectName: '',
+            totalTopics: '',
+            project: '',
+
+<<<<<<< HEAD
+            messageComments: '',
+            home_page: '',
+            showBeforeDelete: false
+=======
+            home_page: '',
+            result: ''
+>>>>>>> ecca18b4a9f2c73c5e5ae082b42788a581202e7a
+        };
+    },
+    mounted: function mounted() {
+        var self = this;
+
+        this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+        this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+
+        axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName).then(function (response) {
+            console.log(response.data);
+            self.project = response.data;
+            self.projectId = response.data.project_id;
+            self.projectName = response.data.project_name;
+            self.totalTopics = response.data.total_topics;
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+});
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "workspace", attrs: { id: "workspace" } }, [
+    _c(
+      "div",
+      {
+        staticClass: "container stack_container",
+        staticStyle: { width: "960px" },
+        attrs: { "data-container-id": "1" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "panel sheet project active isnt_client_project",
+            attrs: {
+              "data-behavior": " ",
+              "data-creator-id": _vm.project.project_owner_id,
+              "data-status": "active"
+            }
+          },
+          [
+            _c("title", [_vm._v(_vm._s(_vm.projectName))]),
+            _vm._v(" "),
+            _c("header", [
+              _c("div", { staticClass: "header_links" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href:
+                        _vm.home_page +
+                        "project/" +
+                        _vm.projectId +
+                        "/" +
+                        _vm.projectName +
+                        "/accesses"
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "link" }, [
+                      _vm._v("Invite more people")
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "detail" }, [
+                      _vm._v("11 people on this project")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href:
+                        _vm.home_page +
+                        "project/" +
+                        _vm.projectId +
+                        "/" +
+                        _vm.projectName +
+                        "/summary"
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "link" }, [_vm._v("Catch up")]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "detail" }, [
+                      _vm._v("on recent changes")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("h1", [_vm._v(_vm._s(_vm.projectName))]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  attrs: { "data-behavior": "edit_project_header expandable" }
+                },
+                [
+                  _c("div", { staticClass: "collapsed_content" }, [
+                    _c("div", { staticClass: "position_reference" }, [
+                      _c(
+                        "h1",
+                        {
+                          staticClass: "field",
+                          attrs: { "data-behavior": "editable_field_prompt" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(_vm.projectName) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "project_toolbar",
+                  attrs: { id: "project_toolbar_6590988", "data-autoview": "" }
+                },
+                [
+                  _c("div", { staticClass: "tools has_tools_in_project" }, [
+                    _c("div", { staticClass: "group in_project" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              _vm.home_page +
+                              "project/" +
+                              _vm.projectId +
+                              "/" +
+                              _vm.projectName +
+                              "/topics",
+                            "data-tool-name": "topics"
+                          }
+                        },
+                        [
+                          _c("span", {}, [
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.totalTopics) + " Discussions")
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              _vm.home_page +
+                              "project/" +
+                              _vm.projectId +
+                              "/" +
+                              _vm.projectName +
+                              "/todolists",
+                            "data-tool-name": "todolists"
+                          }
+                        },
+                        [_vm._m(0, false, false)]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              _vm.home_page +
+                              "project/" +
+                              _vm.projectId +
+                              "/" +
+                              _vm.projectName +
+                              "/documents",
+                            "data-tool-name": "documents"
+                          }
+                        },
+                        [
+                          _c("span", {}, [
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(_vm.project.total_documents) +
+                                  " Text documents"
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sheet_body" }, [
+              _vm._m(1, false, false),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  staticClass: "topics ",
+                  attrs: { "data-collection-name": "topics" }
+                },
+                [
+                  _c("header", { staticClass: "has_buttons" }, [
+                    _c("h1", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              _vm.home_page +
+                              "project/" +
+                              _vm.projectId +
+                              "/" +
+                              _vm.projectName +
+                              "/topics"
+                          }
+                        },
+                        [_vm._v("Discussions")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "action_button button",
+                        attrs: {
+                          href:
+                            _vm.home_page +
+                            "project/" +
+                            _vm.projectId +
+                            "/" +
+                            _vm.projectName +
+                            "/messages/new"
+                        }
+                      },
+                      [_vm._v("Post a new message")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("table", { staticClass: "inbox" }, [
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.project.topic_detail, function(p) {
+                        return _c(
+                          "tr",
+                          {
+                            staticClass: "topic todo_289596969",
+                            attrs: { id: "topic_152633325" }
+                          },
+                          [
+                            _c("td", { staticClass: "avatar" }, [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      _vm.home_page +
+                                      "project/" +
+                                      _vm.projectId +
+                                      "/" +
+                                      _vm.projectName +
+                                      "/messages/" +
+                                      p.id
+                                  }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "avatar",
+                                    attrs: {
+                                      alt: p.latest_comment_by.name,
+                                      height: "30",
+                                      src:
+                                        "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.40.gif",
+                                      title: p.latest_comment_by.name,
+                                      width: "30"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "who" }, [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      _vm.home_page +
+                                      "project/" +
+                                      _vm.projectId +
+                                      "/" +
+                                      _vm.projectName +
+                                      "/messages/" +
+                                      p.id
+                                  }
+                                },
+                                [_vm._v(_vm._s(p.latest_comment_by.name))]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "what" }, [
+                              _c("div", { staticClass: "attachments" }),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      _vm.home_page +
+                                      "project/" +
+                                      _vm.projectId +
+                                      "/" +
+                                      _vm.projectName +
+                                      "/messages/" +
+                                      p.id
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "strong",
+                                    {
+                                      attrs: {
+                                        "data-role": "live_filter_highlight"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(p.topic_name))]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "bucket_name" }, [
+                                    _vm._v("(" + _vm._s(_vm.projectName) + ")")
+                                  ]),
+                                  _vm._v(" "),
+                                  p.latest_comment != null
+                                    ? _c("span", { staticClass: "excerpt" }, [
+                                        _vm._v(
+                                          " - " +
+                                            _vm._s(p.latest_comment.comment)
+                                        )
+                                      ])
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  p.latest_comment == null
+                                    ? _c("span", { staticClass: "excerpt" }, [
+                                        _vm._v(" - " + _vm._s(p.topic_body))
+                                      ])
+                                    : _vm._e()
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "when" }, [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      _vm.home_page +
+                                      "project/" +
+                                      _vm.projectId +
+                                      "/" +
+                                      _vm.projectName +
+                                      "/todos/todoid"
+                                  }
+                                },
+                                [
+                                  p.latest_comment != null
+                                    ? _c(
+                                        "time",
+                                        {
+                                          attrs: {
+                                            "data-local": "time-or-date",
+                                            datetime: p.updated_at,
+                                            title: p.updated_at_noob
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                        " +
+                                              _vm._s(
+                                                p.latest_comment
+                                                  .updated_at_human
+                                              ) +
+                                              "\n                                    "
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  p.latest_comment == null
+                                    ? _c(
+                                        "time",
+                                        {
+                                          attrs: {
+                                            "data-local": "time-or-date",
+                                            datetime: p.updated_at,
+                                            title: p.updated_at_noob
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                        " +
+                                              _vm._s(p.updated_at_human) +
+                                              "\n                                    "
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "comments" }, [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      _vm.home_page +
+                                      "project/" +
+                                      _vm.projectId +
+                                      "/" +
+                                      _vm.projectName +
+                                      "/todos/"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "pill comments circle" },
+                                    [_vm._v(_vm._s(p.total_comments))]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "actions" })
+                          ]
+                        )
+                      })
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "more_topics" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "decorated",
+                        attrs: {
+                          href:
+                            _vm.home_page +
+                            "project/" +
+                            _vm.projectId +
+                            "/" +
+                            _vm.projectName +
+                            "/topics"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(_vm.project.total_topics) +
+                            " open\n                            discussions"
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  staticClass: "todos ",
+                  attrs: { "data-collection-name": "todolists" }
+                },
+                [
+                  _c("header", { staticClass: "has_buttons" }, [
+                    _c("h1", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              _vm.home_page +
+                              "project/" +
+                              _vm.projectId +
+                              "/" +
+                              _vm.projectName +
+                              "/todolists"
+                          }
+                        },
+                        [_vm._v("To-do lists")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "action_button",
+                        attrs: { "data-behavior": "new_todolist" }
+                      },
+                      [_vm._v("Add a to-do list")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "article",
+                    {
+                      staticClass: "todolist new",
+                      attrs: {
+                        "data-behavior": "expandable hide_buttons_on_expand"
+                      }
+                    },
+                    [
+                      _c("header", { staticClass: "expanded_content" }, [
+                        _c(
+                          "form",
+                          {
+                            staticClass: "new_todolist",
+                            attrs: {
+                              "accept-charset": "UTF-8",
+                              action:
+                                "/project/" +
+                                _vm.projectId +
+                                "/" +
+                                _vm.projectName +
+                                "todolists",
+                              "data-remote": "true",
+                              id: "new_todolist",
+                              method: "post"
+                            }
+                          },
+                          [
+                            _vm._m(2, false, false),
+                            _vm._v(" "),
+                            _vm._m(3, false, false),
+                            _vm._v(" "),
+                            _vm._m(4, false, false),
+                            _vm._v(" "),
+                            _vm._m(5, false, false),
+                            _vm._v(" "),
+                            _vm._m(6, false, false)
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(7, false, false),
+                  _vm._v(" "),
+                  _vm._m(8, false, false)
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  staticClass: "documents ",
+                  attrs: { "data-collection-name": "documents" }
+                },
+                [
+                  _c("header", { staticClass: "has_buttons" }, [
+                    _c("h1", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              _vm.home_page +
+                              "project/" +
+                              _vm.projectId +
+                              "/" +
+                              _vm.projectName +
+                              "/documents"
+                          }
+                        },
+                        [_vm._v("Text Documents")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "action_button button",
+                        attrs: {
+                          href:
+                            _vm.home_page +
+                            "project/" +
+                            _vm.projectId +
+                            "/" +
+                            _vm.projectName +
+                            "/document/new"
+                        }
+                      },
+                      [_vm._v("Create a text document")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "section",
+                    { staticClass: "documents in_project project_documents" },
+                    _vm._l(_vm.project.document_detail, function(doc) {
+                      return _c(
+                        "article",
+                        {
+                          staticClass: "document",
+                          attrs: {
+                            id: "document_12905846",
+                            "data-behavior": "link_container"
+                          }
+                        },
+                        [
+                          _c("div", [
+                            _c("div", { staticClass: "wrapper" }, [
+                              _vm._m(9, true, false),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "column content" }, [
+                                _c("div", { staticClass: "document_page" }, [
+                                  _c("div", { staticClass: "wrap" }, [
+                                    _c("header", [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            href:
+                                              _vm.home_page +
+                                              "project/" +
+                                              _vm.projectId +
+                                              "/" +
+                                              _vm.projectName +
+                                              "/document/" +
+                                              doc.id
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "h3",
+                                            {
+                                              attrs: {
+                                                "data-role":
+                                                  "live_filter_highlight"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                                            " +
+                                                  _vm._s(doc.document_title)
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("p", { staticClass: "project" }, [
+                                        _vm._v(
+                                          "From the project:\n                                                        "
+                                        ),
+                                        _c(
+                                          "a",
+                                          {
+                                            attrs: {
+                                              "data-default-stack": "true",
+                                              href: "/2501285/projects/6590988"
+                                            }
+                                          },
+                                          [_vm._v(_vm._s(_vm.projectName))]
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "formatted_content" },
+                                      [_vm._v(_vm._s(doc.document_body))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          href:
+                                            _vm.home_page +
+                                            "project/" +
+                                            _vm.projectId +
+                                            "/" +
+                                            _vm.projectName +
+                                            "/document/" +
+                                            doc.id
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "h3",
+                                          {
+                                            attrs: {
+                                              "data-role":
+                                                "live_filter_highlight"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                        " +
+                                                _vm._s(doc.document_title)
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "project" }, [
+                                      _vm._v(
+                                        "From the project:\n                                                    "
+                                      ),
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            "data-default-stack": "true",
+                                            href:
+                                              _vm.home_page +
+                                              "project/" +
+                                              _vm.projectId +
+                                              "/" +
+                                              _vm.projectName
+                                          }
+                                        },
+                                        [_vm._v(_vm._s(_vm.projectName))]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "formatted_content" },
+                                      [
+                                        _vm._v(
+                                          "\n                                                    " +
+                                            _vm._s(doc.document_body) +
+                                            "\n                                                "
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "truncated" })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(10, true, false),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "column updater" }, [
+                                _c("p", { staticClass: "project" }, [
+                                  _vm._v(
+                                    "From the project: " +
+                                      _vm._s(_vm.projectName)
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "action" }, [
+                                  _c("span", { staticClass: "description" }, [
+                                    _vm._v("Saved by")
+                                  ]),
+                                  _vm._v(
+                                    " " +
+                                      _vm._s(doc.created_by.name) +
+                                      "\n                                            "
+                                  ),
+                                  _c("span", { staticClass: "description" }, [
+                                    _vm._v(
+                                      "on\n                                            "
+                                    ),
+                                    _c(
+                                      "time",
+                                      {
+                                        attrs: {
+                                          "data-local": "date",
+                                          datetime: doc.created_at,
+                                          title: doc.created_at_noob,
+                                          "data-localized": "true"
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(doc.created_at_human))]
+                                    )
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(11, true, false)
+                            ])
+                          ])
+                        ]
+                      )
+                    })
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "more_documents" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "decorated",
+                        attrs: {
+                          href:
+                            _vm.home_page +
+                            "project/" +
+                            _vm.projectId +
+                            "/" +
+                            _vm.projectName +
+                            "/documents"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(_vm.project.total_documents) +
+                            "\n                              more documents"
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", {}, [_c("strong", [_vm._v("3 To-dos")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { "data-role": "project_dates" } }, [
+      _c("div", {
+        staticClass: "project_dates",
+        attrs: { id: "project_dates_Project_6590988", "data-autoview": "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticStyle: { display: "none" } }, [
+      _c("input", { attrs: { name: "utf8", type: "hidden", value: "✓" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "text_entry" }, [
+      _c("h3", [
+        _c("input", {
+          attrs: {
+            id: "todolisfewft_name",
+            name: "todolist[name]",
+            size: "10",
+            type: "text",
+            value: "Give the list a title"
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass: "privacy_toggle",
+        staticStyle: { display: "none" },
+        attrs: { "data-role": "privacy_toggle" }
+      },
+      [
+        _c("label", { attrs: { for: "new_todolist_privacy_toggle" } }, [
+          _c("input", {
+            attrs: { name: "todolist[private]", type: "hidden", value: "0" }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              "data-behavior": "toggle_private_visibility",
+              id: "new_todolist_privacy_toggle",
+              name: "todolist[private]",
+              type: "checkbox",
+              value: "1"
+            }
+<<<<<<< HEAD
+        },
+        del: function del() {
+            this.showBeforeDelete = true;
+        },
+        undo: function undo() {
+            this.showBeforeDelete = false;
+=======
+          }),
+          _vm._v(
+            " Don’t show this to-do list to the client\n                                        "
+          ),
+          _c("span", { attrs: { "data-behavior": "client_list" } })
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "position_reference",
+            attrs: { "data-behavior": "expandable expand_exclusively" }
+          },
+          [
+            _vm._v(" –\n                                        "),
+            _c(
+              "a",
+              {
+                staticClass: "decorated",
+                attrs: { "data-behavior": "expand_on_click", href: "#" }
+              },
+              [_vm._v("what's this?")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "balloon right_side expanded_content" }, [
+              _c("span", { staticClass: "arrow" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "arrow" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "close" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "decorated",
+                    attrs: { "data-behavior": "collapse_on_click", href: "#" }
+                  },
+                  [_vm._v("Close")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("h5", [_vm._v("Working with clients?")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "decorated",
+                    attrs: { href: "/2501285/projects/6590988/accesses#client" }
+                  },
+                  [_vm._v("Invite your first client to this project...")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticStyle: { display: "none" } }, [
+      _c("div", {
+        attrs: {
+          "data-behavior": "lazy_load_subscribers",
+          "data-url":
+            "/2501285/projects/6590988/subscribers?subscribable_type=Todolist"
+>>>>>>> ecca18b4a9f2c73c5e5ae082b42788a581202e7a
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "submit" }, [
+      _c("input", {
+        attrs: {
+          name: "commit",
+          type: "submit",
+          value: "Save and start adding to-dos"
+        }
+      }),
+      _vm._v(" or\n                                    "),
+      _c(
+        "a",
+        {
+          staticClass: "cancel",
+          attrs: { "data-behavior": "cancel", "data-role": "cancel", href: "#" }
+        },
+        [_vm._v("Cancel")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      {
+        staticClass: "todolists",
+        attrs: {
+          "data-autoload-url": "false",
+          "data-behavior": "sortable_container",
+          "data-sortable-type": "todolist"
+        }
+      },
+      [
+        _c(
+          "li",
+          {
+            attrs: {
+              "data-behavior": "sortable",
+              "data-sortable-type": "todolist",
+              id: "sortable_todolist_48308664"
+            }
+          },
+          [
+            _c(
+              "article",
+              {
+                staticClass: "todolist",
+                attrs: {
+                  id: "todolist_48308664",
+                  "data-url": "/2501285/projects/6590988/todolists/48308664",
+                  "data-behavior": "expandable"
+                }
+              },
+              [
+                _c(
+                  "header",
+                  {
+                    staticClass: "collapsed_content",
+                    attrs: { "data-behavior": "has_hover_content" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "nubbin",
+                        attrs: { "data-behavior": "nubbin hover_content" }
+                      },
+                      [
+                        _c("div", { staticClass: "spacer" }),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "image delete",
+                            attrs: {
+                              "data-confirm":
+                                "Are you sure you want to delete this to-do list?",
+                              "data-method": "post",
+                              "data-remote": "true",
+                              href:
+                                "/2501285/projects/6590988/todolists/48308664/trash",
+                              rel: "nofollow"
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "edit",
+                            attrs: { "data-behavior": "edit", href: "#" }
+                          },
+                          [_vm._v("Edit")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h3",
+                      { attrs: { "data-behavior": "sortable_handle" } },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "linked_title",
+                            attrs: {
+                              href:
+                                "/2501285/projects/6590988/todolists/48308664"
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "project_name" }, [
+                              _vm._v("Random Projects —")
+                            ]),
+                            _vm._v(
+                              "\n                                            Joomla Website Tasks (bestessayhub.com)\n                                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "unlinked_title" }, [
+                          _vm._v("Joomla Website Tasks (bestessayhub.com)")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_c("em")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("header", { staticClass: "expanded_content" }, [
+                  _c(
+                    "form",
+                    {
+                      staticClass: "edit_todolist",
+                      attrs: {
+                        "accept-charset": "UTF-8",
+                        action: "/2501285/projects/6590988/todolists/48308664",
+                        "data-remote": "true",
+                        id: "edit_todolist_48308664",
+                        method: "post"
+                      }
+                    },
+                    [
+                      _c("div", { staticStyle: { display: "none" } }, [
+                        _c("input", {
+                          attrs: { name: "utf8", type: "hidden", value: "✓" }
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          attrs: {
+                            name: "_method",
+                            type: "hidden",
+                            value: "patch"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("header", { staticClass: "text_entry" }, [
+                        _c("h3", [
+                          _c("input", {
+                            attrs: {
+                              id: "todweweeweolist_name",
+                              name: "todolist[name]",
+                              size: "10",
+                              type: "text",
+                              value: "Joomla Website Tasks (bestessayhub.com)"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("em", [
+                            _c("textarea", {
+                              attrs: {
+                                "data-behavior": "autoresize submit_on_enter",
+                                id: "todolist_description",
+                                name: "todolist[description]",
+                                placeholder: "Optional: describe this list",
+                                rows: "1"
+                              }
+                            })
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "privacy_toggle",
+                          attrs: { "data-role": "privacy_toggle" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              attrs: { for: "todolist_48308664_privacy_toggle" }
+                            },
+                            [
+                              _c("input", {
+                                attrs: {
+                                  name: "todolist[private]",
+                                  type: "hidden",
+                                  value: "0"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  "data-behavior": "toggle_private_visibility",
+                                  id: "todolist_48308664_privacy_toggle",
+                                  name: "todolist[private]",
+                                  type: "checkbox",
+                                  value: "1"
+                                }
+                              }),
+                              _vm._v(
+                                " Don’t show this to-do list to the client\n                                                "
+                              ),
+                              _c("span", {
+                                attrs: { "data-behavior": "client_list" }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass: "position_reference",
+                              attrs: {
+                                "data-behavior": "expandable expand_exclusively"
+                              }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "decorated",
+                                  attrs: {
+                                    "data-behavior": "expand_on_click",
+                                    href: "#"
+                                  }
+                                },
+                                [_vm._v("what's this?")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "balloon right_side expanded_content"
+                                },
+                                [
+                                  _c("span", { staticClass: "arrow" }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "arrow" }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "close" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "decorated",
+                                        attrs: {
+                                          "data-behavior": "collapse_on_click",
+                                          href: "#"
+                                        }
+                                      },
+                                      [_vm._v("Close")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("h5", [_vm._v("Working with clients?")]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(
+                                      "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "decorated",
+                                        attrs: {
+                                          href:
+                                            "/2501285/projects/6590988/accesses#client"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Invite your first client to this project..."
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticStyle: { display: "none" } }, [
+                        _c("div", {
+                          attrs: {
+                            "data-behavior": "lazy_load_subscribers",
+                            "data-url":
+                              "/2501285/projects/6590988/subscribers?subscribable_id=48308664&subscribable_type=Todolist"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "submit" }, [
+                        _c("input", {
+                          attrs: {
+                            name: "commit",
+                            type: "submit",
+                            value: "Save changes"
+                          }
+                        }),
+                        _vm._v(
+                          " or\n                                            "
+                        ),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "cancel",
+                            attrs: {
+                              "data-behavior": "cancel",
+                              "data-role": "cancel",
+                              href: "#"
+                            }
+                          },
+                          [_vm._v("Cancel")]
+                        )
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "todos ",
+                    attrs: {
+                      "data-behavior": "sortable_container",
+                      "data-sortable-type": "todo"
+                    }
+                  },
+                  [
+                    _c(
+                      "li",
+                      {
+                        staticClass: "todo show",
+                        attrs: {
+                          "data-assignee-code": "p15316135",
+                          "data-behavior": "has_hover_content sortable",
+                          "data-sortable-type": "todo",
+                          "data-url":
+                            "/2501285/projects/6590988/todos/324566530",
+                          id: "todo_324566530"
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "nubbin",
+                            attrs: { "data-behavior": "nubbin hover_content" }
+                          },
+                          [
+                            _c("div", { staticClass: "spacer" }),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "image delete",
+                                attrs: {
+                                  "data-confirm":
+                                    "Are you sure you want to delete this to-do?",
+                                  "data-method": "post",
+                                  "data-remote": "true",
+                                  href:
+                                    "/2501285/projects/6590988/todos/324566530/trash",
+                                  rel: "nofollow"
+                                }
+                              },
+                              [_vm._v("Delete")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "edit",
+                                attrs: {
+                                  "data-remote": "true",
+                                  "data-url":
+                                    "/2501285/projects/6590988/todos/324566530/edit",
+                                  href: "#"
+                                }
+                              },
+                              [_vm._v("Edit")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", {}, [
+                          _c("span", { staticClass: "wrapper" }, [
+                            _c("input", {
+                              attrs: {
+                                "data-behavior": "toggle",
+                                "data-url":
+                                  "/2501285/projects/6590988/todos/324566530/toggle",
+                                name: "todo_complete",
+                                type: "checkbox",
+                                value: "1"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "content",
+                                attrs: { "data-behavior": "sortable_handle" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/2501285/projects/6590988/todos/324566530"
+                                    }
+                                  },
+                                  [_vm._v("Responsive of website")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticClass: "content_for_perma" },
+                                  [_vm._v("Responsive of website")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "pill comments",
+                                attrs: { "data-comments-counter": "" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/2501285/projects/6590988/todos/324566530"
+                                    }
+                                  },
+                                  [_vm._v("1 comment")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "form",
+                              {
+                                staticClass: "edit_todo",
+                                attrs: {
+                                  "accept-charset": "UTF-8",
+                                  action:
+                                    "/2501285/projects/6590988/todos/324566530",
+                                  "data-remote": "true",
+                                  id: "edit_todo_324566530",
+                                  method: "post"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticStyle: { display: "none" } },
+                                  [
+                                    _c("input", {
+                                      attrs: {
+                                        name: "utf8",
+                                        type: "hidden",
+                                        value: "✓"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      attrs: {
+                                        name: "_method",
+                                        type: "hidden",
+                                        value: "patch"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticStyle: { position: "relative" } },
+                                  [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "pill has_balloon",
+                                        attrs: {
+                                          "data-behavior":
+                                            "expandable expand_exclusively load_assignee_options"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            attrs: {
+                                              "data-behavior":
+                                                "expand_on_click",
+                                              href: "#"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "assignee_name",
+                                                  "data-blank-text":
+                                                    "Unassigned"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-behavior":
+                                                        "todo_assignee_present"
+                                                    }
+                                                  },
+                                                  [_vm._v("Ashish Sharma")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("time", {
+                                              attrs: {
+                                                "data-behavior": "due_date",
+                                                "data-blank-text": "No due date"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "balloon right_side expanded_content"
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass: "arrow"
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", {
+                                              staticClass: "arrow"
+                                            }),
+                                            _vm._v(" "),
+                                            _c("label", [
+                                              _c("b", [
+                                                _vm._v("Assign this to-do to:")
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "select",
+                                                {
+                                                  attrs: {
+                                                    "data-assignee-code":
+                                                      "p15316135",
+                                                    "data-behavior":
+                                                      "assignee_options",
+                                                    "data-original-assignee-code":
+                                                      "p15316135",
+                                                    "data-private": "false",
+                                                    "data-project-id":
+                                                      "6590988",
+                                                    id: "todo_assignee_code",
+                                                    name: "todo[assignee_code]"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "⎈" } },
+                                                    [_vm._v("Loading...")]
+                                                  )
+                                                ]
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "email_notice confirmation",
+                                                attrs: {
+                                                  "data-display":
+                                                    "email-warning-confirmation-on"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "email_warning"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        attrs: {
+                                                          "data-role":
+                                                            "assignee_first_name"
+                                                        }
+                                                      },
+                                                      [_vm._v("This person")]
+                                                    ),
+                                                    _vm._v(
+                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "email_warning"
+                                                  },
+                                                  [_vm._v("Assign it anyway?")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "p",
+                                                  { staticClass: "submit" },
+                                                  [
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "action_button button",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "confirm_assignee_change",
+                                                          href: "#"
+                                                        }
+                                                      },
+                                                      [_vm._v("Yes, assign it")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "cancel_assignee_change",
+                                                          href: "#"
+                                                        }
+                                                      },
+                                                      [_vm._v("Cancel")]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                attrs: {
+                                                  "data-display":
+                                                    "email-warning-confirmation-off"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "email_notice"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass: "alert",
+                                                        staticStyle: {
+                                                          display: "none"
+                                                        },
+                                                        attrs: {
+                                                          "data-display":
+                                                            "email-warning-on"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "This person won’t get an email because they turned off email notifications"
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticStyle: {
+                                                          display: "none"
+                                                        },
+                                                        attrs: {
+                                                          "data-display":
+                                                            "email-warning-off"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "The person you select will be notified by email"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "label",
+                                                  { staticClass: "due_date" },
+                                                  [
+                                                    _c("b", [
+                                                      _vm._v(
+                                                        "Set the due date:"
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("hr"),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "alt_date_field",
+                                                        name: "todo[due_at]",
+                                                        type: "hidden"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("div", {
+                                                      staticClass:
+                                                        "notranslate",
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "date_picker"
+                                                      }
+                                                    })
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("footer", [
+                                                  _c(
+                                                    "a",
+                                                    {
+                                                      staticClass:
+                                                        "no_date decorated",
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "no_due_date",
+                                                        href: "#"
+                                                      }
+                                                    },
+                                                    [_vm._v("No due date")]
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "new",
+                    attrs: {
+                      "data-behavior": "expandable load_assignee_options"
+                    }
+                  },
+                  [
+                    _c("li", { staticClass: "collapsed_content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "decorated",
+                          attrs: {
+                            "data-behavior":
+                              "expand_on_click load_assignee_options",
+                            href: "#"
+                          }
+                        },
+                        [_vm._v("Add a to-do")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "expanded_content edit_mode" }, [
+                      _c(
+                        "article",
+                        { attrs: { "data-behavior": "file_drop_target" } },
+                        [
+                          _c(
+                            "form",
+                            {
+                              staticClass: "new_todo",
+                              attrs: {
+                                "accept-charset": "UTF-8",
+                                action: "/2501285/projects/6590988/todos",
+                                "data-behavior": "new_todo",
+                                "data-remote": "true",
+                                id: "nefwefw_todo",
+                                method: "post"
+                              }
+                            },
+                            [
+                              _c("div", { staticStyle: { display: "none" } }, [
+                                _c("input", {
+                                  attrs: {
+                                    name: "utf8",
+                                    type: "hidden",
+                                    value: "✓"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  id: "todfwefo_todolist_id",
+                                  name: "todo[todolist_id]",
+                                  type: "hidden",
+                                  value: "48308664"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  disabled: "disabled",
+                                  name: "todo[completed]",
+                                  type: "hidden",
+                                  value: "0"
+                                }
+                              }),
+                              _c("input", {
+                                attrs: {
+                                  disabled: "disabled",
+                                  id: "todo_cewfefwompleted",
+                                  name: "todo[completed]",
+                                  type: "checkbox",
+                                  value: "1"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("textarea", {
+                                attrs: {
+                                  "data-behavior": "autoresize submit_on_enter",
+                                  id: "todo_fwefwfcontent",
+                                  name: "todo[content]",
+                                  placeholder: "Add a new to-do...",
+                                  rows: "1"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "details" }, [
+                                _c("label", [
+                                  _c("strong", [_vm._v("Assigned to:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      attrs: {
+                                        "data-behavior": "assignee_options",
+                                        "data-private": "false",
+                                        "data-project-id": "6590988",
+                                        id: "todo_fwfwfeassignee_code",
+                                        name: "todo[assignee_code]"
+                                      }
+                                    },
+                                    [
+                                      _c("option", { attrs: { value: "⎈" } }, [
+                                        _vm._v("Loading...")
+                                      ])
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("label", [
+                                  _c("strong", [_vm._v("Due on:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "pill has_balloon",
+                                      attrs: {
+                                        "data-behavior":
+                                          "expandable expand_exclusively"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            "data-behavior": "expand_on_click",
+                                            href: "#"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "time",
+                                            {
+                                              attrs: {
+                                                "data-behavior": "due_date",
+                                                "data-blank-text": "No due date"
+                                              }
+                                            },
+                                            [_vm._v("No due date")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "balloon right_side expanded_content"
+                                        },
+                                        [
+                                          _c("span", { staticClass: "arrow" }),
+                                          _vm._v(" "),
+                                          _c("span", { staticClass: "arrow" }),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            attrs: {
+                                              "data-behavior": "alt_date_field",
+                                              name: "todo[due_at]",
+                                              type: "hidden"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("div", {
+                                            staticClass: "notranslate",
+                                            attrs: {
+                                              "data-behavior": "date_picker"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("footer", [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "no_date",
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "no_due_date",
+                                                  href: "#"
+                                                }
+                                              },
+                                              [_vm._v("No due date")]
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "notification_info",
+                                    attrs: {
+                                      "data-display":
+                                        "email-warning-confirmation-off"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass: "warning",
+                                        staticStyle: { display: "none" },
+                                        attrs: {
+                                          "data-display": "email-warning-on"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-role": "assignee_first_name"
+                                            }
+                                          },
+                                          [_vm._v("This person")]
+                                        ),
+                                        _vm._v(
+                                          "\n                                                            won’t get an email because they turned off email\n                                                            notifications.\n                                                        "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticStyle: { display: "none" },
+                                        attrs: {
+                                          "data-display":
+                                            "email-warning-off email-message-on"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-role": "assignee_first_name"
+                                            }
+                                          },
+                                          [_vm._v("This person")]
+                                        ),
+                                        _vm._v(
+                                          "\n                                                            will be notified by email.\n                                                        "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    attrs: {
+                                      "data-behavior":
+                                        "expandable todo_attachments"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "collapsed_content" },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "decorated expand_attachments",
+                                            attrs: {
+                                              "data-behavior":
+                                                "expand_on_click",
+                                              href: "#"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Attach\n                                                                files..."
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "expanded_content" },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "attachments",
+                                            attrs: {
+                                              "data-behavior":
+                                                "pending_attachments file_drop_target",
+                                              "data-sortable": "true"
+                                            }
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass: "prompt_graphic"
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "file_input_button"
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-without-features":
+                                                        "files_api"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        To attach files\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-with-features":
+                                                        "files_api"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        To attach files drag & drop here or\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "file_input_container"
+                                                  },
+                                                  [
+                                                    _c("input", {
+                                                      attrs: {
+                                                        name: "file",
+                                                        type: "file",
+                                                        multiple: "",
+                                                        onchange:
+                                                          "$(document).trigger('ie:change', this)",
+                                                        tabindex: "-1"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "decorated",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "local_file_picker",
+                                                          href: "#",
+                                                          tabindex: "-1"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "select files from your computer…"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-behavior":
+                                                        "load_google_client"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        or "
+                                                    ),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "decorated",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "google_file_picker",
+                                                          href: "#",
+                                                          tabindex: "-1"
+                                                        }
+                                                      },
+                                                      [_vm._v("Google Docs…")]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("ul", {
+                                              staticClass:
+                                                "pending_attachments ui-sortable",
+                                              attrs: {
+                                                "data-role": "accept_as_input"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "picker_account_switcher",
+                                            attrs: {
+                                              "data-behavior":
+                                                "picker_account_switcher"
+                                            }
+                                          },
+                                          [
+                                            _c("strong", [
+                                              _vm._v(
+                                                "You’re signed in to Google as "
+                                              ),
+                                              _c("span", {
+                                                attrs: {
+                                                  "data-role":
+                                                    "picker_account_email"
+                                                }
+                                              })
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "google_account_switcher",
+                                                  href: "#"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Sign\n                                                                    out and use a different Google account"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "google_connector",
+                                            attrs: {
+                                              "data-behavior":
+                                                "google_connector"
+                                            }
+                                          },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Connect your Google account"
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(
+                                                "\n                                                                    Before you can attach Google Docs in Basecamp,\n                                                                    we’ll need your OK first. Do you want to connect\n                                                                    your account now?\n                                                                "
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", { staticClass: "submit" }, [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass: "action_button",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "create_google_file_picker"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                        Yes, connect my Google account\n                                                                    "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(
+                                                "\n                                                                    or "
+                                              ),
+                                              _c(
+                                                "a",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "cancel_google_connect",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              )
+                                            ])
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "google_connector",
+                                            attrs: {
+                                              "data-behavior":
+                                                "google_connector_access_denied"
+                                            }
+                                          },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Basecamp couldn’t access your Google\n                                                                        account"
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(
+                                                "\n                                                                    To attach Google Docs, you’ll need to give\n                                                                    Basecamp permission. Do you want to try again?\n                                                                "
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", { staticClass: "submit" }, [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass: "action_button",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "create_google_file_picker"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                        Connect a Google account\n                                                                    "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(
+                                                "\n                                                                    or "
+                                              ),
+                                              _c(
+                                                "a",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "cancel_google_connect",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "submit" }, [
+                                _c("input", {
+                                  staticClass: "action_button",
+                                  attrs: {
+                                    "data-role": "uploader",
+                                    name: "commit",
+                                    type: "submit",
+                                    value: "Add this to-do"
+                                  }
+                                }),
+                                _vm._v(
+                                  " or\n                                                    "
+                                ),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "decorated",
+                                    attrs: {
+                                      "data-behavior": "cancel",
+                                      "data-role": "cancel",
+                                      href: "#"
+                                    }
+                                  },
+                                  [_vm._v("I'm done adding to-dos")]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("ul", { staticClass: "completed truncated" })
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            attrs: {
+              "data-behavior": "sortable",
+              "data-sortable-type": "todolist",
+              id: "sortable_todolist_43978505"
+            }
+          },
+          [
+            _c(
+              "article",
+              {
+                staticClass: "todolist",
+                attrs: {
+                  id: "todolist_43978505",
+                  "data-url": "/2501285/projects/6590988/todolists/43978505",
+                  "data-behavior": "expandable"
+                }
+              },
+              [
+                _c(
+                  "header",
+                  {
+                    staticClass: "collapsed_content",
+                    attrs: { "data-behavior": "has_hover_content" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "nubbin",
+                        attrs: { "data-behavior": "nubbin hover_content" }
+                      },
+                      [
+                        _c("div", { staticClass: "spacer" }),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "image delete",
+                            attrs: {
+                              "data-confirm":
+                                "Are you sure you want to delete this to-do list?",
+                              "data-method": "post",
+                              "data-remote": "true",
+                              href:
+                                "/2501285/projects/6590988/todolists/43978505/trash",
+                              rel: "nofollow"
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "edit",
+                            attrs: { "data-behavior": "edit", href: "#" }
+                          },
+                          [_vm._v("Edit")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h3",
+                      { attrs: { "data-behavior": "sortable_handle" } },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "linked_title",
+                            attrs: {
+                              href:
+                                "/2501285/projects/6590988/todolists/43978505"
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "project_name" }, [
+                              _vm._v("Random Projects —")
+                            ]),
+                            _vm._v(
+                              "\n                                            we have to make logo for this site .. http://beyourtherapist.com\n                                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "unlinked_title" }, [
+                          _vm._v(
+                            "we have to make logo for this site .. http://beyourtherapist.com"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "pill comments" }, [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/2501285/projects/6590988/todolists/43978505"
+                              }
+                            },
+                            [_vm._v("6 comments")]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_c("em")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("header", { staticClass: "expanded_content" }, [
+                  _c(
+                    "form",
+                    {
+                      staticClass: "edit_todolist",
+                      attrs: {
+                        "accept-charset": "UTF-8",
+                        action: "/2501285/projects/6590988/todolists/43978505",
+                        "data-remote": "true",
+                        id: "edit_todolist_43978505",
+                        method: "post"
+                      }
+                    },
+                    [
+                      _c("div", { staticStyle: { display: "none" } }, [
+                        _c("input", {
+                          attrs: { name: "utf8", type: "hidden", value: "✓" }
+                        }),
+                        _c("input", {
+                          attrs: {
+                            name: "_method",
+                            type: "hidden",
+                            value: "patch"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("header", { staticClass: "text_entry" }, [
+                        _c("h3", [
+                          _c("input", {
+                            attrs: {
+                              id: "teweodofsdfxcvlist_name",
+                              name: "todolist[name]",
+                              size: "10",
+                              type: "text",
+                              value:
+                                "we have to make logo for this site .. http://beyourtherapist.com"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("em", [
+                            _c("textarea", {
+                              attrs: {
+                                "data-behavior": "autoresize submit_on_enter",
+                                id: "teefcxvodolist_description",
+                                name: "todolist[description]",
+                                placeholder: "Optional: describe this list",
+                                rows: "1"
+                              }
+                            })
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "privacy_toggle",
+                          attrs: { "data-role": "privacy_toggle" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              attrs: { for: "todolist_43978505_privacy_toggle" }
+                            },
+                            [
+                              _c("input", {
+                                attrs: {
+                                  name: "todolist[private]",
+                                  type: "hidden",
+                                  value: "0"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  "data-behavior": "toggle_private_visibility",
+                                  id: "todolist_43978505_privacy_toggle",
+                                  name: "todolist[private]",
+                                  type: "checkbox",
+                                  value: "1"
+                                }
+                              }),
+                              _vm._v(
+                                " Don’t show this to-do list to the client\n                                                "
+                              ),
+                              _c("span", {
+                                attrs: { "data-behavior": "client_list" }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass: "position_reference",
+                              attrs: {
+                                "data-behavior": "expandable expand_exclusively"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                                – "
+                              ),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "decorated",
+                                  attrs: {
+                                    "data-behavior": "expand_on_click",
+                                    href: "#"
+                                  }
+                                },
+                                [_vm._v("what's this?")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "balloon right_side expanded_content"
+                                },
+                                [
+                                  _c("span", { staticClass: "arrow" }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "arrow" }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "close" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "decorated",
+                                        attrs: {
+                                          "data-behavior": "collapse_on_click",
+                                          href: "#"
+                                        }
+                                      },
+                                      [_vm._v("Close")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("h5", [_vm._v("Working with clients?")]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(
+                                      "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "decorated",
+                                        attrs: {
+                                          href:
+                                            "/2501285/projects/6590988/accesses#client"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Invite your first client to this project..."
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticStyle: { display: "none" } }, [
+                        _c("div", {
+                          attrs: {
+                            "data-behavior": "lazy_load_subscribers",
+                            "data-url":
+                              "/2501285/projects/6590988/subscribers?subscribable_id=43978505&subscribable_type=Todolist"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "submit" }, [
+                        _c("input", {
+                          attrs: {
+                            name: "commit",
+                            type: "submit",
+                            value: "Save changes"
+                          }
+                        }),
+                        _vm._v(
+                          " or\n                                            "
+                        ),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "cancel",
+                            attrs: {
+                              "data-behavior": "cancel",
+                              "data-role": "cancel",
+                              href: "#"
+                            }
+                          },
+                          [_vm._v("Cancel")]
+                        )
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("ul", {
+                  staticClass: "todos empty",
+                  attrs: {
+                    "data-behavior": "sortable_container",
+                    "data-sortable-type": "todo"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "new",
+                    attrs: {
+                      "data-behavior": "expandable load_assignee_options"
+                    }
+                  },
+                  [
+                    _c("li", { staticClass: "collapsed_content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "decorated",
+                          attrs: {
+                            "data-behavior":
+                              "expand_on_click load_assignee_options",
+                            href: "#"
+                          }
+                        },
+                        [_vm._v("Add a to-do")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "expanded_content edit_mode" }, [
+                      _c(
+                        "article",
+                        { attrs: { "data-behavior": "file_drop_target" } },
+                        [
+                          _c(
+                            "form",
+                            {
+                              staticClass: "new_todo",
+                              attrs: {
+                                "accept-charset": "UTF-8",
+                                action: "/2501285/projects/6590988/todos",
+                                "data-behavior": "new_todo",
+                                "data-remote": "true",
+                                id: "newwww_todo",
+                                method: "post"
+                              }
+                            },
+                            [
+                              _c("div", { staticStyle: { display: "none" } }, [
+                                _c("input", {
+                                  attrs: {
+                                    name: "utf8",
+                                    type: "hidden",
+                                    value: "✓"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  id: "toqqdo_todolist_id",
+                                  name: "todo[todolist_id]",
+                                  type: "hidden",
+                                  value: "43978505"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  disabled: "disabled",
+                                  name: "todo[completed]",
+                                  type: "hidden",
+                                  value: "0"
+                                }
+                              }),
+                              _c("input", {
+                                attrs: {
+                                  disabled: "disabled",
+                                  id: "todovcvcv_completed",
+                                  name: "todo[completed]",
+                                  type: "checkbox",
+                                  value: "1"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("textarea", {
+                                attrs: {
+                                  "data-behavior": "autoresize submit_on_enter",
+                                  id: "todoccvvc_content",
+                                  name: "todo[content]",
+                                  placeholder: "Add a new to-do...",
+                                  rows: "1"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "details" }, [
+                                _c("label", [
+                                  _c("strong", [_vm._v("Assigned to:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      attrs: {
+                                        "data-behavior": "assignee_options",
+                                        "data-private": "false",
+                                        "data-project-id": "6590988",
+                                        id: "todo_assivcvvgnee_code",
+                                        name: "todo[assignee_code]"
+                                      }
+                                    },
+                                    [
+                                      _c("option", { attrs: { value: "⎈" } }, [
+                                        _vm._v("Loading...")
+                                      ])
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("label", [
+                                  _c("strong", [_vm._v("Due on:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "pill has_balloon",
+                                      attrs: {
+                                        "data-behavior":
+                                          "expandable expand_exclusively"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            "data-behavior": "expand_on_click",
+                                            href: "#"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "time",
+                                            {
+                                              attrs: {
+                                                "data-behavior": "due_date",
+                                                "data-blank-text": "No due date"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                                                    No due date\n                                                                "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "balloon right_side expanded_content"
+                                        },
+                                        [
+                                          _c("span", { staticClass: "arrow" }),
+                                          _vm._v(" "),
+                                          _c("span", { staticClass: "arrow" }),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            attrs: {
+                                              "data-behavior": "alt_date_field",
+                                              name: "todo[due_at]",
+                                              type: "hidden"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("div", {
+                                            staticClass: "notranslate",
+                                            attrs: {
+                                              "data-behavior": "date_picker"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("footer", [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "no_date",
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "no_due_date",
+                                                  href: "#"
+                                                }
+                                              },
+                                              [_vm._v("No due date")]
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "notification_info",
+                                    attrs: {
+                                      "data-display":
+                                        "email-warning-confirmation-off"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass: "warning",
+                                        staticStyle: { display: "none" },
+                                        attrs: {
+                                          "data-display": "email-warning-on"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-role": "assignee_first_name"
+                                            }
+                                          },
+                                          [_vm._v("This person")]
+                                        ),
+                                        _vm._v(
+                                          "\n                                                            won’t get an email because they turned off email\n                                                            notifications.\n                                                        "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticStyle: { display: "none" },
+                                        attrs: {
+                                          "data-display":
+                                            "email-warning-off email-message-on"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-role": "assignee_first_name"
+                                            }
+                                          },
+                                          [_vm._v("This person")]
+                                        ),
+                                        _vm._v(
+                                          "\n                                                            will be notified by email.\n                                                        "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    attrs: {
+                                      "data-behavior":
+                                        "expandable todo_attachments"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "collapsed_content" },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "decorated expand_attachments",
+                                            attrs: {
+                                              "data-behavior":
+                                                "expand_on_click",
+                                              href: "#"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Attach\n                                                                files..."
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "expanded_content" },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "attachments",
+                                            attrs: {
+                                              "data-behavior":
+                                                "pending_attachments file_drop_target",
+                                              "data-sortable": "true"
+                                            }
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass: "prompt_graphic"
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "file_input_button"
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-without-features":
+                                                        "files_api"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        To attach files\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-with-features":
+                                                        "files_api"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        To attach files drag & drop here or\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "file_input_container"
+                                                  },
+                                                  [
+                                                    _c("input", {
+                                                      attrs: {
+                                                        name: "file",
+                                                        type: "file",
+                                                        multiple: "",
+                                                        onchange:
+                                                          "$(document).trigger('ie:change', this)",
+                                                        tabindex: "-1"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "decorated",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "local_file_picker",
+                                                          href: "#",
+                                                          tabindex: "-1"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "select files from your computer…"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-behavior":
+                                                        "load_google_client"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        or "
+                                                    ),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "decorated",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "google_file_picker",
+                                                          href: "#",
+                                                          tabindex: "-1"
+                                                        }
+                                                      },
+                                                      [_vm._v("Google Docs…")]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("ul", {
+                                              staticClass:
+                                                "pending_attachments ui-sortable",
+                                              attrs: {
+                                                "data-role": "accept_as_input"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "picker_account_switcher",
+                                            attrs: {
+                                              "data-behavior":
+                                                "picker_account_switcher"
+                                            }
+                                          },
+                                          [
+                                            _c("strong", [
+                                              _vm._v(
+                                                "You’re signed in to Google as "
+                                              ),
+                                              _c("span", {
+                                                attrs: {
+                                                  "data-role":
+                                                    "picker_account_email"
+                                                }
+                                              })
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "google_account_switcher",
+                                                  href: "#"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Sign\n                                                                    out and use a different Google account"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "google_connector",
+                                            attrs: {
+                                              "data-behavior":
+                                                "google_connector"
+                                            }
+                                          },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Connect your Google account"
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(
+                                                "\n                                                                    Before you can attach Google Docs in Basecamp,\n                                                                    we’ll need your OK first. Do you want to connect\n                                                                    your account now?\n                                                                "
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", { staticClass: "submit" }, [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass: "action_button",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "create_google_file_picker"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                        Yes, connect my Google account\n                                                                    "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(
+                                                "\n                                                                    or "
+                                              ),
+                                              _c(
+                                                "a",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "cancel_google_connect",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              )
+                                            ])
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "google_connector",
+                                            attrs: {
+                                              "data-behavior":
+                                                "google_connector_access_denied"
+                                            }
+                                          },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Basecamp couldn’t access your Google\n                                                                        account"
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(
+                                                "\n                                                                    To attach Google Docs, you’ll need to give\n                                                                    Basecamp permission. Do you want to try again?\n                                                                "
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", { staticClass: "submit" }, [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass: "action_button",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "create_google_file_picker"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                        Connect a Google account\n                                                                    "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(
+                                                "\n                                                                    or "
+                                              ),
+                                              _c(
+                                                "a",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "cancel_google_connect",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "submit" }, [
+                                _c("input", {
+                                  staticClass: "action_button",
+                                  attrs: {
+                                    "data-role": "uploader",
+                                    name: "commit",
+                                    type: "submit",
+                                    value: "Add this to-do"
+                                  }
+                                }),
+                                _vm._v(
+                                  " or\n                                                    "
+                                ),
+<<<<<<< HEAD
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "tool",
+                                    attrs: {
+                                      "data-behavior": "tool expandable"
+                                    }
+                                  },
+                                  [
+                                    !_vm.showBeforeDelete
+                                      ? _c(
+                                          "a",
+                                          {
+                                            attrs: {
+                                              "data-behavior":
+                                                "expand_on_click hide_on_expand",
+                                              href: "#"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.del()
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Delete…")]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.showBeforeDelete
+                                      ? _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-role": "confirm_view"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "tool_action",
+                                                  "data-method": "post",
+                                                  "data-remote": "true",
+                                                  href:
+                                                    _vm.home_page +
+                                                    "project/" +
+                                                    _vm.projectId +
+                                                    "/" +
+                                                    _vm.projectName +
+                                                    "/messages/" +
+                                                    _vm.messageId +
+                                                    "/trash",
+                                                  rel: "nofollow"
+                                                }
+                                              },
+                                              [_vm._v("Delete this message?")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "cancel",
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "collapse_on_click",
+                                                  href: "#"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    _vm.undo()
+                                                  }
+                                                }
+                                              },
+                                              [_vm._v("Never mind")]
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "moved_notice" }, [
+      _c("div", { staticClass: "body" }, [
+        _c(
+          "div",
+          {
+            staticStyle: { display: "none" },
+            attrs: { "data-role": "just_moved" }
+          },
+          [
+            _c("h1", [
+              _c("span", { attrs: { "data-role": "move_operation_creator" } }),
+              _vm._v(" just moved this page"),
+              _c("span", {
+                attrs: { "data-role": "destination_project_name" }
+              }),
+              _vm._v(".\n                                ")
+            ]),
+            _vm._v(" "),
+            _c(
+              "p",
+              {
+                staticStyle: { display: "none" },
+                attrs: { "data-behavior": "show_link_if_accessible" }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticStyle: { "text-decoration": "underline" },
+                    attrs: { "data-default-stack": "true", href: "" }
+                  },
+                  [
+                    _vm._v(
+                      "See it\n                                        in its new location"
+                    )
+=======
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "decorated",
+                                    attrs: {
+                                      "data-behavior": "cancel",
+                                      "data-role": "cancel",
+                                      href: "#"
+                                    }
+                                  },
+                                  [_vm._v("I'm done adding to-dos")]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+>>>>>>> ecca18b4a9f2c73c5e5ae082b42788a581202e7a
+                  ]
+                ),
+                _vm._v(" "),
+                _c("ul", { staticClass: "completed truncated" })
+              ]
+            )
+          ]
+<<<<<<< HEAD
+        )
+      ])
+    ])
+=======
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            attrs: {
+              "data-behavior": "sortable",
+              "data-sortable-type": "todolist",
+              id: "sortable_todolist_49401648"
+            }
+          },
+          [
+            _c(
+              "article",
+              {
+                staticClass: "todolist",
+                attrs: {
+                  id: "todolist_49401648",
+                  "data-url": "/2501285/projects/6590988/todolists/49401648",
+                  "data-behavior": "expandable"
+                }
+              },
+              [
+                _c(
+                  "header",
+                  {
+                    staticClass: "collapsed_content",
+                    attrs: { "data-behavior": "has_hover_content" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "nubbin",
+                        attrs: { "data-behavior": "nubbin hover_content" }
+                      },
+                      [
+                        _c("div", { staticClass: "spacer" }),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "image delete",
+                            attrs: {
+                              "data-confirm":
+                                "Are you sure you want to delete this to-do list?",
+                              "data-method": "post",
+                              "data-remote": "true",
+                              href:
+                                "/2501285/projects/6590988/todolists/49401648/trash",
+                              rel: "nofollow"
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "edit",
+                            attrs: { "data-behavior": "edit", href: "#" }
+                          },
+                          [_vm._v("Edit")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h3",
+                      { attrs: { "data-behavior": "sortable_handle" } },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "linked_title",
+                            attrs: {
+                              href:
+                                "/2501285/projects/6590988/todolists/49401648"
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "project_name" }, [
+                              _vm._v("Random Projects —")
+                            ]),
+                            _vm._v(
+                              "\n                                            Shopify Website Replica\n                                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "unlinked_title" }, [
+                          _vm._v("Shopify Website Replica")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_c("em")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("header", { staticClass: "expanded_content" }, [
+                  _c(
+                    "form",
+                    {
+                      staticClass: "edit_todolist",
+                      attrs: {
+                        "accept-charset": "UTF-8",
+                        action: "/2501285/projects/6590988/todolists/49401648",
+                        "data-remote": "true",
+                        id: "edit_todolist_49401648",
+                        method: "post"
+                      }
+                    },
+                    [
+                      _c("div", { staticStyle: { display: "none" } }, [
+                        _c("input", {
+                          attrs: { name: "utf8", type: "hidden", value: "✓" }
+                        }),
+                        _c("input", {
+                          attrs: {
+                            name: "_method",
+                            type: "hidden",
+                            value: "patch"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("header", { staticClass: "text_entry" }, [
+                        _c("h3", [
+                          _c("input", {
+                            attrs: {
+                              id: "todolist_name",
+                              name: "todolist[name]",
+                              size: "10",
+                              type: "text",
+                              value: "Shopify Website Replica"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("em", [
+                            _c("textarea", {
+                              attrs: {
+                                "data-behavior": "autoresize submit_on_enter",
+                                id: "tfefefodolist_description",
+                                name: "todolist[description]",
+                                placeholder: "Optional: describe this list",
+                                rows: "1"
+                              }
+                            })
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "privacy_toggle",
+                          attrs: { "data-role": "privacy_toggle" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              attrs: { for: "todolist_49401648_privacy_toggle" }
+                            },
+                            [
+                              _c("input", {
+                                attrs: {
+                                  name: "todolist[private]",
+                                  type: "hidden",
+                                  value: "0"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  "data-behavior": "toggle_private_visibility",
+                                  id: "todolist_49401648_privacy_toggle",
+                                  name: "todolist[private]",
+                                  type: "checkbox",
+                                  value: "1"
+                                }
+                              }),
+                              _vm._v(
+                                " Don’t show this to-do list to the client\n                                                "
+                              ),
+                              _c("span", {
+                                attrs: { "data-behavior": "client_list" }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass: "position_reference",
+                              attrs: {
+                                "data-behavior": "expandable expand_exclusively"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                                – "
+                              ),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "decorated",
+                                  attrs: {
+                                    "data-behavior": "expand_on_click",
+                                    href: "#"
+                                  }
+                                },
+                                [_vm._v("what's this?")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "balloon right_side expanded_content"
+                                },
+                                [
+                                  _c("span", { staticClass: "arrow" }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "arrow" }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "close" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "decorated",
+                                        attrs: {
+                                          "data-behavior": "collapse_on_click",
+                                          href: "#"
+                                        }
+                                      },
+                                      [_vm._v("Close")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("h5", [_vm._v("Working with clients?")]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(
+                                      "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "decorated",
+                                        attrs: {
+                                          href:
+                                            "/2501285/projects/6590988/accesses#client"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Invite your first client to this project..."
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticStyle: { display: "none" } }, [
+                        _c("div", {
+                          attrs: {
+                            "data-behavior": "lazy_load_subscribers",
+                            "data-url":
+                              "/2501285/projects/6590988/subscribers?subscribable_id=49401648&subscribable_type=Todolist"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "submit" }, [
+                        _c("input", {
+                          attrs: {
+                            name: "commit",
+                            type: "submit",
+                            value: "Save changes"
+                          }
+                        }),
+                        _vm._v(
+                          " or\n                                            "
+                        ),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "cancel",
+                            attrs: {
+                              "data-behavior": "cancel",
+                              "data-role": "cancel",
+                              href: "#"
+                            }
+                          },
+                          [_vm._v("Cancel")]
+                        )
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "todos ",
+                    attrs: {
+                      "data-behavior": "sortable_container",
+                      "data-sortable-type": "todo"
+                    }
+                  },
+                  [
+                    _c(
+                      "li",
+                      {
+                        staticClass: "todo show",
+                        attrs: {
+                          "data-behavior": "has_hover_content sortable",
+                          "data-sortable-type": "todo",
+                          "data-url":
+                            "/2501285/projects/6590988/todos/332901436",
+                          id: "todo_332901436"
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "nubbin",
+                            attrs: { "data-behavior": "nubbin hover_content" }
+                          },
+                          [
+                            _c("div", { staticClass: "spacer" }),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "image delete",
+                                attrs: {
+                                  "data-confirm":
+                                    "Are you sure you want to delete this to-do?",
+                                  "data-method": "post",
+                                  "data-remote": "true",
+                                  href:
+                                    "/2501285/projects/6590988/todos/332901436/trash",
+                                  rel: "nofollow"
+                                }
+                              },
+                              [_vm._v("Delete")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "edit",
+                                attrs: {
+                                  "data-remote": "true",
+                                  "data-url":
+                                    "/2501285/projects/6590988/todos/332901436/edit",
+                                  href: "#"
+                                }
+                              },
+                              [_vm._v("Edit")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", {}, [
+                          _c("span", { staticClass: "wrapper" }, [
+                            _c("input", {
+                              attrs: {
+                                "data-behavior": "toggle",
+                                "data-url":
+                                  "/2501285/projects/6590988/todos/332901436/toggle",
+                                name: "todo_complete",
+                                type: "checkbox",
+                                value: "1"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "content",
+                                attrs: { "data-behavior": "sortable_handle" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/2501285/projects/6590988/todos/332901436"
+                                    }
+                                  },
+                                  [_vm._v("Login Details")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticClass: "content_for_perma" },
+                                  [_vm._v("Login Details")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "pill comments",
+                                attrs: { "data-comments-counter": "" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/2501285/projects/6590988/todos/332901436"
+                                    }
+                                  },
+                                  [_vm._v("1 comment")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "form",
+                              {
+                                staticClass: "edit_todo",
+                                attrs: {
+                                  "accept-charset": "UTF-8",
+                                  action:
+                                    "/2501285/projects/6590988/todos/332901436",
+                                  "data-remote": "true",
+                                  id: "edit_todo_332901436",
+                                  method: "post"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticStyle: { display: "none" } },
+                                  [
+                                    _c("input", {
+                                      attrs: {
+                                        name: "utf8",
+                                        type: "hidden",
+                                        value: "✓"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      attrs: {
+                                        name: "_method",
+                                        type: "hidden",
+                                        value: "patch"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticStyle: { position: "relative" } },
+                                  [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "pill has_balloon blank",
+                                        attrs: {
+                                          "data-behavior":
+                                            "expandable expand_exclusively load_assignee_options hover_content"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            attrs: {
+                                              "data-behavior":
+                                                "expand_on_click",
+                                              href: "#"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "assignee_name",
+                                                  "data-blank-text":
+                                                    "Unassigned"
+                                                }
+                                              },
+                                              [_vm._v("Unassigned")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("time", {
+                                              attrs: {
+                                                "data-behavior": "due_date",
+                                                "data-blank-text": "No due date"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "balloon right_side expanded_content"
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass: "arrow"
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", {
+                                              staticClass: "arrow"
+                                            }),
+                                            _vm._v(" "),
+                                            _c("label", [
+                                              _c("b", [
+                                                _vm._v("Assign this to-do to:")
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "select",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "assignee_options",
+                                                    "data-private": "false",
+                                                    "data-project-id":
+                                                      "6590988",
+                                                    id: "todo_assignee_code",
+                                                    name: "todo[assignee_code]"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "⎈" } },
+                                                    [_vm._v("Loading...")]
+                                                  )
+                                                ]
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "email_notice confirmation",
+                                                attrs: {
+                                                  "data-display":
+                                                    "email-warning-confirmation-on"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "email_warning"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        attrs: {
+                                                          "data-role":
+                                                            "assignee_first_name"
+                                                        }
+                                                      },
+                                                      [_vm._v("This person")]
+                                                    ),
+                                                    _vm._v(
+                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "email_warning"
+                                                  },
+                                                  [_vm._v("Assign it anyway?")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "p",
+                                                  { staticClass: "submit" },
+                                                  [
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "action_button button",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "confirm_assignee_change",
+                                                          href: "#"
+                                                        }
+                                                      },
+                                                      [_vm._v("Yes, assign it")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "cancel_assignee_change",
+                                                          href: "#"
+                                                        }
+                                                      },
+                                                      [_vm._v("Cancel")]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                attrs: {
+                                                  "data-display":
+                                                    "email-warning-confirmation-off"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "email_notice"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass: "alert",
+                                                        staticStyle: {
+                                                          display: "none"
+                                                        },
+                                                        attrs: {
+                                                          "data-display":
+                                                            "email-warning-on"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "This person won’t get an email because they turned off email notifications"
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticStyle: {
+                                                          display: "none"
+                                                        },
+                                                        attrs: {
+                                                          "data-display":
+                                                            "email-warning-off"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "The person you select will be notified by email"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "label",
+                                                  { staticClass: "due_date" },
+                                                  [
+                                                    _c("b", [
+                                                      _vm._v(
+                                                        "Set the due date:"
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("hr"),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "alt_date_field",
+                                                        name: "todo[due_at]",
+                                                        type: "hidden"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("div", {
+                                                      staticClass:
+                                                        "notranslate",
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "date_picker"
+                                                      }
+                                                    })
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("footer", [
+                                                  _c(
+                                                    "a",
+                                                    {
+                                                      staticClass:
+                                                        "no_date decorated",
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "no_due_date",
+                                                        href: "#"
+                                                      }
+                                                    },
+                                                    [_vm._v("No due date")]
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "todo show",
+                        attrs: {
+                          "data-behavior": "has_hover_content sortable",
+                          "data-sortable-type": "todo",
+                          "data-url":
+                            "/2501285/projects/6590988/todos/332901246",
+                          id: "todo_332901246"
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "nubbin",
+                            attrs: { "data-behavior": "nubbin hover_content" }
+                          },
+                          [
+                            _c("div", { staticClass: "spacer" }),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "image delete",
+                                attrs: {
+                                  "data-confirm":
+                                    "Are you sure you want to delete this to-do?",
+                                  "data-method": "post",
+                                  "data-remote": "true",
+                                  href:
+                                    "/2501285/projects/6590988/todos/332901246/trash",
+                                  rel: "nofollow"
+                                }
+                              },
+                              [_vm._v("Delete")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "edit",
+                                attrs: {
+                                  "data-remote": "true",
+                                  "data-url":
+                                    "/2501285/projects/6590988/todos/332901246/edit",
+                                  href: "#"
+                                }
+                              },
+                              [_vm._v("Edit")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", {}, [
+                          _c("span", { staticClass: "wrapper" }, [
+                            _c("input", {
+                              attrs: {
+                                "data-behavior": "toggle",
+                                "data-url":
+                                  "/2501285/projects/6590988/todos/332901246/toggle",
+                                name: "todo_complete",
+                                type: "checkbox",
+                                value: "1"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "content",
+                                attrs: { "data-behavior": "sortable_handle" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/2501285/projects/6590988/todos/332901246"
+                                    }
+                                  },
+                                  [_vm._v("Site Details")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticClass: "content_for_perma" },
+                                  [_vm._v("Site Details")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "pill comments",
+                                attrs: { "data-comments-counter": "" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/2501285/projects/6590988/todos/332901246"
+                                    }
+                                  },
+                                  [_vm._v("3 comments")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "form",
+                              {
+                                staticClass: "edit_todo",
+                                attrs: {
+                                  "accept-charset": "UTF-8",
+                                  action:
+                                    "/2501285/projects/6590988/todos/332901246",
+                                  "data-remote": "true",
+                                  id: "edit_todo_332901246",
+                                  method: "post"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticStyle: { display: "none" } },
+                                  [
+                                    _c("input", {
+                                      attrs: {
+                                        name: "utf8",
+                                        type: "hidden",
+                                        value: "✓"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      attrs: {
+                                        name: "_method",
+                                        type: "hidden",
+                                        value: "patch"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticStyle: { position: "relative" } },
+                                  [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "pill has_balloon blank",
+                                        attrs: {
+                                          "data-behavior":
+                                            "expandable expand_exclusively load_assignee_options hover_content"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            attrs: {
+                                              "data-behavior":
+                                                "expand_on_click",
+                                              href: "#"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "assignee_name",
+                                                  "data-blank-text":
+                                                    "Unassigned"
+                                                }
+                                              },
+                                              [_vm._v("Unassigned")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("time", {
+                                              attrs: {
+                                                "data-behavior": "due_date",
+                                                "data-blank-text": "No due date"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "balloon right_side expanded_content"
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass: "arrow"
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", {
+                                              staticClass: "arrow"
+                                            }),
+                                            _vm._v(" "),
+                                            _c("label", [
+                                              _c("b", [
+                                                _vm._v("Assign this to-do to:")
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "select",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "assignee_options",
+                                                    "data-private": "false",
+                                                    "data-project-id":
+                                                      "6590988",
+                                                    id: "todo_assignee_code",
+                                                    name: "todo[assignee_code]"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "⎈" } },
+                                                    [_vm._v("Loading...")]
+                                                  )
+                                                ]
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "email_notice confirmation",
+                                                attrs: {
+                                                  "data-display":
+                                                    "email-warning-confirmation-on"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "email_warning"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        attrs: {
+                                                          "data-role":
+                                                            "assignee_first_name"
+                                                        }
+                                                      },
+                                                      [_vm._v("This person")]
+                                                    ),
+                                                    _vm._v(
+                                                      " turned off email notifications and won’t get an email about this to-do.\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "email_warning"
+                                                  },
+                                                  [_vm._v("Assign it anyway?")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "p",
+                                                  { staticClass: "submit" },
+                                                  [
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "action_button button",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "confirm_assignee_change",
+                                                          href: "#"
+                                                        }
+                                                      },
+                                                      [_vm._v("Yes, assign it")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "cancel_assignee_change",
+                                                          href: "#"
+                                                        }
+                                                      },
+                                                      [_vm._v("Cancel")]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                attrs: {
+                                                  "data-display":
+                                                    "email-warning-confirmation-off"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "email_notice"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass: "alert",
+                                                        staticStyle: {
+                                                          display: "none"
+                                                        },
+                                                        attrs: {
+                                                          "data-display":
+                                                            "email-warning-on"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "This person won’t get an email because they turned off email notifications"
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticStyle: {
+                                                          display: "none"
+                                                        },
+                                                        attrs: {
+                                                          "data-display":
+                                                            "email-warning-off"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "The person you select will be notified by email"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "label",
+                                                  { staticClass: "due_date" },
+                                                  [
+                                                    _c("b", [
+                                                      _vm._v(
+                                                        "Set the due date:"
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("hr"),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "alt_date_field",
+                                                        name: "todo[due_at]",
+                                                        type: "hidden"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("div", {
+                                                      staticClass:
+                                                        "notranslate",
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "date_picker"
+                                                      }
+                                                    })
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("footer", [
+                                                  _c(
+                                                    "a",
+                                                    {
+                                                      staticClass:
+                                                        "no_date decorated",
+                                                      attrs: {
+                                                        "data-behavior":
+                                                          "no_due_date",
+                                                        href: "#"
+                                                      }
+                                                    },
+                                                    [_vm._v("No due date")]
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "new",
+                    attrs: {
+                      "data-behavior": "expandable load_assignee_options"
+                    }
+                  },
+                  [
+                    _c("li", { staticClass: "collapsed_content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "decorated",
+                          attrs: {
+                            "data-behavior":
+                              "expand_on_click load_assignee_options",
+                            href: "#"
+                          }
+                        },
+                        [_vm._v("Add a to-do")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "expanded_content edit_mode" }, [
+                      _c(
+                        "article",
+                        { attrs: { "data-behavior": "file_drop_target" } },
+                        [
+                          _c(
+                            "form",
+                            {
+                              staticClass: "new_todo",
+                              attrs: {
+                                "accept-charset": "UTF-8",
+                                action: "/2501285/projects/6590988/todos",
+                                "data-behavior": "new_todo",
+                                "data-remote": "true",
+                                id: "new_todo",
+                                method: "post"
+                              }
+                            },
+                            [
+                              _c("div", { staticStyle: { display: "none" } }, [
+                                _c("input", {
+                                  attrs: {
+                                    name: "utf8",
+                                    type: "hidden",
+                                    value: "✓"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  id: "todo_todolist_id",
+                                  name: "todo[todolist_id]",
+                                  type: "hidden",
+                                  value: "49401648"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  disabled: "disabled",
+                                  name: "todo[completed]",
+                                  type: "hidden",
+                                  value: "0"
+                                }
+                              }),
+                              _c("input", {
+                                attrs: {
+                                  disabled: "disabled",
+                                  id: "todo_completed",
+                                  name: "todo[completed]",
+                                  type: "checkbox",
+                                  value: "1"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("textarea", {
+                                attrs: {
+                                  "data-behavior": "autoresize submit_on_enter",
+                                  id: "todo_content",
+                                  name: "todo[content]",
+                                  placeholder: "Add a new to-do...",
+                                  rows: "1"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "details" }, [
+                                _c("label", [
+                                  _c("strong", [_vm._v("Assigned to:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      attrs: {
+                                        "data-behavior": "assignee_options",
+                                        "data-private": "false",
+                                        "data-project-id": "6590988",
+                                        id: "todo_asvcvcvcvsignee_code",
+                                        name: "todo[assignee_code]"
+                                      }
+                                    },
+                                    [
+                                      _c("option", { attrs: { value: "⎈" } }, [
+                                        _vm._v("Loading...")
+                                      ])
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("label", [
+                                  _c("strong", [_vm._v("Due on:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "pill has_balloon",
+                                      attrs: {
+                                        "data-behavior":
+                                          "expandable expand_exclusively"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            "data-behavior": "expand_on_click",
+                                            href: "#"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "time",
+                                            {
+                                              attrs: {
+                                                "data-behavior": "due_date",
+                                                "data-blank-text": "No due date"
+                                              }
+                                            },
+                                            [_vm._v("No due date")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "balloon right_side expanded_content"
+                                        },
+                                        [
+                                          _c("span", { staticClass: "arrow" }),
+                                          _vm._v(" "),
+                                          _c("span", { staticClass: "arrow" }),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            attrs: {
+                                              "data-behavior": "alt_date_field",
+                                              name: "todo[due_at]",
+                                              type: "hidden"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("div", {
+                                            staticClass: "notranslate",
+                                            attrs: {
+                                              "data-behavior": "date_picker"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("footer", [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "no_date",
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "no_due_date",
+                                                  href: "#"
+                                                }
+                                              },
+                                              [_vm._v("No due date")]
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "notification_info",
+                                    attrs: {
+                                      "data-display":
+                                        "email-warning-confirmation-off"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass: "warning",
+                                        staticStyle: { display: "none" },
+                                        attrs: {
+                                          "data-display": "email-warning-on"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-role": "assignee_first_name"
+                                            }
+                                          },
+                                          [_vm._v("This person")]
+                                        ),
+                                        _vm._v(
+                                          "\n                                                            won’t get an email because they turned off email\n                                                            notifications.\n                                                        "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticStyle: { display: "none" },
+                                        attrs: {
+                                          "data-display":
+                                            "email-warning-off email-message-on"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-role": "assignee_first_name"
+                                            }
+                                          },
+                                          [_vm._v("This person")]
+                                        ),
+                                        _vm._v(
+                                          "\n                                                            will be notified by email.\n                                                        "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    attrs: {
+                                      "data-behavior":
+                                        "expandable todo_attachments"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "collapsed_content" },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "decorated expand_attachments",
+                                            attrs: {
+                                              "data-behavior":
+                                                "expand_on_click",
+                                              href: "#"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Attach\n                                                                files..."
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "expanded_content" },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "attachments",
+                                            attrs: {
+                                              "data-behavior":
+                                                "pending_attachments file_drop_target",
+                                              "data-sortable": "true"
+                                            }
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass: "prompt_graphic"
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "file_input_button"
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-without-features":
+                                                        "files_api"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        To attach files\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-with-features":
+                                                        "files_api"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        To attach files drag & drop here or\n                                                                    "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "file_input_container"
+                                                  },
+                                                  [
+                                                    _c("input", {
+                                                      attrs: {
+                                                        name: "file",
+                                                        type: "file",
+                                                        multiple: "",
+                                                        onchange:
+                                                          "$(document).trigger('ie:change', this)",
+                                                        tabindex: "-1"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "decorated",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "local_file_picker",
+                                                          href: "#",
+                                                          tabindex: "-1"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "select files from your computer…"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-behavior":
+                                                        "load_google_client"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                                        or "
+                                                    ),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "decorated",
+                                                        attrs: {
+                                                          "data-behavior":
+                                                            "google_file_picker",
+                                                          href: "#",
+                                                          tabindex: "-1"
+                                                        }
+                                                      },
+                                                      [_vm._v("Google Docs…")]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("ul", {
+                                              staticClass:
+                                                "pending_attachments ui-sortable",
+                                              attrs: {
+                                                "data-role": "accept_as_input"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "picker_account_switcher",
+                                            attrs: {
+                                              "data-behavior":
+                                                "picker_account_switcher"
+                                            }
+                                          },
+                                          [
+                                            _c("strong", [
+                                              _vm._v(
+                                                "You’re signed in to Google as "
+                                              ),
+                                              _c("span", {
+                                                attrs: {
+                                                  "data-role":
+                                                    "picker_account_email"
+                                                }
+                                              })
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "google_account_switcher",
+                                                  href: "#"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Sign\n                                                                    out and use a different Google account"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "google_connector",
+                                            attrs: {
+                                              "data-behavior":
+                                                "google_connector"
+                                            }
+                                          },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Connect your Google account"
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(
+                                                "\n                                                                    Before you can attach Google Docs in Basecamp,\n                                                                    we’ll need your OK first. Do you want to connect\n                                                                    your account now?\n                                                                "
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", { staticClass: "submit" }, [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass: "action_button",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "create_google_file_picker"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                        Yes, connect my Google account\n                                                                    "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(
+                                                "\n                                                                    or "
+                                              ),
+                                              _c(
+                                                "a",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "cancel_google_connect",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              )
+                                            ])
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "google_connector",
+                                            attrs: {
+                                              "data-behavior":
+                                                "google_connector_access_denied"
+                                            }
+                                          },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Basecamp couldn’t access your Google\n                                                                        account"
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(
+                                                "\n                                                                    To attach Google Docs, you’ll need to give\n                                                                    Basecamp permission. Do you want to try again?\n                                                                "
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", { staticClass: "submit" }, [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass: "action_button",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "create_google_file_picker"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                        Connect a Google account\n                                                                    "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(
+                                                "\n                                                                    or "
+                                              ),
+                                              _c(
+                                                "a",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "cancel_google_connect",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "submit" }, [
+                                _c("input", {
+                                  staticClass: "action_button",
+                                  attrs: {
+                                    "data-role": "uploader",
+                                    name: "commit",
+                                    type: "submit",
+                                    value: "Add this to-do"
+                                  }
+                                }),
+                                _vm._v(
+                                  " or\n                                                    "
+                                ),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "decorated",
+                                    attrs: {
+                                      "data-behavior": "cancel",
+                                      "data-role": "cancel",
+                                      href: "#"
+                                    }
+                                  },
+                                  [_vm._v("I'm done adding to-dos")]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("ul", { staticClass: "completed truncated" })
+              ]
+            )
+          ]
+        )
+      ]
+    )
+>>>>>>> ecca18b4a9f2c73c5e5ae082b42788a581202e7a
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+<<<<<<< HEAD
+    return _c("div", { staticClass: "copied_notice" }, [
+      _c("div", { staticClass: "body" }, [
+        _c(
+          "div",
+          {
+            staticStyle: { display: "none" },
+            attrs: { "data-role": "just_copied" }
+          },
+          [
+            _c("h1", [
+              _c("span", { attrs: { "data-role": "copy_operation_creator" } }),
+              _vm._v(" just copied this page"),
+              _c("span", {
+                attrs: { "data-role": "copy_destination_project_name" }
+              }),
+              _vm._v(".\n                                ")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "a",
+                {
+                  staticStyle: { "text-decoration": "underline" },
+                  attrs: { "data-behavior": "close_copied_notice", href: "#" }
+                },
+                [_vm._v("Go back to the original")]
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticStyle: { display: "none" },
+                  attrs: { "data-behavior": "show_copied_link_if_accessible" }
+                },
+                [
+                  _vm._v("or "),
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { "text-decoration": "underline" },
+                      attrs: { "data-default-stack": "true", href: "" }
+                    },
+                    [_vm._v("See it in its new location")]
+                  ),
+                  _vm._v(" →")
+                ]
+              )
+            ])
+          ]
+=======
+    return _c("div", { staticClass: "more_lists" }, [
+      _c("p", { staticClass: "completed" }, [
+        _c(
+          "a",
+          {
+            staticClass: "decorated",
+            attrs: { href: "/2501285/projects/6590988/todolists/completed" }
+          },
+          [_vm._v("56 completed\n                                to-dos")]
+        ),
+        _vm._v(
+          "\n\n                            across 26 to-do lists\n                        "
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "completed" }, [
+        _vm._v("\n                            Completed lists: "),
+        _c(
+          "a",
+          {
+            staticClass: "decorated",
+            attrs: { href: "/2501285/projects/6590988/todolists/46596032" }
+          },
+          [_vm._v("\n                            Gymreapers.com")]
+        ),
+        _vm._v(", "),
+        _c(
+          "a",
+          {
+            staticClass: "decorated",
+            attrs: { href: "/2501285/projects/6590988/todolists/43680349" }
+          },
+          [_vm._v("Akal\n                            Transport site updates")]
+>>>>>>> ecca18b4a9f2c73c5e5ae082b42788a581202e7a
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+<<<<<<< HEAD
+    return _c("div", { staticClass: "attachments" }, [
+      _c(
+        "div",
+        {
+          staticClass: "partitioned_attachments ",
+          attrs: { id: "attachments_for_message_74076213" }
+        },
+        [_c("div", { staticClass: "attachments_actions" })]
+=======
+    return _c("div", { staticClass: "column icon" }, [
+      _c("span", { staticClass: "text-doc-icon" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column date" }, [
+      _c("span", { staticClass: "description" }, [_vm._v("on ")]),
+      _vm._v(" "),
+      _c(
+        "time",
+        {
+          attrs: {
+            "data-local": "date",
+            datetime: "2017-11-09T07:20:04Z",
+            title: "November 9, 2017 at 12:50pm ",
+            "data-localized": "true"
+          }
+        },
+        [_vm._v("Nov 9\n                                        ")]
+>>>>>>> ecca18b4a9f2c73c5e5ae082b42788a581202e7a
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+<<<<<<< HEAD
+    return _c(
+      "div",
+      {
+        staticClass: "partitioned_attachments ",
+        attrs: { id: "attachments_for_comment_579199320" }
+      },
+      [_c("div", { staticClass: "attachments_actions" })]
+    )
+=======
+    return _c("div", { staticClass: "column actions" }, [
+      _c(
+        "a",
+        {
+          staticClass: "button edit",
+          attrs: { href: "/2501285/projects/6590988/documents/12905846/edit" }
+        },
+        [_vm._v("Edit…")]
+      )
+    ])
+>>>>>>> ecca18b4a9f2c73c5e5ae082b42788a581202e7a
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-48952bce", module.exports)
+  }
+}
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(52)
+/* template */
+var __vue_template__ = __webpack_require__(53)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\todo\\TodoComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-05755590", Component.options)
+  } else {
+    hotAPI.reload("data-v-05755590", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'TodoComponent',
+    data: function data() {
+        return {
+            open: true,
+            clicked: false,
+            todoListName: ''
+        };
+    },
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    },
+
+
+    methods: {
+        createNewTodoList: function createNewTodoList() {
+            console.log('clicked');
+            this.clicked = true;
+        },
+        cancelNewTodo: function cancelNewTodo() {
+            this.clicked = false;
+        }
+    }
+});
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "panel sheet todolists has_sidebar",
+      staticStyle: { "margin-left": "20px", "margin-bottom": "-20px" }
+    },
+    [
+      _c("title", [_vm._v("Random Projects: To-do lists")]),
+      _vm._v(" "),
+      _c("header", { staticClass: "has_buttons" }, [
+        _c("h1", { staticClass: "inactive_title" }, [
+          _vm._v("See all to-do lists")
+        ]),
+        _vm._v(" "),
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _c("span", { staticClass: "position_reference" }, [
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.clicked,
+                  expression: "!clicked"
+                }
+              ],
+              staticClass: "action_button",
+              attrs: { "data-behavior": "new_todolist" },
+              on: { click: _vm.createNewTodoList }
+            },
+            [_vm._v("Add a to-do list")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "blank_slate_arrow" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "sheet_body" }, [
+        _c(
+          "section",
+          {
+            staticClass: "todos",
+            attrs: { "data-collection-name": "todolists" }
+          },
+          [
+            _vm._m(1, false, false),
+            _vm._v(" "),
+            _c(
+              "article",
+              {
+                staticClass: "todolist new",
+                attrs: { "data-behavior": "expandable hide_buttons_on_expand" }
+              },
+              [
+                _c("header", { staticClass: "expanded_content" }, [
+                  _c(
+                    "form",
+                    {
+                      staticClass: "new_todolist",
+                      attrs: {
+                        "accept-charset": "UTF-8",
+                        action: "/2501285/projects/6590988/todolists",
+                        "data-remote": "true",
+                        id: "new_todolist",
+                        method: "post"
+                      }
+                    },
+                    [
+                      _vm._m(2, false, false),
+                      _vm._v(" "),
+                      _c("header", { staticClass: "text_entry" }, [
+                        _c("h3", [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.todoListName,
+                                expression: "todoListName"
+                              }
+                            ],
+                            attrs: {
+                              id: "todoliswert_name",
+                              name: "todolist[name]",
+                              size: "10",
+                              type: "text",
+                              value: "Give the list a title",
+                              autofocus: ""
+                            },
+                            domProps: { value: _vm.todoListName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.todoListName = $event.target.value
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3, false, false),
+                      _vm._v(" "),
+                      _vm._m(4, false, false),
+                      _vm._v(" "),
+                      _vm._m(5, false, false)
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "todolists",
+                attrs: {
+                  "data-autoload-url": "false",
+                  "data-behavior": "sortable_container",
+                  "data-sortable-type": "todolist"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.clicked,
+                        expression: "clicked"
+                      }
+                    ]
+                  },
+                  [
+                    _c(
+                      "article",
+                      {
+                        staticClass: "todolist new expanded",
+                        attrs: {
+                          "data-behavior": "expandable hide_buttons_on_expand"
+                        }
+                      },
+                      [
+                        _c("header", { staticClass: "expanded_content" }, [
+                          _c(
+                            "form",
+                            {
+                              staticClass: "new_todolist",
+                              attrs: {
+                                "accept-charset": "UTF-8",
+                                action: "/projects/1/xyz/todolists",
+                                "data-remote": "true",
+                                id: "new_todolist",
+                                method: "post"
+                              }
+                            },
+                            [
+                              _vm._m(6, false, false),
+                              _vm._v(" "),
+                              _vm._m(7, false, false),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "submit" }, [
+                                _c("input", {
+                                  attrs: {
+                                    name: "commit",
+                                    type: "submit",
+                                    value: "Save and start adding to-dos"
+                                  }
+                                }),
+                                _vm._v(
+                                  " or\n                                    "
+                                ),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "cancel",
+                                    attrs: {
+                                      "data-behavior": "cancel",
+                                      "data-role": "cancel",
+                                      href: "#"
+                                    },
+                                    on: { click: _vm.cancelNewTodo }
+                                  },
+                                  [_vm._v("Cancel")]
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(8, false, false)
+              ]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(9, false, false)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "active_title" }, [
+      _c("h1", [_vm._v("To-do lists")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h3",
+      {
+        staticClass: "filtered_header",
+        attrs: { "data-behavior": "todo_filter_header" }
+      },
+      [
+        _vm._v("\n                    Showing to-dos\n                    "),
+        _c("span", { attrs: { "data-behavior": "assigned_to" } }, [
+          _vm._v("assigned to "),
+          _c("span", { attrs: { "data-behavior": "value" } })
+        ]),
+        _vm._v(" "),
+        _c("span", { attrs: { "data-behavior": "filter_and" } }, [
+          _vm._v("and")
+        ]),
+        _vm._v(" "),
+        _c("span", { attrs: { "data-behavior": "filter_due" } }, [
+          _vm._v("\n              due "),
+          _c("span", { attrs: { "data-behavior": "value" } })
+        ]),
+        _vm._v("\n                    – "),
+        _c(
+          "a",
+          {
+            staticClass: "decorated",
+            attrs: { "data-behavior": "show_all_todos", href: "#" }
+          },
+          [_vm._v("Show all to-dos")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticStyle: { display: "none" } }, [
+      _c("input", { attrs: { name: "utf8", type: "hidden", value: "✓" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "balloon right_side expanded_content" }, [
+      _c("span", { staticClass: "arrow" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "arrow" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "close" }, [
+        _c(
+          "a",
+          {
+            staticClass: "decorated",
+            attrs: { "data-behavior": "collapse_on_click", href: "#" }
+          },
+          [_vm._v("Close")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Working with clients?")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _c(
+          "a",
+          {
+            staticClass: "decorated",
+            attrs: { href: "/2501285/projects/6590988/accesses#client" }
+          },
+          [_vm._v("Invite your first client to this project...")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticStyle: { display: "none" } }, [
+      _c("div", {
+        attrs: {
+          "data-behavior": "lazy_load_subscribers",
+          "data-url":
+            "/2501285/projects/6590988/subscribers?subscribable_type=Todolist"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "submit" }, [
+      _c("input", {
+        attrs: {
+          name: "commit",
+          type: "submit",
+          value: "Save and start adding to-dos"
+        }
+      }),
+      _vm._v(" or\n                                "),
+      _c(
+        "a",
+        {
+          staticClass: "cancel",
+          attrs: { "data-behavior": "cancel", "data-role": "cancel", href: "#" }
+        },
+        [_vm._v("Cancel")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticStyle: { display: "none" } }, [
+      _c("input", { attrs: { name: "utf8", type: "hidden", value: "✓" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "text_entry" }, [
+      _c("h3", [
+        _c("input", {
+          attrs: {
+            id: "todolist_name",
+            name: "todolist[name]",
+            size: "10",
+            type: "text",
+            value: "Give the list a title"
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      {
+        attrs: {
+          "data-behavior": "sortable",
+          "data-sortable-type": "todolist",
+          id: "sortable_todolist_48308664"
+        }
+      },
+      [
+        _c(
+          "article",
+          {
+            staticClass: "todolist",
+            attrs: {
+              id: "todolist_48308664",
+              "data-url": "/2501285/projects/6590988/todolists/48308664",
+              "data-behavior": "expandable"
+            }
+          },
+          [
+            _c(
+              "header",
+              {
+                staticClass: "collapsed_content",
+                attrs: { "data-behavior": "has_hover_content" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "nubbin",
+                    staticStyle: { display: "none", left: "-61px" },
+                    attrs: { "data-behavior": "nubbin hover_content" }
+                  },
+                  [
+                    _c("div", { staticClass: "spacer" }),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "image delete",
+                        attrs: {
+                          "data-confirm":
+                            "Are you sure you want to delete this to-do list?",
+                          "data-method": "post",
+                          "data-remote": "true",
+                          href:
+                            "/2501285/projects/6590988/todolists/48308664/trash",
+                          rel: "nofollow"
+                        }
+                      },
+                      [_vm._v("Delete")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "edit",
+                        attrs: { "data-behavior": "edit", href: "#" }
+                      },
+                      [_vm._v("Edit")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("h3", { attrs: { "data-behavior": "sortable_handle" } }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "linked_title",
+                      attrs: {
+                        href: "/2501285/projects/6590988/todolists/48308664"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "project_name" }, [
+                        _vm._v("Random Projects —")
+                      ]),
+                      _vm._v(
+                        "\n                                        Joomla Website Tasks (bestessayhub.com)\n                                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "unlinked_title" }, [
+                    _vm._v("Joomla Website Tasks (bestessayhub.com)")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [_c("em")])
+              ]
+            ),
+            _vm._v(" "),
+            _c("header", { staticClass: "expanded_content" }, [
+              _c(
+                "form",
+                {
+                  staticClass: "edit_todolist",
+                  attrs: {
+                    "accept-charset": "UTF-8",
+                    action: "/2501285/projects/6590988/todolists/48308664",
+                    "data-remote": "true",
+                    id: "edit_todolist_48308664",
+                    method: "post"
+                  }
+                },
+                [
+                  _c("div", { staticStyle: { display: "none" } }, [
+                    _c("input", {
+                      attrs: { name: "utf8", type: "hidden", value: "✓" }
+                    }),
+                    _c("input", {
+                      attrs: { name: "_method", type: "hidden", value: "patch" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("header", { staticClass: "text_entry" }, [
+                    _c("h3", [
+                      _c("input", {
+                        attrs: {
+                          id: "todolist_name",
+                          name: "todolist[name]",
+                          size: "10",
+                          type: "text",
+                          value: "Joomla Website Tasks (bestessayhub.com)"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c("em", [
+                        _c("textarea", {
+                          attrs: {
+                            "data-behavior": "autoresize submit_on_enter",
+                            id: "todolist_description",
+                            name: "todolist[description]",
+                            placeholder: "Optional: describe this list",
+                            rows: "1"
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "balloon right_side expanded_content" },
+                    [
+                      _c("span", { staticClass: "arrow" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "arrow" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "close" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "decorated",
+                            attrs: {
+                              "data-behavior": "collapse_on_click",
+                              href: "#"
+                            }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h5", [_vm._v("Working with clients?")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "decorated",
+                            attrs: {
+                              href: "/2501285/projects/6590988/accesses#client"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "Invite your first client to this project..."
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticStyle: { display: "none" } }, [
+                    _c("div", {
+                      attrs: {
+                        "data-behavior": "lazy_load_subscribers",
+                        "data-url":
+                          "/2501285/projects/6590988/subscribers?subscribable_id=48308664&subscribable_type=Todolist"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "submit" }, [
+                    _c("input", {
+                      attrs: {
+                        name: "commit",
+                        type: "submit",
+                        value: "Save changes"
+                      }
+                    }),
+                    _vm._v(" or\n                                        "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "cancel",
+                        attrs: {
+                          "data-behavior": "cancel",
+                          "data-role": "cancel",
+                          href: "#"
+                        }
+                      },
+                      [_vm._v("Cancel")]
+                    )
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "todos ",
+                attrs: {
+                  "data-behavior": "sortable_container",
+                  "data-sortable-type": "todo"
+                }
+              },
+              [
+                _c(
+                  "li",
+                  {
+                    staticClass: "todo show",
+                    attrs: {
+                      "data-assignee-code": "p15316135",
+                      "data-behavior": "has_hover_content sortable",
+                      "data-sortable-type": "todo",
+                      "data-url": "/2501285/projects/6590988/todos/324566530",
+                      id: "todo_324566530"
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "nubbin",
+                        staticStyle: { display: "none", left: "-61px" },
+                        attrs: { "data-behavior": "nubbin hover_content" }
+                      },
+                      [
+                        _c("div", { staticClass: "spacer" }),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "image delete",
+                            attrs: {
+                              "data-confirm":
+                                "Are you sure you want to delete this to-do?",
+                              "data-method": "post",
+                              "data-remote": "true",
+                              href:
+                                "/2501285/projects/6590988/todos/324566530/trash",
+                              rel: "nofollow"
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "edit",
+                            attrs: {
+                              "data-remote": "true",
+                              "data-url":
+                                "/2501285/projects/6590988/todos/324566530/edit",
+                              href: "#"
+                            }
+                          },
+                          [_vm._v("Edit")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", {}, [
+                      _c("span", { staticClass: "wrapper" }, [
+                        _c("input", {
+                          attrs: {
+                            "data-behavior": "toggle",
+                            "data-url":
+                              "/2501285/projects/6590988/todos/324566530/toggle",
+                            name: "todo_complete",
+                            type: "checkbox",
+                            value: "1"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass: "content",
+                            attrs: { "data-behavior": "sortable_handle" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href:
+                                    "/2501285/projects/6590988/todos/324566530"
+                                }
+                              },
+                              [_vm._v("Responsive of website")]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "content_for_perma" }, [
+                              _vm._v("Responsive of website")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass: "pill comments",
+                            attrs: { "data-comments-counter": "" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href:
+                                    "/2501285/projects/6590988/todos/324566530"
+                                }
+                              },
+                              [_vm._v("1 comment")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "form",
+                          {
+                            staticClass: "edit_todo",
+                            attrs: {
+                              "accept-charset": "UTF-8",
+                              action:
+                                "/2501285/projects/6590988/todos/324566530",
+                              "data-remote": "true",
+                              id: "edit_todo_324566530",
+                              method: "post"
+                            }
+                          },
+                          [
+                            _c("div", { staticStyle: { display: "none" } }, [
+                              _c("input", {
+                                attrs: {
+                                  name: "utf8",
+                                  type: "hidden",
+                                  value: "✓"
+                                }
+                              }),
+                              _c("input", {
+                                attrs: {
+                                  name: "_method",
+                                  type: "hidden",
+                                  value: "patch"
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              { staticStyle: { position: "relative" } },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "pill has_balloon",
+                                    attrs: {
+                                      "data-behavior":
+                                        "expandable expand_exclusively load_assignee_options"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          "data-behavior": "expand_on_click",
+                                          href: "#"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            attrs: {
+                                              "data-behavior": "assignee_name",
+                                              "data-blank-text": "Unassigned"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                attrs: {
+                                                  "data-behavior":
+                                                    "todo_assignee_present"
+                                                }
+                                              },
+                                              [_vm._v("Ashish Sharma")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("time", {
+                                          attrs: {
+                                            "data-behavior": "due_date",
+                                            "data-blank-text": "No due date"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass:
+                                          "balloon right_side expanded_content"
+                                      },
+                                      [
+                                        _c("span", { staticClass: "arrow" }),
+                                        _vm._v(" "),
+                                        _c("span", { staticClass: "arrow" }),
+                                        _vm._v(" "),
+                                        _c("label", [
+                                          _c("b", [
+                                            _vm._v("Assign this to-do to:")
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "select",
+                                            {
+                                              attrs: {
+                                                "data-assignee-code":
+                                                  "p15316135",
+                                                "data-behavior":
+                                                  "assignee_options",
+                                                "data-original-assignee-code":
+                                                  "p15316135",
+                                                "data-private": "false",
+                                                "data-project-id": "6590988",
+                                                id: "todo_assignee_code",
+                                                name: "todo[assignee_code]"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "⎈" } },
+                                                [_vm._v("Loading...")]
+                                              )
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "email_notice confirmation",
+                                            attrs: {
+                                              "data-display":
+                                                "email-warning-confirmation-on"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "p",
+                                              { staticClass: "email_warning" },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    attrs: {
+                                                      "data-role":
+                                                        "assignee_first_name"
+                                                    }
+                                                  },
+                                                  [_vm._v("This person")]
+                                                ),
+                                                _vm._v(
+                                                  " turned off email notifications and won’t get an email about this to-do.\n        "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "p",
+                                              { staticClass: "email_warning" },
+                                              [_vm._v("Assign it anyway?")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("p", { staticClass: "submit" }, [
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticClass:
+                                                    "action_button button",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "confirm_assignee_change",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("Yes, assign it")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "a",
+                                                {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "cancel_assignee_change",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              )
+                                            ])
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            attrs: {
+                                              "data-display":
+                                                "email-warning-confirmation-off"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              { staticClass: "email_notice" },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "alert",
+                                                    staticStyle: {
+                                                      display: "none"
+                                                    },
+                                                    attrs: {
+                                                      "data-display":
+                                                        "email-warning-on"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "This person won’t get an email because they turned off email notifications"
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticStyle: {
+                                                      display: "none"
+                                                    },
+                                                    attrs: {
+                                                      "data-display":
+                                                        "email-warning-off"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "The person you select will be notified by email"
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "label",
+                                              { staticClass: "due_date" },
+                                              [
+                                                _c("b", [
+                                                  _vm._v("Set the due date:")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("hr"),
+                                                _vm._v(" "),
+                                                _c("input", {
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "alt_date_field",
+                                                    name: "todo[due_at]",
+                                                    type: "hidden"
+                                                  }
+                                                }),
+                                                _vm._v(" "),
+                                                _c("div", {
+                                                  staticClass: "notranslate",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "date_picker"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("footer", [
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticClass:
+                                                    "no_date decorated",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "no_due_date",
+                                                    href: "#"
+                                                  }
+                                                },
+                                                [_vm._v("No due date")]
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "new",
+                attrs: { "data-behavior": "expandable load_assignee_options" }
+              },
+              [
+                _c("li", { staticClass: "collapsed_content" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "decorated",
+                      attrs: {
+                        "data-behavior":
+                          "expand_on_click load_assignee_options",
+                        href: "#"
+                      }
+                    },
+                    [_vm._v("Add a to-do")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "expanded_content edit_mode" }, [
+                  _c(
+                    "article",
+                    { attrs: { "data-behavior": "file_drop_target" } },
+                    [
+                      _c(
+                        "form",
+                        {
+                          staticClass: "new_todo",
+                          attrs: {
+                            "accept-charset": "UTF-8",
+                            action: "/2501285/projects/6590988/todos",
+                            "data-behavior": "new_todo",
+                            "data-remote": "true",
+                            id: "new_todo",
+                            method: "post"
+                          }
+                        },
+                        [
+                          _c("div", { staticStyle: { display: "none" } }, [
+                            _c("input", {
+                              attrs: {
+                                name: "utf8",
+                                type: "hidden",
+                                value: "✓"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            attrs: {
+                              id: "todo_todolist_id",
+                              name: "todo[todolist_id]",
+                              type: "hidden",
+                              value: "48308664"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("input", {
+                            attrs: {
+                              disabled: "disabled",
+                              name: "todo[completed]",
+                              type: "hidden",
+                              value: "0"
+                            }
+                          }),
+                          _c("input", {
+                            attrs: {
+                              disabled: "disabled",
+                              id: "todo_completed",
+                              name: "todo[completed]",
+                              type: "checkbox",
+                              value: "1"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            attrs: {
+                              "data-behavior": "autoresize submit_on_enter",
+                              id: "todo_content",
+                              name: "todo[content]",
+                              placeholder: "Add a new to-do...",
+                              rows: "1"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "details" }, [
+                            _c("label", [
+                              _c("strong", [_vm._v("Assigned to:")]),
+                              _vm._v(" "),
+                              _c(
+                                "select",
+                                {
+                                  attrs: {
+                                    "data-behavior": "assignee_options",
+                                    "data-private": "false",
+                                    "data-project-id": "6590988",
+                                    id: "todo_assignee_code",
+                                    name: "todo[assignee_code]"
+                                  }
+                                },
+                                [
+                                  _c("option", { attrs: { value: "⎈" } }, [
+                                    _vm._v("Loading...")
+                                  ])
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("label", [
+                              _c("strong", [_vm._v("Due on:")]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "pill has_balloon",
+                                  attrs: {
+                                    "data-behavior":
+                                      "expandable expand_exclusively"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        "data-behavior": "expand_on_click",
+                                        href: "#"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "time",
+                                        {
+                                          attrs: {
+                                            "data-behavior": "due_date",
+                                            "data-blank-text": "No due date"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n            No due date\n        "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "balloon right_side expanded_content"
+                                    },
+                                    [
+                                      _c("span", { staticClass: "arrow" }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "arrow" }),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        attrs: {
+                                          "data-behavior": "alt_date_field",
+                                          name: "todo[due_at]",
+                                          type: "hidden"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "notranslate",
+                                        attrs: {
+                                          "data-behavior": "date_picker"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("footer", [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "no_date",
+                                            attrs: {
+                                              "data-behavior": "no_due_date",
+                                              href: "#"
+                                            }
+                                          },
+                                          [_vm._v("No due date")]
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "notification_info",
+                                attrs: {
+                                  "data-display":
+                                    "email-warning-confirmation-off"
+                                }
+                              },
+                              [
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass: "warning",
+                                    staticStyle: { display: "none" },
+                                    attrs: {
+                                      "data-display": "email-warning-on"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "span",
+                                      {
+                                        attrs: {
+                                          "data-role": "assignee_first_name"
+                                        }
+                                      },
+                                      [_vm._v("This person")]
+                                    ),
+                                    _vm._v(
+                                      "\n                                                        won’t get an email because they turned off email notifications.\n                                                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: { display: "none" },
+                                    attrs: {
+                                      "data-display":
+                                        "email-warning-off email-message-on"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "span",
+                                      {
+                                        attrs: {
+                                          "data-role": "assignee_first_name"
+                                        }
+                                      },
+                                      [_vm._v("This person")]
+                                    ),
+                                    _vm._v(
+                                      "\n                                                        will be notified by email.\n                                                    "
+                                    )
+                                  ]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                attrs: {
+                                  "data-behavior": "expandable todo_attachments"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "collapsed_content" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass:
+                                          "decorated expand_attachments",
+                                        attrs: {
+                                          "data-behavior": "expand_on_click",
+                                          href: "#"
+                                        }
+                                      },
+                                      [_vm._v("Attach files...")]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "expanded_content" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "attachments",
+                                      attrs: {
+                                        "data-behavior":
+                                          "pending_attachments file_drop_target",
+                                        "data-sortable": "true"
+                                      }
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass: "prompt_graphic"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "file_input_button" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              attrs: {
+                                                "data-without-features":
+                                                  "files_api"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n      To attach files\n    "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              attrs: {
+                                                "data-with-features":
+                                                  "files_api"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n      To attach files drag & drop here or\n    "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "file_input_container"
+                                            },
+                                            [
+                                              _c("input", {
+                                                attrs: {
+                                                  name: "file",
+                                                  type: "file",
+                                                  multiple: "",
+                                                  onchange:
+                                                    "$(document).trigger('ie:change', this)",
+                                                  tabindex: "-1"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticClass: "decorated",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "local_file_picker",
+                                                    href: "#",
+                                                    tabindex: "-1"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "select files from your computer…"
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              attrs: {
+                                                "data-behavior":
+                                                  "load_google_client"
+                                              }
+                                            },
+                                            [
+                                              _vm._v("\n      or "),
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticClass: "decorated",
+                                                  attrs: {
+                                                    "data-behavior":
+                                                      "google_file_picker",
+                                                    href: "#",
+                                                    tabindex: "-1"
+                                                  }
+                                                },
+                                                [_vm._v("Google Docs…")]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("ul", {
+                                        staticClass:
+                                          "pending_attachments ui-sortable",
+                                        attrs: {
+                                          "data-role": "accept_as_input"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "picker_account_switcher",
+                                      attrs: {
+                                        "data-behavior":
+                                          "picker_account_switcher"
+                                      }
+                                    },
+                                    [
+                                      _c("strong", [
+                                        _vm._v(
+                                          "You’re signed in to Google as "
+                                        ),
+                                        _c("span", {
+                                          attrs: {
+                                            "data-role": "picker_account_email"
+                                          }
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            "data-behavior":
+                                              "google_account_switcher",
+                                            href: "#"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "Sign out and use a different Google account"
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "google_connector",
+                                      attrs: {
+                                        "data-behavior": "google_connector"
+                                      }
+                                    },
+                                    [
+                                      _c("p", [
+                                        _c("b", [
+                                          _vm._v("Connect your Google account")
+                                        ]),
+                                        _c("br"),
+                                        _vm._v(
+                                          "\n                                                                Before you can attach Google Docs in Basecamp, we’ll need your OK first. Do you want to connect your account now?\n                                                            "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", { staticClass: "submit" }, [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "action_button",
+                                            attrs: {
+                                              "data-behavior":
+                                                "create_google_file_picker"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                                    Yes, connect my Google account\n                                                                "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(
+                                          "\n                                                                or "
+                                        ),
+                                        _c(
+                                          "a",
+                                          {
+                                            attrs: {
+                                              "data-behavior":
+                                                "cancel_google_connect",
+                                              href: "#"
+                                            }
+                                          },
+                                          [_vm._v("Cancel")]
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "google_connector",
+                                      attrs: {
+                                        "data-behavior":
+                                          "google_connector_access_denied"
+                                      }
+                                    },
+                                    [
+                                      _c("p", [
+                                        _c("b", [
+                                          _vm._v(
+                                            "Basecamp couldn’t access your Google account"
+                                          )
+                                        ]),
+                                        _c("br"),
+                                        _vm._v(
+                                          "\n                                                                To attach Google Docs, you’ll need to give Basecamp permission. Do you want to try again?\n                                                            "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", { staticClass: "submit" }, [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "action_button",
+                                            attrs: {
+                                              "data-behavior":
+                                                "create_google_file_picker"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                                    Connect a Google account\n                                                                "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(
+                                          "\n                                                                or "
+                                        ),
+                                        _c(
+                                          "a",
+                                          {
+                                            attrs: {
+                                              "data-behavior":
+                                                "cancel_google_connect",
+                                              href: "#"
+                                            }
+                                          },
+                                          [_vm._v("Cancel")]
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "submit" }, [
+                            _c("input", {
+                              staticClass: "action_button",
+                              attrs: {
+                                "data-role": "uploader",
+                                name: "commit",
+                                type: "submit",
+                                value: "Add this to-do"
+                              }
+                            }),
+                            _vm._v(
+                              " or\n                                                "
+                            ),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "decorated",
+                                attrs: {
+                                  "data-behavior": "cancel",
+                                  "data-role": "cancel",
+                                  href: "#"
+                                }
+                              },
+                              [_vm._v("I'm done adding to-dos")]
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("ul", { staticClass: "completed truncated" })
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("aside", [
+      _c("p", [
+        _vm._v("\n                Show to-dos assigned to "),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            attrs: {
+              "data-behavior": "todos_assignee_filter",
+              "data-options":
+                '[{"value":"unassigned","option":"(Unassigned)"},{"value":"g1943115","option":"BD Team"},{"value":"g1954781","option":"Design Team"},{"value":"g1202686","option":"Leading Edge Team"},{"value":"g1794086","option":"Php team"},{"value":"p13361242","option":"Aditi Mehra"},{"value":"p14779244","option":"Ankush development"},{"value":"p15316135","option":"Ashish Sharma"},{"value":"p6581649","option":"Deepanshu Thakral"},{"value":"p11648374","option":"Deepika Sharma"},{"value":"p15531397","option":"Gopal Sharma"},{"value":"p13182570","option":"Harishanker ."},{"value":"p13489389","option":"Prabhjot Kaur"},{"value":"p13772519","option":"Rupali"},{"value":"p13182577","option":"Surinder kaur"},{"value":"p15159411","option":"Yograj"}]'
+            }
+          },
+          [
+            _c("option", { attrs: { value: "" } }, [_vm._v("Anyone")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "unassigned" } }, [
+              _vm._v("(Unassigned) (2)")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "p15316135" } }, [
+              _vm._v("Ashish Sharma (1)")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("\n                Show to-dos that are due "),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            attrs: {
+              "data-behavior": "todos_date_filter",
+              "data-options":
+                '[{"value":"today","option":"Today"},{"value":"tomorrow","option":"Tomorrow"},{"value":"week","option":"This week"},{"value":"nextweek","option":"Next week"},{"value":"later","option":"Later"},{"value":"past","option":"In the past (overdue)"}]'
+            }
+          },
+          [_c("option", { attrs: { value: "" } }, [_vm._v("Anytime")])]
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _c(
+          "a",
+          {
+            staticClass: "decorated",
+            attrs: { href: "/2501285/projects/6590988/todolists/completed" }
+          },
+          [_vm._v("See completed to-dos")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Current to-do lists")]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c(
+            "a",
+            {
+              staticClass: "decorated",
+              attrs: {
+                href: "/2501285/projects/6590988/todolists/48308664",
+                id: "sidebar_todolist_48308664"
+              }
+            },
+            [_vm._v("Joomla Website Tasks (bestessayhub.com)")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Completed to-do lists")]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c(
+            "a",
+            {
+              staticClass: "decorated",
+              attrs: {
+                href: "/2501285/projects/6590988/todolists/46596032",
+                id: "sidebar_todolist_46596032"
+              }
+            },
+            [_vm._v(" Gymreapers.com")]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-05755590", module.exports)
+  }
+}
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(55)
+/* template */
+var __vue_template__ = __webpack_require__(56)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\topic\\TopicComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-cfc5555c", Component.options)
+  } else {
+    hotAPI.reload("data-v-cfc5555c", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'TopicComponent',
+    data: function data() {
+        return {
+            open: true,
+            projectId: '',
+            projectName: '',
+            topics: '',
+            showError: '',
+
+            home_page: '',
+            result: ''
+        };
+    },
+    mounted: function mounted() {
+        var self = this;
+
+        this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+        this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+
+        axios.get(this.home_page + 'api/project/' + this.projectId + '/' + self.projectName + '/topics').then(function (response) {
+            self.topics = response.data.data;
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+
+    methods: {}
+});
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "workspace", attrs: { id: "workspace" } }, [
+    _c(
+      "div",
+      {
+        staticClass: "container stack_container",
+        staticStyle: { width: "980px" },
+        attrs: { "data-container-id": "2" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "panel sheet project active isnt_client_project inactive",
+            attrs: {
+              "data-behavior": " ",
+              "data-creator-id": "6581649",
+              "data-status": "active"
+            }
+          },
+          [
+            _c("header", [
+              _c("h1", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      "data-restore-position": "",
+                      href:
+                        _vm.home_page +
+                        "project/" +
+                        _vm.projectId +
+                        "/" +
+                        _vm.projectName +
+                        "/topics"
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.projectName))]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "panel sheet topics has_sorting",
+                staticStyle: {
+                  "margin-left": "20px",
+                  "margin-bottom": "-20px"
+                },
+                attrs: { "data-behavior": "" }
+              },
+              [
+                _c("title", [
+                  _vm._v(_vm._s(_vm.projectName) + ": Discussions")
+                ]),
+                _vm._v(" "),
+                _c("header", { staticClass: "has_buttons" }, [
+                  _c("h1", { staticClass: "inactive_title" }, [
+                    _vm._v("Discussions")
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0, false, false),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "actions" }, [
+                    _c("span", { staticClass: "position_reference" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "action_button button",
+                          attrs: {
+                            href:
+                              _vm.home_page +
+                              "project/" +
+                              _vm.projectId +
+                              "/" +
+                              _vm.projectName +
+                              "/messages/new"
+                          }
+                        },
+                        [_vm._v("Post a new message")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "blank_slate_arrow" })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "sheet_body" }, [
+                  _c(
+                    "section",
+                    {
+                      staticClass: "topics active",
+                      attrs: { "data-collection-name": "topics" }
+                    },
+                    [
+                      _c(
+                        "table",
+                        {
+                          staticClass: "inbox infinite_page",
+                          attrs: {
+                            "data-behavior": "infinite_page file_drop_target",
+                            "data-role": "live_filter_results",
+                            "data-infinite-page-reload": "",
+                            "data-infinite-page": "2"
+                          }
+                        },
+                        _vm._l(_vm.topics, function(topic) {
+                          return _c(
+                            "tr",
+                            {
+                              staticClass: "topic message_74066242",
+                              attrs: { id: "topic_175636030" }
+                            },
+                            [
+                              _c("td", { staticClass: "avatar" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        _vm.home_page +
+                                        "project/" +
+                                        _vm.projectId +
+                                        "/" +
+                                        _vm.projectName +
+                                        "/messages/" +
+                                        topic.topic_id
+                                    }
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass: "avatar",
+                                      attrs: {
+                                        height: "30",
+                                        src:
+                                          "//asset1.basecamp.com/2501285/people/13182570/photo/avatar.40.gif",
+                                        width: "30"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "who" }, [
+                                topic.topic_comment_latest == null
+                                  ? _c("a", {
+                                      attrs: {
+                                        href:
+                                          _vm.home_page +
+                                          "project/" +
+                                          _vm.projectId +
+                                          "/" +
+                                          _vm.projectName +
+                                          "/people/" +
+                                          topic.creater_id
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                topic.topic_comment_latest !== null
+                                  ? _c("a", {
+                                      attrs: {
+                                        href:
+                                          _vm.home_page +
+                                          "project/" +
+                                          _vm.projectId +
+                                          "/" +
+                                          _vm.projectName +
+                                          "/people/" +
+                                          topic.topic_comment_latest_posted_by
+                                            .comment_poster_id
+                                      }
+                                    })
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "what" }, [
+                                _c("div", { staticClass: "attachments" }),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        _vm.home_page +
+                                        "project/" +
+                                        _vm.projectId +
+                                        "/" +
+                                        _vm.projectName +
+                                        "/messages/" +
+                                        topic.topic_id
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "strong",
+                                      {
+                                        attrs: {
+                                          "data-role": "live_filter_highlight"
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(topic.topic_name))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "bucket_name" }, [
+                                      _vm._v(
+                                        "(" + _vm._s(_vm.projectName) + ")"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    topic.topic_comment_latest !== null
+                                      ? _c("span", { staticClass: "excerpt" }, [
+                                          _vm._v(
+                                            " - " +
+                                              _vm._s(
+                                                topic.topic_comment_latest
+                                                  .comment
+                                              )
+                                          )
+                                        ])
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    topic.topic_comment_latest === null
+                                      ? _c("span", { staticClass: "excerpt" }, [
+                                          _vm._v(
+                                            " - " + _vm._s(topic.topic_body)
+                                          )
+                                        ])
+                                      : _vm._e()
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "when" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        _vm.home_page +
+                                        "project/" +
+                                        _vm.projectId +
+                                        "/" +
+                                        _vm.projectName +
+                                        "/messages/" +
+                                        topic.topic_id
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "time",
+                                      {
+                                        attrs: {
+                                          "data-local": "time-or-date",
+                                          datetime:
+                                            topic.topic_updated_at_human,
+                                          title: topic.topic_updated_at_noob
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(topic.topic_updated_at_human) +
+                                            "\n                                        "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "comments" }, [
+                                topic.topic_comments_total > 0
+                                  ? _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          href:
+                                            _vm.home_page +
+                                            "project/" +
+                                            _vm.projectId +
+                                            "/" +
+                                            _vm.projectName +
+                                            "/messages/" +
+                                            topic.topic_id
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass: "pill comments circle"
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(topic.topic_comments_total)
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "actions" })
+                            ]
+                          )
+                        })
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "active_title with_facets" }, [
+      _c("h1", [
+        _c("span", { attrs: { "data-role": "topics_status_options" } }, [
+          _vm._v("Show discussions")
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "sort_options" }, [
+          _vm._v("sorted by\n                                "),
+          _c(
+            "div",
+            {
+              staticClass: "facet",
+              attrs: {
+                "data-behavior": "expandable collapse_on_clickoutside",
+                "data-role": "facet"
+              }
+            },
+            [
+              _c(
+                "a",
+                {
+                  attrs: {
+                    "data-behavior": "expand_on_click",
+                    "data-role": "toggle",
+                    href: "#"
+                  }
+                },
+                [_vm._v("newest")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "expanded_content balloon top_left_side" },
+                [
+                  _c("div", { staticClass: "arrow" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "arrow" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "contents" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "type selected",
+                        attrs: { "data-role": "option" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              "data-replace-sheet": "true",
+                              "data-sort": "newest",
+                              href:
+                                "/2501285/projects/6590988/topics?sort=newest"
+                            }
+                          },
+                          [_vm._v("newest")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass: "type ",
+                        attrs: { "data-role": "option" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              "data-replace-sheet": "true",
+                              "data-sort": "oldest",
+                              href:
+                                "/2501285/projects/6590988/topics?sort=oldest"
+                            }
+                          },
+                          [_vm._v("oldest")]
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v("and filter by\n                            "),
+        _c("input", {
+          staticClass: "live_filter",
+          attrs: {
+            "data-behavior": "live_filter",
+            "data-filter-url":
+              "/2501285/projects/6590988/filter?sort=newest&type=topics",
+            "data-index-url": "/2501285/projects/6590988/topics.js?sort=newest",
+            "data-type": "topics",
+            id: "",
+            placeholder: "title…",
+            type: "text"
+          }
+        })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-cfc5555c", module.exports)
+  }
+}
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(58)
+/* template */
+var __vue_template__ = __webpack_require__(59)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\message\\NewMessageComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5249720c", Component.options)
+  } else {
+    hotAPI.reload("data-v-5249720c", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'NewMessageComponent',
+    data: function data() {
+        return {
+            open: true,
+            showError: '',
+            projectId: '',
+            projectName: '',
+            csrf: '',
+
+            home_page: '',
+            result: ''
+        };
+    },
+    mounted: function mounted() {
+        var self = this;
+
+        this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+        this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+        this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
+
+        /*axios.get(this.home_page+'api/projects')
+            .then(function (response) {
+                self.projects = response.data.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });*/
+    },
+
+    methods: {}
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "workspace", attrs: { id: "workspace" } }, [
+    _c(
+      "div",
+      {
+        staticClass: "container stack_container",
+        staticStyle: { width: "1000" },
+        attrs: { "data-container-id": "2" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "panel sheet project active isnt_client_project inactive",
+            attrs: {
+              "data-behavior": " ",
+              "data-creator-id": "6581649",
+              "data-status": "active"
+            }
+          },
+          [
+            _c("header", [
+              _c("h1", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      "data-restore-position": "",
+                      href:
+                        _vm.home_page +
+                        "project/" +
+                        _vm.projectId +
+                        "/" +
+                        _vm.projectName
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.projectName))]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "panel sheet message new",
+                staticStyle: { "margin-left": "20", "margin-bottom": "-20" }
+              },
+              [
+                _c("title", [
+                  _vm._v(_vm._s(_vm.projectName) + ": Post a new message")
+                ]),
+                _vm._v(" "),
+                _vm._m(0, false, false),
+                _vm._v(" "),
+                _c("div", { staticClass: "sheet_body" }, [
+                  _c(
+                    "article",
+                    {
+                      staticClass: "message new expanded",
+                      attrs: { "data-behavior": "expandable" }
+                    },
+                    [
+                      _c(
+                        "form",
+                        {
+                          staticClass: "new_message",
+                          attrs: {
+                            "accept-charset": "UTF-8",
+                            action:
+                              _vm.home_page +
+                              "project/" +
+                              _vm.projectId +
+                              "/" +
+                              _vm.projectName +
+                              "/messages",
+                            "data-behavior": "require_input",
+                            "data-remote": "true",
+                            id: "new_message",
+                            method: "post"
+                          }
+                        },
+                        [
+                          _vm._m(1, false, false),
+                          _vm._v(" "),
+                          _c("input", {
+                            attrs: { type: "hidden", name: "_token" },
+                            domProps: { value: _vm.csrf }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(2, false, false),
+                          _vm._v(" "),
+                          _vm._m(3, false, false),
+                          _vm._v(" "),
+                          _vm._m(4, false, false)
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", [
+      _c("h1", { staticStyle: { display: "none" } }, [
+        _vm._v("Post a new message")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticStyle: { display: "none" } }, [
+      _c("input", { attrs: { name: "utf8", type: "hidden", value: "✓" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", [
+      _c("h3", [
+        _c(
+          "div",
+          {
+            staticClass: "formatted_content hidden",
+            staticStyle: {
+              position: "absolute",
+              left: "-9999px",
+              top: "0",
+              "word-wrap": "break-word",
+              "font-size": "28px",
+              "font-family": "Segue UI, helvetica, arial, sans-serif",
+              "font-weight": "400",
+              "letter-spacing": "0",
+              "line-height": "36px",
+              "text-decoration": "none solid rgb(0, 0, 0)",
+              padding: "0 0 2px",
+              "text-rendering": "auto",
+              "max-width": "830px"
+            }
+          },
+          [
+            _vm._v(
+              "\n                                        Test\n                                    "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          staticStyle: {
+            resize: "none",
+            overflow: "hidden",
+            "min-height": "37px"
+          },
+          attrs: {
+            autofocus: "autofocus",
+            "data-behavior": "autosave autoresize dirty_tracking",
+            "data-role": "accept_as_input",
+            id: "message_subject",
+            name: "message[subject]",
+            placeholder: "Type the subject of this message...",
+            rows: "1",
+            "data-autoresize": "true",
+            required: "",
+            "data-autosave-storage-key":
+              "autosave:04e35ae58879813172c08ecfa54742f2"
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        attrs: {
+          "data-behavior": "wysiwyg_container",
+          "data-wysiwyg-follow-threshold": "116"
+        }
+      },
+      [
+        _c("div", { attrs: { "data-behavior": "wysiwyg_toolbar" } }),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "body",
+          attrs: {
+            "data-role": "accept_as_input",
+            id: "message_content",
+            name: "message[content]",
+            rows: "7",
+            placeholder: "Type your message here...",
+            "data-dirty": "true",
+            required: ""
+          }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "hidden", name: "_wysihtml5_mode", value: "1" }
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "formatted_content hidden",
+            staticStyle: {
+              position: "absolute",
+              left: "-9999px",
+              top: "0",
+              "word-wrap": "break-word",
+              "font-size": "17px",
+              "font-family": "Segue UI, helvetica, arial, sans-serif",
+              "font-weight": "400",
+              "letter-spacing": "0",
+              "line-height": "25px",
+              "text-decoration": "none solid rgb(0, 0, 0)",
+              padding: "0",
+              "text-rendering": "auto",
+              "max-width": "830"
+            }
+          },
+          [
+            _vm._v(
+              "\n                                    Test message\n                                "
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "footer",
+      { attrs: { "data-behavior": "compose_footer expandable" } },
+      [
+        _c("br"),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", { staticClass: "submit" }, [
+          _c("input", {
+            staticClass: "action_button green",
+            attrs: {
+              "data-role": "uploader",
+              name: "commit",
+              type: "submit",
+              value: "Post this message"
+            }
+          })
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5249720c", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\message\\SpecificMessageComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-62667998", Component.options)
+  } else {
+    hotAPI.reload("data-v-62667998", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'SpecificMessageComponent',
@@ -55557,7 +64761,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             messageComments: '',
             home_page: '',
-            showBeforeDelete: false
+
+            commentMessage: '',
+
+            authUserId: '',
+            authUserData: ''
         };
     },
     mounted: function mounted() {
@@ -55569,6 +64777,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
         this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
         this.messageId = document.querySelector("meta[name='message-id']").getAttribute("content");
+
+        this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
 
         axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages' + '/' + this.messageId).then(function (response) {
             console.log(response.data);
@@ -55582,21 +64792,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).catch(function (error) {
             console.log(error);
         });
+
+        axios.get(this.home_page + 'api/people/' + this.authUserId).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.log(error);
+        });
     },
+
 
     methods: {
         toggle: function toggle() {
-            if (self.clicked) {
-                self.clicked = false;
-            } else {
-                self.clicked = true;
+            self.clicked = !self.clicked;
+        },
+        postComment: function postComment() {
+            var _this = this;
+
+            if (this.commentMessage !== '') {
+                axios.post(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages/' + this.messageId, {
+                    topicComment: this.commentMessage,
+                    posterId: this.authUserId
+                }).then(function (response) {
+                    _this.commentMessage = '';
+                    _this.messageComments.push(response.data.data.topic_comments[0]);
+                }).catch(function (error) {
+                    console.log(error);
+                });
             }
-        },
-        del: function del() {
-            this.showBeforeDelete = true;
-        },
-        undo: function undo() {
-            this.showBeforeDelete = false;
         }
     }
 });
@@ -55954,11 +65176,42 @@ var render = function() {
                                         }),
                                         _vm._v(" "),
                                         _c("textarea", {
-                                          attrs: {
-                                            name: "topic_comment",
-                                            width: ""
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.commentMessage,
+                                              expression: "commentMessage"
+                                            }
+                                          ],
+                                          staticStyle: { width: "100%" },
+                                          attrs: { name: "topic_comment" },
+                                          domProps: {
+                                            value: _vm.commentMessage
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.commentMessage =
+                                                $event.target.value
+                                            }
                                           }
-                                        })
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-primary",
+                                            on: {
+                                              click: function($event) {
+                                                _vm.postComment()
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Post")]
+                                        )
                                       ]
                                     )
                                   ],
@@ -56010,88 +65263,7 @@ var render = function() {
                                   ]
                                 ),
                                 _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "tool",
-                                    attrs: {
-                                      "data-behavior": "tool expandable"
-                                    }
-                                  },
-                                  [
-                                    !_vm.showBeforeDelete
-                                      ? _c(
-                                          "a",
-                                          {
-                                            attrs: {
-                                              "data-behavior":
-                                                "expand_on_click hide_on_expand",
-                                              href: "#"
-                                            },
-                                            on: {
-                                              click: function($event) {
-                                                _vm.del()
-                                              }
-                                            }
-                                          },
-                                          [_vm._v("Delete…")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.showBeforeDelete
-                                      ? _c(
-                                          "span",
-                                          {
-                                            attrs: {
-                                              "data-role": "confirm_view"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "a",
-                                              {
-                                                attrs: {
-                                                  "data-behavior":
-                                                    "tool_action",
-                                                  "data-method": "post",
-                                                  "data-remote": "true",
-                                                  href:
-                                                    _vm.home_page +
-                                                    "project/" +
-                                                    _vm.projectId +
-                                                    "/" +
-                                                    _vm.projectName +
-                                                    "/messages/" +
-                                                    _vm.messageId +
-                                                    "/trash",
-                                                  rel: "nofollow"
-                                                }
-                                              },
-                                              [_vm._v("Delete this message?")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "a",
-                                              {
-                                                staticClass: "cancel",
-                                                attrs: {
-                                                  "data-behavior":
-                                                    "collapse_on_click",
-                                                  href: "#"
-                                                },
-                                                on: {
-                                                  click: function($event) {
-                                                    _vm.undo()
-                                                  }
-                                                }
-                                              },
-                                              [_vm._v("Never mind")]
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e()
-                                  ]
-                                )
+                                _vm._m(4, false, false)
                               ]
                             )
                           ]
@@ -56241,6 +65413,56 @@ var staticRenderFns = [
         attrs: { id: "attachments_for_comment_579199320" }
       },
       [_c("div", { staticClass: "attachments_actions" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "tool", attrs: { "data-behavior": "tool expandable" } },
+      [
+        _c(
+          "a",
+          {
+            attrs: {
+              "data-behavior": "expand_on_click hide_on_expand",
+              href: "#"
+            }
+          },
+          [_vm._v("Delete…")]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          { staticClass: "confirm", attrs: { "data-role": "confirm_view" } },
+          [
+            _c(
+              "a",
+              {
+                attrs: {
+                  "data-behavior": "tool_action",
+                  "data-method": "post",
+                  "data-remote": "true",
+                  href: "/2501285/projects/6590988/messages/74076213/trash",
+                  rel: "nofollow"
+                }
+              },
+              [_vm._v("Delete this message?")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "cancel",
+                attrs: { "data-behavior": "collapse_on_click", href: "#" }
+              },
+              [_vm._v("Never mind")]
+            )
+          ]
+        )
+      ]
     )
   }
 ]
@@ -58587,209 +67809,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ViewDocumentComponent',
@@ -58805,14 +67824,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             documentTitle: '',
             documentBody: '',
             documentId: '',
+            documentComments: '',
             csrf_token: '',
-            home_page: ''
+            home_page: '',
+
+            document_comment: ''
         };
     },
 
     methods: {
         saveDocument: function saveDocument() {
             console.log('saving');
+        },
+        submitComment: function submitComment() {
+            var self = this;
+            if (this.document_comment.length != 0) {
+                axios.post(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/document' + '/' + this.documentId, {
+                    document_comment: this.document_comment
+                }).then(function (response) {
+                    if (response.data.type === 'SUCCESS') {
+                        self.documentComments.push(response.data.data);
+                        self.document_comment = '';
+                    }
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
         }
     },
     mounted: function mounted() {
@@ -58827,6 +67864,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log(response.data);
             self.documentTitle = response.data.document_title;
             self.documentBody = response.data.document_body;
+            self.documentComments = response.data.comments;
         }).catch(function (error) {
             console.log(error);
         });
@@ -58944,20 +67982,273 @@ var render = function() {
                                 staticClass: "disabled body formatted_content",
                                 attrs: { "data-skip-stacker-links": "" }
                               },
-                              [_vm._v(_vm._s(_vm.documentBody))]
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(_vm.documentBody) +
+                                    "\n                                "
+                                )
+                              ]
                             )
                           ])
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(0, false, false),
+                      _c(
+                        "section",
+                        {
+                          staticClass: "comments",
+                          attrs: {
+                            id: "comments_for_document_12992150",
+                            "data-comments-count": "0"
+                          }
+                        },
+                        [
+                          _c("h4", [_vm._v("Discuss this document")]),
+                          _vm._v(" "),
+                          _vm._l(_vm.documentComments, function(comment) {
+                            return _c(
+                              "article",
+                              {
+                                staticClass: "comment",
+                                attrs: {
+                                  id: "comment_584232109",
+                                  "data-creator-id": "15531397"
+                                }
+                              },
+                              [
+                                _vm._m(0, true, false),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "formatted_content",
+                                    attrs: {
+                                      "data-embeddable": "",
+                                      "data-skip-stacker-links": ""
+                                    }
+                                  },
+                                  [
+                                    _c("strong", [_vm._v("Gopal Sharma")]),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(comment.comment) +
+                                        "\n                                "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("footer", { staticClass: "time" }, [
+                                  _vm._m(1, true, false),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      attrs: {
+                                        "data-available-until":
+                                          "2017-12-15T13:48:57Z",
+                                        "data-visible-to": "admin creator"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        –"
+                                      ),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "edit",
+                                          attrs: {
+                                            href:
+                                              _vm.home_page +
+                                              "project/" +
+                                              _vm.projectId +
+                                              "/" +
+                                              _vm.projectName +
+                                              "/document/" +
+                                              _vm.documentId +
+                                              "/edit"
+                                          }
+                                        },
+                                        [_vm._v("Edit")]
+                                      ),
+                                      _vm._v(
+                                        " or\n                                        "
+                                      ),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "delete",
+                                          attrs: {
+                                            "data-confirm":
+                                              "Are you sure you want to delete this comment?",
+                                            "data-method": "post",
+                                            "data-remote": "true",
+                                            href:
+                                              "/2501285/projects/12880198/comments/584232109/trash",
+                                            rel: "nofollow"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "Delete\n                                        "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(
+                                        "\n                                        for "
+                                      ),
+                                      _c(
+                                        "span",
+                                        {
+                                          attrs: {
+                                            "data-display":
+                                              "available_time_left"
+                                          }
+                                        },
+                                        [_vm._v("14 minutes")]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm._m(2, true, false)
+                              ]
+                            )
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "article",
+                            {
+                              staticClass: "comment new",
+                              attrs: {
+                                "data-behavior": "expandable file_drop_target"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "avatar",
+                                attrs: {
+                                  alt: "",
+                                  "data-current-person-avatar": "true",
+                                  src:
+                                    "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
+                                  title: "Gopal Sharma"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "collapsed_content" }, [
+                                _c(
+                                  "header",
+                                  { staticClass: "text_entry no_shadow" },
+                                  [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.document_comment,
+                                          expression: "document_comment"
+                                        }
+                                      ],
+                                      domProps: { value: _vm.document_comment },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.document_comment =
+                                            $event.target.value
+                                        }
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-primary",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.submitComment()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Submit\n                                    "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(3, false, false)
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("span", {
+                            attrs: { "data-role": "topic_archiving_tool" }
+                          })
+                        ],
+                        2
+                      ),
                       _vm._v(" "),
-                      _vm._m(1, false, false)
+                      _vm._m(4, false, false)
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(2, false, false)
+                _c(
+                  "aside",
+                  {
+                    staticClass: "tools noresize wide",
+                    attrs: {
+                      id: "document_sidebar_document_12992150",
+                      "data-behavior": "perma_tools",
+                      "data-creator-id": "15531397"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "tool save" }, [
+                      _c("div", { staticClass: "notice" }, [
+                        _c("h3", [_vm._v("Want to make changes?")]),
+                        _vm._v(" "),
+                        _c("p"),
+                        _vm._v(" "),
+                        _c(
+                          "form",
+                          {
+                            staticClass: "button_to",
+                            attrs: {
+                              action:
+                                _vm.home_page +
+                                "project/" +
+                                _vm.projectId +
+                                "/" +
+                                _vm.projectName +
+                                "/document/" +
+                                _vm.documentId +
+                                "/edit/",
+                              "data-remote": "true",
+                              method: "get"
+                            }
+                          },
+                          [_vm._m(5, false, false)]
+                        ),
+                        _vm._v(" "),
+                        _c("p"),
+                        _vm._v(" "),
+                        _vm._m(6, false, false)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(7, false, false)
+                  ]
+                )
               ]
             )
           ]
@@ -58972,381 +68263,372 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "section",
+      "a",
       {
-        staticClass: "comments",
         attrs: {
-          id: "comments_for_document_12992150",
-          "data-comments-count": "0"
+          "data-replace-stack": "true",
+          href: "/2501285/people/15531397"
         }
       },
       [
-        _c("h4", [_vm._v("Discuss this document")]),
-        _vm._v(" "),
+        _c("img", {
+          staticClass: "avatar",
+          attrs: {
+            alt: "Gopal Sharma",
+            height: "96",
+            src:
+              "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
+            title: "Gopal Sharma",
+            width: "96"
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        attrs: {
+          "data-stacker": "false",
+          href:
+            "/2501285/projects/12880198/todolists/49407588#comment_584232109"
+        }
+      },
+      [
+        _vm._v("Posted\n                                        "),
         _c(
-          "article",
+          "time",
           {
-            staticClass: "comment new",
-            attrs: { "data-behavior": "expandable file_drop_target" }
+            attrs: {
+              "data-local": "time-ago",
+              datetime: "2017-12-15T13:33:57Z",
+              title: "December 15, 2017 at 7:03pm "
+            }
           },
-          [
-            _c("img", {
-              staticClass: "avatar",
+          [_vm._v("a second ago\n                                        ")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "partitioned_attachments ",
+        attrs: { id: "attachments_for_comment_584232109" }
+      },
+      [_c("div", { staticClass: "attachments_actions" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "expanded_content" }, [
+      _c(
+        "form",
+        {
+          staticClass: "new_comment",
+          attrs: {
+            "accept-charset": "UTF-8",
+            action: "/2501285/projects/6590988/comments",
+            "data-behavior": "no_reset require_input",
+            "data-remote": "true",
+            id: "new_comment",
+            method: "post"
+          }
+        },
+        [
+          _c("div", { staticStyle: { display: "none" } }, [
+            _c("input", { attrs: { name: "utf8", type: "hidden", value: "✓" } })
+          ]),
+          _vm._v(" "),
+          _c("header", { staticClass: "text_entry" }, [
+            _c("input", {
               attrs: {
-                alt: "",
-                "data-current-person-avatar": "true",
-                src:
-                  "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
-                title: "Gopal Sharma"
+                id: "comment_commentable_type",
+                name: "comment[commentable_type]",
+                type: "hidden",
+                value: "Document"
               }
             }),
             _vm._v(" "),
-            _c("div", { staticClass: "collapsed_content" }, [
-              _c("header", { staticClass: "text_entry no_shadow" }, [
+            _c("input", {
+              attrs: {
+                id: "comment_commentable_id",
+                name: "comment[commentable_id]",
+                type: "hidden",
+                value: "12992150"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                attrs: {
+                  "data-behavior": "wysiwyg_container",
+                  "data-wysiwyg-follow-threshold": "136"
+                }
+              },
+              [
+                _c("textarea", {
+                  staticClass: "comment_content",
+                  attrs: {
+                    autofocus: "autofocus",
+                    "data-behavior":
+                      "autosave autoresize wysiwyg dirty_tracking submit_on_control_enter",
+                    "data-role": "accept_as_input",
+                    id: "comment_content",
+                    name: "comment[content]",
+                    placeholder: "Type your comment here…",
+                    rows: "4",
+                    "data-autosave-storage-key":
+                      "autosave:f0fb1479bce392279342fb9b07fcfde4"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "attachments",
+                attrs: {
+                  "data-behavior": "pending_attachments file_drop_target",
+                  "data-sortable": "true"
+                }
+              },
+              [
+                _c("span", { staticClass: "prompt_graphic" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "file_input_button" }, [
+                  _c(
+                    "span",
+                    { attrs: { "data-without-features": "files_api" } },
+                    [
+                      _vm._v(
+                        "\n                                                        To attach files\n                                                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { attrs: { "data-with-features": "files_api" } }, [
+                    _vm._v(
+                      "\n                                                        To attach files drag & drop here or\n                                                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "file_input_container" }, [
+                    _c("input", {
+                      attrs: {
+                        name: "file",
+                        type: "file",
+                        multiple: "",
+                        onchange: "$(document).trigger('ie:change', this)",
+                        tabindex: "-1"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "decorated",
+                        attrs: {
+                          "data-behavior": "local_file_picker",
+                          href: "#",
+                          tabindex: "-1"
+                        }
+                      },
+                      [_vm._v("select files from your computer…")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    { attrs: { "data-behavior": "load_google_client" } },
+                    [
+                      _vm._v(
+                        "\n                                                        or "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "decorated",
+                          attrs: {
+                            "data-behavior": "google_file_picker",
+                            href: "#",
+                            tabindex: "-1"
+                          }
+                        },
+                        [_vm._v("Google Docs…")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("ul", {
+                  staticClass: "pending_attachments ui-sortable",
+                  attrs: { "data-role": "accept_as_input" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "picker_account_switcher",
+                attrs: { "data-behavior": "picker_account_switcher" }
+              },
+              [
+                _c("strong", [
+                  _vm._v("You’re signed in to Google as "),
+                  _c("span", { attrs: { "data-role": "picker_account_email" } })
+                ]),
+                _vm._v(" "),
                 _c(
-                  "div",
+                  "a",
                   {
-                    staticClass: "prompt",
                     attrs: {
-                      "data-behavior": "expand_on_click",
-                      role: "button"
+                      "data-behavior": "google_account_switcher",
+                      href: "#"
                     }
                   },
                   [
                     _vm._v(
-                      "\n                                            Add a comment or upload a file…\n                                        "
+                      "Sign out and use\n                                                    a different Google account"
                     )
                   ]
                 )
-              ])
-            ]),
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "expanded_content" }, [
-              _c(
-                "form",
-                {
-                  staticClass: "new_comment",
-                  attrs: {
-                    "accept-charset": "UTF-8",
-                    action: "/2501285/projects/6590988/comments",
-                    "data-behavior": "no_reset require_input",
-                    "data-remote": "true",
-                    id: "new_comment",
-                    method: "post"
-                  }
-                },
-                [
-                  _c("div", { staticStyle: { display: "none" } }, [
-                    _c("input", {
-                      attrs: { name: "utf8", type: "hidden", value: "✓" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("header", { staticClass: "text_entry" }, [
-                    _c("input", {
-                      attrs: {
-                        id: "comment_commentable_type",
-                        name: "comment[commentable_type]",
-                        type: "hidden",
-                        value: "Document"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: {
-                        id: "comment_commentable_id",
-                        name: "comment[commentable_id]",
-                        type: "hidden",
-                        value: "12992150"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        attrs: {
-                          "data-behavior": "wysiwyg_container",
-                          "data-wysiwyg-follow-threshold": "136"
-                        }
-                      },
-                      [
-                        _c("textarea", {
-                          staticClass: "comment_content",
-                          attrs: {
-                            autofocus: "autofocus",
-                            "data-behavior":
-                              "autosave autoresize wysiwyg dirty_tracking submit_on_control_enter",
-                            "data-role": "accept_as_input",
-                            id: "comment_content",
-                            name: "comment[content]",
-                            placeholder: "Type your comment here…",
-                            rows: "4",
-                            "data-autosave-storage-key":
-                              "autosave:f0fb1479bce392279342fb9b07fcfde4"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "attachments",
-                        attrs: {
-                          "data-behavior":
-                            "pending_attachments file_drop_target",
-                          "data-sortable": "true"
-                        }
-                      },
-                      [
-                        _c("span", { staticClass: "prompt_graphic" }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "file_input_button" }, [
-                          _c(
-                            "span",
-                            { attrs: { "data-without-features": "files_api" } },
-                            [
-                              _vm._v(
-                                "\n                                                        To attach files\n                                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { attrs: { "data-with-features": "files_api" } },
-                            [
-                              _vm._v(
-                                "\n                                                        To attach files drag & drop here or\n                                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "file_input_container" }, [
-                            _c("input", {
-                              attrs: {
-                                name: "file",
-                                type: "file",
-                                multiple: "",
-                                onchange:
-                                  "$(document).trigger('ie:change', this)",
-                                tabindex: "-1"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "decorated",
-                                attrs: {
-                                  "data-behavior": "local_file_picker",
-                                  href: "#",
-                                  tabindex: "-1"
-                                }
-                              },
-                              [_vm._v("select files from your computer…")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              attrs: { "data-behavior": "load_google_client" }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                                        or "
-                              ),
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "decorated",
-                                  attrs: {
-                                    "data-behavior": "google_file_picker",
-                                    href: "#",
-                                    tabindex: "-1"
-                                  }
-                                },
-                                [_vm._v("Google Docs…")]
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("ul", {
-                          staticClass: "pending_attachments ui-sortable",
-                          attrs: { "data-role": "accept_as_input" }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "picker_account_switcher",
-                        attrs: { "data-behavior": "picker_account_switcher" }
-                      },
-                      [
-                        _c("strong", [
-                          _vm._v("You’re signed in to Google as "),
-                          _c("span", {
-                            attrs: { "data-role": "picker_account_email" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "data-behavior": "google_account_switcher",
-                              href: "#"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "Sign out and use a different Google account"
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "google_connector",
-                        attrs: { "data-behavior": "google_connector" }
-                      },
-                      [
-                        _c("p", [
-                          _c("b", [_vm._v("Connect your Google account")]),
-                          _c("br"),
-                          _vm._v(
-                            "\n                                                    Before you can attach Google Docs in Basecamp, we’ll need your OK first. Do you want to connect your account now?\n                                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "submit" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "action_button",
-                              attrs: {
-                                "data-behavior": "create_google_file_picker"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                                        Yes, connect my Google account\n                                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(
-                            "\n                                                    or "
-                          ),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                "data-behavior": "cancel_google_connect",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Cancel")]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "google_connector",
-                        attrs: {
-                          "data-behavior": "google_connector_access_denied"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _c("b", [
-                            _vm._v(
-                              "Basecamp couldn’t access your Google account"
-                            )
-                          ]),
-                          _c("br"),
-                          _vm._v(
-                            "\n                                                    To attach Google Docs, you’ll need to give Basecamp permission. Do you want to try again?\n                                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "submit" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "action_button",
-                              attrs: {
-                                "data-behavior": "create_google_file_picker"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                                        Connect a Google account\n                                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(
-                            "\n                                                    or "
-                          ),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                "data-behavior": "cancel_google_connect",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Cancel")]
-                          )
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("footer", [
-                    _c("div", {
-                      attrs: {
-                        "data-subscribers":
-                          "/2501285/projects/6590988/subscribers?new_comment=true&subscribable_id=12992150&subscribable_type=Document"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "submit" }, [
-                      _c("input", {
-                        staticClass: "action_button green",
-                        attrs: {
-                          "data-role": "uploader",
-                          name: "commit",
-                          type: "submit",
-                          value: "Add this comment"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "hidden_from_client inactive" },
-                        [_vm._v("The client won’t see your comment")]
+            _c(
+              "div",
+              {
+                staticClass: "google_connector",
+                attrs: { "data-behavior": "google_connector" }
+              },
+              [
+                _c("p", [
+                  _c("b", [_vm._v("Connect your Google account")]),
+                  _c("br"),
+                  _vm._v(
+                    "\n                                                    Before you can attach Google Docs in Basecamp, we’ll need your\n                                                    OK first. Do you want to connect your account now?\n                                                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "submit" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "action_button",
+                      attrs: { "data-behavior": "create_google_file_picker" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                                        Yes, connect my Google account\n                                                    "
                       )
-                    ])
-                  ])
-                ]
-              )
+                    ]
+                  ),
+                  _vm._v(
+                    "\n                                                    or "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-behavior": "cancel_google_connect",
+                        href: "#"
+                      }
+                    },
+                    [_vm._v("Cancel")]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "google_connector",
+                attrs: { "data-behavior": "google_connector_access_denied" }
+              },
+              [
+                _c("p", [
+                  _c("b", [
+                    _vm._v("Basecamp couldn’t access your Google account")
+                  ]),
+                  _c("br"),
+                  _vm._v(
+                    "\n                                                    To attach Google Docs, you’ll need to give Basecamp permission.\n                                                    Do you want to try again?\n                                                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "submit" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "action_button",
+                      attrs: { "data-behavior": "create_google_file_picker" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                                        Connect a Google account\n                                                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(
+                    "\n                                                    or "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-behavior": "cancel_google_connect",
+                        href: "#"
+                      }
+                    },
+                    [_vm._v("Cancel")]
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("footer", [
+            _c("div", {
+              attrs: {
+                "data-subscribers":
+                  "/2501285/projects/6590988/subscribers?new_comment=true&subscribable_id=12992150&subscribable_type=Document"
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "submit" }, [
+              _c("input", {
+                staticClass: "action_button green",
+                attrs: {
+                  "data-role": "uploader",
+                  name: "commit",
+                  type: "submit",
+                  value: "Add this comment"
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "hidden_from_client inactive" }, [
+                _vm._v("The client won’t see your comment")
+              ])
             ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("span", { attrs: { "data-role": "topic_archiving_tool" } })
-      ]
-    )
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -59378,916 +68660,81 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("input", {
+        staticClass: "action_button button",
+        attrs: { type: "submit", value: "Edit this document" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v(
+        "\n                                Gopal Sharma created this document\n                                "
+      ),
+      _c(
+        "time",
+        {
+          attrs: {
+            "data-local": "time-ago",
+            datetime: "2017-11-27T12:18:40Z",
+            title: "November 27, 2017 at 5:48pm "
+          }
+        },
+        [_vm._v("an hour ago\n                                ")]
+      ),
+      _vm._v(
+        "\n                                .\n                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
-      "aside",
-      {
-        staticClass: "tools noresize wide",
-        attrs: {
-          id: "document_sidebar_document_12992150",
-          "data-behavior": "perma_tools",
-          "data-creator-id": "15531397"
-        }
-      },
+      "div",
+      { staticClass: "tool", attrs: { "data-behavior": "tool expandable" } },
       [
-        _c("div", { staticClass: "tool save" }, [
-          _c("div", { staticClass: "notice" }, [
-            _c("h3", [_vm._v("Want to make changes?")]),
-            _vm._v(" "),
-            _c("p"),
-            _vm._v(" "),
+        _c(
+          "a",
+          {
+            attrs: {
+              "data-behavior": "expand_on_click hide_on_expand",
+              href: "#"
+            }
+          },
+          [_vm._v("Delete…")]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          { staticClass: "confirm", attrs: { "data-role": "confirm_view" } },
+          [
             _c(
-              "form",
+              "a",
               {
-                staticClass: "button_to",
                 attrs: {
-                  action: "/2501285/projects/6590988/documents/12992150/edit",
+                  "data-behavior": "tool_action",
+                  "data-method": "post",
                   "data-remote": "true",
-                  method: "get"
+                  href: "/2501285/projects/6590988/documents/12992150/trash",
+                  rel: "nofollow"
                 }
               },
-              [
-                _c("div", [
-                  _c("input", {
-                    staticClass: "action_button button",
-                    attrs: { type: "submit", value: "Edit this document" }
-                  })
-                ])
-              ]
+              [_vm._v("Delete this document?")]
             ),
             _vm._v(" "),
-            _c("p"),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                                Gopal Sharma created this document\n                                "
-              ),
-              _c(
-                "time",
-                {
-                  attrs: {
-                    "data-local": "time-ago",
-                    datetime: "2017-11-27T12:18:40Z",
-                    title: "November 27, 2017 at 5:48pm "
-                  }
-                },
-                [_vm._v("an hour ago\n                                ")]
-              ),
-              _vm._v(
-                "\n                                .\n                            "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tool",
-            attrs: { "data-behavior": "tool expandable" }
-          },
-          [
             _c(
               "a",
               {
-                attrs: {
-                  "data-behavior": "expand_on_click hide_on_expand",
-                  href: "#"
-                }
+                staticClass: "cancel",
+                attrs: { "data-behavior": "collapse_on_click", href: "#" }
               },
-              [_vm._v("Delete…")]
-            ),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                staticClass: "confirm",
-                attrs: { "data-role": "confirm_view" }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      "data-behavior": "tool_action",
-                      "data-method": "post",
-                      "data-remote": "true",
-                      href:
-                        "/2501285/projects/6590988/documents/12992150/trash",
-                      rel: "nofollow"
-                    }
-                  },
-                  [_vm._v("Delete this document?")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "cancel",
-                    attrs: { "data-behavior": "collapse_on_click", href: "#" }
-                  },
-                  [_vm._v("Never mind")]
-                )
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tool",
-            attrs: {
-              "data-visible-to": "creator admin",
-              "data-skip_busy": "",
-              "data-behavior": "tool bucket_operation_tool expandable",
-              "data-label": "Copy",
-              "data-new-bucket-operation-path": "/2501285/copy_operations/new",
-              "data-bucket-operation-type": "CopyOperation",
-              "data-source-resource-type": "Document",
-              "data-source-resource-id": "12992150",
-              "data-source-resource-human-name": "document"
-            }
-          },
-          [
-            _c(
-              "a",
-              {
-                attrs: {
-                  "data-behavior": "expand_on_click hide_on_expand",
-                  href: "#"
-                }
-              },
-              [_vm._v("Copy…")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "confirm",
-                attrs: { "data-role": "confirm_view" }
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "change", attrs: { "data-role": "form" } },
-                  [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "new_copy_operation",
-                        attrs: {
-                          "accept-charset": "UTF-8",
-                          action: "/2501285/copy_operations",
-                          id: "new_copy_operation",
-                          method: "post"
-                        }
-                      },
-                      [
-                        _c("div", { staticStyle: { display: "none" } }, [
-                          _c("input", {
-                            attrs: { name: "utf8", type: "hidden", value: "✓" }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              name: "authenticity_token",
-                              type: "hidden",
-                              value:
-                                "p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Copy this document")]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            attrs: {
-                              "data-role": "destination_bucket_select",
-                              disabled: "disabled",
-                              id: "copy_operation_destination_bucket",
-                              name: "copy_operation[destination_bucket]"
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("Loading…")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "explanation" }, [
-                          _vm._v(
-                            "\n                                        We’ll add a copy of this document to the project you choose above. Changes you make to the copy won’t affect the original."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "explanation" }, [
-                          _vm._v(
-                            "\n                                        No previous versions of this document will be copied over. Just the latest version."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "copy_options todolist" }, [
-                          _c(
-                            "label",
-                            {
-                              staticStyle: { display: "none" },
-                              attrs: { "data-role": "keep_comments_label" }
-                            },
-                            [
-                              _c("input", {
-                                attrs: {
-                                  name: "copy_operation[keep_comments]",
-                                  type: "hidden",
-                                  value: "0"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("input", {
-                                attrs: {
-                                  "data-role": "keep_comments_option",
-                                  id: "copy_operation_keep_comments",
-                                  name: "copy_operation[keep_comments]",
-                                  type: "checkbox",
-                                  value: "1"
-                                }
-                              }),
-                              _vm._v(
-                                "\n                                            Include original comments\n                                        "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "submit" }, [
-                          _c("input", {
-                            staticClass: "action_button",
-                            attrs: {
-                              "data-behavior": "tool_action",
-                              disabled: "disabled",
-                              name: "commit",
-                              type: "submit",
-                              value: "Copy this document"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "cancel",
-                              attrs: {
-                                "data-behavior": "collapse_on_click",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Never mind")]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "no_destinations",
-                        attrs: { "data-role": "no_destinations_notice" }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v(
-                            "\n                                        We can’t copy this document because there’s nowhere else to put it! You’ll be able to move it if you make more projects or calendars."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "cancel",
-                            attrs: {
-                              "data-behavior": "collapse_on_click",
-                              href: "#"
-                            }
-                          },
-                          [_vm._v("OK, close this")]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "change",
-                    staticStyle: { display: "none" },
-                    attrs: { "data-role": "form_for_new_project" }
-                  },
-                  [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "new_copy_operation",
-                        attrs: {
-                          "accept-charset": "UTF-8",
-                          action: "/2501285/copy_operations",
-                          id: "new_copy_operation",
-                          method: "post"
-                        }
-                      },
-                      [
-                        _c("div", { staticStyle: { display: "none" } }, [
-                          _c("input", {
-                            attrs: { name: "utf8", type: "hidden", value: "✓" }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              name: "authenticity_token",
-                              type: "hidden",
-                              value:
-                                "p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Copy this to a new project")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          attrs: {
-                            "data-role": "new_project_name",
-                            id: "copy_operation_new_project_name",
-                            name: "copy_operation[new_project_name]",
-                            placeholder: "Name the project",
-                            type: "text"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "explanation" }, [
-                          _vm._v(
-                            "\n                                        We’ll add a copy of this document to the project you choose above. Changes you make to the copy won’t affect the original."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "explanation" }, [
-                          _vm._v(
-                            "\n                                        No previous versions of this document will be copied over. Just the latest version."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "copy_options todolist" }, [
-                          _c(
-                            "label",
-                            {
-                              staticStyle: { display: "none" },
-                              attrs: { "data-role": "keep_comments_label" }
-                            },
-                            [
-                              _c("input", {
-                                attrs: {
-                                  name: "copy_operation[keep_comments]",
-                                  type: "hidden",
-                                  value: "0"
-                                }
-                              }),
-                              _c("input", {
-                                attrs: {
-                                  "data-role": "keep_comments_option",
-                                  id: "copy_operation_keep_comments",
-                                  name: "copy_operation[keep_comments]",
-                                  type: "checkbox",
-                                  value: "1"
-                                }
-                              }),
-                              _vm._v(
-                                "\n                                            Include original comments\n                                        "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "submit" }, [
-                          _c("input", {
-                            staticClass: "action_button",
-                            attrs: {
-                              "data-behavior": "tool_action",
-                              disabled: "disabled",
-                              name: "commit",
-                              type: "submit",
-                              value: "Copy and create project"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "cancel",
-                              attrs: {
-                                "data-behavior": "collapse_on_click",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Never mind")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "projects_limit_reached",
-                            attrs: {
-                              "data-role": "projects_limit_reached_notice"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "limit projects reached notify",
-                                attrs: { "data-hidden-from": "accountManager" }
-                              },
-                              [
-                                _c("h1", [_vm._v("You're out of projects!")]),
-                                _vm._v(" "),
-                                _c("p", [
-                                  _vm._v(
-                                    "\n                                                To create more projects, ask your Basecamp account owner to upgrade the account."
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                                                Just click the button below and we'll send them a quick reminder.\n                                            "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "action_button green button",
-                                    attrs: {
-                                      "data-behavior": "link_to_notify_owner",
-                                      "data-method": "post",
-                                      "data-remote": "true",
-                                      href:
-                                        "/2501285/account/notification?type=projects",
-                                      rel: "nofollow"
-                                    }
-                                  },
-                                  [_vm._v("Notify your account owner")]
-                                ),
-                                _vm._v(
-                                  " or\n                                            "
-                                ),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "decorated",
-                                    attrs: {
-                                      "data-behavior": "cancel_new_project",
-                                      "data-role": "cancel",
-                                      href: "#"
-                                    }
-                                  },
-                                  [_vm._v("Never mind")]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "limit projects reached",
-                                staticStyle: { display: "none" },
-                                attrs: { "data-role": "account_upgrade_notice" }
-                              },
-                              [
-                                _c("form", [
-                                  _c("h1", [_vm._v("Thanks, you're all set!")]),
-                                  _vm._v(" "),
-                                  _c("p", [
-                                    _vm._v("You've upgraded to the "),
-                                    _c("strong", [_vm._v("100 projects")]),
-                                    _vm._v(
-                                      "\n                                                    plan with "
-                                    ),
-                                    _c("strong", [_vm._v("40 GB")]),
-                                    _vm._v(" storage space.")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "action_button green button",
-                                      attrs: {
-                                        "data-behavior":
-                                          "account_upgrade_confirmation",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Continue starting a new project")]
-                                  ),
-                                  _vm._v(
-                                    "\n                                                or\n                                                "
-                                  ),
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-behavior": "cancel_new_project",
-                                        "data-role": "cancel",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Go back to the projects page")]
-                                  )
-                                ])
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "confirm error",
-                    attrs: { "data-role": "error" }
-                  },
-                  [
-                    _c("p", [
-                      _c("b", [_vm._v("We couldn't copy this page")]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            "data-behavior": "reload_current_sheet",
-                            href: "#"
-                          }
-                        },
-                        [_vm._v("Try again")]
-                      ),
-                      _vm._v(" or "),
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              "mailto:support@basecamp.com?body=Reference%3A%20Document%20ID%20%2312992150&subject=Couldn%27t%20copy%20a%20document"
-                          }
-                        },
-                        [_vm._v("Email support")]
-                      ),
-                      _vm._v(".\n                                ")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "confirm conflict",
-                  attrs: { "data-role": "conflict" }
-                })
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tool",
-            attrs: {
-              "data-visible-to": "creator admin",
-              "data-skip_busy": "",
-              "data-behavior": "tool bucket_operation_tool expandable",
-              "data-label": "Move",
-              "data-new-bucket-operation-path": "/2501285/move_operations/new",
-              "data-bucket-operation-type": "MoveOperation",
-              "data-source-resource-type": "Document",
-              "data-source-resource-id": "12992150",
-              "data-source-resource-human-name": "document"
-            }
-          },
-          [
-            _c(
-              "a",
-              {
-                attrs: {
-                  "data-behavior": "expand_on_click hide_on_expand",
-                  href: "#"
-                }
-              },
-              [_vm._v("Move…")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "confirm",
-                attrs: { "data-role": "confirm_view" }
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "change", attrs: { "data-role": "form" } },
-                  [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "new_move_operation",
-                        attrs: {
-                          "accept-charset": "UTF-8",
-                          action: "/2501285/move_operations",
-                          id: "new_move_operation",
-                          method: "post"
-                        }
-                      },
-                      [
-                        _c("div", { staticStyle: { display: "none" } }, [
-                          _c("input", {
-                            attrs: { name: "utf8", type: "hidden", value: "✓" }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              name: "authenticity_token",
-                              type: "hidden",
-                              value:
-                                "p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Move this document")]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            attrs: {
-                              "data-role": "destination_bucket_select",
-                              disabled: "disabled",
-                              id: "move_operation_destination_bucket",
-                              name: "move_operation[destination_bucket]"
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("Loading…")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "submit" }, [
-                          _c("input", {
-                            staticClass: "action_button",
-                            attrs: {
-                              "data-behavior": "tool_action",
-                              disabled: "disabled",
-                              name: "commit",
-                              type: "submit",
-                              value: "Move this document"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "cancel",
-                              attrs: {
-                                "data-behavior": "collapse_on_click",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Never mind")]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "no_destinations",
-                        attrs: { "data-role": "no_destinations_notice" }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v(
-                            "\n                                        We can’t move this document because there’s nowhere else to put it! You’ll be able to move it if you make more projects or calendars."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "cancel",
-                            attrs: {
-                              "data-behavior": "collapse_on_click",
-                              href: "#"
-                            }
-                          },
-                          [_vm._v("OK, close this")]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "change",
-                    staticStyle: { display: "none" },
-                    attrs: { "data-role": "form_for_new_project" }
-                  },
-                  [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "new_move_operation",
-                        attrs: {
-                          "accept-charset": "UTF-8",
-                          action: "/2501285/move_operations",
-                          id: "new_move_operation",
-                          method: "post"
-                        }
-                      },
-                      [
-                        _c("div", { staticStyle: { display: "none" } }, [
-                          _c("input", {
-                            attrs: { name: "utf8", type: "hidden", value: "✓" }
-                          }),
-                          _c("input", {
-                            attrs: {
-                              name: "authenticity_token",
-                              type: "hidden",
-                              value:
-                                "p2+xyRwllS3GNFYKfgiIZEt0CcL2CDnoCYaQDIuzzCQ="
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Move this to a new project")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          attrs: {
-                            "data-role": "new_project_name",
-                            id: "move_operation_new_project_name",
-                            name: "move_operation[new_project_name]",
-                            placeholder: "Name the project",
-                            type: "text"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "submit" }, [
-                          _c("input", {
-                            staticClass: "action_button",
-                            attrs: {
-                              "data-behavior": "tool_action",
-                              disabled: "disabled",
-                              name: "commit",
-                              type: "submit",
-                              value: "Move and create project"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "cancel",
-                              attrs: {
-                                "data-behavior": "collapse_on_click",
-                                href: "#"
-                              }
-                            },
-                            [_vm._v("Never mind")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "projects_limit_reached",
-                            attrs: {
-                              "data-role": "projects_limit_reached_notice"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "limit projects reached notify",
-                                attrs: { "data-hidden-from": "accountManager" }
-                              },
-                              [
-                                _c("h1", [_vm._v("You're out of projects!")]),
-                                _vm._v(" "),
-                                _c("p", [
-                                  _vm._v(
-                                    "\n                                                To create more projects, ask your Basecamp account owner to upgrade the account."
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                                                Just click the button below and we'll send them a quick reminder.\n                                            "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "action_button green button",
-                                    attrs: {
-                                      "data-behavior": "link_to_notify_owner",
-                                      "data-method": "post",
-                                      "data-remote": "true",
-                                      href:
-                                        "/2501285/account/notification?type=projects",
-                                      rel: "nofollow"
-                                    }
-                                  },
-                                  [_vm._v("Notify your account owner")]
-                                ),
-                                _vm._v(
-                                  " or\n                                            "
-                                ),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "decorated",
-                                    attrs: {
-                                      "data-behavior": "cancel_new_project",
-                                      "data-role": "cancel",
-                                      href: "#"
-                                    }
-                                  },
-                                  [_vm._v("Never mind")]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "limit projects reached",
-                                staticStyle: { display: "none" },
-                                attrs: { "data-role": "account_upgrade_notice" }
-                              },
-                              [
-                                _c("form", [
-                                  _c("h1", [_vm._v("Thanks, you're all set!")]),
-                                  _vm._v(" "),
-                                  _c("p", [
-                                    _vm._v("You've upgraded to the "),
-                                    _c("strong", [_vm._v("100 projects")]),
-                                    _vm._v(
-                                      "\n                                                    plan with "
-                                    ),
-                                    _c("strong", [_vm._v("40 GB")]),
-                                    _vm._v(" storage space.")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "action_button green button",
-                                      attrs: {
-                                        "data-behavior":
-                                          "account_upgrade_confirmation",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Continue starting a new project")]
-                                  ),
-                                  _vm._v(
-                                    "\n                                                or\n                                                "
-                                  ),
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        "data-behavior": "cancel_new_project",
-                                        "data-role": "cancel",
-                                        href: "#"
-                                      }
-                                    },
-                                    [_vm._v("Go back to the projects page")]
-                                  )
-                                ])
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "confirm conflict",
-                  attrs: { "data-role": "conflict" }
-                })
-              ]
+              [_vm._v("Never mind")]
             )
           ]
         )
@@ -61419,6 +69866,10 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(91)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(79)
@@ -61427,7 +69878,7 @@ var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -61585,6 +70036,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'PeopleComponent',
@@ -61610,14 +70074,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
         this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
 
-        self.query = self.getParameterByName('q') ? self.getParameterByName('q') : '';
-
-        var u = window.location.href;
-
-        var route = u.replace(this.home_page, '').split('/');
-        this.routePath = route[0];
-        this.routeParameter = route[1];
-        axios.get(this.home_page + 'api/people/' + this.routeParameter).then(function (response) {
+        axios.get(this.home_page + 'api/people/' + this.authUserId).then(function (response) {
             self.result = response.data;
             if (self.result.id == self.authUserId) {
                 self.author = true;
@@ -61656,22 +70113,70 @@ var render = function() {
             _c("div", { staticClass: "col-md-8" }, [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-4" }, [
-                  _c("div", { staticClass: "profile_img" }, [
-                    _c("img", {
-                      attrs: {
-                        src: _vm.asset_url + "images/employee_img_2.jpg",
-                        alt: "Profile"
-                      }
-                    })
-                  ])
+                  _c(
+                    "div",
+                    { staticClass: "profile_img" },
+                    [
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.result.profile_image !== null
+                            ? _c("img", {
+                                attrs: {
+                                  src:
+                                    _vm.asset_url +
+                                    "storage/" +
+                                    _vm.result.profile_image,
+                                  alt: "Profile"
+                                }
+                              })
+                            : _vm._e()
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.result.profile_image == null
+                            ? _c("img", {
+                                attrs: {
+                                  src:
+                                    _vm.asset_url + "images/employee_img_2.jpg",
+                                  alt: "Profile"
+                                }
+                              })
+                            : _vm._e()
+                        ]
+                      )
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-8" }, [
                   _c("div", { staticClass: "profile_info" }, [
-                    _c("h2", [
-                      _vm._v(_vm._s(_vm.result.name)),
-                      _c("span", [_vm._v(" (Web Designer)")])
-                    ]),
+                    _vm._v(
+                      "\n\n                                    " +
+                        _vm._s(_vm.result.position) +
+                        "\n                                    "
+                    ),
+                    _vm.result.position != null
+                      ? _c("h2", [
+                          _vm._v(
+                            "\n                                        " +
+                              _vm._s(_vm.result.name)
+                          ),
+                          _c("span", [
+                            _vm._v(" (" + _vm._s(_vm.result.position) + ")")
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.result.position == null || _vm.result.position == ""
+                      ? _c("h2", [_vm._v(_vm._s(_vm.result.name))])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("ul", [
                       _c("li", [
@@ -61710,7 +70215,13 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(0, false, false)
+                      _c("li", [
+                        _c("i", {
+                          staticClass: "fa fa-phone",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" : " + _vm._s(_vm.result.phone))
+                      ])
                     ])
                   ])
                 ])
@@ -61745,7 +70256,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(1, false, false),
+          _vm._m(0, false, false),
           _vm._v(" "),
           _c("section", { staticClass: "shared_files" }, [
             _c("h2", [_vm._v("Your shared files")]),
@@ -61776,7 +70287,7 @@ var render = function() {
                           _c("span", [_vm._v("Added by Ashish S. on Dec 1")])
                         ]),
                         _vm._v(" "),
-                        _vm._m(2, false, false)
+                        _vm._m(1, false, false)
                       ])
                     ])
                   ]
@@ -61806,7 +70317,7 @@ var render = function() {
                           _c("span", [_vm._v("Added by Ashish S. on Dec 1")])
                         ]),
                         _vm._v(" "),
-                        _vm._m(3, false, false)
+                        _vm._m(2, false, false)
                       ])
                     ])
                   ]
@@ -61820,15 +70331,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("i", { staticClass: "fa fa-phone", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" : +91 980 592 0000")
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -61938,6 +70440,390 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 82 */,
+/* 83 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(92);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(93)("fef51122", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e5eb9950\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./PeopleComponent.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e5eb9950\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./PeopleComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(83)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.component-fade-enter-active, .component-fade-leave-active {\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.component-fade-enter, .component-fade-leave-to\n    /* .component-fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(94)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction) {
+  isProduction = _isProduction
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
 
 /***/ })
 /******/ ]);

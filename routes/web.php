@@ -30,7 +30,9 @@ Route::post( '/team/add', 'TeamController@postAddNew' );
 Route::post( '/team/join', 'TeamController@postJoin' );
 Route::get( '/team/join_prompt', 'TeamController@getJoinPrompt' );
 
+
 Route::get( '/projects', 'ProjectController@index' )->name( 'projects' );
+
 
 Route::get( '/createProject', 'ProjectController@createProject' );
 
@@ -39,19 +41,18 @@ Route::get( '/createProject', 'ProjectController@createProject' );
 Route::get( '/project/{id}/{name?}/todolists', 'TodoController@index' );
 Route::get( '/project/{id}/{name?}', 'ProjectController@view' );
 
+Route::get( ' /project/{id}/{name?}/topics', 'TopicController@index' );
+Route::get( ' /api/project/{id}/{name?}/document /{	documentId}', 'DocumentController@apiGetDocument' );
 
-Route::get( '/project/{id}/{name?}/topics', 'TopicController@index' );
-Route::get( '/api/project/{id}/{name?}/document/{documentId}', 'DocumentController@apiGetDocument' );
-
-Route::prefix( '/project/{id}/{name?}' )->group( function () {
+Route::prefix( ' / project /{id}/{name ?}' )->group( function () {
 	//messages
-	Route::prefix( '/messages' )->group( function () {
-		Route::get( '/new', 'MessageController@index' );
-		Route::get( '/{topicId}', 'MessageController@getTopic' );
-		Route::post( '/{topicId}/edit', 'MessageController@postEditTopic' );
-		Route::get( '/{topicId}/edit', 'MessageController@getEditTopic' );
-		Route::get( '/{topicId}/trash', 'MessageController@deleteMessage' );
-		Route::post( '/', 'MessageController@postNew' );
+	Route::prefix( ' / messages' )->group( function () {
+		Route::get( ' / new', 'MessageController@index' );
+		Route::get( ' /{topicId}', 'MessageController@getTopic' );
+		Route::post( ' /{topicId}/edit', 'MessageController@postEditTopic' );
+		Route::get( ' /{topicId}/edit', 'MessageController@getEditTopic' );
+		Route::get( ' /{topicId}/trash', 'MessageController@deleteMessage' );
+		Route::post( ' / ', 'MessageController@postNew' );
 	} );
 
 	//documents
@@ -69,30 +70,42 @@ Route::prefix( '/project/{id}/{name?}' )->group( function () {
 Route::get( '/search', 'SearchController@getSearch' );
 
 
+Route::get( '/project/{id}/{name?}/topics', 'TopicController@index' );
+
+
 //people
-Route::get( '/people/{people_id}', 'PeopleController@index' );
+Route::get( '/people /{people_id}', 'PeopleController@index' );
 
 
 Route::prefix( '/api' )->group( function () {
 
 	Route::get( '/search', 'SearchController@getSearchQuery' );
 
-	Route::get( '/people/{people_id}', 'PeopleController@getPeople' );
+	Route::get( '/people /{people_id}', 'PeopleController@getPeople' );
 
 	Route::get( '/projects', 'ProjectController@apiGetProjects' );
 	Route::post( '/createProject', 'ProjectController@postCreateProject' );
 
 
-	Route::prefix( '/project/{id}' )->group( function () {
+	Route::prefix('/project /{id}' )->group( function () {
 		Route::get( '/{projectName?}', 'ProjectController@apiGetProject' );
 		Route::get( '/{name?}/topics', 'TopicController@apiGetTopics' );
-		Route::get( '/{name?}/messages/{topicId}', 'MessageController@apiGetTopic' );
+		Route::get( '/{name?}/messages /{topicId}', 'MessageController@apiGetTopic' );
 		Route::get( '/{name?}/documents', 'DocumentController@apiGetDocuments' );
-		Route::get( '/{name?}/messages/{topicId}', 'MessageController@apiGetTopic' );
+		Route::get( '/{name?}/messages /{topicId}', 'MessageController@apiGetTopic' );
 	} );
 
 
+	Route::get( '/projects', 'ProjectController@apiGetProjects' );
+	Route::get( '/project/{id}/{projectName?}', 'ProjectController@apiGetProject' );
+	Route::post( '/createProject', 'ProjectController@postCreateProject' );
+	Route::get( '/project/{id}/{name?}/topics', 'TopicController@apiGetTopics' );
+	Route::get( '/project/{id}/{name?}/messages/{topicId}', 'MessageController@apiGetTopic' );
+	Route::post( '/project/{id}/{name?}/messages/{topicId}', 'MessageController@apiPostTopicComment' );
+	Route::get( '/project/{id}/{name?}/documents', 'DocumentController@apiGetDocuments' );
+	Route::get( '/project/{id}/{name?}/messages/{topicId}', 'MessageController@apiGetTopic' );
+
+	Route::get( '/project/{id}/{name?}/document/{documentId}', 'DocumentController@apiGetDocument' );
+	Route::post( '/project/{id}/{name?}/document/{documentId}', 'DocumentController@apiPostDocumentComment' );
+
 } );
-
-
-

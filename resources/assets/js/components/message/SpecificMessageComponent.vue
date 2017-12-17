@@ -133,7 +133,10 @@
                                                          src="https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif"
                                                          :title="messageCreatorName">
 
-                                                    <textarea name="topic_comment" width></textarea>
+                                                    <textarea name="topic_comment" style="width:100%"
+                                                              v-model="commentMessage"></textarea>
+
+                                                    <button class="btn btn-primary" @click="postComment()">Post</button>
                                                 </article>
                                             </section>
                                         </footer>
@@ -190,7 +193,13 @@
 
                 messageComments: '',
                 home_page: '',
-                showBeforeDelete: false
+
+                showBeforeDelete: false,
+
+                commentMessage: '',
+
+                authUserId: '',
+                authUserData: ''
             }
         },
         mounted() {
@@ -203,6 +212,8 @@
             this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
             this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
             this.messageId = document.querySelector("meta[name='message-id']").getAttribute("content");
+
+            this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
 
             axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages' + '/' + this.messageId)
                 .then(function (response) {
@@ -218,13 +229,32 @@
                 .catch(function (error) {
                     console.log(error);
                 });
+
+
+            axios.get(this.home_page + 'api/people/' + this.authUserId)
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
         },
+
         methods: {
             toggle() {
-                if (self.clicked) {
-                    self.clicked = false;
-                } else {
-                    self.clicked = true;
+                self.clicked = !self.clicked;
+            },
+            postComment() {
+                if(this.commentMessage!==''){
+                    axios.post(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages/' + this.messageId, {
+                        topicComment: this.commentMessage,
+                        posterId: this.authUserId
+                    }).then((response) => {
+                        this.commentMessage='';
+                        this.messageComments.push(response.data.data.topic_comments[0]);
+                    }).catch((error) => {
+                        console.log(error);
+                    })
                 }
             },
             del() {

@@ -40,13 +40,9 @@
                                    data-tool-name="todolists">
                                     <span class=""><strong>3 To-dos</strong></span>
                                 </a>
-                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/attachments'"
-                                   data-tool-name="attachments">
-                                    <span class=""><strong>657 Files</strong></span>
-                                </a>
                                 <a :href="home_page+'project/'+projectId+'/'+projectName+'/documents'"
                                    data-tool-name="documents">
-                                    <span class=""><strong>24 Text documents</strong></span>
+                                    <span class=""><strong>{{project.total_documents}} Text documents</strong></span>
                                 </a>
                             </div>
                         </div>
@@ -71,7 +67,7 @@
                             <tbody>
                             <tr class="topic todo_289596969" id="topic_152633325" v-for="p in project.topic_detail">
                                 <td class="avatar">
-                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/todos/todoid'">
+                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+p.id">
                                         <img :alt="p.latest_comment_by.name"
                                              class="avatar" height="30"
                                              src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.40.gif"
@@ -81,7 +77,7 @@
                                 </td>
 
                                 <td class="who">
-                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/todos/todoid'">{{p.latest_comment_by.name}}</a>
+                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+p.id">{{p.latest_comment_by.name}}</a>
                                 </td>
 
                                 <td class="what">
@@ -115,7 +111,7 @@
                                         </figure>-->
                                     </div>
 
-                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'todos/todoid'">
+                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+p.id">
                                         <strong data-role="live_filter_highlight">{{p.topic_name}}</strong>
                                         <span class="bucket_name">({{projectName}})</span>
                                         <span class="excerpt"
@@ -153,9 +149,6 @@
                             <a class="decorated"
                                :href="home_page+'project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open
                                 discussions</a>
-                            •
-                            <a class="decorated" :href="home_page+'project/'+projectId+'/'+projectName+'/topics/archived'">1
-                                archived discussion</a>
                         </p>
                     </section>
 
@@ -1400,423 +1393,6 @@
                         </div>
                     </section>
 
-                    <section class="project_attachments " data-collection-name="attachments">
-                        <header class="has_buttons">
-                            <h1><a href="/2501285/projects/6590988/attachments">Files</a></h1>
-                            <button data-behavior="new_upload file_drop_target" class="action_button">Add files</button>
-                        </header>
-
-                        <article class="upload new" data-behavior="expandable file_drop_target hide_buttons_on_expand">
-                            <div class="expanded_content bubble">
-                                <form accept-charset="UTF-8" action="/2501285/projects/6590988/uploads"
-                                      class="new_upload" data-behavior="no_reset toggle_file_label require_input"
-                                      data-remote="true" data-role="account_upgrade_wrapper" id="new_upload"
-                                      method="post">
-                                    <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
-                                    <header class="text_entry">
-
-
-                                        <div class="limit storage prod notify" data-hidden-from="accountManager"
-                                             data-behavior="link_to_notify_owner_thanks" style="display: block;">
-                                            <p>You're almost out of storage space! <a
-                                                    data-behavior="link_to_notify_owner" data-method="post"
-                                                    data-remote="true" href="/2501285/account/notification?type=storage"
-                                                    rel="nofollow">Notify your account owner</a></p>
-                                        </div>
-
-                                        <div data-behavior="pending_attachments file_drop_target" data-sortable="true"
-                                             class="attachments">
-                                            <span class="prompt_graphic"></span>
-                                            <div class="file_input_button">
-    <span data-without-features="files_api">
-      To attach files
-    </span>
-                                                <span data-with-features="files_api">
-      To attach files drag &amp; drop here or
-    </span>
-
-                                                <span class="file_input_container">
-      <input name="file" type="file" multiple="" onchange="$(document).trigger('ie:change', this)" tabindex="-1">
-      <a class="decorated" data-behavior="local_file_picker" href="#" tabindex="-1">select files from your computer…</a>
-    </span>
-
-                                                <span data-behavior="load_google_client" style="">
-      or <a class="decorated" data-behavior="google_file_picker" href="#" tabindex="-1">Google Docs…</a>
-    </span>
-                                            </div>
-
-                                            <ul class="pending_attachments ui-sortable"
-                                                data-role="accept_as_input"></ul>
-                                        </div>
-
-
-                                        <div data-behavior="picker_account_switcher" class="picker_account_switcher">
-                                            <strong>You’re signed in to Google as <span
-                                                    data-role="picker_account_email"></span></strong>
-                                            <a data-behavior="google_account_switcher" href="#">Sign out and use a
-                                                different Google account</a>
-                                        </div>
-
-                                        <div data-behavior="google_connector" class="google_connector">
-                                            <p>
-                                                <b>Connect your Google account</b><br>
-                                                Before you can attach Google Docs in Basecamp, we’ll need your OK first.
-                                                Do you want to connect your account now?
-                                            </p>
-                                            <p class="submit">
-                                                <button class="action_button" data-behavior="create_google_file_picker">
-                                                    Yes, connect my Google account
-                                                </button>
-                                                or <a data-behavior="cancel_google_connect" href="#">Cancel</a></p>
-                                        </div>
-
-                                        <div data-behavior="google_connector_access_denied" class="google_connector">
-                                            <p>
-                                                <b>Basecamp couldn’t access your Google account</b><br>
-                                                To attach Google Docs, you’ll need to give Basecamp permission. Do you
-                                                want to try again?
-                                            </p>
-                                            <p class="submit">
-                                                <button class="action_button" data-behavior="create_google_file_picker">
-                                                    Connect a Google account
-                                                </button>
-                                                or <a data-behavior="cancel_google_connect" href="#">Cancel</a></p>
-                                        </div>
-
-                                    </header>
-
-                                    <footer>
-    <span data-role="privacy_toggle" style="display:none;">
-      <label for="new_upload_privacy_toggle"><input name="upload[private]" type="hidden" value="0"><input
-              data-behavior="toggle_private_visibility" id="new_upload_privacy_toggle" name="upload[private]"
-              type="checkbox" value="1"> Don’t show <span data-behavior="pluralize_subscribable_label">this file</span> to the client <span
-              data-behavior="client_list"></span></label>
-
-      <span class="position_reference" data-behavior="expandable expand_exclusively">
-  – <a class="decorated" data-behavior="expand_on_click" href="#">what's this?</a>
-
-  <div class="balloon right_side expanded_content">
-    <span class="arrow"></span>
-    <span class="arrow"></span>
-
-    <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
-
-    <h5>Working with clients?</h5>
-    <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
-    <p><a class="decorated"
-          href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
-  </div>
-</span>
-
-      <br><br>
-    </span>
-
-                                        <div style="">
-                                            <div data-behavior="lazy_load_subscribers"
-                                                 data-url="/2501285/projects/6590988/subscribers?subscribable_type=Upload"></div>
-                                        </div>
-
-                                        <div class="submit">
-                                            <input class="action_button green" data-role="uploader" disabled="disabled"
-                                                   name="commit" type="submit" value="Add this file"> or
-                                            <a class="cancel" data-behavior="cancel" data-role="cancel"
-                                               href="#">Cancel</a>
-                                        </div>
-                                    </footer>
-                                </form>
-
-                                <div class="limit storage reached notify" data-hidden-from="accountManager"
-                                     style="display: none;">
-                                    <form>
-                                        <h1>You're out of storage space!</h1>
-                                        <p>
-                                            To upload more files, ask your Basecamp account owner to upgrade the
-                                            account.<br>
-                                            Just click the button below and we'll send them a quick reminder.
-                                        </p>
-                                        <a class="action_button green button" data-behavior="link_to_notify_owner"
-                                           data-method="post" data-remote="true"
-                                           href="/2501285/account/notification?type=storage" rel="nofollow">Notify your
-                                            account owner</a> or
-                                        <a class="decorated" data-behavior="cancel" data-role="cancel" href="#">Never
-                                            mind</a>
-                                    </form>
-                                </div>
-
-
-                                <div class="limit storage reached thanks" style="display:none"
-                                     data-role="account_upgrade_notice">
-                                    <form>
-                                        <h1>Thanks, you're all set!</h1>
-
-                                        <p>You've upgraded to the <strong>100 projects</strong> plan with <strong>40
-                                            GB</strong> storage space.</p>
-
-                                        <a class="action_button green button"
-                                           data-behavior="account_upgrade_confirmation" href="#">Continue uploading
-                                            files</a>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </article>
-
-                        <article class="blank_slate">
-                            <header>
-                                <img alt="Files" height="270"
-                                     src="https://bcx.basecamp-static.com/assets/blank_slates/blank_slate_icon_files@2x-b7d234f97b1aa678c32d2ab1f3e38dbf.png"
-                                     width="254">
-                            </header>
-
-                            <div class="blank_slate_body">
-                                <h1>Upload the first file to share with the team.</h1>
-                                <h3>Share files, documents, images, movies, screenshots, presentations, designs, or any
-                                    other type of file with your entire team.</h3>
-                                <p><a class="watch videothumb" data-behavior="open_videobox"
-                                      data-video-src="//fast.wistia.net/embed/iframe/psi99hz46t" href="#">Watch a quick
-                                    video about Files</a></p>
-                            </div>
-                        </article>
-
-
-                        <section class="attachments">
-
-                            <div class="grid_view in_3_columns" data-columns="3" data-role="index"
-                                 data-type="attachments" data-scaled="true">
-                                <div class="cell image" id="attachment_312251476" data-container-id="comment_579184130">
-                                    <article class="attachment">
-                                        <figure class="thumbnail proportional">
-                                            <div class="background " data-role="content_container"
-                                                 style="height: 373px; width: 277px;">
-                                                <div class="image_details list_column">
-                                                    <a data-attachment-id="312251476" data-behavior="enlargeable"
-                                                       data-stacker="false"
-                                                       href="https://asset1.basecamp.com/2501285/projects/6590988/attachments/312251476/c4dca50987bca80d6f42449e97dd96fe.jpg"
-                                                       class="hoverZoomLink">
-              <span class="thumbnail_wrap image">
-                <span><img alt="" class="thumbnail hoverZoomLink" data-attachment-id="312251476" data-audio-codec="null"
-                           data-classes="image" data-container-id="comment_579184130" data-content-type="image/jpeg"
-                           data-created-at="2017-11-25T15:36:41Z" data-creator-id="15531397" data-creator="Gopal S."
-                           data-description="image"
-                           data-details-path="/2501285/projects/6590988/attachments/312251476/details"
-                           data-download-path="/2501285/projects/6590988/attachments/312251476/download"
-                           data-embeddable="false" data-extension="JPG" data-file-or-image="image"
-                           data-filename="c4dca50987bca80d6f42449e97dd96fe.jpg" data-filesize="34 KB" data-height="564"
-                           data-image-id="312251476"
-                           data-large-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/312251476/6cf05226-d1f6-11e7-aa21-089e019fd4bb/large.jpg"
-                           data-linked="null" data-max-size="700"
-                           data-original-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/312251476"
-                           data-path="/2501285/projects/6590988/attachments/312251476"
-                           data-perma-path="/2501285/projects/6590988/messages/74076213?enlarge=312251476#attachment_312251476"
-                           data-previewable="true" data-storage-key="6cf05226-d1f6-11e7-aa21-089e019fd4bb"
-                           data-thumbnail="true" data-trash-path="/2501285/projects/6590988/attachments/312251476/trash"
-                           data-trashed="false" data-type="image" data-video-codec="null" data-width="564"
-                           src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/312251476/6cf05226-d1f6-11e7-aa21-089e019fd4bb/thumbnail.jpg"
-                           data-scaled="true" style="width: 276px; height: 276px;"></span>
-              </span>
-
-                                                        <figcaption data-role="live_filter_highlight"
-                                                                    style="width: 277px;">
-                                                            <span class="file_name">c4dca50987bca80d6f42449e97dd96fe</span>.<span
-                                                                class="file_extension">jpg</span>
-                                                        </figcaption>
-
-
-                                                        <div class="bucket">
-                                                            Project: Random Projects
-                                                        </div>
-
-                                                        <div class="metadata_for_grid">
-                                                            <span class="meta date">Added by Gopal S. on <time
-                                                                    data-local="date" datetime="2017-11-25T15:36:41Z"
-                                                                    data-localized="true"
-                                                                    title="November 25, 2017 at 9:06pm ">Nov 25</time></span>
-                                                            <span class="meta"> · </span>
-                                                            <span class="meta filesize" data-behavior="direct_download"
-                                                                  data-download-path="/2501285/projects/6590988/attachments/312251476/download"
-                                                                  title="Download this image">34 KB
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="tags_and_comments">
-                                                        <a href="/2501285/projects/6590988/messages/74076213">
-                                                            <span class="pill comments">1 comment</span>
-                                                        </a>
-                                                        <div class="taggings" data-behavior="taggings"
-                                                             data-url="/2501285/projects/6590988/taggings"
-                                                             data-taggable-type="Attachment"
-                                                             data-taggable-id="312251476"
-                                                             data-role="tags_for_attachment_312251476">
-                                                            <ul class="tags">
-
-                                                            </ul>
-
-                                                            <div class="edit_taggings"
-                                                                 data-behavior="expandable expand_exclusively edit_taggings">
-                                                                <a data-behavior="expand_on_click" href="#">Label...</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="list_column date">
-                                                    <time data-local="date" datetime="2017-11-25T15:36:41Z"
-                                                          data-localized="true" title="November 25, 2017 at 9:06pm ">Nov
-                                                        25
-                                                    </time>
-                                                </div>
-
-                                                <div class="list_column filesize">
-                                                    34 KB
-                                                </div>
-
-                                                <div class="list_column creator">
-                                                    Gopal S.
-                                                </div>
-
-                                                <div class="list_column actions">
-                                                    <a class="button download" data-behavior="direct_download"
-                                                       data-download-path="/2501285/projects/6590988/attachments/312251476/download"
-                                                       href="#">Download</a>
-
-                                                    <a class="button delete" data-creator-id="15531397"
-                                                       data-method="post" data-remote="true"
-                                                       data-visible-to="admin creator"
-                                                       href="/2501285/projects/6590988/attachments/312251476/trash"
-                                                       rel="nofollow" title="Delete this file">Delete</a>
-                                                </div>
-                                            </div>
-                                        </figure>
-                                    </article>
-                                </div>
-                                <div class="cell image pdf" id="attachment_310543980"
-                                     data-container-id="comment_575887321">
-                                    <article class="attachment">
-                                        <figure class="thumbnail proportional">
-                                            <div class="background " data-role="content_container"
-                                                 style="height: 373px; width: 277px;">
-                                                <div class="image_details list_column">
-                                                    <a data-attachment-id="310543980" data-behavior="enlargeable"
-                                                       data-stacker="false"
-                                                       href="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/Website%2520Menu%2520items%2520draft%2520v1.2%2520%25281%2529.pdf">
-                                                        <span class="thumbnail_wrap image pdf">
-                                                            <span>
-                                                                <img alt="" class="thumbnail"
-                                                                     data-attachment-id="310543980"
-                                                                     data-audio-codec="null"
-                                                                     data-classes="image pdf"
-                                                                     data-container-id="comment_575887321"
-                                                                     data-content-type="application/pdf"
-                                                                     data-created-at="2017-11-12T17:03:17Z"
-                                                                     data-creator-id="6581649"
-                                                                     data-creator="Deepanshu T." data-description="file"
-                                                                     data-details-path="/2501285/projects/6590988/attachments/310543980/details"
-                                                                     data-download-path="/2501285/projects/6590988/attachments/310543980/download"
-                                                                     data-embeddable="true" data-extension="PDF"
-                                                                     data-file-or-image="file"
-                                                                     data-filename="Website Menu items draft v1.2 (1).pdf"
-                                                                     data-filesize="215 KB"
-                                                                     data-height="1240" data-image-id="310543980"
-                                                                     data-large-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/5c57be52-c7cb-11e7-b971-047d7be9fbd4/large.png"
-                                                                     data-linked="null" data-max-size="700"
-                                                                     data-original-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980"
-                                                                     data-path="/2501285/projects/6590988/attachments/310543980"
-                                                                     data-perma-path="/2501285/projects/6590988/messages/73611012?enlarge=310543980#attachment_310543980"
-                                                                     data-previewable="true"
-                                                                     data-storage-key="5c57be52-c7cb-11e7-b971-047d7be9fbd4"
-                                                                     data-thumbnail="true"
-                                                                     data-trash-path="/2501285/projects/6590988/attachments/310543980/trash"
-                                                                     data-trashed="false" data-type="pdf"
-                                                                     data-video-codec="null" data-width="1754"
-                                                                     src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/310543980/5c57be52-c7cb-11e7-b971-047d7be9fbd4/thumbnail.png"
-                                                                     data-scaled="true"
-                                                                     style="width: 276px; height: 195px;">
-                                                            </span>
-                                                        </span>
-
-                                                        <figcaption data-role="live_filter_highlight"
-                                                                    style="width: 277px;">
-                                                            <span class="file_name">Website Menu items draft v1.2 (1)</span>.<span
-                                                                class="file_extension">pdf</span>
-                                                        </figcaption>
-
-
-                                                        <div class="bucket">
-                                                            Project: Random Projects
-                                                        </div>
-
-                                                        <div class="metadata_for_grid">
-                                                            <span class="meta date">Added by Deepanshu T. on <time
-                                                                    data-local="date" datetime="2017-11-12T17:03:17Z"
-                                                                    data-localized="true"
-                                                                    title="November 12, 2017 at 10:33pm ">Nov 12</time></span>
-                                                            <span class="meta"> · </span>
-                                                            <span class="meta filesize" data-behavior="direct_download"
-                                                                  data-download-path="/2501285/projects/6590988/attachments/310543980/download"
-                                                                  title="Download this file">215 KB</span>
-                                                        </div>
-
-                                                    </a>
-                                                    <div class="tags_and_comments">
-                                                        <a href="/2501285/projects/6590988/messages/73611012">
-                                                            <span class="pill comments">
-                                                                11 comments
-                                                            </span>
-                                                        </a>
-                                                        <div class="taggings" data-behavior="taggings"
-                                                             data-url="/2501285/projects/6590988/taggings"
-                                                             data-taggable-type="Attachment"
-                                                             data-taggable-id="310543980"
-                                                             data-role="tags_for_attachment_310543980">
-                                                            <ul class="tags">
-
-                                                            </ul>
-
-                                                            <div class="edit_taggings"
-                                                                 data-behavior="expandable expand_exclusively edit_taggings">
-                                                                <a data-behavior="expand_on_click" href="#">Label...</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="list_column date">
-                                                    <time data-local="date" datetime="2017-11-12T17:03:17Z"
-                                                          data-localized="true" title="November 12, 2017 at 10:33pm ">
-                                                        Nov 12
-                                                    </time>
-                                                </div>
-
-                                                <div class="list_column filesize">
-                                                    215 KB
-                                                </div>
-
-                                                <div class="list_column creator">
-                                                    Deepanshu T.
-                                                </div>
-
-                                                <div class="list_column actions">
-                                                    <a class="button download" data-behavior="direct_download"
-                                                       data-download-path="/2501285/projects/6590988/attachments/310543980/download"
-                                                       href="#">Download</a>
-
-
-                                                </div>
-                                            </div>
-                                        </figure>
-                                    </article>
-                                </div>
-                            </div>
-
-                        </section>
-
-                        <p class="more_files">
-                            <a class="decorated" href="/2501285/projects/6590988/attachments">651 more files</a>
-                        </p>
-                    </section>
-
                     <section class="documents " data-collection-name="documents">
                         <header class="has_buttons">
                             <h1><a :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">Text Documents</a></h1>
@@ -1880,24 +1456,15 @@
 
                                         <div class="column updater">
                                             <p class="project">From the project: {{projectName}}</p>
-
                                             <span class="action">
-
-                                            <span class="description">Saved by</span> {{doc.created_by.name}}
-                                            <span class="description">on
+                                                <span class="description">Saved by</span> {{doc.created_by.name}}
+                                                <span class="description">on
                                                 <time data-local="date"
                                                       :datetime="doc.created_at"
                                                       :title="doc.created_at_noob"
                                                       data-localized="true">{{doc.created_at_human}}</time>
-                                                <span class="description">Saved by</span> {{doc.user_name}}
-                                                <span class="description">on
-                                                    <time data-local="date"
-                                                          :datetime="doc.created_at"
-                                                          :title="doc.created_at_noob"
-                                                          data-localized="true">{{doc.created_at_human}}</time>
                                                 </span>
                                             </span>
-                                        </span>
                                         </div>
 
 
@@ -1957,15 +1524,6 @@
                 .catch(function (error) {
                     console.log(error);
                 });
-
-
-            window.onscroll = function (ev) {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                    // you're at the bottom of the page
-                    console.log('you reached end');
-                }
-            };
-
         }
     }
 </script>
