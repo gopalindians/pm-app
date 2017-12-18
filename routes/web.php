@@ -13,8 +13,15 @@
 
 Auth::routes();
 
+
 Route::get( '/', 'HomeController@index' )->name( 'home' );
 Route::get( '/home', 'HomeController@index' )->name( 'home' );
+
+
+//People
+
+Route::get( '/people/{people_id}', 'PeopleController@index' );
+
 
 
 Route::prefix( 'profile' )->group( function () {
@@ -37,31 +44,34 @@ Route::get( '/projects', 'ProjectController@index' )->name( 'projects' );
 Route::get( '/createProject', 'ProjectController@createProject' );
 
 
+
 //Todolists
 Route::get( '/project/{id}/{name?}/todolists', 'TodoController@index' );
 Route::get( '/project/{id}/{name?}', 'ProjectController@view' );
 
-Route::get( ' /project/{id}/{name?}/topics', 'TopicController@index' );
-Route::get( ' /api/project/{id}/{name?}/document /{	documentId}', 'DocumentController@apiGetDocument' );
+Route::get( '/project/{id}/{name?}/topics', 'TopicController@index' );
+Route::get( '/api/project/{id}/{name?}/document/{documentId}', 'DocumentController@apiGetDocument' );
 
-Route::prefix( ' / project /{id}/{name ?}' )->group( function () {
+Route::prefix( '/project/{id}/{name?}' )->group( function () {
 	//messages
-	Route::prefix( ' / messages' )->group( function () {
-		Route::get( ' / new', 'MessageController@index' );
-		Route::get( ' /{topicId}', 'MessageController@getTopic' );
-		Route::post( ' /{topicId}/edit', 'MessageController@postEditTopic' );
-		Route::get( ' /{topicId}/edit', 'MessageController@getEditTopic' );
-		Route::get( ' /{topicId}/trash', 'MessageController@deleteMessage' );
-		Route::post( ' / ', 'MessageController@postNew' );
+	Route::prefix( '/messages' )->group( function () {
+		Route::get( '/new', 'MessageController@index' );
+		Route::get( '/{topicId}', 'MessageController@getTopic' );
+		Route::post( '/{topicId}/edit', 'MessageController@postEditTopic' );
+		Route::get( '/{topicId}/edit', 'MessageController@getEditTopic' );
+		Route::get( '/{topicId}/trash', 'MessageController@deleteMessage' );
+		Route::post( '/', 'MessageController@postNew' );
 	} );
 
 	//documents
 	Route::prefix( '/documents' )->group( function () {
 		Route::get( '/', 'DocumentController@getDocuments' );
-		Route::get( '/new', 'DocumentController@getNewDocumentView' );
-		Route::post( '/', 'DocumentController@postNewDocument' );
-		Route::get( '/{documentId}', 'DocumentController@getDocument' );
 	} );
+
+    Route::get( '/document/{documentId}', 'DocumentController@getDocument' );
+    Route::post( '/document/', 'DocumentController@postNewDocument' );
+    Route::get( '/document/new', 'DocumentController@getNewDocumentView' );
+    Route::get( '/document/{documentId}/edit', 'DocumentController@getDocument' );
 
 } );
 
@@ -74,14 +84,14 @@ Route::get( '/project/{id}/{name?}/topics', 'TopicController@index' );
 
 
 //people
-Route::get( '/people /{people_id}', 'PeopleController@index' );
+Route::get( '/people/{people_id}', 'PeopleController@index' );
 
 
 Route::prefix( '/api' )->group( function () {
 
 	Route::get( '/search', 'SearchController@getSearchQuery' );
 
-	Route::get( '/people /{people_id}', 'PeopleController@getPeople' );
+	Route::get( '/people/{people_id}', 'PeopleController@getPeople' );
 
 	Route::get( '/projects', 'ProjectController@apiGetProjects' );
 	Route::post( '/createProject', 'ProjectController@postCreateProject' );
@@ -90,9 +100,9 @@ Route::prefix( '/api' )->group( function () {
 	Route::prefix('/project /{id}' )->group( function () {
 		Route::get( '/{projectName?}', 'ProjectController@apiGetProject' );
 		Route::get( '/{name?}/topics', 'TopicController@apiGetTopics' );
-		Route::get( '/{name?}/messages /{topicId}', 'MessageController@apiGetTopic' );
+		Route::get( '/{name?}/messages/{topicId}', 'MessageController@apiGetTopic' );
 		Route::get( '/{name?}/documents', 'DocumentController@apiGetDocuments' );
-		Route::get( '/{name?}/messages /{topicId}', 'MessageController@apiGetTopic' );
+		Route::get( '/{name?}/messages/{topicId}', 'MessageController@apiGetTopic' );
 	} );
 
 
