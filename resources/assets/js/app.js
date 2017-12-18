@@ -30,6 +30,7 @@ Vue.component('edit-message-component', require('./components/message/EditMessag
 Vue.component('create-new-document-component', require('./components/document/CreateNewDocumentComponent.vue'));
 Vue.component('view-document-component', require('./components/document/ViewComponent.vue'));
 Vue.component('index-document-component', require('./components/document/IndexDocumentComponent.vue'));
+Vue.component('edit-document-component', require('./components/document/EditDocumentComponent.vue'));
 
 
 

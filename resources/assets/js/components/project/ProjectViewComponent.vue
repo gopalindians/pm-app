@@ -156,12 +156,7 @@
                                 <a :href="'/project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open
                                     discussions</a>
 
-                                <a :href="'/project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open
-                                    discussions</a>
 
-                                •
-                                <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/topics/archived'">1
-                                    archived discussion</a>
                         </p>
                     </section>
 
@@ -1405,119 +1400,6 @@
                         </div>
                     </section>
 
-                    <section class="documents " data-collection-name="documents">
-                        <header class="has_buttons">
-                            <h1><a :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">Text
-                                Documents</a></h1>
-                            <a class="action_button button"
-                               :href="home_page+'project/'+projectId+'/'+projectName+'/document/new'">Create a text
-                                document</a>
-                        </header>
-
-                        <section class="documents in_project project_documents">
-                            <article class="document" id="document_12905846" data-behavior="link_container"
-                                     v-for="doc in project.document_detail">
-
-                                <!--v-for="document in project.document_detail"-->
-                                <div>
-
-                                    <div class="wrapper">
-                                        <div class="column icon">
-                                            <span class="text-doc-icon"></span>
-                                        </div>
-
-                                        <div class="column content">
-                                            <div class="document_page">
-                                                <div class="wrap">
-                                                    <header>
-                                                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+doc.id">
-                                                            <h3 data-role="live_filter_highlight">
-                                                                {{doc.document_title}}</h3>
-                                                        </a>
-                                                        <p class="project">From the project:
-                                                            <a data-default-stack="true"
-                                                               href="/2501285/projects/6590988">{{projectName}}</a>
-                                                        </p>
-                                                    </header>
-
-                                                    <div class="formatted_content">{{doc.document_body}}</div>
-
-
-                                                    <a :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+doc.id">
-                                                        <h3 data-role="live_filter_highlight">
-                                                            {{doc.document_title}}</h3>
-                                                    </a>
-                                                    <p class="project">From the project:
-                                                        <a data-default-stack="true"
-                                                           :href="home_page+'project/'+projectId+'/'+projectName">{{projectName}}</a>
-                                                    </p>
-
-
-                                                    <div class="formatted_content">
-                                                        {{doc.document_body}}
-                                                    </div>
-                                                </div>
-
-                                                </a>
-                                                <div class="tags_and_comments">
-                                                    <a href="/2501285/projects/6590988/messages/73611012">
-
-                                                        <span class="pill comments">11 comments</span>
-                                                    </a>
-                                                    <div class="taggings" data-behavior="taggings"
-                                                         data-url="/2501285/projects/6590988/taggings"
-                                                         data-taggable-type="Attachment"
-                                                         data-taggable-id="310543980"
-                                                         data-role="tags_for_attachment_310543980">
-                                                        <ul class="tags">
-
-                                                        </ul>
-
-                                                        <div class="edit_taggings"
-                                                             data-behavior="expandable expand_exclusively edit_taggings">
-                                                            <a data-behavior="expand_on_click" href="#">Label...</a>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="list_column date">
-                                                <time data-local="date" datetime="2017-11-12T17:03:17Z"
-                                                      data-localized="true" title="November 12, 2017 at 10:33pm ">
-                                                    Nov 12
-                                                </time>
-                                            </div>
-
-                                            <div class="list_column filesize">
-                                                215 KB
-                                            </div>
-
-                                            <div class="list_column creator">
-                                                Deepanshu T.
-                                            </div>
-
-                                            <div class="list_column actions">
-                                                <a class="button download" data-behavior="direct_download"
-                                                   data-download-path="/2501285/projects/6590988/attachments/310543980/download"
-                                                   href="#">Download</a>
-
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-                            </article>
-
-                        </section>
-
-                        <p class="more_files">
-                            <a class="decorated" href="/2501285/projects/6590988/attachments">651 more files</a>
-                        </p>
-                    </section>
 
                     <section class="documents " data-collection-name="documents">
                         <header class="has_buttons">
@@ -1572,34 +1454,14 @@
                                         <p class="project">From the project: {{projectName}}</p>
 
                                         <span class="action">
-                                                <span class="description">Saved by</span> {{doc.created_by.name}}
+                                                <span class="description">Saved by</span> {{document.created_by.name}}
                                                 <span class="description">on
-                                                <time data-local="date"
-                                                      :datetime="doc.created_at"
-                                                      :title="doc.created_at_noob"
-                                                      data-localized="true">{{doc.created_at_human}}</time>
-                                                </span>
-                                            </span>
-                                    </div>
-
-
-                                    <div class="column actions">
-                                        <a class="button edit"
-                                           href="/2501285/projects/6590988/documents/12905846/edit">Edit…</a>
-                                    </div>
-
-                                    <div class="column updater">
-                                        <p class="project">From the project: {{projectName}}</p>
-
-                                        <span class="action">
-                                            <span class="description">Saved by</span> {{document.user_name}}
-                                            <span class="description">on
                                                 <time data-local="date"
                                                       :datetime="document.created_at"
                                                       :title="document.created_at_noob"
                                                       data-localized="true">{{document.created_at_human}}</time>
+                                                </span>
                                             </span>
-                                        </span>
                                     </div>
 
                                     <div class="column actions">
@@ -1610,36 +1472,10 @@
                         </section>
 
                         <p class="more_documents">
-
-
-                            <a class="decorated" :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}}</a>
-
-                            <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}}
-
-                                &nbsp; more documents</a>
+                            <a class="decorated" :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}} more documents</a>
                         </p>
                     </section>
 
-                    <a class="decorated" :href="'/project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}}
-                        &nbsp; more documents</a>
-                    </p>
-                    </section>
-
-                    <section class="forwards" data-collection-name="forwards" style="display: none;">
-                        <header class="has_buttons">
-                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/forwards'">Forwarded emails</a></h1>
-
-                            <a class="action_button button" href="/2501285/projects/6590988/dropbox#emails">Forward an
-                                email</a>
-                        </header>
-
-                        <p class="blank_slate">Forward emails into this project for safekeeping.</p>
-
-                        <section class="forwards grouped_by_date">
-
-                        </section>
-
-                    </section>
 
                 </div>
             </div>
@@ -1663,6 +1499,7 @@
 
                 home_page: '',
                 result: '',
+
             }
         },
         mounted() {
