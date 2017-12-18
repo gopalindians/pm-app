@@ -15,11 +15,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class DocumentTest extends TestCase
 {
-
     public function testSeeDocumentsPage()
     {
         $response = $this->get('project/1/xyz/documents');
         $response->assertStatus(200);
     }
-
 }
