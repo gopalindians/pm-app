@@ -66,8 +66,6 @@ class DocumentController extends Controller
 
     public function getDocument(Request $request)
     {
-
-
         return view('documents.view');
     }
 
@@ -123,5 +121,11 @@ class DocumentController extends Controller
         $response['type'] = 'SUCCESS';
         $response['data'] = $commentData[0];
         return response()->json($response);
+    }
+
+    public function getEditDocument()
+    {
+        return view('documents.edit');
+
     }
 }
