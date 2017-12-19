@@ -23,3 +23,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
     ], 'public/css/all.css')
     .sass('resources/assets/sass/app.scss', 'public/css');
+
+
+if (mix.inProduction()) {
+    mix.version();
+}
