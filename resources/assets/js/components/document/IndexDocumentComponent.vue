@@ -5,7 +5,7 @@
             <div class="panel sheet project active isnt_client_project inactive" data-behavior=" "
                  data-creator-id="6581649" data-status="active">
                 <header><h1><a data-restore-position=""
-                               :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a></h1>
+                               :href="home_page+'/project/'+projectId+'/'+projectName">{{projectName}}</a></h1>
                 </header>
                 <div class="panel sheet documents has_sorting" data-role="toggleable_view"
                      data-behavior=" prevent_reload_when_stacked" style="margin-left: 20px; margin-bottom: -20px;">
@@ -14,7 +14,7 @@
                     <header class="has_buttons">
                         <h1 class="inactive_title">See all text documents</h1>
 
-                        <div class="active_title with_facets">
+                        <!--<div class="active_title with_facets">
                             <h1>
                                 Show text documents
                                 <span class="sort_options">sorted by
@@ -54,16 +54,16 @@
                                        data-type="documents" id="" placeholder="title…" type="text">
 
                             </h1>
-                        </div>
+                        </div>-->
 
                         <div class="actions">
-                            <a class="grid toggle_view selected" data-behavior="toggle_view" data-type="documents"
+                           <!-- <a class="grid toggle_view selected" data-behavior="toggle_view" data-type="documents"
                                data-view="grid" href="#">Grid view</a>
                             <a class="list toggle_view" data-behavior="toggle_view" data-type="documents"
-                               data-view="list" href="#">List view</a>
+                               data-view="list" href="#">List view</a>-->
 
                             <span class="position_reference">
-                        <a class="action_button button" :href="'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
+                        <a class="action_button button" :href="home_page+'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
                         <div class="blank_slate_arrow"></div>
                     </span>
                         </div>
@@ -74,6 +74,8 @@
                                  data-role="index live_filter_results" data-type="documents" data-infinite-page="3">
                             <article class="document" id="document_12992150" data-behavior="link_container"
                                      v-for="doc in documents">
+
+                                <a :href="home_page+'/project/'+projectId+'/'+projectName+'/document/'+doc.id">
                                 <div class="wrapper">
                                     <div class="column icon">
                                         <span class="text-doc-icon"></span>
@@ -83,7 +85,7 @@
                                         <div class="document_page">
                                             <div class="wrap">
                                                 <header>
-                                                    <a :href="'/project/'+projectId+'/'+projectName+'/document/'+doc.id">
+                                                    <a :href="home_page+'/project/'+projectId+'/'+projectName+'/document/'+doc.id">
                                                         <h3 data-role="live_filter_highlight">
                                                             {{doc.document_title}}</h3>
                                                     </a>
@@ -122,14 +124,15 @@
 
                                     <div class="column actions">
                                         <a class="button edit"
-                                           :href="'/project/'+projectId+'/document/'+doc.id+'/edit'">Edit…</a>
+                                           :href="home_page+'/project/'+projectId+'/document/'+doc.id+'/edit'">Edit…</a>
                                         <a class="button delete" data-creator-id="15531397" data-method="post"
                                            data-remote="true" data-visible-to="admin creator"
-                                           :href="'/project/'+projectId+'/'+projectName+'/document/'+doc.id+'/trash'"
+                                           :href="home_page+'/project/'+projectId+'/'+projectName+'/document/'+doc.id+'/trash'"
                                            rel="nofollow"
                                            title="Delete this document">Delete</a>
                                     </div>
                                 </div>
+                                </a>
                             </article>
                         </section>
                     </div>
@@ -141,7 +144,7 @@
 
 <script>
     export default {
-        name: 'CreateNewDocumentComponent',
+        name: 'IndexDocumentComponent',
         data() {
             return {
                 open: true,
@@ -152,7 +155,8 @@
                 project: '',
                 documents: '',
 
-                csrf_token: ''
+                csrf_token: '',
+                home_page: ''
             }
         },
         methods: {
@@ -162,14 +166,14 @@
         },
         mounted() {
             let self = this;
+            this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
             this.csrf_token = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
-            console.log('Component mounted.');
-            let segment = window.location.href.split('/');
-            self.projectId = segment[4];
-            self.projectName = segment[5];
+
+            this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+            this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
 
 
-            axios.get('/api/project/' + self.projectId + '/' + self.projectName + '/documents')
+            axios.get(this.home_page+'/api/project/' + this.projectId + '/' + this.projectName + '/documents')
                 .then(function (response) {
                     console.log(response.data);
                     self.documents = response.data.data;

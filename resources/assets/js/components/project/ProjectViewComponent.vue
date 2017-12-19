@@ -7,14 +7,11 @@
                 <title>{{projectName}}</title>
                 <header>
                     <div class="header_links">
-                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/accesses'">
+                        <!--<a :href="home_page+'project/'+projectId+'/'+projectName+'/accesses'">
                             <span class="link">Invite more people</span><br>
                             <span class="detail">11 people on this project</span>
-                        </a>
-                        <a :href="home_page+'project/'+projectId+'/'+projectName+'/summary'">
-                            <span class="link">Catch up</span><br>
-                            <span class="detail">on recent changes</span>
-                        </a>
+                        </a>-->
+
                     </div>
 
                     <h1>{{projectName}}</h1>
@@ -37,10 +34,10 @@
                                    data-tool-name="topics">
                                     <span class=""><strong>{{totalTopics}} Discussions</strong></span>
                                 </a>
-                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/todolists'"
+                                <!--<a :href="home_page+'project/'+projectId+'/'+projectName+'/todolists'"
                                    data-tool-name="todolists">
                                     <span class=""><strong>3 To-dos</strong></span>
-                                </a>
+                                </a>-->
                                 <a :href="home_page+'project/'+projectId+'/'+projectName+'/documents'"
                                    data-tool-name="documents">
                                     <span class=""><strong>{{project.total_documents}} Text documents</strong></span>
@@ -153,15 +150,12 @@
                                 open
                                 discussions</a>
 
-                                <a :href="'/project/'+projectId+'/'+projectName+'/topics'">{{project.total_topics}} open
-                                    discussions</a>
-
 
                         </p>
                     </section>
 
 
-                    <section class="todos " data-collection-name="todolists">
+                    <!--<section class="todos " data-collection-name="todolists">
                         <header class="has_buttons">
                             <h1><a :href="home_page+'project/'+projectId+'/'+projectName+'/todolists'">To-do lists</a>
                             </h1>
@@ -1398,14 +1392,14 @@
                                 Transport site updates</a>
                             </p>
                         </div>
-                    </section>
+                    </section>-->
 
 
                     <section class="documents " data-collection-name="documents">
                         <header class="has_buttons">
-                            <h1><a :href="'/project/'+projectId+'/'+projectName+'/documents'">Text Documents</a></h1>
+                            <h1><a :href="home_page+'/project/'+projectId+'/'+projectName+'/documents'">Text Documents</a></h1>
                             <a class="action_button button"
-                               :href="'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
+                               :href="home_page+'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
                         </header>
 
                         <p class="blank_slate">Keep notes and important information in Text Documents</p>
@@ -1422,13 +1416,13 @@
                                         <div class="document_page">
                                             <div class="wrap">
                                                 <header>
-                                                    <a :href="'/project/'+projectId+'/'+projectName+'/document/'+document.id">
+                                                    <a :href="home_page+'/project/'+projectId+'/'+projectName+'/document/'+document.id">
                                                         <h3 data-role="live_filter_highlight">
                                                             {{document.document_title}}</h3>
                                                     </a>
                                                     <p class="project">From the project:
                                                         <a data-default-stack="true"
-                                                           :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a>
+                                                           :href="home_page+'/project/'+projectId+'/'+projectName">{{projectName}}</a>
                                                     </p>
                                                 </header>
 
@@ -1511,7 +1505,6 @@
 
             axios.get(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName)
                 .then(function (response) {
-                    console.log(response.data);
                     self.project = response.data;
                     self.projectId = response.data.project_id;
                     self.projectName = response.data.project_name;

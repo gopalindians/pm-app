@@ -30,27 +30,49 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="emp_img">
-                                <img :src="asset_url+'images/employee_img.jpg'" class="img-responsive">
+                                <!--<img v-if="result.profile_image_from_topic" :src="asset_url+'images/employee_img.jpg'" class="img-responsive">-->
+                                <img v-if="result.profile_image_from_topic"
+                                     :src="asset_url+'/storage/'+result.profile_image_from_topic"
+                                     class="img-responsive">
+
+
                             </div>
                         </div>
                         <div class="col-md-10">
                             <div class="search_discription">
-                                <h2><a href="#">{{result.document_title?result.document_title:(result.topic_name?result.topic_name:result.comment)}}</a>
-                                    <p><span><i class="fa fa-calendar"
-                                                aria-hidden="true"></i> {{result.updated_at}}</span><span> <i
-                                            class="fa fa-clock-o" aria-hidden="true"></i> </span></p></h2>
+                                <h2>
+
+                                    <a v-if="result.project_name_from_topic"
+                                       :href="home_page+'/project/'+result.project_id+'/'+result.project_name_from_topic+'/messages/'+result.id">{{result.topic_name | truncate(40)}}</a>
+                                    <a v-if="result.project_name_from_document"
+                                       :href="home_page+'/project/'+result.project_id+'/'+result.project_name_from_document+'/document/'+result.id">{{result.document_title | truncate(40)}}</a>
+                                    <a v-if="result.project_name_from_topic_comments"
+                                       :href="home_page+'/project/'+result.project_id+'/'+result.project_name_from_topic_comments+'/messages/'+result.id">{{result.project_name_from_topic_comments | truncate(40)}}</a>
+                                    <p>
+                                        <span>
+                                            <i class="fa fa-calendar"
+                                               aria-hidden="true"></i> {{result.updated_at}}</span><span>
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i> </span>
+                                    </p>
+                                </h2>
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <p class="single_dis">
-                                            {{result.document_body?result.document_body:(result.topic_body?result.topic_body:result.comment)}}</p>
+                                        <p class="single_dis pull-left">
+                                            {{result.document_body?result.document_body:(result.topic_body?result.topic_body:result.comment)
+                                            | truncate(100)}}</p>
                                         <p class="search_projectName">
-                                        <span>Project: <span
-                                                class="single_projectName">Internal Status Report</span></span>
+                                        <span>Project:
+                                            <span v-if="result.project_name_from_topic" class="single_projectName">{{result.project_name_from_topic}}</span>
+                                            <span v-if="result.project_name_from_document" class="single_projectName">{{result.project_name_from_document}}</span>
+                                            <span v-if="result.project_name_from_topic_comments"
+                                                  class="single_projectName">{{result.project_name_from_topic_comments}}</span>
+
+                                        </span>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="search_cmt">
-                                            <a href="#">See all <span>99</span> Comments</a>
+                                            <!-- <a href="#">See all <span>99</span> Comments</a>-->
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +102,6 @@
                 resultEmpty: false,
                 home_page: '',
                 asset_url: '',
-
             }
         },
         mounted() {
@@ -89,12 +110,13 @@
             this.csrf_token = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
             this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
             this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
+            this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+            this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
 
             self.query = self.getParameterByName('q') ? self.getParameterByName('q') : '';
 
             axios.get(this.home_page + 'api/search?q=' + self.query)
                 .then(function (response) {
-                    console.log(response.data);
                     self.results = response.data;
                     self.resultEmpty = self.results.length <= 0;
                 })
@@ -103,10 +125,7 @@
                 });
         },
         methods: {
-            createNewTodoList() {
-                console.log('clicked');
-                this.clicked = true;
-            },
+
             getParameterByName(name, url) {
                 if (!url) url = window.location.href;
                 name = name.replace(/[\[\]]/g, "\\$&");
@@ -116,6 +135,15 @@
                 if (!results[2]) return '';
                 return decodeURIComponent(results[2].replace(/\+/g, " "));
             }
+        },
+        filters: {
+            truncate: function (string,value) {
+                if(value=='') {
+                    value = 35;
+                }
+                return string.substring(0, value) + '...';
+            }
+
         }
     }
 </script>

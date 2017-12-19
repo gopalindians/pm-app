@@ -24,6 +24,7 @@ class DocumentController extends Controller
 
         $projectId = $request->route('id');
 
+
         $documents = DB::table('documents')
             ->where('project_id', $projectId)
             ->orderBy('updated_at', 'desc')
@@ -48,16 +49,18 @@ class DocumentController extends Controller
 
     public function postNewDocument(Request $request)
     {
+
         $title = $request->post('document_title');
         $body = $request->post('document_body');
         $projectId = $request->route('id');
         $projectName = $request->route('name');
 
+
         $newDocumentId = DB::table('documents')->insertGetId([
             'project_id' => $projectId,
             'creator_id' => Auth::id(),
-            'document_title' => $title,
-            'document_body' => $body,
+            'document_title' => isset($title) ? $title : '',
+            'document_body' => isset($body) ? $body : '',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -78,7 +81,11 @@ class DocumentController extends Controller
             'project_id' => $projectId,
             'id' => $documentId
         ])->first();
-        $document->comments = DB::table('document_comments')->where('document_id', $document->id)->get();
+        $document->comments = DB::table('document_comments')
+            ->join('users', 'users.id', 'document_comments.poster_id')
+            ->select('users.name as user_name', 'document_comments.*')
+            ->where('document_id', $document->id)
+            ->get();
         return response()->json($document);
     }
 
@@ -105,7 +112,9 @@ class DocumentController extends Controller
             ]);
 
         $commentData = DB::table('document_comments')
-            ->where('id', $commentId)
+            ->join('users', 'users.id', 'document_comments.poster_id')
+            ->select('users.name as user_name', 'document_comments.*')
+            ->where('document_comments.id', $commentId)
             ->get();
 
         DB::table('documents')
@@ -126,6 +135,31 @@ class DocumentController extends Controller
     public function getEditDocument()
     {
         return view('documents.edit');
+
+    }
+
+    public function postEditDocument(Request $request)
+    {
+        $documentId = $request->route('documentId');
+        $projectId = $request->route('id');
+        $projectName = $request->route('name');
+
+
+        $documentTitle = $request->post('document_title');
+        $documentBody = $request->post('document_body');
+
+        DB::table('documents')->where('documents.id', $documentId)
+            ->update([
+                'document_title' => isset($documentTitle) ? $documentTitle : '',
+                'document_body' => isset($documentBody) ? $documentBody : '',
+                'updated_at' => Carbon::now(),
+            ]);
+
+        DB::table('projects')
+            ->where('id', $projectId)
+            ->update(['updated_at' => Carbon::now()]);
+        return response()->redirectTo(url('/project/' . $projectId . '/' . $projectName . '/document/' . $documentId));
+
 
     }
 }

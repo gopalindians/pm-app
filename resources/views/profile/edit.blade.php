@@ -13,6 +13,12 @@
                         </div>
                     @endif
 
+                        @if (session('error'))
+                            <div class="alert alert-warning">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -22,7 +28,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="/profile/edit/{{$user[0]->id}}" method="post" enctype="multipart/form-data">
+                    <form action="{{\App\CH::getUrl('/profile/edit/')}}{{$user[0]->id}}" method="post" enctype="multipart/form-data">
                         <div class="col-md-8 offset-md-2">
                             <div class="profile_head">
                                 <div class="row">

@@ -11,7 +11,7 @@
                     <div class="add_people">
                         <a href="{{url('/team/add')}}">
                             <div class="plus_icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                            <p>Add new project</p></a>
+                            <p>Add new tem member</p></a>
                     </div>
                 </div>
                 @foreach($teams as $team)

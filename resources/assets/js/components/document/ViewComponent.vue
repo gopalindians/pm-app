@@ -35,23 +35,23 @@
                                 <article class="comment" id="comment_584232109" data-creator-id="15531397" style=""
                                          v-for="comment in documentComments">
                                     <a data-replace-stack="true" href="/2501285/people/15531397">
-                                        <img alt="Gopal Sharma" class="avatar" height="96"
+                                        <img :alt="comment.user_name" class="avatar" height="96"
                                              src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif"
-                                             title="Gopal Sharma" width="96">
+                                             :title="comment.user_name" width="96">
                                     </a>
                                     <div class="formatted_content" data-embeddable="" data-skip-stacker-links="">
-                                        <strong>Gopal Sharma</strong> <br>
+                                        <strong>{{comment.user_name}}</strong> <br>
                                         {{comment.comment}}
                                     </div>
 
                                     <footer class="time">
-                                        <a data-stacker="false"
-                                           href="/2501285/projects/12880198/todolists/49407588#comment_584232109">Posted
+                                        <!--<a data-stacker="false"
+                                           href="#">Posted
                                             <time data-local="time-ago" datetime="2017-12-15T13:33:57Z"
                                                   title="December 15, 2017 at 7:03pm ">a second ago
                                             </time>
-                                        </a>
-                                        <span data-available-until="2017-12-15T13:48:57Z"
+                                        </a>-->
+                                       <!-- <span data-available-until="2017-12-15T13:48:57Z"
                                               data-visible-to="admin creator">
                                             –<a class="edit"
                                                 :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+documentId+'/edit'">Edit</a> or
@@ -62,7 +62,7 @@
                                                rel="nofollow">Delete
                                             </a>
                                             for <span data-display="available_time_left">14 minutes</span>
-                                        </span>
+                                        </span>-->
                                     </footer>
 
                                     <div id="attachments_for_comment_584232109" class="partitioned_attachments ">
@@ -198,11 +198,6 @@
                                 </article>
                                 <span style="" data-role="topic_archiving_tool"></span>
                             </section>
-                            <section class="event_stream" id="events_document_12992150">
-                                <a data-behavior="reveal_event_history"
-                                   data-recordable-sgid="BAhJIhZEb2N1bWVudC0xMjk5MjE1MAY6BkVU--26ab10761fbd44346a1a682d6cf0b7357acc5fcb"
-                                   href="#">By-the-minute history for this document...</a>
-                            </section>
                         </section>
                     </div>
 
@@ -218,27 +213,7 @@
                                     <div><input class="action_button button" type="submit" value="Edit this document">
                                     </div>
                                 </form>
-                                <p></p>
-                                <p>
-                                    Gopal Sharma created this document
-                                    <time data-local="time-ago" datetime="2017-11-27T12:18:40Z"
-                                          title="November 27, 2017 at 5:48pm ">an hour ago
-                                    </time>
-                                    .
-                                </p>
                             </div>
-
-
-                        </div>
-
-                        <div class="tool" data-behavior="tool expandable">
-                            <a data-behavior="expand_on_click hide_on_expand" href="#">Delete…</a>
-
-                            <span class="confirm" data-role="confirm_view">
-                                <a data-behavior="tool_action" data-method="post" data-remote="true"
-                                   href="/2501285/projects/6590988/documents/12992150/trash" rel="nofollow">Delete this document?</a>
-                                <a class="cancel" data-behavior="collapse_on_click" href="#">Never mind</a>
-                            </span>
                         </div>
 
                     </aside>

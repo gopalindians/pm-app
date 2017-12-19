@@ -75,7 +75,7 @@
                                                    unselectable="on">Quote</a>-->
                                         </div>
 
-                                        <textarea  class="body" rows="7" name="message_body" required></textarea>
+                                        <textarea  class="body" rows="7" name="message_body" required  :placeholder="messageBody">{{messageBody}}</textarea>
 
                                         <textarea class="body"
                                                   data-behavior="autosave autoresize wysiwyg dirty_tracking submit_on_control_enter"

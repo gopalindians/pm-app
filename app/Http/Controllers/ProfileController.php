@@ -73,6 +73,7 @@ class ProfileController extends Controller
     public function postEditProfile(Request $request)
     {
 
+        $result = '';
         $request->validate([
             'name' => 'required|min:1|max:255',
             'email' => 'required',
@@ -88,44 +89,63 @@ class ProfileController extends Controller
         $position = $request->post('position');
         $profile_image = $request->file('profile_image');
 
-        if ($request->hasFile('profile_image') && $request->file('profile_image')->isValid()) {
-            $file = Storage::putFile('public/uploads/' . Auth::id() . '/profile_image', $request->file('profile_image'));
-            $user = DB::table('users')->where('id', Auth::id())->get();
-            if ($user[0]->profile_image !== null) {
-                Storage::delete('public/' . $user[0]->profile_image);
+        $checkAlreadyUsedEmail = DB::table('users')
+            ->where([
+                ['email', '=', $email],
+                ['id', '<>', Auth::id()]
+            ])->get();
+
+
+
+        if (count($checkAlreadyUsedEmail->toArray()) == 0) {
+
+
+            if ($request->hasFile('profile_image') && $request->file('profile_image')->isValid()) {
+                $file = Storage::putFile('public/uploads/' . Auth::id() . '/profile_image', $request->file('profile_image'));
+                $user = DB::table('users')->where('id', Auth::id())->get();
+                if ($user[0]->profile_image !== null) {
+                    Storage::delete('public/' . $user[0]->profile_image);
+                }
+                DB::table('users')
+                    ->where('id', Auth::id())
+                    ->update([
+                        'name' => $name,
+                        'email' => $email,
+                        'dob' => $dob,
+                        'position' => $position,
+                        'profile_image' => str_replace('public/', '', $file),
+                        'phone' => $phone,
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now()
+                    ]);
+
+            } else {
+
+                DB::table('users')
+                    ->where('id', Auth::id())
+                    ->update([
+                        'name' => $name,
+                        'email' => $email,
+                        'dob' => $dob,
+                        'position' => $position,
+                        'phone' => $phone,
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now()
+                    ]);
             }
 
+            session()->flash('status','Updated successfully!');
 
-            DB::table('users')
-                ->where('id', Auth::id())
-                ->update([
-                    'name' => $name,
-                    'email' => $email,
-                    'dob' => $dob,
-                    'position' => $position,
-                    'profile_image' => str_replace('public/', '', $file),
-                    'phone' => $phone,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                ]);
-
-        } else {
-
-            DB::table('users')
-                ->where('id', Auth::id())
-                ->update([
-                    'name' => $name,
-                    'email' => $email,
-                    'dob' => $dob,
-                    'position' => $position,
-                    'phone' => $phone,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                ]);
+        }else{
+            session()->flash('error','Email is already ued by someone');
         }
+
+
         $result = DB::table('users')
             ->where('id', Auth::id())
             ->get();
+
+
         return view('profile.edit', ['user' => $result]);
     }
 }

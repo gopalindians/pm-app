@@ -110,7 +110,7 @@
 
                                                     <footer class="time">
                                                         <a data-stacker="false"
-                                                           href="/2501285/projects/6590988/messages/74076193#comment_579199320">Posted
+                                                           href="#">Posted
                                                             <time data-local="time-ago" :datetime="comment.created_at"
                                                                   :title="comment.created_at_noob">
                                                                 {{comment.created_at_human}}
@@ -149,7 +149,7 @@
                                             </a>
                                         </div>
 
-                                        <div class="tool" data-behavior="tool expandable">
+                                      <!--  <div class="tool" data-behavior="tool expandable">
                                             <a data-behavior="expand_on_click hide_on_expand" @click="del()" v-if="!showBeforeDelete"
                                                href="#">Delete…</a>
 
@@ -159,7 +159,7 @@
                                                    rel="nofollow">Delete this message?</a>
                                                 <a class="cancel" data-behavior="collapse_on_click" @click="undo()"
                                                    href="#">Never mind</a></span>
-                                        </div>
+                                        </div>-->
                                     </aside>
                                 </div>
                             </section>

@@ -1,4 +1,4 @@
-<template>
+    <template>
 
     <div id="workspace" class="workspace">
         <div class="container stack_container" data-container-id="2" style="width: 980px;">
@@ -19,9 +19,9 @@
 
                         <div class="active_title with_facets">
                             <h1>
-                                <span data-role="topics_status_options">Show discussions</span>
+                                <!--<span data-role="topics_status_options">Show discussions</span>-->
 
-                                <span class="sort_options">sorted by
+                               <!-- <span class="sort_options">sorted by
                                     <div class="facet" data-behavior="expandable collapse_on_clickoutside" data-role="facet">
 
                                         <a data-behavior="expand_on_click" data-role="toggle" href="#">newest</a>
@@ -51,7 +51,7 @@
                                 <input class="live_filter" data-behavior="live_filter"
                                        data-filter-url="/2501285/projects/6590988/filter?sort=newest&amp;type=topics"
                                        data-index-url="/2501285/projects/6590988/topics.js?sort=newest"
-                                       data-type="topics" id="" placeholder="title…" type="text">
+                                       data-type="topics" id="" placeholder="title…" type="text">-->
 
                             </h1>
                         </div>

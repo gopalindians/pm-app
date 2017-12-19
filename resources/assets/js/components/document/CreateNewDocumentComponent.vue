@@ -4,7 +4,7 @@
             <div class="panel sheet project inactive isnt_client_project" data-behavior=" "
                  data-creator-id="6581649" data-status="active"
                  data-path="/2501285/project/6590988">
-                <header><h1><a :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a></h1></header>
+                <header><h1><a :href="home_page+'/project/'+projectId+'/'+projectName">{{projectName}}</a></h1></header>
                 <div class="panel sheet has_sidebar document" data-behavior="sidebar_follower_container"
                      style="margin-left: 20px; margin-bottom: -20px;">
                     <title>{{projectName}}: New document</title>
@@ -12,7 +12,7 @@
                     <header>
                         <h1 style="display: none;">Text Document</h1>
                         <p class="reference_to_project">Project: <a data-stacker="false"
-                                                                    :href="'/project/'+projectId+'/'+projectName">{{projectName}}</a>
+                                                                    :href="home_page+'/project/'+projectId+'/'+projectName">{{projectName}}</a>
                         </p>
                     </header>
 
@@ -28,11 +28,13 @@
                                               id="document_title" name="document[title]" placeholder="Untitled" rows="1"
                                               data-autoresize="true"
                                               style="resize: none; overflow: hidden; min-height: 27px;"
+                                              required
                                               v-model="documentTitle"></textarea>
                                     <textarea class="body" data-behavior="autosave autoresize"
                                               id="document_content2"
                                               name="document[content]" rows="32"
                                               style="resize: none; overflow: hidden; min-height: 27px;margin-left: 33px;font-weight: 100;border-left: 1px solid #fce3b0;line-height: 26px;padding-left:20px"
+                                              required
                                               placeholder="Write here" v-model="documentBody"></textarea>
 
                                     <div class="document_body" data-behavior="wysiwyg_container wysiwyg_follow_always"
@@ -51,7 +53,7 @@
                                          </div>-->
                                         <textarea class="body" data-behavior="autosave autoresize wysiwyg"
                                                   data-wysiwyg-class="document" id="document_content"
-                                                  name="document[content]" rows="32"
+                                                  name="document[content]" rows="32" required
                                                   style=""></textarea>
                                         <input type="hidden" name="_wysihtml5_mode" value="1">
                                         <div class="formatted_content hidden"
@@ -70,7 +72,7 @@
                         <div class="tool save">
                             <div class="notice">
                                 <h3>Type away! Be sure to save this document when you’re all done.</h3>
-                                <form accept-charset="UTF-8" :action="'/project/'+projectId+'/'+projectName+'/document'"
+                                <form accept-charset="UTF-8" :action="home_page+'/project/'+projectId+'/'+projectName+'/document'"
                                       class="new_document" data-remote="true" method="post">
                                     <p>
                                         <input type="hidden" name="_token" :value="csrf_token" required>
@@ -82,10 +84,6 @@
                                     </p>
 
                                 </form>
-
-
-                                <p>Or, <a data-behavior="clear_document" href="/2501285/projects/6590988">cancel changes and delete this document</a>
-                                </p>
                             </div>
                         </div>
                     </aside>
@@ -109,7 +107,8 @@
 
                 documentTitle: '',
                 documentBody: '',
-                csrf_token: ''
+                csrf_token: '',
+                home_page: ''
             }
         },
         methods: {
@@ -119,11 +118,10 @@
         },
         mounted() {
             let self = this;
+            this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
             this.csrf_token = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
-            console.log('Component mounted.');
-            let segment = window.location.href.split('/');
-            self.projectId = segment[4];
-            self.projectName = segment[5];
+            this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
+            this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
         }
     }
 </script>

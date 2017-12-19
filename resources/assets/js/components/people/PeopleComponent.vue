@@ -10,7 +10,7 @@
                                     <div class="profile_img">
                                         <transition name="fade" mode="out-in">
                                             <img v-if="result.profile_image!==null"
-                                                 :src="asset_url+'storage/'+result.profile_image" alt="Profile">
+                                                 :src="asset_url+'storage/'+result.profile_image" alt="Storage Profile">
                                         </transition>
 
                                         <transition name="fade" mode="out-in">
@@ -21,8 +21,6 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="profile_info">
-
-                                        {{result.position}}
                                         <h2 v-if="result.position!= null">
                                             {{result.name}}<span> ({{result.position}})</span></h2>
                                         <h2 v-if="result.position==null || result.position==''">{{result.name}}</h2>
@@ -52,7 +50,7 @@
                         </div>
                     </div>
                     <section class="profile_activities">
-                        <div class="row">
+                        <!--<div class="row">
                             <div class="col-md-6">
                                 <div class="profile_project_activity">
                                     <h2>Latest project activity <span class="see_ll_activity pull-right"><a href="#">See all Projects activity</a></span>
@@ -77,9 +75,9 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </section>
-                    <section class="shared_files">
+                  <!--  <section class="shared_files">
                         <h2>Your shared files</h2>
                         <div class="media_row">
                             <div class="row">
@@ -121,7 +119,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section>-->
                 </div>
             </div>
         </section>

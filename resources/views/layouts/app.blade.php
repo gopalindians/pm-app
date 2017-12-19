@@ -23,8 +23,8 @@
     <meta name="auth-user-id" content="{{ Auth::id() }}">
     <title>@yield('title') - {{ config('', 'LeadCamp') }}</title>
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ \App\CH::getAssetUrl('')}}{{mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ \App\CH::getAssetUrl('')}}{{mix('css/all.css') }}" rel="stylesheet">
     <!-- new file -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -74,17 +74,17 @@
                     @endauth&nbsp;
                 </ul>
                 @auth
-                <div class="col-sm-3 col-md-3">
+                    <div class="col-sm-3 col-md-3">
 
-                    <form method="GET" class="navbar-form" action="{{\App\CH::getUrl('search')}}" role="search">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" name="q">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                        <form method="GET" class="navbar-form" action="{{\App\CH::getUrl('search')}}" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="q">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
                 @endauth&nbsp;
 
                 <!-- Right Side Of Navbar -->
@@ -128,6 +128,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ \App\CH::getAssetUrl('')}}{{ mix('js/app.js') }}"></script>
 </body>
 </html>
