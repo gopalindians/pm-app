@@ -1,6 +1,5 @@
 <template>
     <div class="panel sheet todolists has_sidebar" style="margin-left: 20px; margin-bottom: -20px;">
-        <title>Random Projects: To-do lists</title>
 
         <header class="has_buttons">
             <h1 class="inactive_title">See all to-do lists</h1>
@@ -9,55 +8,46 @@
             </div>
 
             <span class="position_reference">
-        <button data-behavior="new_todolist" @click="createNewTodoList"  v-show="!clicked" class="action_button">Add a to-do list</button>
-        <div class="blank_slate_arrow"></div>
-      </span>
+                <button type="button" data-behavior="new_todolist" @click="createNewTodoList" v-show="!clicked"
+                        class="action_button">Add a to-do list</button>
+                <div class="blank_slate_arrow"></div>
+            </span>
         </header>
 
         <div class="sheet_body">
-
-
             <section class="todos" data-collection-name="todolists">
                 <h3 class="filtered_header" data-behavior="todo_filter_header">
                     Showing to-dos
                     <span data-behavior="assigned_to">assigned to <span data-behavior="value"></span></span>
                     <span data-behavior="filter_and">and</span>
-                    <span data-behavior="filter_due">
-              due <span data-behavior="value"></span>
-            </span>
-                    – <a class="decorated" data-behavior="show_all_todos" href="#">Show all to-dos</a>
+                    <span data-behavior="filter_due">due
+                        <span data-behavior="value"></span>
+                    </span>–
+                    <a class="decorated" data-behavior="show_all_todos" href="#">Show all to-dos</a>
                 </h3>
 
                 <article class="todolist new" data-behavior="expandable hide_buttons_on_expand">
                     <header class="expanded_content">
-                        <form accept-charset="UTF-8" action="/2501285/projects/6590988/todolists" class="new_todolist"
-                              data-remote="true" id="new_todolist" method="post">
-                            <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
+                        <form accept-charset="UTF-8" action="#" class="new_todolist"
+                              data-remote="true" method="post">
+                            <input name="utf8" type="hidden" value="✓">
+
                             <header class="text_entry">
                                 <h3>
-                                    <input id="todoliswert_name" name="todolist[name]" size="10" type="text" value="Give the list a title" autofocus v-model="todoListName">
+                                    <input id="todoliswert_name" name="todolist[name]" size="10" type="text"
+                                           placeholder="Give the list a title" value="" autofocus
+                                           v-model="todoListName">
                                 </h3>
                             </header>
 
-  <div class="balloon right_side expanded_content">
-    <span class="arrow"></span>
-    <span class="arrow"></span>
-
-    <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
-
-    <h5>Working with clients?</h5>
-    <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
-    <p><a class="decorated"
-          href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
-  </div>
-</span>
-
                             <span style="display:none;">
                                 <div data-behavior="lazy_load_subscribers"
-                                     data-url="/2501285/projects/6590988/subscribers?subscribable_type=Todolist"></div></span>
+                                     data-url="/2501285/projects/6590988/subscribers?subscribable_type=Todolist"></div>
+                            </span>
 
                             <p class="submit">
-                                <input name="commit" type="submit" value="Save and start adding to-dos"> or
+                                <input name="commit" type="submit" value="Save and start adding to-dos"
+                                       @click="saveTodoList"> or
                                 <a class="cancel" data-behavior="cancel" data-role="cancel" href="#">Cancel</a>
                             </p>
                         </form>
@@ -70,21 +60,29 @@
 
                     <div v-show="clicked">
                         <article class="todolist new expanded" data-behavior="expandable hide_buttons_on_expand">
-                        <header class="expanded_content">
-                            <form accept-charset="UTF-8" action="/projects/1/xyz/todolists" class="new_todolist" data-remote="true" id="new_todolist" method="post">
-                                <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
-                                <header class="text_entry">
-                                    <h3><input id="todolist_name" name="todolist[name]" size="10" type="text" value="Give the list a title"></h3>
-                                </header>
+                            <header class="expanded_content">
+                                <form accept-charset="UTF-8" action="#" class="new_todolist"
+                                      data-remote="true" id="new_todolist" method="post">
+                                    <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
+                                    <header class="text_entry">
+                                        <h3>
+                                            <input name="todolist[name]" size="10" type="text" v-model="todoListName"
+                                                   placeholder="Give the list a title" value=""/>
+                                        </h3>
+                                    </header>
 
-                                <p class="submit">
-                                    <input name="commit" type="submit" value="Save and start adding to-dos"> or
-                                    <a class="cancel" data-behavior="cancel" data-role="cancel" href="#" @click="cancelNewTodo">Cancel</a>
-                                </p>
-                            </form>
-                        </header>
-                    </article>
+                                    <p class="submit">
+                                        <input name="commit" type="button" value="Save and start adding to-dos"
+                                               @click="saveTodoList"> or
+                                        <a class="cancel" data-behavior="cancel" data-role="cancel" href="#"
+                                           @click="cancelNewTodo">Cancel</a>
+                                    </p>
+                                </form>
+                            </header>
+                        </article>
                     </div>
+
+
                     <li data-behavior="sortable" data-sortable-type="todolist" id="sortable_todolist_48308664">
                         <article class="todolist" id="todolist_48308664"
                                  data-url="/2501285/projects/6590988/todolists/48308664" data-behavior="expandable">
@@ -106,11 +104,7 @@
                                         Joomla Website Tasks (bestessayhub.com)
                                     </a>
                                     <span class="unlinked_title">Joomla Website Tasks (bestessayhub.com)</span>
-
-
                                 </h3>
-
-                                <p><em></em></p>
                             </header>
 
                             <header class="expanded_content">
@@ -133,20 +127,24 @@
                                     </header>
 
 
-  <div class="balloon right_side expanded_content">
-    <span class="arrow"></span>
-    <span class="arrow"></span>
+                                    <div class="balloon right_side expanded_content">
+                                        <span class="arrow"></span>
+                                        <span class="arrow"></span>
 
-    <span class="close"><a class="decorated" data-behavior="collapse_on_click" href="#">Close</a></span>
+                                        <span class="close"><a class="decorated" data-behavior="collapse_on_click"
+                                                               href="#">Close</a></span>
 
-    <h5>Working with clients?</h5>
-    <p>You can hide certain messages, to-dos, files, events, and text documents from people invited to this project as clients. This is great for sharing unfinished work with your team before getting client feedback.</p>
-    <p><a class="decorated"
-          href="/2501285/projects/6590988/accesses#client">Invite your first client to this project...</a></p>
-  </div>
-</span>
+                                        <h5>Working with clients?</h5>
+                                        <p>You can hide certain messages, to-dos, files, events, and text documents from
+                                            people invited to this project as clients. This is great for sharing
+                                            unfinished work with your team before getting client feedback.</p>
+                                        <p><a class="decorated"
+                                              href="/2501285/projects/6590988/accesses#client">Invite your first client
+                                            to this project...</a></p>
+                                    </div>
+                                    </span>
 
-        </span>
+                                    </span>
 
                                     <span style="display:none;"><div data-behavior="lazy_load_subscribers"
                                                                      data-url="/2501285/projects/6590988/subscribers?subscribable_id=48308664&amp;subscribable_type=Todolist"></div></span>
@@ -256,7 +254,8 @@
 
                             <ul class="new" data-behavior="expandable load_assignee_options">
                                 <li class="collapsed_content">
-                                    <a class="decorated" data-behavior="expand_on_click load_assignee_options" href="#">Add a to-do</a>
+                                    <a class="decorated" data-behavior="expand_on_click load_assignee_options" href="#">Add
+                                        a to-do</a>
                                 </li>
 
                                 <li class="expanded_content edit_mode">
@@ -289,114 +288,32 @@
                                                     <strong>Due on:</strong>
                                                     <span class="pill has_balloon"
                                                           data-behavior="expandable expand_exclusively">
+                                                        <a data-behavior="expand_on_click" href="#">
+                                                            <time data-behavior="due_date"
+                                                                  data-blank-text="No due date">
+                                                                No due date
+                                                            </time>
+                                                        </a>
+                                                        <span class="balloon right_side expanded_content">
+                                                            <span class="arrow"></span>
+                                                            <span class="arrow"></span>
 
-      <a data-behavior="expand_on_click" href="#">
-        <time data-behavior="due_date" data-blank-text="No due date">
-            No due date
-        </time>
-</a>
-      <span class="balloon right_side expanded_content">
-        <span class="arrow"></span>
-        <span class="arrow"></span>
-
-          <input data-behavior="alt_date_field" name="todo[due_at]" type="hidden">
-          <div data-behavior="date_picker" class="notranslate"></div>
-        <footer><a class="no_date" data-behavior="no_due_date" href="#">No due date</a></footer>
-      </span>
-    </span>
+                                                            <input data-behavior="alt_date_field" name="todo[due_at]"
+                                                                   type="hidden">
+                                                            <div data-behavior="date_picker" class="notranslate"></div>
+                                                            <footer><a class="no_date" data-behavior="no_due_date"
+                                                                       href="#">No due date</a></footer>
+                                                        </span>
+                                                    </span>
                                                 </label>
-
-                                                <div class="notification_info"
-                                                     data-display="email-warning-confirmation-off">
-                                                    <p class="warning" data-display="email-warning-on"
-                                                       style="display: none">
-                                                        <span data-role="assignee_first_name">This person</span>
-                                                        won’t get an email because they turned off email notifications.
-                                                    </p>
-                                                    <p data-display="email-warning-off email-message-on"
-                                                       style="display: none">
-                                                        <span data-role="assignee_first_name">This person</span>
-                                                        will be notified by email.
-                                                    </p>
-                                                </div>
-
-                                                <div class="" data-behavior="expandable todo_attachments">
-                                                    <div class="collapsed_content">
-                                                        <a class="decorated expand_attachments"
-                                                           data-behavior="expand_on_click" href="#">Attach files...</a>
-                                                    </div>
-                                                    <div class="expanded_content">
-                                                        <div data-behavior="pending_attachments file_drop_target"
-                                                             data-sortable="true" class="attachments">
-                                                            <span class="prompt_graphic"></span>
-                                                            <div class="file_input_button">
-    <span data-without-features="files_api">
-      To attach files
-    </span>
-                                                                <span data-with-features="files_api">
-      To attach files drag &amp; drop here or
-    </span>
-
-                                                                <span class="file_input_container">
-      <input name="file" type="file" multiple="" onchange="$(document).trigger('ie:change', this)" tabindex="-1">
-      <a class="decorated" data-behavior="local_file_picker" href="#" tabindex="-1">select files from your computer…</a>
-    </span>
-
-                                                                <span data-behavior="load_google_client" style="">
-      or <a class="decorated" data-behavior="google_file_picker" href="#" tabindex="-1">Google Docs…</a>
-    </span>
-                                                            </div>
-
-                                                            <ul class="pending_attachments ui-sortable"
-                                                                data-role="accept_as_input"></ul>
-                                                        </div>
-
-
-                                                        <div data-behavior="picker_account_switcher"
-                                                             class="picker_account_switcher">
-                                                            <strong>You’re signed in to Google as <span
-                                                                    data-role="picker_account_email"></span></strong>
-                                                            <a data-behavior="google_account_switcher" href="#">Sign out and use a different Google account</a>
-                                                        </div>
-
-                                                        <div data-behavior="google_connector" class="google_connector">
-                                                            <p>
-                                                                <b>Connect your Google account</b><br>
-                                                                Before you can attach Google Docs in Basecamp, we’ll need your OK first. Do you want to connect your account now?
-                                                            </p>
-                                                            <p class="submit">
-                                                                <button class="action_button"
-                                                                        data-behavior="create_google_file_picker">
-                                                                    Yes, connect my Google account
-                                                                </button>
-                                                                or <a data-behavior="cancel_google_connect" href="#">Cancel</a>
-                                                            </p>
-                                                        </div>
-
-                                                        <div data-behavior="google_connector_access_denied"
-                                                             class="google_connector">
-                                                            <p>
-                                                                <b>Basecamp couldn’t access your Google account</b><br>
-                                                                To attach Google Docs, you’ll need to give Basecamp permission. Do you want to try again?
-                                                            </p>
-                                                            <p class="submit">
-                                                                <button class="action_button"
-                                                                        data-behavior="create_google_file_picker">
-                                                                    Connect a Google account
-                                                                </button>
-                                                                or <a data-behavior="cancel_google_connect" href="#">Cancel</a>
-                                                            </p>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
                                             </div>
 
 
                                             <p class="submit">
                                                 <input class="action_button" data-role="uploader" name="commit"
                                                        type="submit" value="Add this to-do"> or
-                                                <a class="decorated" data-behavior="cancel" data-role="cancel" href="#">I'm done adding to-dos</a>
+                                                <a class="decorated" data-behavior="cancel" data-role="cancel" href="#">I'm
+                                                    done adding to-dos</a>
                                             </p>
                                         </form>
                                     </article>
@@ -405,8 +322,6 @@
 
 
                             <ul class="completed truncated">
-
-
                             </ul>
                         </article>
                     </li>
@@ -461,8 +376,8 @@
         data() {
             return {
                 open: true,
-                clicked:false,
-                todoListName:''
+                clicked: false,
+                todoListName: ''
             }
         },
         mounted() {
@@ -470,13 +385,19 @@
         },
 
         methods: {
-           createNewTodoList() {
+            createNewTodoList() {
                 console.log('clicked');
-                this.clicked=true;
+                this.clicked = true;
 
             },
-            cancelNewTodo(){
-                this.clicked=false;
+            cancelNewTodo() {
+                this.clicked = false;
+            },
+            saveTodoList() {
+                console.log('saving todo');
+                console.log(this.todoListName);
+
+                axios.post()
             }
 
         }
