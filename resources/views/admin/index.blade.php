@@ -1,6 +1,8 @@
 @extends('admin.layout')
 
 @section('content')
+
+
     <div class="container">
 
 
@@ -24,13 +26,12 @@
                     <th scope="row">1</th>
                     <td>
 
-                        @if($user->profile_image=='' || $user->profile_image==null)
+                        @if($user->profile_image =='' || $user->profile_image==null)
                             <img style="width: 150px;height: 150px;"
-                                 src="{{\App\CH::getAssetUrl('/images/emloye_image_2)}}"/>
+                                 src="{{\App\CH::getAssetUrl('/images/employee_img_2.jpg')}}"/>
                         @else
-                            <img style="width: 150px;height: 150px;"
+                            <img style="width: 150px;height: 150px;" onerror="this.onerror=null;this.src='{{App\CH::getAssetUrl('/images/employee_img_2.jpg')}}';"
                                  src="{{\App\CH::getAssetUrl('/storage/'.$user->profile_image)}}"/>
-
                         @endif
                     </td>
                     <td>{{$user->name}}</td>

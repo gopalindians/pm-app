@@ -83,11 +83,14 @@
                     </div>
 
 
-                    <li data-behavior="sortable" data-sortable-type="todolist" id="sortable_todolist_48308664" v-for="todoList in todoLists[0]">
+                    <li data-behavior="sortable" data-sortable-type="todolist" id="sortable_todolist_48308664"
+                        v-for="todoList in todoLists[0]">
                         <article class="todolist" id="todolist_48308664"
-                                 :data-url="home_page+'/project/'+projectId+'/'+projectName+'/todolist/'+todoList.id" data-behavior="expandable">
+                                 :data-url="home_page+'/project/'+projectId+'/'+projectName+'/todolist/'+todoList.id"
+                                 data-behavior="expandable">
                             <header class="collapsed_content" data-behavior="has_hover_content">
-                                <div class="nubbin" data-behavior="nubbin hover_content" style="display: none; left: -61px;">
+                                <div class="nubbin" data-behavior="nubbin hover_content"
+                                     style="display: none; left: -61px;">
                                     <div class="spacer"></div>
                                     <a class="image delete"
                                        data-confirm="Are you sure you want to delete this to-do list?"
@@ -100,10 +103,10 @@
                                 <h3 data-behavior="sortable_handle">
                                     <a class="linked_title"
                                        :href="home_page+'/project/'+projectId+'/'+projectName+'/todolist/'+todoList.id">
-                                        <span class="project_name">Random Projects —</span>
-                                        Joomla Website Tasks (bestessayhub.com)
+                                        <span class="project_name">{{projectName}} —</span>
+                                        {{todoList.todo_name}}
                                     </a>
-                                    <span class="unlinked_title">Joomla Website Tasks (bestessayhub.com)</span>
+                                    <span class="unlinked_title">{{todoList.todo_name}}</span>
                                 </h3>
                             </header>
 
@@ -120,7 +123,6 @@
                                             <input id="todolist_name" name="todolist[name]" size="10" type="text"
                                                    value="Joomla Website Tasks (bestessayhub.com)">
                                         </h3>
-
                                         <p>
                                             <em>
                                             <textarea data-behavior="autoresize submit_on_enter"
@@ -129,28 +131,6 @@
                                             </em>
                                         </p>
                                     </header>
-
-
-                                    <div class="balloon right_side expanded_content">
-                                        <span class="arrow"></span>
-                                        <span class="arrow"></span>
-
-                                        <span class="close">
-                                            <a class="decorated" data-behavior="collapse_on_click" href="#">Close</a>
-                                        </span>
-
-                                        <h5>Working with clients?</h5>
-                                        <p>You can hide certain messages, to-dos, files, events, and text documents from
-                                            people invited to this project as clients. This is great for sharing
-                                            unfinished work with your team before getting client feedback.</p>
-                                        <p>
-                                            <a class="decorated"
-                                               href="/2501285/projects/6590988/accesses#client">Invite your first client
-                                                to this project...</a>
-                                        </p>
-                                    </div>
-
-
 
                                     <span style="display:none;">
                                         <div data-behavior="lazy_load_subscribers"
@@ -183,7 +163,9 @@
 
                                     <div class="">
                                         <span class="wrapper">
-                                            <input data-behavior="toggle" data-url="/2501285/projects/6590988/todos/324566530/toggle" name="todo_complete"
+                                            <input data-behavior="toggle"
+                                                   data-url="/2501285/projects/6590988/todos/324566530/toggle"
+                                                   name="todo_complete"
                                                    type="checkbox" value="1">
 
                                             <span class="content" data-behavior="sortable_handle">
@@ -195,20 +177,24 @@
                                                 <a href="/2501285/projects/6590988/todos/324566530">1 comment</a>
                                             </span>
 
-                                            <form accept-charset="UTF-8" action="/2501285/projects/6590988/todos/324566530" class="edit_todo"
+                                            <form accept-charset="UTF-8"
+                                                  action="/2501285/projects/6590988/todos/324566530" class="edit_todo"
                                                   data-remote="true" id="edit_todo_324566530" method="post">
                                                 <div style="display:none">
                                                     <input name="utf8" type="hidden" value="✓">
                                                     <input name="_method" type="hidden" value="patch">
                                                 </div>
                                                 <span style="position:relative">
-                                                    <span class="pill has_balloon" data-behavior="expandable expand_exclusively load_assignee_options">
+                                                    <span class="pill has_balloon"
+                                                          data-behavior="expandable expand_exclusively load_assignee_options">
                                                         <a data-behavior="expand_on_click" href="#">
-                                                            <span data-behavior="assignee_name" data-blank-text="Unassigned">
+                                                            <span data-behavior="assignee_name"
+                                                                  data-blank-text="Unassigned">
                                                                 <span data-behavior="todo_assignee_present">Ashish Sharma</span>
                                                             </span>
 
-                                                            <time data-behavior="due_date" data-blank-text="No due date"></time>
+                                                            <time data-behavior="due_date"
+                                                                  data-blank-text="No due date"></time>
                                                         </a>
                                                         <span class="balloon right_side expanded_content">
                                                             <span class="arrow"></span>
@@ -216,25 +202,32 @@
 
                                                             <label>
                                                                 <b>Assign this to-do to:</b>
-                                                                <select data-assignee-code="p15316135" data-behavior="assignee_options" data-original-assignee-code="p15316135"
-                                                                        data-private="false" data-project-id="6590988" id="todo_assignee_code" name="todo[assignee_code]">
+                                                                <select data-assignee-code="p15316135"
+                                                                        data-behavior="assignee_options"
+                                                                        data-original-assignee-code="p15316135"
+                                                                        data-private="false" data-project-id="6590988"
+                                                                        id="todo_assignee_code"
+                                                                        name="todo[assignee_code]">
                                                                     <option value="⎈">Loading...</option></select>
                                                             </label>
 
-                                                            <div data-display="email-warning-confirmation-on" class="email_notice confirmation">
+                                                            <div data-display="email-warning-confirmation-on"
+                                                                 class="email_notice confirmation">
                                                                 <p class="email_warning">
                                                                     <span data-role="assignee_first_name">This person</span> turned off email notifications and won’t get an email about this to-do.
                                                                 </p>
                                                                 <p class="email_warning">Assign it anyway?</p>
                                                                 <p class="submit">
-                                                                    <a class="action_button button" data-behavior="confirm_assignee_change" href="#">Yes, assign it</a>
+                                                                    <a class="action_button button"
+                                                                       data-behavior="confirm_assignee_change" href="#">Yes, assign it</a>
                                                                     <a data-behavior="cancel_assignee_change" href="#">Cancel</a>
                                                                 </p>
                                                             </div>
 
                                                             <div data-display="email-warning-confirmation-off">
                                                                 <div class="email_notice">
-                                                                    <p data-display="email-warning-on" style="display: none" class="alert">This person won’t get an email because they turned off email notifications</p>
+                                                                    <p data-display="email-warning-on"
+                                                                       style="display: none" class="alert">This person won’t get an email because they turned off email notifications</p>
                                                                     <p data-display="email-warning-off"
                                                                        style="display: none">The person you select will be notified by email</p>
                                                                 </div>
@@ -242,11 +235,14 @@
                                                                 <label class="due_date">
                                                                     <b>Set the due date:</b>
                                                                     <hr>
-                                                                    <input data-behavior="alt_date_field" name="todo[due_at]" type="hidden">
-                                                                    <div data-behavior="date_picker" class="notranslate"></div>
+                                                                    <input data-behavior="alt_date_field"
+                                                                           name="todo[due_at]" type="hidden">
+                                                                    <div data-behavior="date_picker"
+                                                                         class="notranslate"></div>
                                                                 </label>
 
-                                                                <footer><a class="no_date decorated" data-behavior="no_due_date" href="#">No due date</a></footer>
+                                                                <footer><a class="no_date decorated"
+                                                                           data-behavior="no_due_date" href="#">No due date</a></footer>
                                                             </div>
                                                         </span>
                                                     </span>
@@ -340,8 +336,7 @@
         <aside>
             <p>
                 Show to-dos assigned to <br>
-                <select data-behavior="todos_assignee_filter"
-                        data-options="[{&quot;value&quot;:&quot;unassigned&quot;,&quot;option&quot;:&quot;(Unassigned)&quot;},{&quot;value&quot;:&quot;g1943115&quot;,&quot;option&quot;:&quot;BD Team&quot;},{&quot;value&quot;:&quot;g1954781&quot;,&quot;option&quot;:&quot;Design Team&quot;},{&quot;value&quot;:&quot;g1202686&quot;,&quot;option&quot;:&quot;Leading Edge Team&quot;},{&quot;value&quot;:&quot;g1794086&quot;,&quot;option&quot;:&quot;Php team&quot;},{&quot;value&quot;:&quot;p13361242&quot;,&quot;option&quot;:&quot;Aditi Mehra&quot;},{&quot;value&quot;:&quot;p14779244&quot;,&quot;option&quot;:&quot;Ankush development&quot;},{&quot;value&quot;:&quot;p15316135&quot;,&quot;option&quot;:&quot;Ashish Sharma&quot;},{&quot;value&quot;:&quot;p6581649&quot;,&quot;option&quot;:&quot;Deepanshu Thakral&quot;},{&quot;value&quot;:&quot;p11648374&quot;,&quot;option&quot;:&quot;Deepika Sharma&quot;},{&quot;value&quot;:&quot;p15531397&quot;,&quot;option&quot;:&quot;Gopal Sharma&quot;},{&quot;value&quot;:&quot;p13182570&quot;,&quot;option&quot;:&quot;Harishanker .&quot;},{&quot;value&quot;:&quot;p13489389&quot;,&quot;option&quot;:&quot;Prabhjot Kaur&quot;},{&quot;value&quot;:&quot;p13772519&quot;,&quot;option&quot;:&quot;Rupali&quot;},{&quot;value&quot;:&quot;p13182577&quot;,&quot;option&quot;:&quot;Surinder kaur&quot;},{&quot;value&quot;:&quot;p15159411&quot;,&quot;option&quot;:&quot;Yograj&quot;}]">
+                <select data-behavior="todos_assignee_filter">
                     <option value="">Anyone</option>
                     <option value="unassigned">(Unassigned) (2)</option>
                     <option value="p15316135">Ashish Sharma (1)</option>
@@ -416,20 +411,18 @@
             createNewTodoList() {
                 console.log('clicked');
                 this.clicked = true;
-
             },
             cancelNewTodo() {
                 this.clicked = false;
             },
             saveTodoList() {
-                console.log('saving todo');
-                console.log(this.todoListName);
-
                 let self = this;
                 axios.post(this.home_page + '/api/project/' + this.projectId + '/' + this.projectName + '/todolist/new', {
                     listName: this.todoListName
                 }).then((response) => {
-                    console.log(response);
+                    console.log(response.data[0]);
+                    self.todoLists[0].unshift(response.data[0]);
+                    self.clicked = false;
                 }).catch((error) => {
                     console.log(error);
                 })
