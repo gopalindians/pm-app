@@ -47,9 +47,11 @@ Route::get( '/createProject', 'ProjectController@createProject' );
 Route::get( '/project/{id}/{name?}/todolists', 'TodoController@index' );
 Route::get( '/project/{id}/{name?}/todolist/{todoListId}', 'TodoController@getTodoList' );
 Route::get( '/api/project/{id}/{name?}/todolist/{todoListId}', 'TodoController@apiGetTodoList' );
+Route::post( '/api/project/{id}/{name?}/todolist/{todoListId}/comment', 'TodoController@apiPostTodoListComment' );
 
 Route::get( '/api/project/{id}/{name?}/todolists', 'TodoController@apiGetTodoLists' );
 Route::post( '/api/project/{id}/{name?}/todolist/new', 'TodoController@postAddNewTodoList' );
+
 Route::get( '/project/{id}/{name?}', 'ProjectController@view' );
 
 
