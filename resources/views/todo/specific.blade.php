@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<todo-lists-component></todo-lists-component>
+<specific-list-component></specific-list-component>
 @endsection

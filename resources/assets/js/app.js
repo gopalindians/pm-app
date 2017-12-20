@@ -18,7 +18,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('project-component', require('./components/project/ProjectComponent.vue'));
 Vue.component('create-project-component', require('./components/project/CreateProjectComponent.vue'));
 Vue.component('project-view-component', require('./components/project/ProjectViewComponent.vue'));
-Vue.component('todo-component', require('./components/todo/TodoComponent.vue'));
+
 Vue.component('topic-component', require('./components/topic/TopicComponent.vue'));
 
 //message component
@@ -39,6 +39,10 @@ Vue.component('search-component', require('./components/search/SearchComponent.v
 
 //people component
 Vue.component('people-component', require('./components/people/PeopleComponent.vue'));
+
+//Todo_components
+Vue.component('todo-lists-component', require('./components/todo/TodoListsComponent'));
+Vue.component('specific-list-component', require('./components/todo/SpecificListComponent'));
 
 const app = new Vue({
     el: '#app'
