@@ -44790,6 +44790,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ProjectViewComponent',
@@ -44804,6 +44817,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             project: '',
 
             home_page: '',
+            asset_url: '',
             result: ''
 
         };
@@ -44812,6 +44826,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var self = this;
 
         this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
         this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
         this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
 
@@ -45029,17 +45044,35 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("img", {
-                                    staticClass: "avatar",
-                                    attrs: {
-                                      alt: p.latest_comment_by.name,
-                                      height: "30",
-                                      src:
-                                        "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.40.gif",
-                                      title: p.latest_comment_by.name,
-                                      width: "30"
-                                    }
-                                  })
+                                  p.latest_comment_by.profile_image != null
+                                    ? _c("img", {
+                                        staticClass: "avatar",
+                                        attrs: {
+                                          alt: p.latest_comment_by.name,
+                                          height: "30",
+                                          src:
+                                            _vm.asset_url +
+                                            "/storage/" +
+                                            p.latest_comment_by.profile_image,
+                                          title: p.latest_comment_by.name,
+                                          width: "30"
+                                        }
+                                      })
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  p.latest_comment_by.profile_image == null
+                                    ? _c("img", {
+                                        staticClass: "avatar",
+                                        attrs: {
+                                          alt: p.latest_comment_by.name,
+                                          height: "30",
+                                          src:
+                                            "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.40.gif",
+                                          title: p.latest_comment_by.name,
+                                          width: "30"
+                                        }
+                                      })
+                                    : _vm._e()
                                 ]
                               )
                             ]),
@@ -45253,7 +45286,7 @@ var render = function() {
                               "/documents"
                           }
                         },
-                        [_vm._v("Text Documents")]
+                        [_vm._v("Text\n                            Documents")]
                       )
                     ]),
                     _vm._v(" "),
@@ -45271,7 +45304,11 @@ var render = function() {
                             "/document/new"
                         }
                       },
-                      [_vm._v("Create a text document")]
+                      [
+                        _vm._v(
+                          "Create a text\n                            document"
+                        )
+                      ]
                     )
                   ]),
                   _vm._v(" "),
@@ -45437,7 +45474,7 @@ var render = function() {
                       [
                         _vm._v(
                           _vm._s(_vm.project.total_documents) +
-                            " more documents"
+                            "\n                            more documents"
                         )
                       ]
                     )
@@ -45724,6 +45761,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'TopicComponent',
@@ -45736,6 +45784,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             showError: '',
 
             home_page: '',
+            asset_url: '',
             result: ''
         };
     },
@@ -45743,6 +45792,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var self = this;
 
         this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
+
         this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
         this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
 
@@ -45895,15 +45946,33 @@ var render = function() {
                                     }
                                   },
                                   [
-                                    _c("img", {
-                                      staticClass: "avatar",
-                                      attrs: {
-                                        height: "30",
-                                        src:
-                                          "//asset1.basecamp.com/2501285/people/13182570/photo/avatar.40.gif",
-                                        width: "30"
-                                      }
-                                    })
+                                    topic.creater_profile_image != null
+                                      ? _c("img", {
+                                          staticClass: "avatar",
+                                          attrs: {
+                                            height: "30",
+                                            title: topic.creater_name,
+                                            src:
+                                              _vm.asset_url +
+                                              "/storage/" +
+                                              topic.creater_profile_image,
+                                            width: "30"
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    topic.creater_profile_image == null
+                                      ? _c("img", {
+                                          staticClass: "avatar",
+                                          attrs: {
+                                            height: "30",
+                                            title: topic.creater_name,
+                                            src:
+                                              "//asset1.basecamp.com/2501285/people/13182570/photo/avatar.40.gif",
+                                            width: "30"
+                                          }
+                                        })
+                                      : _vm._e()
                                   ]
                                 )
                               ]),
@@ -46795,6 +46864,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'SpecificMessageComponent',
@@ -46814,9 +46908,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             messageCreatedAt: '',
             messageCreatedAtHuman: '',
             messageCreatedAtNoob: '',
+            messageCreatorProfileImage: '',
 
             messageComments: '',
             home_page: '',
+            asset_url: '',
 
             showBeforeDelete: false,
 
@@ -46831,6 +46927,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var self = this;
 
         this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
         this.csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
         this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
         this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
@@ -46847,15 +46944,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             self.messageCreatedAtHuman = response.data.topic_created_at_human;
             self.messageCreatedAtNoob = response.data.topic_created_at_noob;
             self.messageComments = response.data.topic_comments;
+            self.messageCreatorProfileImage = response.data.creater_profile_image;
+            self.authUserData = response.data.auth_user;
         }).catch(function (error) {
             console.log(error);
         });
 
-        axios.get(this.home_page + 'api/people/' + this.authUserId).then(function (response) {
-            console.log(response.data);
-        }).catch(function (error) {
-            console.log(error);
-        });
+        /*axios.get(this.home_page + 'api/people/' + this.authUserId)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })*/
     },
 
 
@@ -47053,21 +47154,39 @@ var render = function() {
                                 {
                                   attrs: {
                                     "data-replace-stack": "true",
-                                    href: "/2501285/people/15531397"
+                                    href: "#"
                                   }
                                 },
                                 [
-                                  _c("img", {
-                                    staticClass: "avatar",
-                                    attrs: {
-                                      alt: _vm.messageCreatorName,
-                                      height: "59",
-                                      src:
-                                        "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
-                                      title: _vm.messageCreatorName,
-                                      width: "59"
-                                    }
-                                  })
+                                  _vm.messageCreatorProfileImage != null
+                                    ? _c("img", {
+                                        staticClass: "avatar",
+                                        attrs: {
+                                          alt: _vm.messageCreatorName,
+                                          height: "59",
+                                          src:
+                                            _vm.asset_url +
+                                            "/storage/" +
+                                            _vm.messageCreatorProfileImage,
+                                          title: _vm.messageCreatorName,
+                                          width: "59"
+                                        }
+                                      })
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _vm.messageCreatorProfileImage == null
+                                    ? _c("img", {
+                                        staticClass: "avatar",
+                                        attrs: {
+                                          alt: _vm.messageCreatorName,
+                                          height: "59",
+                                          src:
+                                            "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
+                                          title: _vm.messageCreatorName,
+                                          width: "59"
+                                        }
+                                      })
+                                    : _vm._e()
                                 ]
                               ),
                               _vm._v(" "),
@@ -47122,22 +47241,49 @@ var render = function() {
                                             {
                                               attrs: {
                                                 "data-replace-stack": "true",
-                                                href: "/2501285/people/15531397"
+                                                href:
+                                                  _vm.home_page +
+                                                  "/people/" +
+                                                  comment.comment_poster.id
                                               }
                                             },
                                             [
-                                              _c("img", {
-                                                staticClass: "avatar",
-                                                attrs: {
-                                                  alt: "Gopal Sharma",
-                                                  height: "96",
-                                                  src:
-                                                    "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
-                                                  title:
-                                                    comment.comment_poster.name,
-                                                  width: "96"
-                                                }
-                                              })
+                                              comment.comment_poster
+                                                .profile_image != null
+                                                ? _c("img", {
+                                                    staticClass: "avatar",
+                                                    attrs: {
+                                                      alt: comment.name,
+                                                      height: "96",
+                                                      src:
+                                                        _vm.asset_url +
+                                                        "/storage/" +
+                                                        comment.comment_poster
+                                                          .profile_image,
+                                                      title:
+                                                        comment.comment_poster
+                                                          .name,
+                                                      width: "96"
+                                                    }
+                                                  })
+                                                : _vm._e(),
+                                              _vm._v(" "),
+                                              comment.comment_poster
+                                                .profile_image == null
+                                                ? _c("img", {
+                                                    staticClass: "avatar",
+                                                    attrs: {
+                                                      alt: comment.name,
+                                                      height: "96",
+                                                      src:
+                                                        "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
+                                                      title:
+                                                        comment.comment_poster
+                                                          .name,
+                                                      width: "96"
+                                                    }
+                                                  })
+                                                : _vm._e()
                                             ]
                                           ),
                                           _vm._v(" "),
@@ -47226,17 +47372,36 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _c("img", {
-                                          staticClass: "avatar",
-                                          attrs: {
-                                            alt: "",
-                                            "data-current-person-avatar":
-                                              "true",
-                                            src:
-                                              "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
-                                            title: _vm.messageCreatorName
-                                          }
-                                        }),
+                                        _vm.authUserData.profile_image != null
+                                          ? _c("img", {
+                                              staticClass: "avatar",
+                                              attrs: {
+                                                alt: _vm.authUserData.name,
+                                                "data-current-person-avatar":
+                                                  "true",
+                                                src:
+                                                  _vm.asset_url +
+                                                  "/storage/" +
+                                                  _vm.authUserData
+                                                    .profile_image,
+                                                title: _vm.messageCreatorName
+                                              }
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.authUserData.profile_image == null
+                                          ? _c("img", {
+                                              staticClass: "avatar",
+                                              attrs: {
+                                                alt: _vm.authUserData.name,
+                                                "data-current-person-avatar":
+                                                  "true",
+                                                src:
+                                                  "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
+                                                title: _vm.messageCreatorName
+                                              }
+                                            })
+                                          : _vm._e(),
                                         _vm._v(" "),
                                         _c("textarea", {
                                           directives: [
@@ -49791,6 +49956,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ViewDocumentComponent',
@@ -49809,8 +49990,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             documentComments: '',
             csrf_token: '',
             home_page: '',
+            asset_url: '',
 
-            document_comment: ''
+            document_comment: '',
+            current_user: ''
         };
     },
 
@@ -49837,6 +50020,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var self = this;
         this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+        this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
         this.csrf_token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
         this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
         this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
@@ -49847,6 +50031,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             self.documentTitle = response.data.document_title;
             self.documentBody = response.data.document_body;
             self.documentComments = response.data.comments;
+            self.current_user = response.data.current_user;
         }).catch(function (error) {
             console.log(error);
         });
@@ -50004,21 +50189,42 @@ var render = function() {
                                   {
                                     attrs: {
                                       "data-replace-stack": "true",
-                                      href: "/2501285/people/15531397"
+                                      href:
+                                        _vm.home_page +
+                                        "/people/" +
+                                        comment.poster_id
                                     }
                                   },
                                   [
-                                    _c("img", {
-                                      staticClass: "avatar",
-                                      attrs: {
-                                        alt: comment.user_name,
-                                        height: "96",
-                                        src:
-                                          "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
-                                        title: comment.user_name,
-                                        width: "96"
-                                      }
-                                    })
+                                    comment.profile_image != null
+                                      ? _c("img", {
+                                          staticClass: "avatar",
+                                          attrs: {
+                                            alt: comment.user_name,
+                                            height: "96",
+                                            src:
+                                              _vm.asset_url +
+                                              "/storage/" +
+                                              comment.profile_image,
+                                            title: comment.user_name,
+                                            width: "96"
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    comment.profile_image == null
+                                      ? _c("img", {
+                                          staticClass: "avatar",
+                                          attrs: {
+                                            alt: comment.user_name,
+                                            height: "96",
+                                            src:
+                                              "https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif",
+                                            title: comment.user_name,
+                                            width: "96"
+                                          }
+                                        })
+                                      : _vm._e()
                                   ]
                                 ),
                                 _vm._v(" "),
@@ -50061,16 +50267,33 @@ var render = function() {
                               }
                             },
                             [
-                              _c("img", {
-                                staticClass: "avatar",
-                                attrs: {
-                                  alt: "",
-                                  "data-current-person-avatar": "true",
-                                  src:
-                                    "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
-                                  title: "Gopal Sharma"
-                                }
-                              }),
+                              _vm.current_user.profile_image == null
+                                ? _c("img", {
+                                    staticClass: "avatar",
+                                    attrs: {
+                                      alt: "",
+                                      "data-current-person-avatar": "true",
+                                      src:
+                                        "https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif",
+                                      title: _vm.current_user.user_name
+                                    }
+                                  })
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.current_user.profile_image != null
+                                ? _c("img", {
+                                    staticClass: "avatar",
+                                    attrs: {
+                                      alt: "",
+                                      "data-current-person-avatar": "true",
+                                      src:
+                                        _vm.asset_url +
+                                        "/storage/" +
+                                        _vm.current_user.profile_image,
+                                      title: _vm.current_user.user_name
+                                    }
+                                  })
+                                : _vm._e(),
                               _vm._v(" "),
                               _c("div", { staticClass: "collapsed_content" }, [
                                 _c(
@@ -52092,7 +52315,7 @@ exports = module.exports = __webpack_require__(81)(undefined);
 
 
 // module
-exports.push([module.i, "\n.component-fade-enter-active, .component-fade-leave-active {\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.component-fade-enter, .component-fade-leave-to\n    /* .component-fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.component-fade-enter-active, .component-fade-leave-active {\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.component-fade-enter, .component-fade-leave-to\n    /* .component-fade-leave-active below version 2.1.8 */\n{\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -52582,7 +52805,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             routePath: '',
             routeParameter: '',
             authUserId: '',
-            author: false
+            author: false,
+            peopleId: ''
 
         };
     },
@@ -52591,8 +52815,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
         this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
         this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
+        this.peopleId = document.querySelector("meta[name='people-id']").getAttribute("content");
 
-        axios.get(this.home_page + 'api/people/' + this.authUserId).then(function (response) {
+        axios.get(this.home_page + 'api/people/' + this.peopleId).then(function (response) {
             self.result = response.data;
             if (self.result.id == self.authUserId) {
                 self.author = true;
