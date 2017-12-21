@@ -77,13 +77,28 @@ class DocumentController extends Controller
         $documentId = $request->route('documentId');
         $projectId = $request->route('id');
 
-        $document = DB::table('documents')->where([
+        $document = DB::table('documents')
+            ->where([
             'project_id' => $projectId,
             'id' => $documentId
         ])->first();
+
+        $document->current_user = DB::table('users')
+            ->select(
+                'users.name as user_name',
+                'users.profile_image'
+            )
+            ->where('id', Auth::id())
+            ->first();
+
+
         $document->comments = DB::table('document_comments')
             ->join('users', 'users.id', 'document_comments.poster_id')
-            ->select('users.name as user_name', 'document_comments.*')
+            ->select(
+                'users.name as user_name',
+                'users.profile_image',
+                'document_comments.*'
+            )
             ->where('document_id', $document->id)
             ->get();
         return response()->json($document);
@@ -113,7 +128,10 @@ class DocumentController extends Controller
 
         $commentData = DB::table('document_comments')
             ->join('users', 'users.id', 'document_comments.poster_id')
-            ->select('users.name as user_name', 'document_comments.*')
+            ->select(
+                'users.name as user_name',
+                'users.profile_image',
+                'document_comments.*')
             ->where('document_comments.id', $commentId)
             ->get();
 

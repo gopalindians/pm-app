@@ -16,7 +16,6 @@ use Illuminate\View\View;
  * @package App\Http\Controllers
  * @author  : @gopalindians
  */
-
 class ProjectController extends Controller
 {
 
@@ -35,9 +34,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-
-        $id = Auth::id();
-        $projects = DB::table('projects')
+        $projects = DB::table('project_members')
             ->select(
                 'projects.id as project_id',
                 'projects.owner_id as project_owner_id',
@@ -46,18 +43,22 @@ class ProjectController extends Controller
                 'projects.state as project_state',
                 'projects.created_at as project_created_at',
                 'projects.updated_at as project_updated_at',
-                'users.id as owner_id',
-                'users.name as owner_name',
-                'users.email as owner_email'
-            )
-            ->join('users', 'users.id', '=', 'projects.owner_id')
-            ->where('owner_id', '=', $id)
+                'project_members.*'
+            )->join('projects', 'projects.id', '=', 'project_members.project_id')
+            ->where('project_members.member_id', '=', Auth::id())
             ->orderBy('project_updated_at', 'desc')
             ->paginate(7);
+
         foreach ($projects as $project) {
+            if ($project->project_owner_id == Auth::id()) {
+                $project->is_owner = true;
+            } else {
+                $project->is_owner = false;
+            }
             $project->project_created_at = str_replace('before', 'ago', Carbon::parse($project->project_created_at)->diffForHumans(Carbon::now()));
             $project->project_updated_at = str_replace('before', 'ago', Carbon::parse($project->project_updated_at)->diffForHumans(Carbon::now()));
         }
+
 
         return view('project.index', ['projects' => $projects]);
 
@@ -87,6 +88,16 @@ class ProjectController extends Controller
                 'updated_at' => Carbon::now()
             ]
         );
+
+        DB::table('project_members')
+            ->insert([
+                'project_id' => $id,
+                'member_id' => Auth::id(),
+                'project_Creator_id' => Auth::id(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+
+            ]);
 
 
         if (!empty($id)) {
@@ -143,7 +154,8 @@ class ProjectController extends Controller
 
                 'users.id as owner_id',
                 'users.name as owner_name',
-                'users.email as owner_email'
+                'users.email as owner_email',
+                'users.profile_image'
             )
             ->join('users', 'users.id', '=', 'projects.owner_id')
             ->where('owner_id', '=', $id)
@@ -189,7 +201,7 @@ class ProjectController extends Controller
             //documents
             $item->total_documents = DB::table('documents')->where('project_id', $id)->count();
             $item->document_detail = DB::table('documents')
-                ->select('documents.*', 'users.name as user_name')
+                ->select('documents.*', 'users.name as user_name','users.profile_image')
                 ->join('users', 'users.id', 'documents.creator_id')
                 ->where('project_id', $id)->orderBy('documents.updated_at', 'desc')->limit(5)->get();
 
@@ -220,9 +232,9 @@ class ProjectController extends Controller
 
 
                 if ($i->latest_comment == null) {
-                    $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->creater_id)->first();
+                    $i->latest_comment_by = DB::table('users')->select('name','profile_image')->where('id', $i->creater_id)->first();
                 } else {
-                    $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->latest_comment->poster_id)->first();
+                    $i->latest_comment_by = DB::table('users')->select('name','profile_image')->where('id', $i->latest_comment->poster_id)->first();
 
                     $i->latest_comment->created_at_human = str_replace('before', 'ago', Carbon::parse($i->latest_comment->created_at)->diffForHumans(Carbon::now()));
                     $i->latest_comment->created_at_noob = Carbon::parse($i->latest_comment->created_at)->format('l jS \\of F Y h:i:s A');
@@ -258,7 +270,7 @@ class ProjectController extends Controller
 
 
                 foreach ($item->document_detail as $dd) {
-                    $dd->created_by = DB::table('users')->select('users.name')->where('id', $dd->creator_id)->first();
+                    $dd->created_by = DB::table('users')->select('users.name','users.profile_image')->where('id', $dd->creator_id)->first();
 
                     $dd->created_at_human = str_replace('before', 'ago', Carbon::parse($dd->created_at)->diffForHumans(Carbon::now()));
                     $dd->created_at_noob = Carbon::parse($dd->created_at)->format('l jS \\of F Y h:i:s A');
@@ -284,9 +296,9 @@ class ProjectController extends Controller
                     $i->total_comments = DB::table('topic_comments')->where('topic_id', $i->id)->orderBy('updated_at', 'desc')->count();
 
                     if ($i->latest_comment == null) {
-                        $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->creater_id)->first();
+                        $i->latest_comment_by = DB::table('users')->select('name','profile_image')->where('id', $i->creater_id)->first();
                     } else {
-                        $i->latest_comment_by = DB::table('users')->select('name')->where('id', $i->latest_comment->poster_id)->first();
+                        $i->latest_comment_by = DB::table('users')->select('name','profile_image')->where('id', $i->latest_comment->poster_id)->first();
 
                         $i->latest_comment->created_at_human = str_replace('before', 'ago', Carbon::parse($i->latest_comment->created_at)->diffForHumans(Carbon::now()));
                         $i->latest_comment->created_at_noob = Carbon::parse($i->latest_comment->created_at)->format('l jS \\of F Y h:i:s A');
@@ -302,6 +314,8 @@ class ProjectController extends Controller
                 $item->project_created_at = str_replace('before', 'ago', Carbon::parse($item->project_created_at)->diffForHumans(Carbon::now()));
                 $item->project_updated_at = str_replace('before', 'ago', Carbon::parse($item->project_updated_at)->diffForHumans(Carbon::now()));
             }
+
+
 
 
             return response()->json($project[0]);

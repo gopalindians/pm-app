@@ -49,6 +49,74 @@ class TeamController extends Controller
             ->orderBy('teams.updated_at', 'desc')
             ->paginate(5);
 
+
+      /*  $projectIds = DB::table('project_members')
+            ->select(
+                'project_members.project_id'
+            )->where('project_members.member_id', '=', Auth::id())
+            ->orderBy('teams.updated_at', 'desc')
+            ->get();
+
+
+        foreach ($projectIds as $key => $projectId) {
+            $projectIds[$key] = DB::table('project_members')
+                ->select('project_members.member_id')
+                ->where('project_members.project_id', $projectId->project_id)
+                ->get();
+        }
+
+        dump($projectIds);
+
+        //$projectIds = $projectIds->toArray();
+
+        dd();
+        dump($projectIds);
+
+
+        $projectMembers = [];
+
+
+        foreach ($projectIds as $item) {
+            $projectMembers[] = array_unique(DB::table('project_members')
+                ->select('project_members.member_id')
+                ->where('project_members.project_id', $item->project_id)
+                ->get()->toArray(), SORT_REGULAR);
+        }
+
+        // $projectMembers = array_unique($projectMembers, SORT_REGULAR);
+
+        dump($projectMembers);
+
+        dd();
+
+        foreach ($projectMembers as $key => $projectMember) {
+
+
+            foreach ($projectMember->toArray() as $k => $item) {
+
+
+                if ($item->member_id == Auth::id()) {
+                    unset($projectMember->toArray()[$k]);
+                } else {
+                    $projectMember->toArray()[$k] = DB::table('users')
+                        ->select('users.name as member_name',
+                            'users.email as member_email',
+                            'users.id as member_id',
+                            'users.position as member_position',
+                            'users.profile_image as member_profile_image'
+                        )
+                        ->where('users.id', $item->member_id)->get()[0];
+                }
+
+            }
+
+
+        }
+
+        dump($projectMember);
+
+        dd();*/
+
         return view('team.index', ['teams' => $teams]);
     }
 

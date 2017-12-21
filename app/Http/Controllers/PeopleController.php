@@ -15,16 +15,14 @@ class PeopleController extends Controller
 
     public function index(Request $request)
     {
-
-
-        $peopleId = $request->route('people_id');
+       /* $peopleId = $request->route('people_id');
         $result = DB::table('users')->where(
             'id', $peopleId
         )->get();
 
         if(count($result)==0){
             return abort(404);
-        }
+        }*/
 
 
         return view('people.index');
@@ -33,6 +31,7 @@ class PeopleController extends Controller
     public function getPeople(Request $request)
     {
         $peopleId = $request->route('people_id');
+
         $result = DB::table('users')->where(
             'id', $peopleId
         )->get();

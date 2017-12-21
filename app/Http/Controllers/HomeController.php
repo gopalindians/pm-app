@@ -24,8 +24,7 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        $id = Auth::id();
-        $projects = DB::table('projects')
+        $projects = DB::table('project_members')
             ->select(
                 'projects.id as project_id',
                 'projects.owner_id as project_owner_id',
@@ -34,18 +33,22 @@ class HomeController extends Controller
                 'projects.state as project_state',
                 'projects.created_at as project_created_at',
                 'projects.updated_at as project_updated_at',
-                'users.id as owner_id',
-                'users.name as owner_name',
-                'users.email as owner_email'
-            )
-            ->join('users', 'users.id', '=', 'projects.owner_id')
-            ->where('owner_id', '=', $id)
-            ->orderBy('project_updated_at','desc')
+                'project_members.*'
+            )->join('projects', 'projects.id', '=', 'project_members.project_id')
+            ->where('project_members.member_id', '=', Auth::id())
+            ->orderBy('project_updated_at', 'desc')
             ->paginate(7);
+
         foreach ($projects as $project) {
+            if ($project->project_owner_id == Auth::id()) {
+                $project->is_owner = true;
+            } else {
+                $project->is_owner = false;
+            }
             $project->project_created_at = str_replace('before', 'ago', Carbon::parse($project->project_created_at)->diffForHumans(Carbon::now()));
             $project->project_updated_at = str_replace('before', 'ago', Carbon::parse($project->project_updated_at)->diffForHumans(Carbon::now()));
         }
+
 
         return view('home', ['projects' => $projects]);
     }

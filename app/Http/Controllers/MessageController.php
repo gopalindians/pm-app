@@ -108,6 +108,10 @@ class MessageController extends Controller
 
         foreach ($topic as $item) {
 
+            $item->auth_user = DB::table('users')->select(
+                'id', 'profile_image','name'
+            )->where('id', Auth::id())->first();
+
             $topicComments = DB::table('topic_comments')
                 ->where('topic_comments.topic_id', $item->topic_id)
                 ->get();
