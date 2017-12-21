@@ -18,10 +18,16 @@
                     <div class="col-md-2">
                         <div class="team_member">
                             <a href="{{url('people/'.$team->member_id)}}">
-                                <img src="{{asset('images/employee_img.jpg')}}" class="img-thumbnail">
+                                @if($team->member_profile_image==null)
+                                    <img src="{{asset('images/employee_img.jpg')}}" class="img-thumbnail">
+                                @else
+                                    <img src="{{asset('storage/'.$team->member_profile_image)}}" class="img-thumbnail">
+                                @endif()
                                 <div class="emp_name_pos">
-                                    <p>{{$team->member_name}}</p>
-                                    <span>{{$team->member_position}}</span>
+                                    <p>{{$team->member_name}}
+                                        <small style="font-size: 12px">({{$team->member_position}})</small>
+                                    </p>
+                                    <span></span>
                                 </div>
                             </a>
                         </div>
@@ -31,7 +37,7 @@
             <div class="row space-top">
 
             </div>
-            {{ $teams->links() }}
+            {{--   {{ $teams->links() }}--}}
         </div>
 
     </section>

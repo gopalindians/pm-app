@@ -1,4 +1,4 @@
-    <template>
+<template>
 
     <div id="workspace" class="workspace">
         <div class="container stack_container" data-container-id="2" style="width: 980px;">
@@ -21,37 +21,37 @@
                             <h1>
                                 <!--<span data-role="topics_status_options">Show discussions</span>-->
 
-                               <!-- <span class="sort_options">sorted by
-                                    <div class="facet" data-behavior="expandable collapse_on_clickoutside" data-role="facet">
+                                <!-- <span class="sort_options">sorted by
+                                     <div class="facet" data-behavior="expandable collapse_on_clickoutside" data-role="facet">
 
-                                        <a data-behavior="expand_on_click" data-role="toggle" href="#">newest</a>
+                                         <a data-behavior="expand_on_click" data-role="toggle" href="#">newest</a>
 
-                                        <div class="expanded_content balloon top_left_side">
+                                         <div class="expanded_content balloon top_left_side">
 
-                                            <div class="arrow"></div>
+                                             <div class="arrow"></div>
 
-                                            <div class="arrow"></div>
+                                             <div class="arrow"></div>
 
-                                            <div class="contents">
+                                             <div class="contents">
 
-                                                <span class="type selected" data-role="option">
-                                                    <a data-replace-sheet="true" data-sort="newest"
-                                                          href="/2501285/projects/6590988/topics?sort=newest">newest</a>
-                                                </span>
-                                                <span class="type " data-role="option">
-                                                    <a data-replace-sheet="true"
-                                                       data-sort="oldest"
-                                                       href="/2501285/projects/6590988/topics?sort=oldest">oldest</a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                 <span class="type selected" data-role="option">
+                                                     <a data-replace-sheet="true" data-sort="newest"
+                                                           href="/2501285/projects/6590988/topics?sort=newest">newest</a>
+                                                 </span>
+                                                 <span class="type " data-role="option">
+                                                     <a data-replace-sheet="true"
+                                                        data-sort="oldest"
+                                                        href="/2501285/projects/6590988/topics?sort=oldest">oldest</a>
+                                                 </span>
+                                             </div>
+                                         </div>
+                                     </div>
 
-                                </span>and filter by
-                                <input class="live_filter" data-behavior="live_filter"
-                                       data-filter-url="/2501285/projects/6590988/filter?sort=newest&amp;type=topics"
-                                       data-index-url="/2501285/projects/6590988/topics.js?sort=newest"
-                                       data-type="topics" id="" placeholder="title…" type="text">-->
+                                 </span>and filter by
+                                 <input class="live_filter" data-behavior="live_filter"
+                                        data-filter-url="/2501285/projects/6590988/filter?sort=newest&amp;type=topics"
+                                        data-index-url="/2501285/projects/6590988/topics.js?sort=newest"
+                                        data-type="topics" id="" placeholder="title…" type="text">-->
 
                             </h1>
                         </div>
@@ -73,48 +73,59 @@
                                 <tr class="topic message_74066242" id="topic_175636030" v-for="topic in topics">
                                     <td class="avatar">
 
-
                                         <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id">
-                                            <img class="avatar"
+
+                                            <img v-if="topic.creater_profile_image!=null"
+                                                 class="avatar"
                                                  height="30"
+                                                 :title="topic.creater_name"
+                                                 :src="asset_url+'/storage/'+topic.creater_profile_image"
+                                                 width="30">
+
+                                            <img v-if="topic.creater_profile_image==null"
+                                                 class="avatar"
+                                                 height="30"
+                                                 :title="topic.creater_name"
                                                  src="//asset1.basecamp.com/2501285/people/13182570/photo/avatar.40.gif"
                                                  width="30">
                                         </a>
                                     </td>
 
                                     <td class="who">
-                                        <a  v-if="topic.topic_comment_latest==null" :href="home_page+'project/'+projectId+'/'+projectName+'/people/'+topic.creater_id"></a>
-                                        <a  v-if="topic.topic_comment_latest!==null" :href="home_page+'project/'+projectId+'/'+projectName+'/people/'+topic.topic_comment_latest_posted_by.comment_poster_id"></a>
+                                        <a v-if="topic.topic_comment_latest==null"
+                                           :href="home_page+'project/'+projectId+'/'+projectName+'/people/'+topic.creater_id"></a>
+                                        <a v-if="topic.topic_comment_latest!==null"
+                                           :href="home_page+'project/'+projectId+'/'+projectName+'/people/'+topic.topic_comment_latest_posted_by.comment_poster_id"></a>
                                     </td>
 
                                     <td class="what">
                                         <div class="attachments">
-                                          <!--  <figure>
-                                                <img alt="" class="thumbnail hoverZoomLink"
-                                                     data-attachment-id="309624226" data-audio-codec="null"
-                                                     data-behavior="enlargeable" data-classes="image"
-                                                     data-container-id="comment_574119436"
-                                                     data-content-type="image/jpeg"
-                                                     data-created-at="2017-11-06T09:54:34Z" data-creator-id="13772519"
-                                                     data-creator="Rupali" data-description="image"
-                                                     data-details-path="/2501285/projects/6590988/attachments/309624226/details"
-                                                     data-download-path="/2501285/projects/6590988/attachments/309624226/download"
-                                                     data-embeddable="false" data-extension="JPG"
-                                                     data-file-or-image="image" data-filename="version-2.jpg"
-                                                     data-filesize="58 KB" data-height="360" data-image-id="309624226"
-                                                     data-large-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226/78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0/large.jpg"
-                                                     data-linked="null" data-max-size="700"
-                                                     data-original-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226"
-                                                     data-path="/2501285/projects/6590988/attachments/309624226"
-                                                     data-perma-path="/2501285/projects/6590988/messages/73572563?enlarge=309624226#attachment_309624226"
-                                                     data-previewable="true"
-                                                     data-storage-key="78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0"
-                                                     data-thumbnail="true"
-                                                     data-trash-path="/2501285/projects/6590988/attachments/309624226/trash"
-                                                     data-trashed="false" data-type="image" data-video-codec="null"
-                                                     data-width="800"
-                                                     src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226/78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0/thumbnail.jpg">
-                                            </figure>-->
+                                            <!--  <figure>
+                                                  <img alt="" class="thumbnail hoverZoomLink"
+                                                       data-attachment-id="309624226" data-audio-codec="null"
+                                                       data-behavior="enlargeable" data-classes="image"
+                                                       data-container-id="comment_574119436"
+                                                       data-content-type="image/jpeg"
+                                                       data-created-at="2017-11-06T09:54:34Z" data-creator-id="13772519"
+                                                       data-creator="Rupali" data-description="image"
+                                                       data-details-path="/2501285/projects/6590988/attachments/309624226/details"
+                                                       data-download-path="/2501285/projects/6590988/attachments/309624226/download"
+                                                       data-embeddable="false" data-extension="JPG"
+                                                       data-file-or-image="image" data-filename="version-2.jpg"
+                                                       data-filesize="58 KB" data-height="360" data-image-id="309624226"
+                                                       data-large-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226/78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0/large.jpg"
+                                                       data-linked="null" data-max-size="700"
+                                                       data-original-src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226"
+                                                       data-path="/2501285/projects/6590988/attachments/309624226"
+                                                       data-perma-path="/2501285/projects/6590988/messages/73572563?enlarge=309624226#attachment_309624226"
+                                                       data-previewable="true"
+                                                       data-storage-key="78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0"
+                                                       data-thumbnail="true"
+                                                       data-trash-path="/2501285/projects/6590988/attachments/309624226/trash"
+                                                       data-trashed="false" data-type="image" data-video-codec="null"
+                                                       data-width="800"
+                                                       src="https://asset1.basecamp.com/2501285/projects/6590988/attachments/309624226/78f81a0e-c2d8-11e7-b10a-e89a8fbdc1e0/thumbnail.jpg">
+                                              </figure>-->
                                         </div>
 
                                         <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+topic.topic_id">
@@ -163,6 +174,7 @@
                 showError: '',
 
                 home_page: '',
+                asset_url: '',
                 result: '',
             }
         },
@@ -170,10 +182,12 @@
             let self = this;
 
             this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
+
             this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
             this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
 
-            axios.get(this.home_page+'api/project/' + this.projectId + '/' + self.projectName + '/topics')
+            axios.get(this.home_page + 'api/project/' + this.projectId + '/' + self.projectName + '/topics')
                 .then(function (response) {
                     self.topics = response.data.data;
                 })

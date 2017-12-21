@@ -45,7 +45,15 @@
                     @foreach($projects as $project)
                         <div class="col-md-3" style="margin-bottom: 30px;">
                             <div class="project_grid">
-                                <h1><a href="{{   \App\CH::getUrl( 'project/'.$project->project_id .'/'.$project->project_name)}}">{{$project->project_name}}</a></h1>
+
+                                @if($project->is_owner)
+                                    <span style="margin-left: 10px;" class="label label-primary">owner</span>
+                                @else
+                                    <span style="margin-left: 10px;" class="label label-primary">member</span>
+                                @endif()
+                                <h1>
+                                    <a href="{{   \App\CH::getUrl( 'project/'.$project->project_id .'/'.$project->project_name)}}">{{$project->project_name}}</a>
+                                </h1>
                                 <p class="bill_team"><span>Description :</span> {{$project->project_description}}</p>
                                 <div class="last_update">
 

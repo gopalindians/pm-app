@@ -71,8 +71,15 @@
                                             </p>
                                         </header>
 
-                                        <a data-replace-stack="true" href="/2501285/people/15531397">
-                                            <img :alt="messageCreatorName" class="avatar" height="59"
+                                        <a data-replace-stack="true" href="#">
+
+                                            <img v-if="messageCreatorProfileImage!=null"
+                                                 :alt="messageCreatorName" class="avatar" height="59"
+                                                 :src="asset_url+'/storage/'+messageCreatorProfileImage"
+                                                 :title="messageCreatorName" width="59">
+
+                                            <img v-if="messageCreatorProfileImage==null" :alt="messageCreatorName"
+                                                 class="avatar" height="59"
                                                  src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif"
                                                  :title="messageCreatorName" width="59">
                                         </a>
@@ -96,8 +103,16 @@
 
                                                 <article class="comment" id="comment_579199320"
                                                          data-creator-id="15531397" v-for="comment in messageComments">
-                                                    <a data-replace-stack="true" href="/2501285/people/15531397">
-                                                        <img alt="Gopal Sharma" class="avatar" height="96"
+                                                    <a data-replace-stack="true"
+                                                       :href="home_page+'/people/'+comment.comment_poster.id">
+
+                                                        <img v-if="comment.comment_poster.profile_image!=null"
+                                                             :alt="comment.name" class="avatar" height="96"
+                                                             :src="asset_url+'/storage/'+comment.comment_poster.profile_image"
+                                                             :title="comment.comment_poster.name" width="96">
+
+                                                        <img v-if="comment.comment_poster.profile_image==null"
+                                                             :alt="comment.name" class="avatar" height="96"
                                                              src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif"
                                                              :title="comment.comment_poster.name" width="96">
                                                     </a>
@@ -129,7 +144,17 @@
 
                                                 <article class="comment new expanded"
                                                          data-behavior="expandable file_drop_target">
-                                                    <img alt="" class="avatar" data-current-person-avatar="true"
+
+
+                                                    <img v-if="authUserData.profile_image!=null"
+                                                         :alt="authUserData.name" class="avatar"
+                                                         data-current-person-avatar="true"
+                                                         :src="asset_url+'/storage/'+authUserData.profile_image"
+                                                         :title="messageCreatorName">
+
+                                                    <img v-if="authUserData.profile_image==null"
+                                                         :alt="authUserData.name" class="avatar"
+                                                         data-current-person-avatar="true"
                                                          src="https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif"
                                                          :title="messageCreatorName">
 
@@ -149,17 +174,17 @@
                                             </a>
                                         </div>
 
-                                      <!--  <div class="tool" data-behavior="tool expandable">
-                                            <a data-behavior="expand_on_click hide_on_expand" @click="del()" v-if="!showBeforeDelete"
-                                               href="#">Delete…</a>
+                                        <!--  <div class="tool" data-behavior="tool expandable">
+                                              <a data-behavior="expand_on_click hide_on_expand" @click="del()" v-if="!showBeforeDelete"
+                                                 href="#">Delete…</a>
 
-                                            <span data-role="confirm_view" v-if="showBeforeDelete">
-                                                <a data-behavior="tool_action" data-method="post" data-remote="true"
-                                                   :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+messageId+'/trash'"
-                                                   rel="nofollow">Delete this message?</a>
-                                                <a class="cancel" data-behavior="collapse_on_click" @click="undo()"
-                                                   href="#">Never mind</a></span>
-                                        </div>-->
+                                              <span data-role="confirm_view" v-if="showBeforeDelete">
+                                                  <a data-behavior="tool_action" data-method="post" data-remote="true"
+                                                     :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+messageId+'/trash'"
+                                                     rel="nofollow">Delete this message?</a>
+                                                  <a class="cancel" data-behavior="collapse_on_click" @click="undo()"
+                                                     href="#">Never mind</a></span>
+                                          </div>-->
                                     </aside>
                                 </div>
                             </section>
@@ -190,9 +215,11 @@
                 messageCreatedAt: '',
                 messageCreatedAtHuman: '',
                 messageCreatedAtNoob: '',
+                messageCreatorProfileImage: '',
 
                 messageComments: '',
                 home_page: '',
+                asset_url: '',
 
                 showBeforeDelete: false,
 
@@ -208,6 +235,7 @@
             let self = this;
 
             this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
             this.csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
             this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
             this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
@@ -225,19 +253,21 @@
                     self.messageCreatedAtHuman = response.data.topic_created_at_human;
                     self.messageCreatedAtNoob = response.data.topic_created_at_noob;
                     self.messageComments = response.data.topic_comments;
+                    self.messageCreatorProfileImage = response.data.creater_profile_image;
+                    self.authUserData = response.data.auth_user;
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
 
 
-            axios.get(this.home_page + 'api/people/' + this.authUserId)
+            /*axios.get(this.home_page + 'api/people/' + this.authUserId)
                 .then((response) => {
                     console.log(response.data);
                 })
                 .catch((error) => {
                     console.log(error);
-                })
+                })*/
         },
 
         methods: {
@@ -245,12 +275,12 @@
                 self.clicked = !self.clicked;
             },
             postComment() {
-                if(this.commentMessage!==''){
+                if (this.commentMessage !== '') {
                     axios.post(this.home_page + 'api/project/' + this.projectId + '/' + this.projectName + '/messages/' + this.messageId, {
                         topicComment: this.commentMessage,
                         posterId: this.authUserId
                     }).then((response) => {
-                        this.commentMessage='';
+                        this.commentMessage = '';
                         this.messageComments.push(response.data.data.topic_comments[0]);
                     }).catch((error) => {
                         console.log(error);
@@ -260,7 +290,7 @@
             del() {
                 this.showBeforeDelete = true;
             },
-            undo(){
+            undo() {
                 this.showBeforeDelete = false;
             }
         }

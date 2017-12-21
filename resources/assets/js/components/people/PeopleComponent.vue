@@ -77,49 +77,49 @@
                             </div>
                         </div>-->
                     </section>
-                  <!--  <section class="shared_files">
-                        <h2>Your shared files</h2>
-                        <div class="media_row">
-                            <div class="row">
-                                <div class="col-md-3" style="margin-bottom: 10px;">
-                                    <div class="media_file">
-                                        <div class="media_detail">
-                                            <a href="#">
-                                                <div class="media_img">
-                                                    <img :src="asset_url+'images/employee_img_2.jpg'"
-                                                         class="img-thumbnail">
-                                                </div>
-                                                <span>feb_icon.png</span>
-                                                <span>Added by Ashish S. on Dec 1</span>
-                                            </a>
-                                            <div class="media_comment">
-                                                <a href="#"><i class="fa fa-commenting" aria-hidden="true"></i> 10
-                                                    Comments</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3" style="margin-bottom: 10px;">
-                                    <div class="media_file">
-                                        <div class="media_detail">
-                                            <a href="#">
-                                                <div class="media_img">
-                                                    <img :src="asset_url+'images/employee_img_2.jpg'"
-                                                         class="img-thumbnail">
-                                                </div>
-                                                <span>feb_icon.png</span>
-                                                <span>Added by Ashish S. on Dec 1</span>
-                                            </a>
-                                            <div class="media_comment">
-                                                <a href="#"><i class="fa fa-commenting" aria-hidden="true"></i> 10
-                                                    Comments</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>-->
+                    <!--  <section class="shared_files">
+                          <h2>Your shared files</h2>
+                          <div class="media_row">
+                              <div class="row">
+                                  <div class="col-md-3" style="margin-bottom: 10px;">
+                                      <div class="media_file">
+                                          <div class="media_detail">
+                                              <a href="#">
+                                                  <div class="media_img">
+                                                      <img :src="asset_url+'images/employee_img_2.jpg'"
+                                                           class="img-thumbnail">
+                                                  </div>
+                                                  <span>feb_icon.png</span>
+                                                  <span>Added by Ashish S. on Dec 1</span>
+                                              </a>
+                                              <div class="media_comment">
+                                                  <a href="#"><i class="fa fa-commenting" aria-hidden="true"></i> 10
+                                                      Comments</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-3" style="margin-bottom: 10px;">
+                                      <div class="media_file">
+                                          <div class="media_detail">
+                                              <a href="#">
+                                                  <div class="media_img">
+                                                      <img :src="asset_url+'images/employee_img_2.jpg'"
+                                                           class="img-thumbnail">
+                                                  </div>
+                                                  <span>feb_icon.png</span>
+                                                  <span>Added by Ashish S. on Dec 1</span>
+                                              </a>
+                                              <div class="media_comment">
+                                                  <a href="#"><i class="fa fa-commenting" aria-hidden="true"></i> 10
+                                                      Comments</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </section>-->
                 </div>
             </div>
         </section>
@@ -141,7 +141,8 @@
                 routePath: '',
                 routeParameter: '',
                 authUserId: '',
-                author: false
+                author: false,
+                peopleId: ''
 
             }
         },
@@ -150,8 +151,9 @@
             this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
             this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
             this.authUserId = document.querySelector("meta[name='auth-user-id']").getAttribute("content");
+            this.peopleId = document.querySelector("meta[name='people-id']").getAttribute("content");
 
-            axios.get(this.home_page + 'api/people/' + this.authUserId)
+            axios.get(this.home_page + 'api/people/' + this.peopleId)
                 .then(function (response) {
                     self.result = response.data;
                     if (self.result.id == self.authUserId) {
@@ -180,8 +182,10 @@
     .component-fade-enter-active, .component-fade-leave-active {
         transition: opacity .3s ease;
     }
+
     .component-fade-enter, .component-fade-leave-to
-        /* .component-fade-leave-active below version 2.1.8 */ {
+        /* .component-fade-leave-active below version 2.1.8 */
+    {
         opacity: 0;
     }
 </style>

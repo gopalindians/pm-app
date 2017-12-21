@@ -67,7 +67,17 @@
                             <tr class="topic todo_289596969" id="topic_152633325" v-for="p in project.topic_detail">
                                 <td class="avatar">
                                     <a :href="home_page+'project/'+projectId+'/'+projectName+'/messages/'+p.id">
-                                        <img :alt="p.latest_comment_by.name"
+
+
+                                        <img v-if="p.latest_comment_by.profile_image!=null"
+                                             :alt="p.latest_comment_by.name"
+                                             class="avatar" height="30"
+                                             :src="asset_url+'/storage/'+p.latest_comment_by.profile_image"
+                                             :title="p.latest_comment_by.name"
+                                             width="30">
+
+                                        <img v-if="p.latest_comment_by.profile_image==null"
+                                             :alt="p.latest_comment_by.name"
                                              class="avatar" height="30"
                                              src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.40.gif"
                                              :title="p.latest_comment_by.name"
@@ -1397,9 +1407,11 @@
 
                     <section class="documents " data-collection-name="documents">
                         <header class="has_buttons">
-                            <h1><a :href="home_page+'/project/'+projectId+'/'+projectName+'/documents'">Text Documents</a></h1>
+                            <h1><a :href="home_page+'/project/'+projectId+'/'+projectName+'/documents'">Text
+                                Documents</a></h1>
                             <a class="action_button button"
-                               :href="home_page+'/project/'+projectId+'/'+projectName+'/document/new'">Create a text document</a>
+                               :href="home_page+'/project/'+projectId+'/'+projectName+'/document/new'">Create a text
+                                document</a>
                         </header>
 
                         <p class="blank_slate">Keep notes and important information in Text Documents</p>
@@ -1466,7 +1478,8 @@
                         </section>
 
                         <p class="more_documents">
-                            <a class="decorated" :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}} more documents</a>
+                            <a class="decorated" :href="home_page+'project/'+projectId+'/'+projectName+'/documents'">{{project.total_documents}}
+                                more documents</a>
                         </p>
                     </section>
 
@@ -1492,6 +1505,7 @@
                 project: '',
 
                 home_page: '',
+                asset_url: '',
                 result: '',
 
             }
@@ -1500,6 +1514,7 @@
             let self = this;
 
             this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
             this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
             this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
 

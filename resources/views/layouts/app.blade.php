@@ -22,6 +22,9 @@
 
     <meta name="todo-lists-id" content="{{ Request::segment(5) }}">
 
+
+    <meta name="people-id" content="{{ Request::segment(2) }}">
+
     <meta name="auth-user-id" content="{{ Auth::id() }}">
     <title>@yield('title') - {{ config('', 'LeadCamp') }}</title>
     <!-- Styles -->

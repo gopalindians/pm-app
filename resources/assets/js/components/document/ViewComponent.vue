@@ -34,10 +34,20 @@
 
                                 <article class="comment" id="comment_584232109" data-creator-id="15531397" style=""
                                          v-for="comment in documentComments">
-                                    <a data-replace-stack="true" href="/2501285/people/15531397">
-                                        <img :alt="comment.user_name" class="avatar" height="96"
+                                    <a data-replace-stack="true" :href="home_page+'/people/'+comment.poster_id">
+
+
+                                        <img v-if="comment.profile_image!=null" :alt="comment.user_name" class="avatar"
+                                             height="96"
+                                             :src="asset_url+'/storage/'+comment.profile_image"
+                                             :title="comment.user_name" width="96">
+
+                                        <img v-if="comment.profile_image==null" :alt="comment.user_name" class="avatar"
+                                             height="96"
                                              src="https://asset1.basecamp.com/2501285/people/15531397/photo/avatar.96.gif"
                                              :title="comment.user_name" width="96">
+
+
                                     </a>
                                     <div class="formatted_content" data-embeddable="" data-skip-stacker-links="">
                                         <strong>{{comment.user_name}}</strong> <br>
@@ -51,18 +61,18 @@
                                                   title="December 15, 2017 at 7:03pm ">a second ago
                                             </time>
                                         </a>-->
-                                       <!-- <span data-available-until="2017-12-15T13:48:57Z"
-                                              data-visible-to="admin creator">
-                                            –<a class="edit"
-                                                :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+documentId+'/edit'">Edit</a> or
-                                            <a class="delete"
-                                               data-confirm="Are you sure you want to delete this comment?"
-                                               data-method="post" data-remote="true"
-                                               href="/2501285/projects/12880198/comments/584232109/trash"
-                                               rel="nofollow">Delete
-                                            </a>
-                                            for <span data-display="available_time_left">14 minutes</span>
-                                        </span>-->
+                                        <!-- <span data-available-until="2017-12-15T13:48:57Z"
+                                               data-visible-to="admin creator">
+                                             –<a class="edit"
+                                                 :href="home_page+'project/'+projectId+'/'+projectName+'/document/'+documentId+'/edit'">Edit</a> or
+                                             <a class="delete"
+                                                data-confirm="Are you sure you want to delete this comment?"
+                                                data-method="post" data-remote="true"
+                                                href="/2501285/projects/12880198/comments/584232109/trash"
+                                                rel="nofollow">Delete
+                                             </a>
+                                             for <span data-display="available_time_left">14 minutes</span>
+                                         </span>-->
                                     </footer>
 
                                     <div id="attachments_for_comment_584232109" class="partitioned_attachments ">
@@ -73,10 +83,16 @@
 
 
                                 <article class="comment new" data-behavior="expandable file_drop_target">
-                                    <img alt="" class="avatar" data-current-person-avatar="true"
-                                         src="https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif"
-                                         title="Gopal Sharma">
 
+                                    <img v-if="current_user.profile_image==null" alt="" class="avatar"
+                                         data-current-person-avatar="true"
+                                         src="https://asset1.basecamp.com/people/15531397/photo/avatar.96.gif"
+                                         :title="current_user.user_name">
+
+                                    <img v-if="current_user.profile_image!=null" alt="" class="avatar"
+                                         data-current-person-avatar="true"
+                                         :src="asset_url+'/storage/'+current_user.profile_image"
+                                         :title="current_user.user_name">
                                     <div class="collapsed_content">
 
 
@@ -242,9 +258,11 @@
                 documentComments: '',
                 csrf_token: '',
                 home_page: '',
+                asset_url: '',
 
 
-                document_comment: ''
+                document_comment: '',
+                current_user: ''
             }
         },
         methods: {
@@ -259,7 +277,7 @@
                     }).then(function (response) {
                         if (response.data.type === 'SUCCESS') {
                             self.documentComments.push(response.data.data);
-                            self.document_comment='';
+                            self.document_comment = '';
 
                         }
                     }).catch(function (error) {
@@ -272,6 +290,7 @@
         mounted() {
             let self = this;
             this.home_page = document.querySelector("meta[name='home-page']").getAttribute("content");
+            this.asset_url = document.querySelector("meta[name='asset-url']").getAttribute("content");
             this.csrf_token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
             this.projectName = document.querySelector("meta[name='project-name']").getAttribute("content");
             this.projectId = document.querySelector("meta[name='project-id']").getAttribute("content");
@@ -284,6 +303,7 @@
                     self.documentTitle = response.data.document_title;
                     self.documentBody = response.data.document_body;
                     self.documentComments = response.data.comments;
+                    self.current_user = response.data.current_user;
                 })
                 .catch(function (error) {
                     console.log(error);
