@@ -21,6 +21,7 @@
     <meta name="document-id" content="{{ Request::segment(5) }}">
 
     <meta name="todo-lists-id" content="{{ Request::segment(5) }}">
+    <meta name="todo-id" content="{{ Request::segment(5) }}">
 
 
     <meta name="people-id" content="{{ Request::segment(2) }}">

@@ -17,6 +17,13 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+//Project
+Vue.component('project-view-component', require('./components/project/ProjectViewComponent'));
+
+//Todolists
+Vue.component('todo-lists-component', require('./components/todo/TodoListsComponent'));
+Vue.component('single-todo-component', require('./components/todo/SingleTodoComponent'));
+
 const app = new Vue({
     el: '#app'
 });

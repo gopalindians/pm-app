@@ -84,7 +84,7 @@
 
 
                     <li data-behavior="sortable" data-sortable-type="todolist" id="sortable_todolist_48308664"
-                        v-for="todoList in todoLists[0]">
+                        v-for="(todoList,index) in todoLists[0]">
                         <article class="todolist" id="todolist_48308664"
                                  :data-url="home_page+'/project/'+projectId+'/'+projectName+'/todolist/'+todoList.id"
                                  data-behavior="expandable">
@@ -145,7 +145,7 @@
                                 </form>
                             </header>
 
-                            <ul class="todos " data-behavior="sortable_container" data-sortable-type="todo">
+                            <ul v-for="todo in todoList.todos" class="todos " data-behavior="sortable_container" data-sortable-type="todo">
 
                                 <li class="todo show" data-assignee-code="p15316135"
                                     data-behavior="has_hover_content sortable" data-sortable-type="todo"
@@ -167,10 +167,9 @@
                                                    data-url="/2501285/projects/6590988/todos/324566530/toggle"
                                                    name="todo_complete"
                                                    type="checkbox" value="1">
-
                                             <span class="content" data-behavior="sortable_handle">
-                                                <a href="/2501285/projects/6590988/todos/324566530">Responsive of website</a>
-                                                <span class="content_for_perma">Responsive of website</span>
+                                                <a :href="home_page+'project/'+projectId+'/'+projectName+'/todo/'+todo.id">{{todo.todo_name}}</a>
+                                                <span class="content_for_perma">{{todo.todo_name}}</span>
                                             </span>
 
                                             <span class="pill comments" data-comments-counter="">
@@ -257,11 +256,15 @@
 
                             <ul class="new" data-behavior="expandable load_assignee_options">
                                 <li class="collapsed_content">
-                                    <a class="decorated" data-behavior="expand_on_click load_assignee_options" href="#">Add
+                                    <a class="decorated" data-behavior="expand_on_click load_assignee_options"
+                                       href="javascript:void(0);"
+                                       @click="showAddToDoForm(todoList.id)">Add
                                         a to-do</a>
                                 </li>
 
-                                <li class="expanded_content edit_mode">
+
+                                <!--expanded_content edit_mode-->
+                                <li class="" v-if="todoList.show===true">
                                     <article data-behavior="file_drop_target">
                                         <form accept-charset="UTF-8" action="/2501285/projects/6590988/todos"
                                               class="new_todo" data-behavior="new_todo" data-remote="true" id="new_todo"
@@ -270,18 +273,20 @@
                                             <input id="todo_todolist_id" name="todo[todolist_id]" type="hidden"
                                                    value="48308664">
 
-                                            <input disabled="disabled" name="todo[completed]" type="hidden"
-                                                   value="0"><input disabled="disabled" id="todo_completed"
-                                                                    name="todo[completed]" type="checkbox" value="1">
-                                            <textarea data-behavior="autoresize submit_on_enter" id="todo_content"
-                                                      name="todo[content]" placeholder="Add a new to-do..."
-                                                      rows="1"></textarea>
+                                            <input disabled="disabled" name="todo[completed]" type="hidden" value="0">
+                                            <input disabled="disabled" id="todo_completed" name="todo[completed]"
+                                                   type="checkbox" value="1">
+                                            <textarea data-behavior="autoresize submit_on_enter"
+                                                      placeholder="Add a new to-do..."
+                                                      rows="1"
+                                                      v-model="todoText">
+                                            </textarea>
 
                                             <div class="details">
                                                 <label>
                                                     <strong>Assigned to:</strong>
                                                     <select data-behavior="assignee_options" data-private="false"
-                                                            data-project-id="6590988" id="todo_assignee_code"
+                                                            data-project-id="6590988"
                                                             name="todo[assignee_code]">
                                                         <option value="⎈">Loading...</option>
                                                     </select>
@@ -313,9 +318,13 @@
 
 
                                             <p class="submit">
-                                                <input class="action_button" data-role="uploader" name="commit"
-                                                       type="submit" value="Add this to-do"> or
-                                                <a class="decorated" data-behavior="cancel" data-role="cancel" href="#">I'm
+                                                <input class="btn btn-primary action_button" data-role="uploader"
+                                                       name="Add this to-do"
+                                                       type="button" value="Add this to-do"
+                                                       @click="addToDo(todoList.id)"> or
+                                                <a class="decorated" data-behavior="cancel" data-role="cancel"
+                                                   href="javascript:void(0);"
+                                                   @click="hideAddTodoForm(todoList.id)">I'm
                                                     done adding to-dos</a>
                                             </p>
                                         </form>
@@ -386,6 +395,9 @@
                 home_page: '',
                 projectId: '',
                 projectName: '',
+
+                showAddTodoForm: false,
+                todoText: ''
             }
         },
         mounted() {
@@ -400,6 +412,11 @@
             axios.get(this.home_page + '/api/project/' + this.projectId + '/' + this.projectName + '/todolists/')
                 .then((response) => {
                     console.log(response.data);
+                    response.data.forEach((data) => {
+                        data.show = false;
+                    });
+
+
                     self.todoLists.push(response.data);
                 }).catch((error) => {
                 console.log(error);
@@ -426,6 +443,42 @@
                 }).catch((error) => {
                     console.log(error);
                 })
+            },
+            showAddToDoForm(todolistsId) {
+                this.todoLists[0].forEach((data) => {
+                    if (data.id == todolistsId) {
+                        data.show = true;
+                    }
+                });
+            },
+            hideAddTodoForm(todoListId) {
+                console.log(todoListId);
+
+                this.todoLists[0].forEach((data) => {
+                    if (data.id == todoListId) {
+                        data.show = false;
+                    }
+                });
+            },
+
+            addToDo(todoListId) {
+                console.log(todoListId, this.todoText);
+
+
+                let self = this;
+                axios.post(this.home_page + '/api/project/' + this.projectId + '/' + this.projectName + '/todolist/' + todoListId + '/add', {
+                    todoListId: todoListId,
+                    todoText: this.todoText
+                }).then((response) => {
+                    console.log(response.data[0]);
+                    /*self.todoLists[0].unshift(response.data[0]);
+                    self.clicked = false;*/
+                }).catch((error) => {
+                    console.log(error);
+                });
+
+                this.todoText = '';
+
             }
 
         }
