@@ -47,10 +47,22 @@ Route::get( '/createProject', 'ProjectController@createProject' );
 Route::get( '/project/{id}/{name?}/todolists', 'TodoController@index' );
 Route::get( '/project/{id}/{name?}/todolist/{todoListId}', 'TodoController@getTodoList' );
 Route::get( '/api/project/{id}/{name?}/todolist/{todoListId}', 'TodoController@apiGetTodoList' );
+
 Route::post( '/api/project/{id}/{name?}/todolist/{todoListId}/comment', 'TodoController@apiPostTodoListComment' );
 
 Route::get( '/api/project/{id}/{name?}/todolists', 'TodoController@apiGetTodoLists' );
 Route::post( '/api/project/{id}/{name?}/todolist/new', 'TodoController@postAddNewTodoList' );
+
+Route::post( '/api/project/{id}/{name?}/todolist/{todoListId}/add', 'TodoController@apiPostAddNewTodo' );
+
+Route::get( 'project/{id}/{name?}/todo/{todoId}', 'TodoController@getTodo' );
+
+Route::get( '/api/project/{id}/{name?}/todo/{todoId}', 'TodoController@apiGetTodo' );
+
+
+Route::post( '/api/project/{id}/{name?}/todo/{todoId}/comment', 'TodoController@apiPostTodoComment' );
+
+
 
 Route::get( '/project/{id}/{name?}', 'ProjectController@view' );
 
