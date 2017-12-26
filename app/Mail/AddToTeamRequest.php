@@ -12,7 +12,8 @@ use Auth, Crypt;
 
 class AddToTeamRequest extends Mailable
 {
-    use Queueable, SerializesModels;
+    //use Queueable, SerializesModels;
+    use  SerializesModels;
 
     public $u;
 
