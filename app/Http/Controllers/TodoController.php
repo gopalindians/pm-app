@@ -62,6 +62,11 @@ class TodoController extends Controller
             ->where('project_id', $projectId)
             ->get();
 
+
+        foreach ($todoLists as $todoList) {
+            $todoList->todos = DB::table('todos')->where('todo_list_id', $todoList->id)->get();
+        }
+
         return response()->json($todoLists);
     }
 
@@ -82,7 +87,7 @@ class TodoController extends Controller
             ])->get();
 
 
-        foreach ($todoListsData->toArray() as $key=>$item) {
+        foreach ($todoListsData->toArray() as $key => $item) {
             $todoListsData->toArray()[$key]['comments'] = DB::table('todo_lists_comments')->where('todo_list_id', $todoListsData[0]->id)->get();
         }
 
@@ -119,5 +124,120 @@ class TodoController extends Controller
             ]);
 
         return response()->json($commentData);
+    }
+
+
+    /**
+     *  Add new  TO DO to todolists
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function apiPostAddNewTodo(Request $request)
+    {
+
+        $todoText = $request->post('todoText');
+        $todoListId = $request->route('todoListId');
+        $projectId = $request->route('id');
+
+
+        DB::table('todos')
+            ->insert([
+                'project_id' => $projectId,
+                'todo_list_id' => $todoListId,
+                'poster_id' => Auth::id(),
+                'todo_name' => $todoText,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+        DB::table('todolists')
+            ->where('id', $todoListId)
+            ->update([
+                'updated_at' => Carbon::now(),
+            ]);
+
+        DB::table('projects')
+            ->where('id', $projectId)
+            ->update([
+                'updated_at' => Carbon::now(),
+            ]);
+
+
+        return response()->json(['message' => 'posted successfully']);
+    }
+
+
+    /**
+     * Show single to do
+     * @return \Illuminate\Contracts\View\Factory
+     */
+    public function getTodo()
+    {
+        return view('todo.single_todo');
+    }
+
+
+    public function apiGetTodo(Request $request)
+    {
+        $todoId = $request->route('todoId');
+        $projectId = $request->route('id');
+
+
+        $todoData = DB::table('todos')->where('id', $todoId)->get();
+
+        foreach ($todoData as $todoDatum) {
+            $result = DB::table('todolists')->select('todo_name')->where('id', $todoData[0]->todo_list_id)->get();
+            $todoDatum->todo_list_name = $result[0]->todo_name;
+
+            $comments = DB::table('todo_comments')->where('todo_id', $todoData[0]->id)->get();
+            $todoDatum->todo_comments = $comments;
+        }
+
+
+        return response()->json($todoData);
+    }
+
+    public function apiPostTodoComment(Request $request)
+    {
+        $todoId = $request->route('todoId');
+        $projectId = $request->route('id');
+        $comment = $request->post('comment');
+        $todoListId = $request->post('todoListId');
+
+
+        DB::table('todo_comments')
+            ->insert([
+                'todo_id' => $todoId,
+                'poster_id' => Auth::id(),
+                'todo_list_id' => $todoListId,
+                'project_id' => $projectId,
+                'comment_text' => $comment,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+
+        DB::table('todos')
+            ->where('id', $todoId)
+            ->update([
+                'updated_at' => Carbon::now()
+            ]);
+
+        DB::table('todolists')
+            ->where('id', $todoListId)
+            ->update([
+                'updated_at' => Carbon::now()
+            ]);
+
+
+        DB::table('projects')
+            ->where('id', $projectId)
+            ->update([
+                'updated_at' => Carbon::now()
+            ]);
+
+        return response()->json(['message' => 'SUCCESS']);
+
+
     }
 }
