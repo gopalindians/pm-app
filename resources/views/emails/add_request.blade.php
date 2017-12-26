@@ -239,7 +239,7 @@ Licensed under MIT
 					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
                         <span style="font-size: 18px;">{{$senderName}} ({{$senderEmail}})</span> wants to add, you in his team.<br>
 
-                        <a target="_blank" href="{{env('APP_URL').'/team/join_prompt?key='.$senderEmailEncrypted.'.'.$receiverEncrypted}}">Click to join {{$senderName}}</a>
+                        <a target="_blank" href="{{\App\CH::getUrl('/team/join_prompt?key=').$senderEmailEncrypted.'.'.$receiverEncrypted}}">Click to join {{$senderName}}</a>
 					</span>
                                         </div>
                                         <!-- padding -->

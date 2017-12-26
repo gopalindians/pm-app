@@ -39,7 +39,7 @@
                     @endif
 
 
-                    <form action="/team/add" method="post">
+                    <form action="{{url('/team/add')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label for="user_email">Email</label>

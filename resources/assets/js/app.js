@@ -1,3 +1,4 @@
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -15,34 +16,6 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('project-component', require('./components/project/ProjectComponent.vue'));
-Vue.component('create-project-component', require('./components/project/CreateProjectComponent.vue'));
-Vue.component('project-view-component', require('./components/project/ProjectViewComponent.vue'));
-
-Vue.component('topic-component', require('./components/topic/TopicComponent.vue'));
-
-//message component
-Vue.component('new-message-component', require('./components/message/NewMessageComponent.vue'));
-Vue.component('specific-message-component', require('./components/message/SpecificMessageComponent.vue'));
-Vue.component('edit-message-component', require('./components/message/EditMessageComponent.vue'));
-
-//document component
-Vue.component('create-new-document-component', require('./components/document/CreateNewDocumentComponent.vue'));
-Vue.component('view-document-component', require('./components/document/ViewComponent.vue'));
-Vue.component('index-document-component', require('./components/document/IndexDocumentComponent.vue'));
-Vue.component('edit-document-component', require('./components/document/EditDocumentComponent.vue'));
-
-
-
-//search component
-Vue.component('search-component', require('./components/search/SearchComponent.vue'));
-
-//people component
-Vue.component('people-component', require('./components/people/PeopleComponent.vue'));
-
-//Todo_components
-Vue.component('todo-lists-component', require('./components/todo/TodoListsComponent'));
-Vue.component('specific-list-component', require('./components/todo/SpecificListComponent'));
 
 const app = new Vue({
     el: '#app'
