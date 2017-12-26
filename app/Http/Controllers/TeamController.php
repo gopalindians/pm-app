@@ -18,6 +18,9 @@ use Illuminate\View\View;
  */
 class TeamController extends Controller
 {
+
+    public $u;
+    public $receiver;
     /**
      * TeamController constructor.
      * @param Request $request
@@ -50,72 +53,72 @@ class TeamController extends Controller
             ->paginate(5);
 
 
-      /*  $projectIds = DB::table('project_members')
-            ->select(
-                'project_members.project_id'
-            )->where('project_members.member_id', '=', Auth::id())
-            ->orderBy('teams.updated_at', 'desc')
-            ->get();
+        /*  $projectIds = DB::table('project_members')
+              ->select(
+                  'project_members.project_id'
+              )->where('project_members.member_id', '=', Auth::id())
+              ->orderBy('teams.updated_at', 'desc')
+              ->get();
 
 
-        foreach ($projectIds as $key => $projectId) {
-            $projectIds[$key] = DB::table('project_members')
-                ->select('project_members.member_id')
-                ->where('project_members.project_id', $projectId->project_id)
-                ->get();
-        }
+          foreach ($projectIds as $key => $projectId) {
+              $projectIds[$key] = DB::table('project_members')
+                  ->select('project_members.member_id')
+                  ->where('project_members.project_id', $projectId->project_id)
+                  ->get();
+          }
 
-        dump($projectIds);
+          dump($projectIds);
 
-        //$projectIds = $projectIds->toArray();
+          //$projectIds = $projectIds->toArray();
 
-        dd();
-        dump($projectIds);
-
-
-        $projectMembers = [];
+          dd();
+          dump($projectIds);
 
 
-        foreach ($projectIds as $item) {
-            $projectMembers[] = array_unique(DB::table('project_members')
-                ->select('project_members.member_id')
-                ->where('project_members.project_id', $item->project_id)
-                ->get()->toArray(), SORT_REGULAR);
-        }
-
-        // $projectMembers = array_unique($projectMembers, SORT_REGULAR);
-
-        dump($projectMembers);
-
-        dd();
-
-        foreach ($projectMembers as $key => $projectMember) {
+          $projectMembers = [];
 
 
-            foreach ($projectMember->toArray() as $k => $item) {
+          foreach ($projectIds as $item) {
+              $projectMembers[] = array_unique(DB::table('project_members')
+                  ->select('project_members.member_id')
+                  ->where('project_members.project_id', $item->project_id)
+                  ->get()->toArray(), SORT_REGULAR);
+          }
+
+          // $projectMembers = array_unique($projectMembers, SORT_REGULAR);
+
+          dump($projectMembers);
+
+          dd();
+
+          foreach ($projectMembers as $key => $projectMember) {
 
 
-                if ($item->member_id == Auth::id()) {
-                    unset($projectMember->toArray()[$k]);
-                } else {
-                    $projectMember->toArray()[$k] = DB::table('users')
-                        ->select('users.name as member_name',
-                            'users.email as member_email',
-                            'users.id as member_id',
-                            'users.position as member_position',
-                            'users.profile_image as member_profile_image'
-                        )
-                        ->where('users.id', $item->member_id)->get()[0];
-                }
-
-            }
+              foreach ($projectMember->toArray() as $k => $item) {
 
 
-        }
+                  if ($item->member_id == Auth::id()) {
+                      unset($projectMember->toArray()[$k]);
+                  } else {
+                      $projectMember->toArray()[$k] = DB::table('users')
+                          ->select('users.name as member_name',
+                              'users.email as member_email',
+                              'users.id as member_id',
+                              'users.position as member_position',
+                              'users.profile_image as member_profile_image'
+                          )
+                          ->where('users.id', $item->member_id)->get()[0];
+                  }
 
-        dump($projectMember);
+              }
 
-        dd();*/
+
+          }
+
+          dump($projectMember);
+
+          dd();*/
 
         return view('team.index', ['teams' => $teams]);
     }
@@ -191,7 +194,33 @@ class TeamController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-        ProcessAddToTeamEmailRequest::dispatch($userEmail, $user);
+
+        //Mail('gopalindians@gmail.com','hello','Hello message');
+        //$renderedData = view('emails.add_request')->render();
+
+        $this->u = $user;//
+        $this->receiver = $userEmail;
+
+        Mail::send(
+            'emails.add_request',
+            [
+                'senderName' => $this->u->name,
+                'senderNameEncrypted' => Crypt::encryptString($this->u->name),
+                'senderEmail' => $this->u->email,
+                'senderEmailEncrypted' => Crypt::encryptString($this->u->email),
+                'receiver' => $this->receiver,
+                'receiverEncrypted' => Crypt::encryptString($this->receiver)
+            ],
+            function ($message) {
+                $message->to('gopalindians@gmail.com', 'Gopal Sharma')
+                    ->from('gopalindians@gmail.com', 'Gopal Sharma')
+                    ->subject('Hello');
+            }
+        );
+
+
+        //Mail::to($userEmail)->send(new AddToTeamRequest($user, $userEmail));
+        //ProcessAddToTeamEmailRequest::dispatch($userEmail, $user);
 
         $request->session()->flash('success', 'Mail sent successfully!');
         return view('team.add_new');
