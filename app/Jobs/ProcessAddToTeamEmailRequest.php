@@ -19,6 +19,7 @@ class ProcessAddToTeamEmailRequest implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+
     public $userEmail;
     public $user;
 
@@ -28,8 +29,9 @@ class ProcessAddToTeamEmailRequest implements ShouldQueue
      * @param $userEmail
      * @param $user
      */
-    public function __construct($userEmail,$user)
+    public function __construct($userEmail, $user)
     {
+
         $this->userEmail = $userEmail;
         $this->user = $user;
     }
